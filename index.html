@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <script src="tenant.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#000000">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="LUCAS BUGS | Hair Stylist PRO">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<link rel="icon" href="/icons/favicon-48.png">
+<title>APP LUCAS BUGS | HAIR STYLIST — Acesso</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black:wght@400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+/* TEMA:INICIO — gerado pelo personalizador, não edite à mão */
+  --bg:#000000;
+  --bg2:#0b0b0b;
+  --bg3:#161616;
+  --bg4:#212121;
+  --black:#000000;
+  --white:#ffffff;
+  --cream:#e6fdf6;
+  --muted:#949494;
+  --muted2:#707070;
+  --border:rgba(255,255,255,0.1);
+  --border2:rgba(255,255,255,0.18);
+  --gold:#00eba4;
+  --gold-light:#ffffff;
+  --gold-dim:rgba(0,235,164,0.12);
+  --gold-border:rgba(0,235,164,0.3);
+  --border-strong:rgba(0,235,164,0.4);
+  --on-primary:#0d0d10;
+  --green:#2ecc71;
+  --green-dim:rgba(46,204,113,0.14);
+  --green-text:#54d58b;
+  --on-green:#0d1526;
+  --red:#ef5350;
+  --red-dim:rgba(239,83,80,0.14);
+  --red-text:#f27270;
+  --amber:#f0b429;
+  --amber-dim:rgba(240,180,41,0.16);
+  --blue:#4b9bf5;
+  --blue-dim:rgba(75,155,245,0.14);
+  --blue-text:#6badf7;
+  --roxo:#a97bf0;
+  --roxo-dim:rgba(169,123,240,0.14);
+  --roxo-text:#b893f3;
+  --overlay:rgba(0,0,0,0.05);
+  --overlay2:rgba(0,0,0,0.1);
+  --wpp:#25D366;
+  --wpp-dim:rgba(37,211,102,0.12);
+  --serie-1:#2a78d6;
+  --serie-2:#eb6834;
+  --serie-3:#1baf7a;
+  --serie-4:#eda100;
+  --serie-5:#e87ba4;
+  --serie-6:#008300;
+  --serie-7:#4a3aa7;
+  --serie-8:#e34948;
+  --ag-bg:#0b0b0b;
+  --ag-bg-header:#161616;
+  --ag-bg-time:#0b0b0b;
+  --ag-line:rgba(255,255,255,0.09);
+  --ag-line-full:rgba(255,255,255,0.16);
+  --ag-text:#ffffff;
+  --ag-text-muted:#737373;
+  --ag-hover:rgba(255,255,255,0.04);
+  --ag-mine-bg:rgba(0,235,164,0.14);
+  --ag-mine-border:rgba(0,235,164,0.4);
+  --ev-agendado-bar:#2a71c8;
+  --ev-agendado-bg:#122135;
+  --ev-agendado-text:#75a3db;
+  --ev-concluido-bar:#2ecc71;
+  --ev-concluido-bg:#133521;
+  --ev-concluido-text:#77dea3;
+  --ev-atrasado-bar:#c2650a;
+  --ev-atrasado-bg:#331f0b;
+  --ev-atrasado-text:#d79b60;
+  --ev-nao-veio-bar:#ef5350;
+  --ev-nao-veio-bg:#3d1b1a;
+  --ev-nao-veio-text:#f58f8d;
+  --ev-bloqueado-bar:#7a7a7a;
+  --ev-bloqueado-bg:#232323;
+  --ev-bloqueado-text:#a9a9a9;
+  /* TEMA:FIM */
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--black);
+  color: var(--white);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Background textura */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 50%, var(--gold-dim) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 80% 20%, var(--gold-dim) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* Grade sutil */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--gold-dim) 1px, transparent 1px),
+    linear-gradient(90deg, var(--gold-dim) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+}
+
+.wrapper {
+  display: flex;
+  width: 100%;
+  max-width: 960px;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+/* LADO ESQUERDO — identidade */
+.brand-side {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 60px 56px;
+  border-right: 0.5px solid var(--border);
+}
+
+.brand-top {}
+
+.brand-year {
+  font-family: 'Archivo Black', serif;
+  font-size: 96px;
+  font-weight: 400;
+  line-height: .9;
+  color: var(--white);
+  letter-spacing: -2px;
+  opacity: .06;
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  pointer-events: none;
+  user-select: none;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 3rem;
+}
+
+.brand-logo img {
+  width: 130px;
+  height: auto;
+  display: block;
+}
+
+.brand-headline {
+  font-family: 'Archivo Black', serif;
+  font-size: 38px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--white);
+  margin-bottom: 1rem;
+  max-width: 340px;
+}
+
+.brand-headline em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.brand-desc {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.75;
+  max-width: 300px;
+  font-weight: 300;
+}
+
+.brand-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.feature-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.feature-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--gold);
+  opacity: .6;
+  flex-shrink: 0;
+}
+
+.feature-text {
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 300;
+}
+
+/* LADO DIREITO — formulário */
+.form-side {
+  width: 420px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px 56px;
+}
+
+/* Perfis de acesso */
+.profiles-label {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.profiles {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 2.5rem;
+}
+
+.profile-btn {
+  background: transparent;
+  border: 0.5px solid var(--overlay2);
+  border-radius: 8px;
+  padding: 14px 12px;
+  cursor: pointer;
+  text-align: left;
+  transition: border-color .2s, background .2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gold-dim);
+  opacity: 0;
+  transition: opacity .2s;
+}
+
+.profile-btn:hover::before { opacity: 1; }
+.profile-btn:hover { border-color: var(--border-strong); }
+
+.profile-btn.active {
+  border-color: var(--gold);
+  background: var(--gold-dim);
+}
+
+.profile-btn.active::after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+
+.profile-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  background: var(--overlay);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.profile-btn.active .profile-icon {
+  background: var(--gold-border);
+}
+
+.profile-icon svg {
+  width: 14px;
+  height: 14px;
+  color: var(--muted);
+}
+
+.profile-btn.active .profile-icon svg {
+  color: var(--gold);
+}
+
+.profile-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--overlay2);
+  display: block;
+  margin-bottom: 2px;
+}
+
+.profile-btn.active .profile-name {
+  color: var(--white);
+}
+
+.profile-desc {
+  font-size: 11px;
+  color: var(--muted);
+  font-weight: 300;
+  line-height: 1.4;
+}
+
+/* Form */
+.form-label {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-input {
+  width: 100%;
+  background: var(--overlay);
+  border: 0.5px solid var(--overlay2);
+  border-radius: 8px;
+  padding: 13px 16px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: var(--white);
+  font-weight: 300;
+  outline: none;
+  transition: border-color .2s, background .2s;
+}
+
+.form-input::placeholder { color: var(--overlay2); }
+.form-input:focus {
+  border-color: var(--gold);
+  background: var(--gold-dim);
+}
+
+.form-input-wrap {
+  position: relative;
+}
+
+.form-input-wrap .toggle-pw {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  color: var(--muted);
+}
+
+.form-input-wrap .toggle-pw:hover { color: var(--white); }
+.form-input-wrap .toggle-pw svg { width: 16px; height: 16px; display: block; }
+
+.form-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 24px;
+}
+
+.link {
+  font-size: 12px;
+  color: var(--muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  transition: color .2s;
+}
+
+.link:hover { color: var(--gold); }
+
+.btn-login {
+  width: 100%;
+  background: var(--gold);
+  color: var(--black);
+  border: none;
+  border-radius: 8px;
+  padding: 14px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  letter-spacing: .02em;
+  transition: opacity .2s, transform .1s;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-login:hover { opacity: .9; }
+.btn-login:active { transform: scale(.99); }
+
+.btn-login .btn-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: opacity .2s;
+}
+
+.btn-login.loading .btn-inner { opacity: 0; }
+
+.btn-login .spinner {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(0,0,0,0.2);
+  border-top-color: var(--black);
+  border-radius: 50%;
+  animation: spin .7s linear infinite;
+  opacity: 0;
+  transition: opacity .2s;
+}
+
+.btn-login.loading .spinner { opacity: 1; }
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.form-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.form-divider::before, .form-divider::after {
+  content: '';
+  flex: 1;
+  height: 0.5px;
+  background: var(--overlay2);
+}
+
+.form-divider span {
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.profile-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--gold-dim);
+  border: 0.5px solid var(--border-strong);
+  border-radius: 20px;
+  padding: 5px 12px;
+  font-size: 12px;
+  color: var(--gold);
+  font-weight: 400;
+  margin-bottom: 24px;
+}
+
+.profile-badge-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+
+/* Animações de entrada */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.brand-logo   { animation: fadeUp .5s ease both; animation-delay: .1s; opacity: 0; }
+.brand-headline { animation: fadeUp .5s ease both; animation-delay: .2s; opacity: 0; }
+.brand-desc   { animation: fadeUp .5s ease both; animation-delay: .3s; opacity: 0; }
+.brand-bottom { animation: fadeUp .5s ease both; animation-delay: .4s; opacity: 0; }
+.form-title   { animation: fadeUp .5s ease both; animation-delay: .25s; opacity: 0; }
+.form-group   { animation: fadeUp .5s ease both; animation-delay: .35s; opacity: 0; }
+.form-footer  { animation: fadeUp .5s ease both; animation-delay: .45s; opacity: 0; }
+.btn-login    { animation: fadeUp .5s ease both; animation-delay: .5s; opacity: 0; }
+.form-note    { animation: fadeUp .5s ease both; animation-delay: .6s; opacity: 0; }
+
+/* Linha vertical decorativa */
+.deco-line {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 0.5px;
+  background: linear-gradient(to bottom, transparent, var(--gold-dim) 30%, var(--gold-dim) 70%, transparent);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  body { align-items: flex-start; overflow-y: auto; }
+  .wrapper { flex-direction: column; max-width: 100%; min-height: 100vh; }
+  .brand-side { display: flex; flex-direction: row; align-items: center; justify-content: space-between; padding: 28px 24px 20px; border-right: none; border-bottom: 0.5px solid var(--gold-dim); }
+  .brand-top { display: flex; align-items: center; gap: 16px; }
+  .brand-logo img { width: 72px; }
+  .brand-headline { display: none; }
+  .brand-desc { display: none; }
+  .brand-bottom { flex-direction: row; flex-wrap: wrap; gap: 10px 20px; margin: 0; }
+  .feature-row { gap: 6px; }
+  .feature-text { font-size: 12px; }
+  .form-side { width: 100%; padding: 32px 24px 48px; }
+}
+
+@media (max-width: 420px) {
+  .brand-side { padding: 20px 20px 16px; }
+  .brand-bottom { display: none; }
+  .form-side { padding: 28px 20px 40px; }
+}
+</style>
+</head>
+<body>
+
+
+
+<div class="wrapper">
+
+  <!-- LADO ESQUERDO -->
+  <div class="brand-side">
+    <div class="brand-top">
+      <div class="brand-logo">
+        <img src="logo-completo.png" alt="LUCAS BUGS | Hair Stylist" style="width:120px;height:auto;display:block;filter:brightness(1);">
+      </div>
+
+      <h1 class="brand-headline">A Melhor Barbearia de <em>Montenegro!</em></h1>
+      <p class="brand-desc">Agenda, caixa, comandas, financeiro e relatórios — tudo em um só lugar.</p>
+    </div>
+
+    <div class="brand-bottom">
+      <div class="feature-row">
+        <div class="feature-dot"></div>
+        <span class="feature-text">1 Unidades em Montenegro</span>
+      </div>
+      <div class="feature-row">
+        <div class="feature-dot"></div>
+        <span class="feature-text">Planos de Assinatura Mensal</span>
+      </div>
+      <div class="feature-row">
+        <div class="feature-dot"></div>
+        <span class="feature-text">Profissionais Prontos para te Atender</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- LADO DIREITO -->
+  <div class="form-side">
+
+    <!-- TELA DE LOGIN -->
+    <div id="view-login">
+      <div class="form-title" style="margin-bottom:2.5rem">
+        <div style="font-family:'Archivo Black',serif;font-size:26px;font-weight:400;color:var(--white);line-height:1.2;margin-bottom:8px">Bem-vindo de volta!</div>
+        <div style="font-size:13px;color:var(--muted);font-weight:300;line-height:1.6">Entre com seu <span style="color:var(--gold-light)">acesso da equipe</span>.</div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="email">E-mail</label>
+        <input class="form-input" type="text" id="email" placeholder="seu@email.com" autocomplete="username" inputmode="email">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="senha">Senha</label>
+        <div class="form-input-wrap">
+          <input class="form-input" type="password" id="senha" placeholder="••••••••" autocomplete="current-password" style="padding-right:44px">
+          <button class="toggle-pw" type="button" onclick="togglePassword()" aria-label="Mostrar senha">
+            <svg id="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="form-footer">
+        <span style="font-size:12px;color:var(--muted);font-weight:300">Esqueceu a senha? Fale com o administrador.</span>
+      </div>
+
+      <button class="btn-login" id="btn-login" onclick="doLogin()" type="button">
+        <span class="btn-inner">
+          Entrar
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </span>
+        <div class="spinner"></div>
+      </button>
+
+      <div id="login-erro" style="display:none;margin-top:10px;font-size:12px;color:var(--red);text-align:center;font-weight:300"></div>
+    </div>
+
+    <!-- TELA DE CADASTRO DO CLIENTE -->
+    <div id="view-cadastro" style="display:none">
+      <div class="form-title" style="margin-bottom:2rem">
+        <button type="button" onclick="showLogin()" style="display:flex;align-items:center;gap:6px;background:none;border:none;color:var(--muted);font-size:13px;cursor:pointer;padding:0;margin-bottom:16px;font-family:'Inter',sans-serif;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Voltar
+        </button>
+        <div style="font-family:'Archivo Black',serif;font-size:24px;font-weight:400;color:var(--white);line-height:1.2;margin-bottom:8px">Fazer cadastro</div>
+        <div style="font-size:13px;color:var(--muted);font-weight:300;line-height:1.6">Preencha seus dados para criar sua conta e agendar seu horário.</div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="cad-nome">Nome completo</label>
+        <input class="form-input" type="text" id="cad-nome" placeholder="Seu nome completo">
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+        <div class="form-group">
+          <label class="form-label" for="cad-cpf">CPF</label>
+          <input class="form-input" type="text" id="cad-cpf" placeholder="000.000.000-00" maxlength="14" oninput="maskCPF(this)">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="cad-nasc">Data de nascimento</label>
+          <input class="form-input" type="text" id="cad-nasc" placeholder="DD/MM/AAAA" maxlength="10" oninput="maskDate(this)">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="cad-whatsapp">WhatsApp</label>
+        <input class="form-input" type="tel" id="cad-whatsapp" placeholder="(51) 99999-9999" maxlength="15" oninput="maskPhone(this)">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="cad-email">E-mail</label>
+        <input class="form-input" type="email" id="cad-email" placeholder="seu@email.com">
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+        <div class="form-group">
+          <label class="form-label" for="cad-senha">Senha</label>
+          <input class="form-input" type="password" id="cad-senha" placeholder="••••••••">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="cad-senha2">Confirmar senha</label>
+          <input class="form-input" type="password" id="cad-senha2" placeholder="••••••••">
+        </div>
+      </div>
+
+      <button class="btn-login" id="btn-cadastro" onclick="doCadastro()" type="button" style="margin-top:4px">
+        <span class="btn-inner">
+          Fazer cadastro
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </span>
+        <div class="spinner"></div>
+      </button>
+
+      <div id="cad-erro" style="display:none;margin-top:12px;font-size:12px;color:var(--red);text-align:center;font-weight:300"></div>
+    </div>
+
+  </div>
+</div>
+
+<script src="api.js"></script>
+<script>
+/* ---- Máscara inteligente e-mail ou telefone ---- */
+function maskEmailOrPhone(el) {
+  var raw = el.value;
+  var digits = raw.replace(/\D/g, '');
+
+  // Se começa com letra ou @ — é e-mail, não interfere
+  if (raw.length > 0 && /[a-zA-Z@]/.test(raw[0])) return;
+
+  // Se não tem nenhum dígito ainda, não faz nada
+  if (digits.length === 0) return;
+
+  // Aplica máscara progressiva
+  var masked = '';
+  digits = digits.substring(0, 11);
+
+  if (digits.length <= 2) {
+    masked = '(' + digits;
+  } else if (digits.length <= 7) {
+    masked = '(' + digits.substring(0,2) + ') ' + digits.substring(2);
+  } else if (digits.length <= 10) {
+    masked = '(' + digits.substring(0,2) + ') ' + digits.substring(2,6) + '-' + digits.substring(6);
+  } else {
+    masked = '(' + digits.substring(0,2) + ') ' + digits.substring(2,7) + '-' + digits.substring(7);
+  }
+
+  el.value = masked;
+}
+
+/* ---- Navegação entre telas ---- */
+function showCadastro() {
+  document.getElementById('view-login').style.display = 'none';
+  document.getElementById('view-cadastro').style.display = 'block';
+}
+function showLogin() {
+  document.getElementById('view-cadastro').style.display = 'none';
+  document.getElementById('view-login').style.display = 'block';
+}
+
+/* ---- Máscaras ---- */
+function maskCPF(el) {
+  var v = el.value.replace(/\D/g,'').substring(0,11);
+  v = v.replace(/(\d{3})(\d)/,'$1.$2');
+  v = v.replace(/(\d{3})(\d)/,'$1.$2');
+  v = v.replace(/(\d{3})(\d{1,2})$/,'$1-$2');
+  el.value = v;
+}
+function maskDate(el) {
+  var v = el.value.replace(/\D/g,'').substring(0,8);
+  v = v.replace(/(\d{2})(\d)/,'$1/$2');
+  v = v.replace(/(\d{2})(\d)/,'$1/$2');
+  el.value = v;
+}
+function maskPhone(el) {
+  var v = el.value.replace(/\D/g,'').substring(0,11);
+  if(v.length > 10) v = v.replace(/(\d{2})(\d{5})(\d{4})/,'($1) $2-$3');
+  else v = v.replace(/(\d{2})(\d{4})(\d{0,4})/,'($1) $2-$3');
+  el.value = v;
+}
+
+/* ---- Login ---- */
+function togglePassword() {
+  var input = document.getElementById('senha');
+  var icon = document.getElementById('eye-icon');
+  if (input.type === 'password') {
+    input.type = 'text';
+    icon.innerHTML = '<path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19m-6.72-1.07a3 3 0 11-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/>';
+  } else {
+    input.type = 'password';
+    icon.innerHTML = '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>';
+  }
+}
+
+async function doLogin() {
+  var email = document.getElementById('email').value.trim();
+  var senha = document.getElementById('senha').value;
+  var btn   = document.getElementById('btn-login');
+  var erro  = document.getElementById('login-erro');
+
+  if (erro) erro.style.display = 'none';
+  if (!email || !senha) { shake(document.querySelector('.form-side')); return; }
+
+  btn.classList.add('loading');
+  try {
+    var usuario = await Auth.login(email, senha);
+    btn.querySelector('.btn-inner').innerHTML =
+      '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Acesso autorizado!';
+    btn.style.background = '#2d7a4f';
+    setTimeout(function() { redirecionarPorPerfil(usuario.perfil); }, 800);
+  } catch(e) {
+    btn.classList.remove('loading');
+    btn.style.background = '';
+    btn.querySelector('.btn-inner').innerHTML =
+      'Entrar <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+    if (erro) { erro.textContent = e.message || 'E-mail ou senha incorretos'; erro.style.display = 'block'; }
+    shake(document.querySelector('.form-side'));
+  }
+}
+
+/* ---- Listeners do campo e-mail/telefone ---- */
+var emailField = document.getElementById('email');
+['input', 'keyup', 'paste'].forEach(function(evt) {
+  emailField.addEventListener(evt, function() {
+    setTimeout(function() { maskEmailOrPhone(emailField); }, 0);
+  });
+});
+
+emailField.addEventListener('input', function() {
+  var btn = document.getElementById('btn-login');
+  btn.style.background = '';
+  btn.querySelector('.btn-inner').innerHTML =
+    'Entrar <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+});
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') {
+    if (document.getElementById('view-cadastro').style.display !== 'none') doCadastro();
+    else doLogin();
+  }
+});
+
+
+async function doCadastro() {
+  var nome   = document.getElementById('cad-nome').value.trim();
+  var cpf    = document.getElementById('cad-cpf').value.trim();
+  var nasc   = document.getElementById('cad-nasc').value.trim();
+  var wpp    = document.getElementById('cad-whatsapp').value.trim();
+  var email  = document.getElementById('cad-email').value.trim();
+  var senha  = document.getElementById('cad-senha').value;
+  var senha2 = document.getElementById('cad-senha2').value;
+  var erro   = document.getElementById('cad-erro');
+  var btn    = document.getElementById('btn-cadastro');
+
+  erro.style.display = 'none';
+
+  if (!nome || !wpp || !email || !senha || !senha2) {
+    erro.textContent = 'Por favor, preencha todos os campos obrigatórios.';
+    erro.style.display = 'block';
+    shake(document.querySelector('.form-side'));
+    return;
+  }
+  if (senha !== senha2) {
+    erro.textContent = 'As senhas não coincidem.';
+    erro.style.display = 'block';
+    return;
+  }
+  if (senha.length < 6) {
+    erro.textContent = 'A senha deve ter no mínimo 6 caracteres.';
+    erro.style.display = 'block';
+    return;
+  }
+
+  btn.classList.add('loading');
+  try {
+    // Converte data DD/MM/AAAA → AAAA-MM-DD
+    var data_nasc = null;
+    if (nasc && nasc.length === 10) {
+      var p = nasc.split('/');
+      data_nasc = p[2] + '-' + p[1] + '-' + p[0];
+    }
+
+    await Auth.cadastroCliente({
+      nome, email, senha,
+      whatsapp:  wpp.replace(/\D/g, ''),
+      cpf:       cpf ? cpf.replace(/\D/g, '') : null,
+      data_nasc: data_nasc
+    });
+
+    btn.querySelector('.btn-inner').innerHTML =
+      '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Cadastro realizado!';
+    btn.style.background = '#2d7a4f';
+    setTimeout(function() { window.location.href = 'appsuabarbearia-cliente.html'; }, 800);
+  } catch(e) {
+    btn.classList.remove('loading');
+    erro.textContent = e.message || 'Erro ao criar cadastro. Tente novamente.';
+    erro.style.display = 'block';
+  }
+}
+
+function shake(el) {
+  el.style.animation = 'shake .4s ease';
+  setTimeout(function() { el.style.animation = ''; }, 400);
+}
+</script>
+
+<style>
+@keyframes shake {
+  0%,100% { transform: translateX(0); }
+  20% { transform: translateX(-8px); }
+  40% { transform: translateX(8px); }
+  60% { transform: translateX(-5px); }
+  80% { transform: translateX(5px); }
+}
+</style>
+<script>if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('/sw.js').catch(function(){});});}</script>
+</body>
+</html>

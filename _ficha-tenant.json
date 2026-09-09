@@ -1,0 +1,21 @@
+{
+  "slug": "lucas-bugs-hair-stylist",
+  "nome": "LUCAS BUGS | Hair Stylist",
+  "nomeCurto": "LUCAS BUGS | Hair Stylist",
+  "cidade": "Montenegro",
+  "uf": "RS",
+  "ddd": "51",
+  "fone": "999074028",
+  "api": "https://api.lucasbugshair.com.br",
+  "site": "https://lucasbugshair.com.br",
+  "unidades": [
+    "Centro"
+  ],
+  "modo": "escuro",
+  "primaria": "#00eba4",
+  "primaria2": "#ffffff",
+  "fundo": "#000000",
+  "preto": "#0d1526",
+  "icoFundo": "preto",
+  "icoPad": 0.06
+}

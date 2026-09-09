@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <script src="tenant.js"></script>
+<link rel="icon" href="/icons/favicon-48.png">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>APP LUCAS BUGS | HAIR STYLIST — Fechamento Financeiro</title>
+<style>
+  :root{
+/* TEMA:INICIO — gerado pelo personalizador, não edite à mão */
+  --bg:#000000;
+  --bg2:#0b0b0b;
+  --bg3:#161616;
+  --bg4:#212121;
+  --black:#000000;
+  --white:#ffffff;
+  --cream:#e6fdf6;
+  --muted:#949494;
+  --muted2:#707070;
+  --border:rgba(255,255,255,0.1);
+  --border2:rgba(255,255,255,0.18);
+  --gold:#00eba4;
+  --gold-light:#ffffff;
+  --gold-dim:rgba(0,235,164,0.12);
+  --gold-border:rgba(0,235,164,0.3);
+  --border-strong:rgba(0,235,164,0.4);
+  --on-primary:#0d0d10;
+  --green:#2ecc71;
+  --green-dim:rgba(46,204,113,0.14);
+  --green-text:#54d58b;
+  --on-green:#0d1526;
+  --red:#ef5350;
+  --red-dim:rgba(239,83,80,0.14);
+  --red-text:#f27270;
+  --amber:#f0b429;
+  --amber-dim:rgba(240,180,41,0.16);
+  --blue:#4b9bf5;
+  --blue-dim:rgba(75,155,245,0.14);
+  --blue-text:#6badf7;
+  --roxo:#a97bf0;
+  --roxo-dim:rgba(169,123,240,0.14);
+  --roxo-text:#b893f3;
+  --overlay:rgba(0,0,0,0.05);
+  --overlay2:rgba(0,0,0,0.1);
+  --wpp:#25D366;
+  --wpp-dim:rgba(37,211,102,0.12);
+  --serie-1:#2a78d6;
+  --serie-2:#eb6834;
+  --serie-3:#1baf7a;
+  --serie-4:#eda100;
+  --serie-5:#e87ba4;
+  --serie-6:#008300;
+  --serie-7:#4a3aa7;
+  --serie-8:#e34948;
+  --ag-bg:#0b0b0b;
+  --ag-bg-header:#161616;
+  --ag-bg-time:#0b0b0b;
+  --ag-line:rgba(255,255,255,0.09);
+  --ag-line-full:rgba(255,255,255,0.16);
+  --ag-text:#ffffff;
+  --ag-text-muted:#737373;
+  --ag-hover:rgba(255,255,255,0.04);
+  --ag-mine-bg:rgba(0,235,164,0.14);
+  --ag-mine-border:rgba(0,235,164,0.4);
+  --ev-agendado-bar:#2a71c8;
+  --ev-agendado-bg:#122135;
+  --ev-agendado-text:#75a3db;
+  --ev-concluido-bar:#2ecc71;
+  --ev-concluido-bg:#133521;
+  --ev-concluido-text:#77dea3;
+  --ev-atrasado-bar:#c2650a;
+  --ev-atrasado-bg:#331f0b;
+  --ev-atrasado-text:#d79b60;
+  --ev-nao-veio-bar:#ef5350;
+  --ev-nao-veio-bg:#3d1b1a;
+  --ev-nao-veio-text:#f58f8d;
+  --ev-bloqueado-bar:#7a7a7a;
+  --ev-bloqueado-bg:#232323;
+  --ev-bloqueado-text:#a9a9a9;
+  /* TEMA:FIM */
+}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--white);font-family:'Inter',-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+  .wrap{max-width:880px;margin:0 auto;padding:24px 18px 60px}
+  h1{font-size:20px;margin:0 0 4px}
+  .sub{color:var(--muted);font-size:13px;margin:0 0 22px}
+  .card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:18px;margin-bottom:16px}
+  label{display:block;font-size:12px;color:var(--muted);margin:0 0 5px;text-transform:uppercase;letter-spacing:.06em}
+  select,input{width:100%;padding:10px;border:1px solid var(--border);border-radius:9px;background:var(--bg3);color:var(--white);font-size:14px}
+  .row{display:flex;gap:12px;flex-wrap:wrap}
+  .row>div{flex:1;min-width:160px}
+  .btn{padding:11px 18px;border:0;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer}
+  .btn-primary{background:var(--gold);color:var(--on-primary)}
+  .btn-green{background:var(--green);color:var(--on-green)}
+  .btn-ghost{background:var(--bg3);color:var(--white);border:1px solid var(--border)}
+  .btn:disabled{opacity:.5;cursor:default}
+  .acts{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  td,th{padding:8px 4px;text-align:left}
+  .lin{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border)}
+  .lin .v{font-variant-numeric:tabular-nums}
+  .tot{display:flex;justify-content:space-between;padding:12px 0;font-size:17px;font-weight:700}
+  .muted{color:var(--muted)} .gold{color:var(--gold)} .red{color:var(--red)} .green{color:var(--green)}
+  .sec-title{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--gold);margin:14px 0 6px}
+  .vale-item{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);padding:3px 0}
+  .hidden{display:none}
+  .back{display:inline-block;color:var(--muted);text-decoration:none;font-size:13px;margin-bottom:14px}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <a href="appsuabarbearia-financeiro.html" class="back">← Voltar ao Financeiro</a>
+    <h1>Fechamento Financeiro</h1>
+    <p class="sub">Contracheque por colaborador — comissão (barbeiro) ou salário (funcionário), menos os vales. Ao emitir, os vales do período são quitados.</p>
+
+    <div class="card">
+      <div class="row">
+        <div>
+          <label>Colaborador</label>
+          <select id="f-colab"><option value="">Carregando…</option></select>
+        </div>
+        <div>
+          <label>De</label>
+          <input type="date" id="f-ini">
+        </div>
+        <div>
+          <label>Até</label>
+          <input type="date" id="f-fim">
+        </div>
+      </div>
+      <div class="acts">
+        <button class="btn btn-primary" onclick="verPrevia()">Calcular prévia</button>
+      </div>
+    </div>
+
+    <div id="resultado" class="card hidden"></div>
+
+    <div id="acoes" class="acts hidden">
+      <button class="btn btn-ghost" onclick="imprimir()">Gerar PDF / Imprimir</button>
+      <button class="btn btn-green" onclick="emitir()">Emitir e quitar vales</button>
+    </div>
+  </div>
+
+  <script src="api.js"></script>
+<script src="ajuda.js"></script>
+  <script>
+  var _previa = null
+  var _emitido = false
+
+  function brl(n){ return 'R$ ' + (parseFloat(n)||0).toFixed(2).replace('.',',') }
+  function dt(s){ try{ return new Date(s).toLocaleDateString('pt-BR') }catch(e){ return s } }
+
+  // datas padrão: 1º dia do mês atual até hoje
+  (function(){
+    var hoje = new Date()
+    var p = function(d){ return d.toISOString().slice(0,10) }
+    document.getElementById('f-ini').value = p(new Date(hoje.getFullYear(), hoje.getMonth(), 1))
+    document.getElementById('f-fim').value = p(hoje)
+  })()
+
+  // carrega colaboradores (mesma estratégia das outras telas: -todos com fallback)
+  async function carregarColaboradores(){
+    var sel = document.getElementById('f-colab')
+    try{
+      var cols = null
+      try { cols = await req('GET', '/colaboradores-todos') } catch(e){}
+      if(!cols || !cols.length){ try { cols = await req('GET', '/colaboradores') } catch(e){} }
+      cols = cols || []
+      var lista = cols.filter(function(c){ return c.perfil !== 'caixa' })
+      if(!lista.length){ sel.innerHTML = '<option value="">Nenhum colaborador</option>'; return }
+      sel.innerHTML = '<option value="">Selecione…</option>' + lista
+        .map(function(c){ return '<option value="'+c.id+'">'+c.nome+(c.ativo===false?' (inativo)':'')+'</option>' }).join('')
+    }catch(e){
+      sel.innerHTML = '<option value="">Erro ao carregar</option>'
+    }
+  }
+  window.addEventListener('load', carregarColaboradores)
+
+  function validar(){
+    var cid = document.getElementById('f-colab').value
+    var ini = document.getElementById('f-ini').value
+    var fim = document.getElementById('f-fim').value
+    if(!cid){ alert('Selecione o colaborador'); return null }
+    if(!ini || !fim){ alert('Informe as datas'); return null }
+    return { cid: cid, ini: ini, fim: fim }
+  }
+
+  async function verPrevia(){
+    var v = validar(); if(!v) return
+    document.getElementById('resultado').classList.remove('hidden')
+    document.getElementById('resultado').innerHTML = '<p class="muted">Calculando…</p>'
+    document.getElementById('acoes').classList.add('hidden')
+    try{
+      _previa = await req('GET', '/fechamento/previa?colaborador_id='+v.cid+'&ini='+v.ini+'&fim='+v.fim)
+      _emitido = false
+      render(_previa)
+      document.getElementById('acoes').classList.remove('hidden')
+    }catch(e){
+      document.getElementById('resultado').innerHTML = '<p class="red">Erro: '+(e.message||'tente novamente')+'</p>'
+    }
+  }
+
+  function render(f){
+    var adi = (f.lista_adiantamentos||[]).map(function(v){
+      return '<div class="vale-item"><span>'+dt(v.criado_em)+(v.descricao?' — '+v.descricao:'')+'</span><span>'+brl(v.valor)+'</span></div>'
+    }).join('') || '<div class="vale-item"><span>Nenhum</span><span>—</span></div>'
+
+    var prod = (f.lista_vale_produtos||[]).map(function(v){
+      var itens = (v.itens||[]).map(function(it){ return (it.qtd>1?it.qtd+'× ':'')+it.nome }).join(', ')
+      return '<div class="vale-item"><span>'+dt(v.criado_em)+(itens?' — '+itens:'')+'</span><span>'+brl(v.valor)+'</span></div>'
+    }).join('') || '<div class="vale-item"><span>Nenhum</span><span>—</span></div>'
+
+    var blocoBruto
+    if (f.eh_funcionario) {
+      blocoBruto = '<div class="sec-title">Salário</div>'
+        + lin('Salário do mês', brl(f.salario))
+        + lin('<b>Total bruto</b>', '<b>'+brl(f.comissao_bruta)+'</b>')
+    } else {
+      blocoBruto = '<div class="sec-title">Comissão</div>'
+        + lin('Serviços ('+f.servico_pct+'% sobre '+brl(f.servico_total)+')', brl(f.servico_comissao))
+        + lin('Produtos ('+f.produto_pct+'% sobre '+brl(f.produto_total)+')', brl(f.produto_comissao))
+        + lin('<b>Comissão bruta</b>', '<b>'+brl(f.comissao_bruta)+'</b>')
+    }
+
+    document.getElementById('resultado').innerHTML =
+      '<div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px">'
+        + '<div><div style="font-size:18px;font-weight:700">'+f.colaborador_nome+'</div>'
+        + '<div class="muted" style="font-size:13px">'+(f.unidade_nome||'')+'</div></div>'
+        + '<div class="muted" style="font-size:13px">'+dt(f.periodo_ini)+' a '+dt(f.periodo_fim)+'</div>'
+      + '</div>'
+
+      + blocoBruto
+
+      + (f.premio_gestao > 0 ? (
+          '<div class="sec-title">Prêmio de gestão</div>'
+          + lin('Faturamento da unidade', brl(f.premio_detalhe ? f.premio_detalhe.unidade_faturamento : 0))
+          + lin('Meta ' + (f.premio_detalhe && f.premio_detalhe.bateu_meta ? '✓ batida — 5%' : '✗ não batida — 3%'),
+                brl(f.premio_detalhe ? f.premio_detalhe.premio_unidade : 0) + ' (unidade)')
+          + lin('<b>Sua parte' + (f.premio_detalhe && f.premio_detalhe.is_subgerente ? ' (subgerente 25%)' : ' (gerente)') + '</b>',
+                '<b class="green">+ ' + brl(f.premio_gestao) + '</b>')
+        ) : '')
+
+      + '<div class="sec-title">Descontos</div>'
+      + '<div class="muted" style="font-size:12px;margin-bottom:2px">Vales / adiantamentos (PIX + dinheiro)</div>'
+      + adi
+      + '<div class="lin"><span>Subtotal adiantamentos</span><span class="v red">− '+brl(f.vales_adiantamento)+'</span></div>'
+      + '<div class="muted" style="font-size:12px;margin:8px 0 2px">Vale produtos (consumo bar)</div>'
+      + prod
+      + '<div class="lin"><span>Subtotal vale produtos</span><span class="v red">− '+brl(f.vales_produtos)+'</span></div>'
+      + lin('<b>Total descontos</b>', '<b class="red">− '+brl(f.total_descontos)+'</b>')
+
+      + '<div class="tot"><span>LÍQUIDO A RECEBER</span><span class="green">'+brl(f.liquido)+'</span></div>'
+  }
+
+  function lin(a,b){ return '<div class="lin"><span>'+a+'</span><span class="v">'+b+'</span></div>' }
+
+  async function emitir(){
+    if(!_previa){ return }
+    if(_emitido){ alert('Este fechamento já foi emitido.'); return }
+    if(!confirm('Emitir o fechamento e QUITAR os vales do período? Esta ação não pode ser desfeita.')) return
+    var v = validar(); if(!v) return
+    try{
+      var r = await req('POST', '/fechamento/emitir', { colaborador_id: v.cid, ini: v.ini, fim: v.fim })
+      _emitido = true
+      _previa = r
+      render(r)
+      alert('Fechamento emitido! Os vales do período foram quitados. Agora você pode gerar o PDF.')
+    }catch(e){
+      alert('Erro ao emitir: '+(e.message||'tente novamente'))
+    }
+  }
+
+  function imprimir(){
+    if(!_previa){ alert('Calcule a prévia primeiro.'); return }
+    var f = _previa
+    var w = window.open('', '_blank')
+    var adi = (f.lista_adiantamentos||[]).map(function(v){
+      return '<tr><td>'+dt(v.criado_em)+(v.descricao?' — '+v.descricao:'')+'</td><td style="text-align:right">'+brl(v.valor)+'</td></tr>'
+    }).join('') || '<tr><td>Nenhum</td><td style="text-align:right">—</td></tr>'
+    var prod = (f.lista_vale_produtos||[]).map(function(v){
+      var itens = (v.itens||[]).map(function(it){ return (it.qtd>1?it.qtd+'× ':'')+it.nome }).join(', ')
+      return '<tr><td>'+dt(v.criado_em)+(itens?' — '+itens:'')+'</td><td style="text-align:right">'+brl(v.valor)+'</td></tr>'
+    }).join('') || '<tr><td>Nenhum</td><td style="text-align:right">—</td></tr>'
+
+    w.document.write(
+      '<html><head><meta charset="utf-8"><title>Contracheque — '+f.colaborador_nome+'</title>'
+      + '<style>body{font-family:Arial,sans-serif;color:var(--black);max-width:720px;margin:24px auto;padding:0 16px}'
+      + 'h1{font-size:20px;margin:0 0 2px} .muted{color:var(--muted2);font-size:13px}'
+      + 'table{width:100%;border-collapse:collapse;margin:6px 0 14px;font-size:14px}'
+      + 'td,th{padding:6px 4px;border-bottom:1px solid #eee;text-align:left}'
+      + '.sec{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:18px 0 4px;border-bottom:2px solid #333;padding-bottom:3px}'
+      + '.lin{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid #f0f0f0}'
+      + '.tot{display:flex;justify-content:space-between;padding:12px 0;font-size:18px;font-weight:bold;border-top:2px solid #333;margin-top:10px}'
+      + '.red{color:var(--red)}</style></head><body>'
+      + '<h1>LUCAS BUGS | Hair Stylist — Contracheque</h1>'
+      + '<div class="muted">'+f.colaborador_nome+(f.unidade_nome?' · '+f.unidade_nome:'')+'</div>'
+      + '<div class="muted">Período: '+dt(f.periodo_ini)+' a '+dt(f.periodo_fim)+'</div>'
+
+      + (f.eh_funcionario
+          ? ('<div class="sec">Salário</div>'
+             + '<div class="lin"><span>Salário do mês</span><span>'+brl(f.salario)+'</span></div>'
+             + '<div class="lin"><b>Total bruto</b><b>'+brl(f.comissao_bruta)+'</b></div>')
+          : ('<div class="sec">Comissão</div>'
+             + '<div class="lin"><span>Serviços ('+f.servico_pct+'% sobre '+brl(f.servico_total)+')</span><span>'+brl(f.servico_comissao)+'</span></div>'
+             + '<div class="lin"><span>Produtos ('+f.produto_pct+'% sobre '+brl(f.produto_total)+')</span><span>'+brl(f.produto_comissao)+'</span></div>'
+             + '<div class="lin"><b>Comissão bruta</b><b>'+brl(f.comissao_bruta)+'</b></div>'))
+
+      + (f.premio_gestao > 0 ? (
+          '<div class="sec">Prêmio de gestão</div>'
+          + '<div class="lin"><span>Faturamento da unidade</span><span>'+brl(f.premio_detalhe ? f.premio_detalhe.unidade_faturamento : 0)+'</span></div>'
+          + '<div class="lin"><span>Meta '+(f.premio_detalhe && f.premio_detalhe.bateu_meta ? '✓ batida (5%)' : '✗ não batida (3%)')+'</span><span>'+brl(f.premio_detalhe ? f.premio_detalhe.premio_unidade : 0)+'</span></div>'
+          + '<div class="lin"><b>Sua parte'+(f.premio_detalhe && f.premio_detalhe.is_subgerente ? ' (subgerente 25%)' : ' (gerente)')+'</b><b>+ '+brl(f.premio_gestao)+'</b></div>'
+        ) : '')
+
+      + '<div class="sec">Vales / adiantamentos (PIX + dinheiro)</div>'
+      + '<table>'+adi+'</table>'
+      + '<div class="lin"><span>Subtotal</span><span class="red">− '+brl(f.vales_adiantamento)+'</span></div>'
+
+      + '<div class="sec">Vale produtos (consumo bar)</div>'
+      + '<table>'+prod+'</table>'
+      + '<div class="lin"><span>Subtotal</span><span class="red">− '+brl(f.vales_produtos)+'</span></div>'
+
+      + '<div class="lin"><b>Total descontos</b><b class="red">− '+brl(f.total_descontos)+'</b></div>'
+      + '<div class="tot"><span>LÍQUIDO A RECEBER</span><span>'+brl(f.liquido)+'</span></div>'
+
+      + '<p class="muted" style="margin-top:30px">Emitido em '+new Date().toLocaleString('pt-BR')+(f.fechamento_id?' · Nº '+f.fechamento_id.slice(0,8):' · prévia (não emitido)')+'</p>'
+      + '<div style="margin-top:50px;display:flex;justify-content:space-between">'
+      + '<div style="text-align:center;width:45%">_____________________________<br><span class="muted">Colaborador</span></div>'
+      + '<div style="text-align:center;width:45%">_____________________________<br><span class="muted">Responsável</span></div>'
+      + '</div>'
+      + '</body></html>'
+    )
+    w.document.close()
+    setTimeout(function(){ w.print() }, 300)
+  }
+  </script>
+</body>
+</html>

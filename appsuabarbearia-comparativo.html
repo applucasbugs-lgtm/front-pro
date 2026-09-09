@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <script src="tenant.js"></script>
+<link rel="icon" href="/icons/favicon-48.png">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>APP LUCAS BUGS | HAIR STYLIST — Comparativos</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black:wght@400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+/* TEMA:INICIO — gerado pelo personalizador, não edite à mão */
+  --bg:#000000;
+  --bg2:#0b0b0b;
+  --bg3:#161616;
+  --bg4:#212121;
+  --black:#000000;
+  --white:#ffffff;
+  --cream:#e6fdf6;
+  --muted:#949494;
+  --muted2:#707070;
+  --border:rgba(255,255,255,0.1);
+  --border2:rgba(255,255,255,0.18);
+  --gold:#00eba4;
+  --gold-light:#ffffff;
+  --gold-dim:rgba(0,235,164,0.12);
+  --gold-border:rgba(0,235,164,0.3);
+  --border-strong:rgba(0,235,164,0.4);
+  --on-primary:#0d0d10;
+  --green:#2ecc71;
+  --green-dim:rgba(46,204,113,0.14);
+  --green-text:#54d58b;
+  --on-green:#0d1526;
+  --red:#ef5350;
+  --red-dim:rgba(239,83,80,0.14);
+  --red-text:#f27270;
+  --amber:#f0b429;
+  --amber-dim:rgba(240,180,41,0.16);
+  --blue:#4b9bf5;
+  --blue-dim:rgba(75,155,245,0.14);
+  --blue-text:#6badf7;
+  --roxo:#a97bf0;
+  --roxo-dim:rgba(169,123,240,0.14);
+  --roxo-text:#b893f3;
+  --overlay:rgba(0,0,0,0.05);
+  --overlay2:rgba(0,0,0,0.1);
+  --wpp:#25D366;
+  --wpp-dim:rgba(37,211,102,0.12);
+  --serie-1:#2a78d6;
+  --serie-2:#eb6834;
+  --serie-3:#1baf7a;
+  --serie-4:#eda100;
+  --serie-5:#e87ba4;
+  --serie-6:#008300;
+  --serie-7:#4a3aa7;
+  --serie-8:#e34948;
+  --ag-bg:#0b0b0b;
+  --ag-bg-header:#161616;
+  --ag-bg-time:#0b0b0b;
+  --ag-line:rgba(255,255,255,0.09);
+  --ag-line-full:rgba(255,255,255,0.16);
+  --ag-text:#ffffff;
+  --ag-text-muted:#737373;
+  --ag-hover:rgba(255,255,255,0.04);
+  --ag-mine-bg:rgba(0,235,164,0.14);
+  --ag-mine-border:rgba(0,235,164,0.4);
+  --ev-agendado-bar:#2a71c8;
+  --ev-agendado-bg:#122135;
+  --ev-agendado-text:#75a3db;
+  --ev-concluido-bar:#2ecc71;
+  --ev-concluido-bg:#133521;
+  --ev-concluido-text:#77dea3;
+  --ev-atrasado-bar:#c2650a;
+  --ev-atrasado-bg:#331f0b;
+  --ev-atrasado-text:#d79b60;
+  --ev-nao-veio-bar:#ef5350;
+  --ev-nao-veio-bg:#3d1b1a;
+  --ev-nao-veio-text:#f58f8d;
+  --ev-bloqueado-bar:#7a7a7a;
+  --ev-bloqueado-bg:#232323;
+  --ev-bloqueado-text:#a9a9a9;
+  /* TEMA:FIM */
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--white);min-height:100vh;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.topbar{display:flex;align-items:center;gap:16px;padding:16px 24px;border-bottom:0.5px solid var(--border);position:sticky;top:0;background:var(--bg);z-index:10}
+.back{display:flex;align-items:center;gap:7px;font-size:13px;color:var(--muted);cursor:pointer;background:none;border:none;font-family:inherit}
+.back:hover{color:var(--white)}
+.top-title{font-family:'Archivo Black',serif;font-size:18px;color:var(--white)}
+.top-sub{font-size:11px;color:var(--muted);margin-top:1px}
+.wrap{max-width:1280px;margin:0 auto;padding:22px 24px 80px}
+.controls{display:flex;flex-wrap:wrap;align-items:flex-end;gap:14px;background:var(--bg2);border:0.5px solid var(--border);border-radius:14px;padding:16px 18px;margin-bottom:22px}
+.ctrl{display:flex;flex-direction:column;gap:5px}
+.ctrl label{font-size:11px;color:var(--muted);font-weight:400}
+.ctrl input,.ctrl select{background:var(--bg3);border:0.5px solid var(--border2);border-radius:8px;padding:9px 11px;font-size:13px;color:var(--white);font-family:inherit;outline:none}
+.ctrl input{color-scheme:dark}
+.btn-go{background:var(--gold);border:none;border-radius:8px;padding:10px 20px;font-size:13px;font-weight:500;color:var(--on-primary);font-family:inherit;cursor:pointer;transition:opacity .15s}
+.btn-go:hover{opacity:.88}
+.btn-go:disabled{opacity:.5;cursor:default}
+.presets{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:-12px 0 20px}
+.presets-lbl{font-size:11px;color:var(--muted)}
+.preset{background:var(--bg3);border:0.5px solid var(--border2);border-radius:20px;padding:6px 13px;font-size:12px;color:var(--cream);font-family:inherit;cursor:pointer;transition:all .15s}
+.preset:hover{border-color:var(--gold-border);color:var(--gold-light)}
+.sec{margin-bottom:30px}
+.sec-head{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.sec-title{font-family:'Archivo Black',serif;font-size:16px;color:var(--gold-light)}
+.sec-tag{font-size:11px;color:var(--muted)}
+.tbl-scroll{overflow-x:auto;border:0.5px solid var(--border);border-radius:12px;background:var(--bg2)}
+table{border-collapse:collapse;width:100%;min-width:920px;font-size:12.5px}
+thead th{background:var(--bg3);color:var(--muted);font-weight:500;padding:9px 10px;text-align:center;white-space:nowrap;border-bottom:0.5px solid var(--border2)}
+thead .grp{border-left:0.5px solid var(--border2);font-size:11px;letter-spacing:.3px;text-transform:uppercase;color:var(--gold)}
+thead .sub{font-size:10px;font-weight:400;padding:5px 8px;border-bottom:0.5px solid var(--border2)}
+thead .sub.s-d{border-left:0.5px solid var(--border)}
+.col-name{text-align:left!important;position:sticky;left:0;background:var(--bg3);z-index:2;min-width:140px}
+tbody td{padding:8px 10px;text-align:center;white-space:nowrap;border-bottom:0.5px solid var(--border)}
+tbody tr:last-child td{border-bottom:none}
+tbody td.name{text-align:left;position:sticky;left:0;background:var(--bg2);font-weight:500;color:var(--white);z-index:1}
+tbody td.name .uni{font-size:10px;color:var(--muted);font-weight:400;display:block;margin-top:2px}
+td.grp-start{border-left:0.5px solid var(--border)}
+.v2{color:var(--white)}
+.v1{color:var(--muted)}
+.delta{font-weight:500}
+.up{color:var(--green)}.up-bg{background:var(--green-dim)}
+.down{color:var(--red)}.down-bg{background:var(--red-dim)}
+.flat{color:var(--muted)}
+tr.total td{background:var(--gold-dim);font-weight:600;border-top:0.5px solid var(--gold-border)}
+tr.total td.name{background:var(--gold-dim);color:var(--gold)}
+.state{padding:50px 20px;text-align:center;color:var(--muted);font-size:13px}
+.legend{display:flex;gap:18px;margin-top:10px;font-size:11px;color:var(--muted);flex-wrap:wrap}
+.legend span{display:flex;align-items:center;gap:6px}
+.dot{width:9px;height:9px;border-radius:3px;display:inline-block}
+.note{font-size:11px;color:var(--muted);background:var(--bg2);border:0.5px solid var(--border);border-radius:10px;padding:11px 14px;margin-bottom:18px;line-height:1.5}
+@media(max-width:640px){.wrap{padding:16px 12px 70px}.controls{padding:13px}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <button class="back" onclick="window.location.href='appsuabarbearia-dashboard.html'">&larr; Painel</button>
+  <div>
+    <div class="top-title">Comparativos</div>
+    <div class="top-sub">Compare dois períodos livres — por barbeiro e por unidade</div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="controls">
+    <div class="ctrl">
+      <label>Período A — de</label>
+      <input type="date" id="ini1">
+    </div>
+    <div class="ctrl">
+      <label>até</label>
+      <input type="date" id="fim1">
+    </div>
+    <div class="ctrl" style="border-left:0.5px solid var(--border2);padding-left:14px">
+      <label>Período B — de</label>
+      <input type="date" id="ini2">
+    </div>
+    <div class="ctrl">
+      <label>até</label>
+      <input type="date" id="fim2">
+    </div>
+    <div class="ctrl" id="ctrl-uni" style="display:none">
+      <label>Unidade</label>
+      <select id="uni"><option value="">Todas</option></select>
+    </div>
+    <button class="btn-go" id="btnGerar" onclick="gerar()">Gerar</button>
+  </div>
+
+  <div class="presets">
+    <span class="presets-lbl">Atalhos:</span>
+    <button class="preset" onclick="presetMeses()">Mês passado × este mês</button>
+    <button class="preset" onclick="presetSemanas()">Semana passada × esta semana</button>
+    <button class="preset" onclick="preset30()">30 dias anteriores × últimos 30 dias</button>
+  </div>
+
+  <div class="note">
+    Os valores vêm de <b>comandas finalizadas + AppBarber realizado</b>. Meses anteriores à entrada
+    completa do sistema (ou antes da importação do histórico do AppBarber) podem aparecer parciais.
+  </div>
+
+  <div id="resultado">
+    <div class="state">Escolha os dois períodos e clique em <b>Gerar</b>.</div>
+  </div>
+
+  <div class="legend">
+    <span><i class="dot" style="background:var(--green)"></i> aumentou</span>
+    <span><i class="dot" style="background:var(--red)"></i> caiu</span>
+    <span><b style="color:var(--white)">Serviços</b> = cortes/serviços &nbsp; · &nbsp; <b style="color:var(--white)">Bar</b> = produtos &nbsp; · &nbsp; <b style="color:var(--white)">Geral</b> = serviços + produtos &nbsp; · &nbsp; <b style="color:var(--white)">Ticket</b> = serviços ÷ atendimentos</span>
+  </div>
+</div>
+
+<script src="api.js"></script>
+<script src="ajuda.js"></script>
+<script>
+var usuario = requireAuth();
+
+// ---- helpers de formato ----
+function brl(n){ return 'R$ ' + (parseFloat(n)||0).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2}); }
+function inteiro(n){ return (parseInt(n)||0).toLocaleString('pt-BR'); }
+function mesLabel(ym){
+  if(!ym) return '';
+  var p=ym.split('-'), meses=['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
+  return meses[parseInt(p[1])-1] + '/' + p[0].slice(2);
+}
+
+// célula de delta (m1, m2 e a diferença colorida)
+function celulas(m1, m2, tipo){
+  var fmt = tipo==='int' ? inteiro : brl;
+  var d = m2 - m1;
+  var cls = Math.abs(d) < 0.005 ? 'flat' : (d>0 ? 'up' : 'down');
+  var sinal = d>0 ? '+' : (d<0 ? '−' : '');
+  var dTxt = (cls==='flat') ? '—' : (sinal + fmt(Math.abs(d)).replace('R$ ','R$'));
+  return '<td class="v1 grp-start">'+fmt(m1)+'</td>'+
+         '<td class="v2">'+fmt(m2)+'</td>'+
+         '<td class="delta '+cls+'">'+dTxt+'</td>';
+}
+
+function cabecalho(l1,l2){
+  var grupos=['Atendimentos','Serviços (R$)','Barbearia (qtd)','Barbearia (R$)','Bar (R$)','Geral (R$)','Ticket médio'];
+  var h='<thead><tr><th class="col-name" rowspan="2">&nbsp;</th>';
+  grupos.forEach(function(g){ h+='<th class="grp" colspan="3">'+g+'</th>'; });
+  h+='</tr><tr>';
+  grupos.forEach(function(){ h+='<th class="sub s-d">'+l1+'</th><th class="sub">'+l2+'</th><th class="sub">Δ</th>'; });
+  h+='</tr></thead>';
+  return h;
+}
+
+function linha(nome, sub, r, total){
+  var t = total ? ' class="total"' : '';
+  var nomeCel = '<td class="name">'+nome + (sub?'<span class="uni">'+sub+'</span>':'') + '</td>';
+  return '<tr'+t+'>'+nomeCel+
+    celulas(r.m1.atend,      r.m2.atend,      'int')+
+    celulas(r.m1.valor_serv, r.m2.valor_serv, 'money')+
+    celulas(r.m1.prod_barb_qtd,   r.m2.prod_barb_qtd,   'int')+
+    celulas(r.m1.prod_barb_valor, r.m2.prod_barb_valor, 'money')+
+    celulas(r.m1.prod_bar_valor,  r.m2.prod_bar_valor,  'money')+
+    celulas(r.m1.geral,      r.m2.geral,      'money')+
+    celulas(r.m1.ticket,     r.m2.ticket,     'money')+
+  '</tr>';
+}
+
+function tabela(titulo, tag, linhasHtml, m1, m2){
+  return '<div class="sec"><div class="sec-head"><div class="sec-title">'+titulo+'</div>'+
+    (tag?'<div class="sec-tag">'+tag+'</div>':'')+'</div>'+
+    '<div class="tbl-scroll"><table>'+cabecalho(m1,m2)+'<tbody>'+linhasHtml+'</tbody></table></div></div>';
+}
+
+// rótulo de período DD/MM/AA–DD/MM/AA
+function rangeLbl(ini,fim){
+  function f(ymd){ var p=String(ymd).split('-'); return p[2]+'/'+p[1]+'/'+p[0].slice(2); }
+  return f(ini)+'–'+f(fim);
+}
+
+async function gerar(){
+  function v(id){ var e=document.getElementById(id); return e?e.value:''; }
+  var ini1=v('ini1'), fim1=v('fim1'), ini2=v('ini2'), fim2=v('fim2'), uni=v('uni');
+  var btn=document.getElementById('btnGerar');
+  var alvo=document.getElementById('resultado');
+  if(!ini1||!fim1||!ini2||!fim2){ alvo.innerHTML='<div class="state">Escolha as datas dos dois períodos.</div>'; return; }
+  if(ini1>fim1||ini2>fim2){ alvo.innerHTML='<div class="state">Em cada período, a data inicial não pode ser depois da final.</div>'; return; }
+  btn.disabled=true; btn.textContent='Gerando…';
+  alvo.innerHTML='<div class="state">Calculando…</div>';
+  try{
+    var qs='ini1='+ini1+'&fim1='+fim1+'&ini2='+ini2+'&fim2='+fim2+(uni?'&unidade_id='+uni:'');
+    var d=await req('GET','/financeiro/comparativo?'+qs);
+    var lab1=d.periodo1||rangeLbl(ini1,fim1);
+    var lab2=d.periodo2||rangeLbl(ini2,fim2);
+
+    // ---- por unidade ----
+    var linhasU='';
+    (d.unidades||[]).forEach(function(u){ linhasU+=linha(u.nome,'',u,false); });
+    if(d.totais){ linhasU+=linha('TOTAL','',{m1:d.totais.m1,m2:d.totais.m2},true); }
+    var html = tabela('Por Unidade','', linhasU || '<tr><td class="name">—</td><td colspan="21" style="color:var(--muted)">sem dados</td></tr>', lab1, lab2);
+
+    // ---- por barbeiro ----
+    var linhasB='';
+    (d.barbeiros||[]).forEach(function(b){ linhasB+=linha(b.nome, b.unidade_nome, b, false); });
+    html += tabela('Por Barbeiro','ordenado por unidade', linhasB || '<tr><td class="name">—</td><td colspan="21" style="color:var(--muted)">sem dados no período</td></tr>', lab1, lab2);
+
+    alvo.innerHTML=html;
+  }catch(e){
+    alvo.innerHTML='<div class="state">Não consegui gerar agora. '+(e&&e.message?e.message:'')+'</div>';
+  }finally{
+    btn.disabled=false; btn.textContent='Gerar';
+  }
+}
+
+// ---- datas / atalhos ----
+function _ymd(d){ return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
+function setDatas(a1,a2,b1,b2){
+  document.getElementById('ini1').value=a1; document.getElementById('fim1').value=a2;
+  document.getElementById('ini2').value=b1; document.getElementById('fim2').value=b2;
+}
+function presetMeses(){
+  var h=new Date();
+  var ini1=new Date(h.getFullYear(),h.getMonth()-1,1);
+  var fim1=new Date(h.getFullYear(),h.getMonth(),0);   // último dia do mês passado
+  var ini2=new Date(h.getFullYear(),h.getMonth(),1);
+  setDatas(_ymd(ini1),_ymd(fim1),_ymd(ini2),_ymd(h));  // período B: dia 1 até hoje
+  gerar();
+}
+function presetSemanas(){
+  var h=new Date();
+  var diaSem=(h.getDay()+6)%7;                          // 0=segunda
+  var iniEsta=new Date(h); iniEsta.setDate(h.getDate()-diaSem);
+  var fimPassada=new Date(iniEsta); fimPassada.setDate(iniEsta.getDate()-1);
+  var iniPassada=new Date(fimPassada); iniPassada.setDate(fimPassada.getDate()-6);
+  setDatas(_ymd(iniPassada),_ymd(fimPassada),_ymd(iniEsta),_ymd(h));
+  gerar();
+}
+function preset30(){
+  var h=new Date();
+  var ini2=new Date(h); ini2.setDate(h.getDate()-29);
+  var fim1=new Date(ini2); fim1.setDate(ini2.getDate()-1);
+  var ini1=new Date(fim1); ini1.setDate(fim1.getDate()-29);
+  setDatas(_ymd(ini1),_ymd(fim1),_ymd(ini2),_ymd(h));
+  gerar();
+}
+
+// ---- init: padrão (mês passado completo × este mês até hoje) + filtro de unidade p/ proprietário ----
+(function init(){
+  var h=new Date();
+  var ini1=new Date(h.getFullYear(),h.getMonth()-1,1);
+  var fim1=new Date(h.getFullYear(),h.getMonth(),0);
+  var ini2=new Date(h.getFullYear(),h.getMonth(),1);
+  setDatas(_ymd(ini1),_ymd(fim1),_ymd(ini2),_ymd(h));
+
+  if(usuario && usuario.perfil==='proprietario'){
+    document.getElementById('ctrl-uni').style.display='flex';
+    req('GET','/unidades').then(function(us){
+      var sel=document.getElementById('uni');
+      (us||[]).forEach(function(u){
+        var o=document.createElement('option'); o.value=u.id; o.textContent=u.nome; sel.appendChild(o);
+      });
+    }).catch(function(){});
+  }
+  gerar();
+})();
+</script>
+</body>
+</html>

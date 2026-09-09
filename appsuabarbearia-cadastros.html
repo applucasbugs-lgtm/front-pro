@@ -1,0 +1,3005 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <script src="tenant.js"></script>
+<link rel="icon" href="/icons/favicon-48.png">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>APP LUCAS BUGS | HAIR STYLIST — Cadastros</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black:wght@400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+/* TEMA:INICIO — gerado pelo personalizador, não edite à mão */
+  --bg:#000000;
+  --bg2:#0b0b0b;
+  --bg3:#161616;
+  --bg4:#212121;
+  --black:#000000;
+  --white:#ffffff;
+  --cream:#e6fdf6;
+  --muted:#949494;
+  --muted2:#707070;
+  --border:rgba(255,255,255,0.1);
+  --border2:rgba(255,255,255,0.18);
+  --gold:#00eba4;
+  --gold-light:#ffffff;
+  --gold-dim:rgba(0,235,164,0.12);
+  --gold-border:rgba(0,235,164,0.3);
+  --border-strong:rgba(0,235,164,0.4);
+  --on-primary:#0d0d10;
+  --green:#2ecc71;
+  --green-dim:rgba(46,204,113,0.14);
+  --green-text:#54d58b;
+  --on-green:#0d1526;
+  --red:#ef5350;
+  --red-dim:rgba(239,83,80,0.14);
+  --red-text:#f27270;
+  --amber:#f0b429;
+  --amber-dim:rgba(240,180,41,0.16);
+  --blue:#4b9bf5;
+  --blue-dim:rgba(75,155,245,0.14);
+  --blue-text:#6badf7;
+  --roxo:#a97bf0;
+  --roxo-dim:rgba(169,123,240,0.14);
+  --roxo-text:#b893f3;
+  --overlay:rgba(0,0,0,0.05);
+  --overlay2:rgba(0,0,0,0.1);
+  --wpp:#25D366;
+  --wpp-dim:rgba(37,211,102,0.12);
+  --serie-1:#2a78d6;
+  --serie-2:#eb6834;
+  --serie-3:#1baf7a;
+  --serie-4:#eda100;
+  --serie-5:#e87ba4;
+  --serie-6:#008300;
+  --serie-7:#4a3aa7;
+  --serie-8:#e34948;
+  --ag-bg:#0b0b0b;
+  --ag-bg-header:#161616;
+  --ag-bg-time:#0b0b0b;
+  --ag-line:rgba(255,255,255,0.09);
+  --ag-line-full:rgba(255,255,255,0.16);
+  --ag-text:#ffffff;
+  --ag-text-muted:#737373;
+  --ag-hover:rgba(255,255,255,0.04);
+  --ag-mine-bg:rgba(0,235,164,0.14);
+  --ag-mine-border:rgba(0,235,164,0.4);
+  --ev-agendado-bar:#2a71c8;
+  --ev-agendado-bg:#122135;
+  --ev-agendado-text:#75a3db;
+  --ev-concluido-bar:#2ecc71;
+  --ev-concluido-bg:#133521;
+  --ev-concluido-text:#77dea3;
+  --ev-atrasado-bar:#c2650a;
+  --ev-atrasado-bg:#331f0b;
+  --ev-atrasado-text:#d79b60;
+  --ev-nao-veio-bar:#ef5350;
+  --ev-nao-veio-bg:#3d1b1a;
+  --ev-nao-veio-text:#f58f8d;
+  --ev-bloqueado-bar:#7a7a7a;
+  --ev-bloqueado-bg:#232323;
+  --ev-bloqueado-text:#a9a9a9;
+  /* TEMA:FIM */
+  --topbar-h:56px; --sidebar-w:220px;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--white);
+  min-height: 100vh;
+  display: flex;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ======== SIDEBAR ======== */
+.sidebar {
+  width: var(--sidebar-w);
+  min-height: 100vh;
+  background: var(--black);
+  border-right: 0.5px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  position: fixed;
+  top: 0; left: 0; bottom: 0;
+  z-index: 100;
+}
+
+.sidebar-logo {
+  height: var(--topbar-h);
+  padding: 0 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 0.5px solid var(--border);
+}
+
+.logo-mark {
+  width: 32px; height: 32px;
+  border: 0.5px solid var(--border-strong);
+  border-radius: 4px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+.logo-mark svg { width: 16px; height: 16px; color: var(--gold); }
+
+.logo-text { font-family: 'Archivo Black', serif; font-size: 13px; color: var(--white); }
+.logo-sub  { font-size: 9px; color: var(--gold); letter-spacing: .1em; text-transform: uppercase; }
+
+.sidebar-nav { flex: 1; padding: 12px 0; overflow-y: auto; }
+
+.nav-section {
+  font-size: 9px; font-weight: 500; color: var(--muted2);
+  letter-spacing: .12em; text-transform: uppercase;
+  padding: 12px 18px 5px;
+}
+
+.nav-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 18px; cursor: pointer;
+  border: none; background: none; width: 100%; text-align: left;
+  color: var(--muted); font-family: 'Inter', sans-serif;
+  font-size: 13px; font-weight: 400; position: relative;
+  transition: background .15s;
+}
+.nav-item:hover { background: var(--overlay); color: var(--white); }
+.nav-item.active { background: var(--gold-dim); color: var(--gold); }
+.nav-item.active::before {
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+  width: 3px; background: var(--gold); border-radius: 0 2px 2px 0;
+}
+.nav-item svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+/* ======== MAIN ======== */
+.main {
+  margin-left: var(--sidebar-w);
+  flex: 1; display: flex; flex-direction: column; min-height: 100vh;
+}
+
+.topbar {
+  height: var(--topbar-h);
+  background: var(--black);
+  border-bottom: 0.5px solid var(--border);
+  display: flex; align-items: center;
+  padding: 0 24px; gap: 12px;
+  position: sticky; top: 0; z-index: 50; flex-shrink: 0;
+}
+
+.topbar-title { font-size: 14px; font-weight: 500; color: var(--white); flex: 1; }
+
+.topbar-breadcrumb {
+  font-size: 12px; color: var(--muted);
+}
+
+.topbar-breadcrumb span { color: var(--gold); }
+
+.content {
+  flex: 1; padding: 28px 24px;
+  overflow-y: auto;
+}
+
+/* ======== TOOLBAR (lista) ======== */
+.toolbar {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 20px; flex-wrap: wrap;
+}
+
+.search-wrap {
+  display: flex; align-items: center; gap: 8px;
+  background: var(--bg2); border: 0.5px solid var(--border2);
+  border-radius: 8px; padding: 8px 12px; flex: 1; min-width: 200px;
+}
+.search-wrap svg { width: 14px; height: 14px; color: var(--muted); flex-shrink: 0; }
+.search-wrap input {
+  background: none; border: none; outline: none;
+  font-family: 'Inter', sans-serif; font-size: 13px; color: var(--white);
+  width: 100%;
+}
+.search-wrap input::placeholder { color: var(--muted); }
+
+.btn {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500;
+  padding: 8px 16px; border-radius: 8px; border: none; cursor: pointer;
+  transition: opacity .15s;
+}
+.btn:hover { opacity: .85; }
+.btn-primary { background: var(--gold); color: var(--black); }
+.btn-ghost   { background: var(--bg3); color: var(--white); border: 0.5px solid var(--border2); }
+.btn-danger  { background: var(--red-dim); color: var(--red-text); border: 0.5px solid var(--red); }
+.btn-success { background: var(--green-dim); color: var(--green-text); border: 0.5px solid var(--green); }
+.btn svg { width: 14px; height: 14px; }
+
+/* ======== TABELA ======== */
+.table-wrap { background: var(--bg2); border: 0.5px solid var(--border); border-radius: 10px; overflow: hidden; }
+
+table { width: 100%; border-collapse: collapse; }
+
+thead tr { border-bottom: 0.5px solid var(--border2); }
+
+th {
+  text-align: left; font-size: 10px; font-weight: 500;
+  color: var(--muted); text-transform: uppercase; letter-spacing: .08em;
+  padding: 11px 16px; white-space: nowrap;
+}
+
+tbody tr {
+  border-bottom: 0.5px solid var(--border);
+  transition: background .12s; cursor: pointer;
+}
+tbody tr:last-child { border-bottom: none; }
+tbody tr:hover { background: var(--overlay); }
+
+td { padding: 12px 16px; font-size: 13px; color: var(--white); vertical-align: middle; }
+
+.td-muted { color: var(--muted); font-size: 12px; }
+
+.badge {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 11px; font-weight: 500; padding: 2px 9px;
+  border-radius: 10px; white-space: nowrap;
+}
+.badge-green  { background: var(--green-dim); color: var(--green-text); }
+.badge-red    { background: var(--red-dim);   color: var(--red-text); }
+.badge-gold   { background: var(--gold-dim);  color: var(--gold); }
+.badge-blue   { background: var(--blue-dim); color: var(--blue-text); }
+.badge-gray   { background: var(--overlay); color: var(--muted); }
+
+.td-actions { display: flex; gap: 6px; justify-content: flex-end; }
+
+.icon-btn {
+  width: 30px; height: 30px; border-radius: 6px;
+  background: var(--bg3); border: 0.5px solid var(--border2);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; transition: background .15s;
+}
+.icon-btn:hover { background: var(--bg4); }
+.icon-btn svg { width: 14px; height: 14px; color: var(--muted); }
+.icon-btn:hover svg { color: var(--white); }
+.icon-btn.del:hover { background: var(--red-dim); border-color: var(--red); }
+.icon-btn.del:hover svg { color: var(--red); }
+
+/* ======== MODAL / DRAWER ======== */
+.overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.65);
+  z-index: 200; display: none;
+  align-items: flex-start; justify-content: flex-end;
+}
+.overlay.open { display: flex; }
+
+.drawer {
+  width: 480px; max-width: 100%; height: 100vh;
+  background: var(--bg2); border-left: 0.5px solid var(--border2);
+  display: flex; flex-direction: column;
+  animation: slideIn .25s ease;
+  overflow: hidden;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(60px); opacity: 0; }
+  to   { transform: translateX(0);    opacity: 1; }
+}
+
+.drawer-header {
+  padding: 18px 20px;
+  border-bottom: 0.5px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-shrink: 0;
+}
+
+.drawer-title { font-size: 15px; font-weight: 500; color: var(--white); }
+.drawer-subtitle { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+.drawer-close {
+  width: 32px; height: 32px; border-radius: 6px;
+  background: var(--bg3); border: 0.5px solid var(--border2);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; color: var(--muted); flex-shrink: 0;
+}
+.drawer-close:hover { background: var(--bg4); color: var(--white); }
+.drawer-close svg { width: 16px; height: 16px; }
+
+.drawer-body {
+  flex: 1; overflow-y: auto; padding: 20px;
+  display: flex; flex-direction: column; gap: 16px;
+}
+
+.drawer-footer {
+  padding: 16px 20px;
+  border-top: 0.5px solid var(--border);
+  display: flex; gap: 10px; justify-content: flex-end;
+  flex-shrink: 0;
+}
+
+/* ======== FORMULÁRIO ======== */
+.form-row { display: grid; gap: 14px; }
+.form-row.cols-2 { grid-template-columns: 1fr 1fr; }
+.form-row.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+
+.form-label {
+  font-size: 11px; font-weight: 500; color: var(--muted);
+  text-transform: uppercase; letter-spacing: .07em;
+}
+
+.form-input, .form-select, .form-textarea {
+  background: var(--bg3); border: 0.5px solid var(--border2);
+  border-radius: 8px; padding: 10px 12px;
+  font-family: 'Inter', sans-serif; font-size: 13px;
+  color: var(--white); outline: none;
+  transition: border-color .15s, background .15s;
+  width: 100%;
+}
+.form-input::placeholder { color: var(--muted); }
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+  border-color: var(--gold); background: var(--gold-dim);
+}
+.form-select option { background: var(--bg3); }
+.form-textarea { resize: vertical; min-height: 80px; }
+
+.form-hint { font-size: 11px; color: var(--muted); font-weight: 300; }
+
+.form-divider {
+  height: 0.5px; background: var(--border);
+  margin: 4px 0;
+}
+
+.form-section-title {
+  font-size: 11px; font-weight: 500; color: var(--gold);
+  text-transform: uppercase; letter-spacing: .08em;
+  margin-bottom: -4px;
+}
+
+/* Toggle switch */
+.toggle-wrap {
+  display: flex; align-items: center; justify-content: space-between;
+  background: var(--bg3); border: 0.5px solid var(--border2);
+  border-radius: 8px; padding: 10px 14px;
+}
+.toggle-label { font-size: 13px; color: var(--white); }
+.toggle-sub   { font-size: 11px; color: var(--muted); margin-top: 1px; }
+
+.toggle {
+  width: 36px; height: 20px; background: var(--muted2);
+  border-radius: 20px; position: relative; cursor: pointer;
+  transition: background .2s; flex-shrink: 0; border: none;
+}
+.toggle.on { background: var(--green); }
+.toggle::after {
+  content: ''; position: absolute;
+  width: 14px; height: 14px; border-radius: 50%; background: var(--white);
+  top: 3px; left: 3px; transition: left .2s;
+}
+.toggle.on::after { left: 19px; }
+
+/* Foto/avatar upload */
+.avatar-upload {
+  display: flex; align-items: center; gap: 14px;
+}
+.avatar-preview {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: var(--bg3); border: 0.5px solid var(--border2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; font-weight: 500; color: var(--muted);
+  flex-shrink: 0; overflow: hidden;
+}
+.avatar-upload-btn {
+  font-size: 12px; color: var(--gold); cursor: pointer;
+  background: none; border: none; font-family: 'Inter',sans-serif;
+  padding: 0;
+}
+
+/* Tags / chips */
+.tags-wrap {
+  display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px;
+}
+.tag {
+  font-size: 11px; padding: 3px 10px; border-radius: 12px;
+  background: var(--bg4); border: 0.5px solid var(--border2);
+  color: var(--muted); cursor: pointer; transition: all .15s;
+}
+.tag.selected { background: var(--gold-dim); border-color: var(--gold-border); color: var(--gold); }
+
+/* Horários de funcionamento */
+.horarios-grid {
+  display: flex; flex-direction: column; gap: 8px;
+}
+.horario-row {
+  display: grid; grid-template-columns: 100px 1fr 1fr 40px;
+  gap: 8px; align-items: center;
+}
+.dia-label { font-size: 12px; color: var(--white); font-weight: 500; }
+
+/* Paginação */
+.pagination {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 16px; border-top: 0.5px solid var(--border);
+  font-size: 12px; color: var(--muted);
+}
+.pagination-btns { display: flex; gap: 4px; }
+.page-btn {
+  width: 28px; height: 28px; border-radius: 6px;
+  background: var(--bg3); border: 0.5px solid var(--border);
+  color: var(--muted); font-size: 11px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+}
+.page-btn.active { background: var(--gold-dim); border-color: var(--gold-border); color: var(--gold); }
+
+/* Views */
+.view { display: none; }
+.view.active { display: block; }
+
+/* Tabs */
+.tabs {
+  display: flex; gap: 0;
+  border-bottom: 0.5px solid var(--border);
+  margin-bottom: 24px;
+}
+.tab-btn {
+  font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 400;
+  color: var(--muted); background: none; border: none;
+  padding: 10px 18px; cursor: pointer; position: relative;
+  transition: color .15s;
+}
+.tab-btn:hover { color: var(--white); }
+.tab-btn.active { color: var(--gold-light); }
+.tab-btn.active::after {
+  content: ''; position: absolute; bottom: -0.5px; left: 0; right: 0;
+  height: 2px; background: var(--gold);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .sidebar { display: none; }
+  .main { margin-left: 0; }
+  .drawer { width: 100%; }
+  .form-row.cols-2, .form-row.cols-3 { grid-template-columns: 1fr; }
+}
+</style>
+<script src="api.js"></script>
+<script src="ajuda.js" data-tour="cadastros"></script>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+  <div class="sidebar-logo">
+    <div class="logo-mark">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/>
+        <line x1="20" y1="4" x2="8.12" y2="15.88"/>
+        <line x1="14.47" y1="14.48" x2="20" y2="20"/>
+        <line x1="8.12" y1="8.12" x2="12" y2="12"/>
+      </svg>
+    </div>
+    <div>
+      <div class="logo-text">LUCAS BUGS | Hair Stylist</div>
+      <div class="logo-sub">Sistema</div>
+    </div>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-section">Configurações</div>
+    <button class="nav-item active" onclick="showView('unidades',this)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      Unidades
+    </button>
+    <button class="nav-item" onclick="showView('colaboradores',this)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+      Colaboradores
+    </button>
+    <button class="nav-item" onclick="showView('clientes',this)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+      Clientes
+    </button>
+    <button class="nav-item" onclick="showView('produtos',this)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+      Produtos e Serviços
+    </button>
+    <button class="nav-item" onclick="showView('importacao',this)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+      Importação
+    </button>
+    <!-- A tela do AppBarber existia mas não estava em menu nenhum: só dava
+         para chegar digitando o endereço. É onde se liga cada serviço e
+         barbeiro de lá aos daqui, antes de importar. -->
+    <button class="nav-item" onclick="window.location.href='appsuabarbearia-appbarber.html'">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M4 10h16M10 4v16"/></svg>
+      AppBarber
+    </button>
+    <button class="nav-item" id="nav-feriados" onclick="showView('feriados',this)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Feriados
+    </button>
+    <button class="nav-item" id="nav-senha" onclick="showView('senha',this)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+      Minha senha
+    </button>
+  </nav>
+</aside>
+
+<!-- MAIN -->
+<div class="main">
+  <header class="topbar">
+    <button onclick="window.location.href='appsuabarbearia-dashboard.html'" style="display:flex;align-items:center;gap:6px;background:var(--bg3);border:0.5px solid var(--border);border-radius:6px;padding:6px 12px;color:var(--muted);font-family:'Inter',sans-serif;font-size:12px;cursor:pointer;flex-shrink:0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Dashboard</button>
+    <div class="topbar-title" id="topbar-title">Unidades</div>
+    <div class="topbar-breadcrumb">Configurações › <span id="topbar-crumb">Unidades</span></div>
+  </header>
+
+  <main class="content">
+
+    <!-- ==================== UNIDADES ==================== -->
+    <div class="view active" id="view-unidades">
+      <div class="toolbar">
+        <div class="search-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input id="busca-unidade" placeholder="Buscar unidade..." oninput="renderUnidades()">
+        </div>
+        <button class="btn btn-primary" onclick="abrirDrawerUnidade(null)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Nova unidade
+        </button>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Unidade</th>
+              <th>Endereço</th>
+              <th>Telefone</th>
+              <th>Colaboradores</th>
+              <th>Status</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="tbody-unidades">
+            <tr><td colspan="6" class="td-muted" style="text-align:center;padding:28px">Carregando…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ==================== COLABORADORES ==================== -->
+    <div class="view" id="view-colaboradores">
+      <div class="toolbar">
+        <div class="search-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input placeholder="Buscar colaborador...">
+        </div>
+        <select class="form-select" id="filtro-unidade-colab" data-unidades style="width:auto;padding:8px 12px;">
+          <option value="">Todas as unidades</option>
+        </select>
+        <button class="btn btn-ghost" id="btn-toggle-demitidos" onclick="toggleVerDemitidos()" style="white-space:nowrap">Ver demitidos</button>
+        <button class="btn btn-primary" onclick="abrirDrawerColaborador(null,'Novo Colaborador',null)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Novo colaborador
+        </button>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Colaborador</th>
+              <th>Função</th>
+              <th>Unidade</th>
+              <th>Comissão</th>
+              <th>Status</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="tbody-colaboradores">
+            <tr><td colspan="6" style="text-align:center;padding:24px;color:var(--muted);font-size:13px">Carregando colaboradores...</td></tr>
+          </tbody>
+        </table>
+        <div class="pagination">
+          <span>Mostrando 4 de 11 colaboradores</span>
+          <div class="pagination-btns">
+            <button class="page-btn">‹</button>
+            <button class="page-btn active">1</button>
+            <button class="page-btn">2</button>
+            <button class="page-btn">3</button>
+            <button class="page-btn">›</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== CLIENTES ==================== -->
+    <div class="view" id="view-clientes">
+      <div class="toolbar">
+        <div class="search-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input id="busca-cliente" placeholder="Buscar por nome, CPF ou telefone..." oninput="onBuscaCliente()">
+        </div>
+        <button class="btn btn-ghost">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+          Filtros
+        </button>
+        <button class="btn btn-primary" onclick="openDrawer('drawer-cliente','Novo Cliente','Cadastro manual de cliente')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Novo cliente
+        </button>
+      </div>
+
+      <!-- Item 11: contadores de clientes -->
+      <div id="clientes-contadores" style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:16px">
+        <div style="flex:1;min-width:140px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:14px">
+          <div style="font-size:22px;font-weight:700;color:var(--white)" id="cc-total">—</div>
+          <div style="font-size:12px;color:var(--muted)">Total cadastrados</div>
+        </div>
+        <div style="flex:1;min-width:140px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:14px">
+          <div style="font-size:22px;font-weight:700;color:var(--white)" id="cc-import">—</div>
+          <div style="font-size:12px;color:var(--muted)">Importados (AppBarber)</div>
+        </div>
+        <div style="flex:1;min-width:140px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:14px">
+          <div style="font-size:22px;font-weight:700;color:var(--white)" id="cc-sistema">—</div>
+          <div style="font-size:12px;color:var(--muted)">Cadastrados no sistema</div>
+        </div>
+        <div style="flex:1;min-width:140px;background:var(--bg2);border:1px solid var(--border-strong);border-radius:12px;padding:14px">
+          <div style="font-size:22px;font-weight:700;color:var(--gold)" id="cc-app">—</div>
+          <div style="font-size:12px;color:var(--muted)">Já usam o app (login)</div>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Cliente</th>
+              <th>Telefone</th>
+              <th>Unidade</th>
+              <th>Pontos</th>
+              <th>Status</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="tbody-clientes">
+            <tr><td colspan="6" style="text-align:center;padding:24px;color:var(--muted);font-size:13px">Carregando clientes...</td></tr></tbody>
+        </table>
+        <div class="pagination">
+          <span>Mostrando 3 de 248 clientes</span>
+          <div class="pagination-btns">
+            <button class="page-btn">‹</button>
+            <button class="page-btn active">1</button>
+            <button class="page-btn">2</button>
+            <button class="page-btn">…</button>
+            <button class="page-btn">24</button>
+            <button class="page-btn">›</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== PRODUTOS E SERVIÇOS ==================== -->
+    <div class="view" id="view-produtos">
+      <div class="tabs">
+        <button class="tab-btn active" onclick="switchTab(this,'tab-servicos')">Serviços</button>
+        <button class="tab-btn" onclick="switchTab(this,'tab-produtos')">Produtos</button>
+      </div>
+
+      <!-- SERVIÇOS -->
+      <div id="tab-servicos">
+        <div class="toolbar">
+          <div class="search-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input placeholder="Buscar serviço...">
+          </div>
+          <button class="btn btn-primary" onclick="abrirDrawerServico(null)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Novo serviço
+          </button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Serviço</th><th>Duração</th><th>Valor</th><th>Comissão</th><th>Status</th><th></th></tr></thead>
+            <tbody id="tbody-servicos">
+              <tr><td colspan="6" style="text-align:center;padding:24px;color:var(--muted);font-size:13px">Carregando serviços...</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- PRODUTOS -->
+      <div id="tab-produtos" style="display:none">
+        <div class="toolbar">
+          <div class="search-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input placeholder="Buscar produto...">
+          </div>
+          <select class="form-select" id="filtro-categoria" style="width:auto;padding:8px 12px;" onchange="carregarProdutos()">
+            <option value="">Todas as categorias</option>
+          </select>
+          <button class="btn btn-ghost" onclick="abrirDrawerCategorias()">Categorias</button>
+          <button class="btn btn-primary" onclick="abrirDrawerProduto('')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Novo produto
+          </button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Produto</th><th>Categoria</th><th>Venda</th><th>Colaborador</th><th>Estoque</th><th>Status</th><th></th></tr></thead>
+            <tbody id="tbody-produtos">
+              <tr><td colspan="7" style="text-align:center;padding:24px;color:var(--muted);font-size:13px">Carregando produtos...</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== IMPORTAÇÃO ==================== -->
+    <div class="view" id="view-importacao">
+      <div style="max-width:700px">
+
+        <!-- Header -->
+        <div style="margin-bottom:24px">
+          <div style="font-size:18px;font-weight:500;color:var(--white);margin-bottom:6px">Importação de Histórico</div>
+          <div style="font-size:13px;color:var(--muted)">Importe o histórico de serviços exportado do AppBarber. Colunas necessárias: Serviço, Cliente, Telefone, Profissional, Data, Valor, Forma Pgto., Pts., Status.</div>
+        </div>
+
+        <!-- Seletor de unidade -->
+        <div class="form-group" style="margin-bottom:16px">
+          <label class="form-label">Unidade</label>
+          <select class="form-select" id="imp-unidade" data-unidades style="max-width:300px">
+            <option value="">Selecionar unidade...</option>
+          </select>
+        </div>
+
+        <!-- Drop zone -->
+        <div id="imp-dropzone" style="border:2px dashed var(--border2);border-radius:12px;padding:48px 24px;text-align:center;cursor:pointer;transition:all .2s;margin-bottom:16px" onclick="document.getElementById('imp-file').click()" ondragover="event.preventDefault();this.style.borderColor='var(--gold)'" ondragleave="this.style.borderColor='var(--border2)'" ondrop="handleImpDrop(event)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:40px;height:40px;color:var(--muted);margin-bottom:12px"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          <div style="font-size:14px;font-weight:500;color:var(--white);margin-bottom:4px">Clique ou arraste o arquivo aqui</div>
+          <div style="font-size:12px;color:var(--muted)">Aceita .xlsx e .xls exportados do AppBarber</div>
+          <input type="file" id="imp-file" accept=".xlsx,.xls" style="display:none" onchange="processarArquivoImportacao(this.files[0])">
+        </div>
+
+        <!-- Preview -->
+        <div id="imp-preview" style="display:none">
+          <div style="background:var(--bg2);border:0.5px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:16px">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+              <div style="font-size:13px;font-weight:500;color:var(--white)" id="imp-filename">arquivo.xlsx</div>
+              <button onclick="limparImportacao()" style="font-size:11px;color:var(--muted);background:none;border:none;cursor:pointer">✕ Remover</button>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px" id="imp-stats">
+              <div style="background:var(--bg3);border-radius:8px;padding:10px;text-align:center">
+                <div style="font-size:20px;font-weight:500;color:var(--gold)" id="imp-total-linhas">0</div>
+                <div style="font-size:11px;color:var(--muted)">Registros</div>
+              </div>
+              <div style="background:var(--bg3);border-radius:8px;padding:10px;text-align:center">
+                <div style="font-size:20px;font-weight:500;color:var(--green)" id="imp-total-valor">R$ 0</div>
+                <div style="font-size:11px;color:var(--muted)">Faturamento</div>
+              </div>
+              <div style="background:var(--bg3);border-radius:8px;padding:10px;text-align:center">
+                <div style="font-size:20px;font-weight:500;color:var(--blue-text)" id="imp-periodo">—</div>
+                <div style="font-size:11px;color:var(--muted)">Período</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Amostra dos dados -->
+          <div style="font-size:11px;font-weight:500;color:var(--gold);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px">Amostra (5 primeiros registros)</div>
+          <div style="overflow-x:auto;border-radius:8px;border:0.5px solid var(--border);margin-bottom:16px">
+            <table style="width:100%;border-collapse:collapse;font-size:12px">
+              <thead>
+                <tr style="background:var(--bg3)">
+                  <th style="padding:8px 12px;text-align:left;color:var(--muted);font-weight:500;white-space:nowrap">Cliente</th>
+                  <th style="padding:8px 12px;text-align:left;color:var(--muted);font-weight:500;white-space:nowrap">Serviço</th>
+                  <th style="padding:8px 12px;text-align:left;color:var(--muted);font-weight:500;white-space:nowrap">Profissional</th>
+                  <th style="padding:8px 12px;text-align:left;color:var(--muted);font-weight:500;white-space:nowrap">Data</th>
+                  <th style="padding:8px 12px;text-align:right;color:var(--muted);font-weight:500;white-space:nowrap">Valor</th>
+                  <th style="padding:8px 12px;text-align:left;color:var(--muted);font-weight:500;white-space:nowrap">Status</th>
+                </tr>
+              </thead>
+              <tbody id="imp-tabela-body"></tbody>
+            </table>
+          </div>
+
+          <!-- Botão importar -->
+          <button class="btn btn-primary" id="btn-importar" onclick="confirmarImportacao()" style="width:100%;padding:12px">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+            Importar histórico para o sistema
+          </button>
+        </div>
+
+        <!-- Progresso -->
+        <div id="imp-progresso" style="display:none">
+          <div style="background:var(--bg2);border:0.5px solid var(--border);border-radius:10px;padding:24px;text-align:center">
+            <div style="font-size:14px;font-weight:500;color:var(--white);margin-bottom:12px" id="imp-prog-texto">Processando...</div>
+            <div style="height:6px;background:var(--bg3);border-radius:3px;overflow:hidden;margin-bottom:8px">
+              <div id="imp-prog-bar" style="height:100%;background:var(--gold);border-radius:3px;width:0%;transition:width .3s"></div>
+            </div>
+            <div style="font-size:12px;color:var(--muted)" id="imp-prog-detalhe">0 de 0 registros</div>
+          </div>
+        </div>
+
+        <!-- Resultado -->
+        <div id="imp-resultado" style="display:none">
+          <div style="background:var(--green-dim);border:0.5px solid var(--green);border-radius:10px;padding:20px;text-align:center">
+            <div style="font-size:32px;margin-bottom:8px">✅</div>
+            <div style="font-size:15px;font-weight:500;color:var(--white);margin-bottom:4px" id="imp-res-titulo">Importação concluída!</div>
+            <div style="font-size:13px;color:var(--muted)" id="imp-res-detalhe"></div>
+            <button onclick="limparImportacao()" class="btn btn-ghost" style="margin-top:16px">Importar outro arquivo</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ==================== FERIADOS ==================== -->
+    <div class="view" id="view-feriados">
+      <div style="max-width:640px">
+        <div style="margin-bottom:20px">
+          <div style="font-size:18px;font-weight:500;color:var(--white);margin-bottom:6px">Feriados</div>
+          <div style="font-size:13px;color:var(--muted)">Por padrão, no feriado a barbearia abre em <strong style="color:var(--white)">09h às 18h</strong> (igual sábado). Mas você pode marcar o dia como <strong style="color:var(--white)">fechado</strong> ou definir um <strong style="color:var(--white)">horário personalizado</strong>. Domingo continua fechado.</div>
+        </div>
+
+        <!-- Adicionar feriado -->
+        <div style="background:var(--bg2);border:0.5px solid var(--border);border-radius:12px;padding:16px;margin-bottom:20px">
+          <div style="font-size:13px;font-weight:500;color:var(--white);margin-bottom:12px">Adicionar feriado</div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end">
+            <div class="form-group" style="margin:0;flex:0 0 150px">
+              <label class="form-label">Data</label>
+              <input class="form-input" type="date" id="fer-data">
+            </div>
+            <div class="form-group" style="margin:0;flex:1;min-width:150px">
+              <label class="form-label">Descrição (opcional)</label>
+              <input class="form-input" id="fer-desc" placeholder="Ex: Natal, Unidade 3...">
+            </div>
+            <div class="form-group" style="margin:0;flex:0 0 200px">
+              <label class="form-label">Funcionamento</label>
+              <select class="form-input" id="fer-tipo" onchange="ferTipoChange()">
+                <option value="padrao">Aberto 09h–18h (padrão)</option>
+                <option value="fechado">Fechado o dia todo</option>
+                <option value="custom">Horário personalizado</option>
+              </select>
+            </div>
+            <div id="fer-custom" style="display:none;gap:8px;align-items:flex-end">
+              <div class="form-group" style="margin:0">
+                <label class="form-label">Abre</label>
+                <input class="form-input" type="time" id="fer-abre" value="09:00" style="width:108px">
+              </div>
+              <div class="form-group" style="margin:0">
+                <label class="form-label">Fecha</label>
+                <input class="form-input" type="time" id="fer-fecha" value="18:00" style="width:108px">
+              </div>
+            </div>
+            <button class="btn btn-primary" onclick="salvarFeriado()" style="flex:0 0 auto">+ Adicionar</button>
+          </div>
+        </div>
+
+        <!-- Lista -->
+        <div style="font-size:12px;font-weight:500;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px">Feriados cadastrados</div>
+        <div id="feriados-lista">
+          <div style="text-align:center;padding:24px;color:var(--muted);font-size:13px">Carregando…</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VIEW MINHA SENHA (item 8) -->
+    <div class="view" id="view-senha">
+      <div style="max-width:460px">
+        <h2 style="font-size:18px;margin:0 0 4px">Alterar minha senha</h2>
+        <p style="color:var(--muted);font-size:13px;margin:0 0 20px">Você pode alterar a senha de login (entrar no sistema) e a senha de autorização (liberar retiradas e vales).</p>
+
+        <div style="background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:18px;margin-bottom:16px">
+          <div style="font-size:11px;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px">Senha de login</div>
+          <label style="display:block;font-size:12px;color:var(--muted);margin:0 0 4px">Senha atual</label>
+          <input class="form-input" type="password" id="sn-login-atual" placeholder="Sua senha atual" style="margin-bottom:10px">
+          <label style="display:block;font-size:12px;color:var(--muted);margin:0 0 4px">Nova senha</label>
+          <input class="form-input" type="password" id="sn-login-nova" placeholder="Mínimo 4 caracteres" style="margin-bottom:10px">
+          <label style="display:block;font-size:12px;color:var(--muted);margin:0 0 4px">Confirmar nova senha</label>
+          <input class="form-input" type="password" id="sn-login-conf" placeholder="Repita a nova senha" style="margin-bottom:14px">
+          <button class="btn btn-primary" onclick="salvarSenhaLogin()">Salvar senha de login</button>
+        </div>
+
+        <div style="background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:18px">
+          <div style="font-size:11px;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px">Senha de autorização</div>
+          <p style="font-size:12px;color:var(--muted);margin:0 0 12px">Usada para liberar retiradas de caixa, vales e outras ações sensíveis.</p>
+          <label style="display:block;font-size:12px;color:var(--muted);margin:0 0 4px">Nova senha de autorização</label>
+          <input class="form-input" type="password" id="sn-aut-nova" placeholder="Mínimo 4 caracteres" style="margin-bottom:10px">
+          <label style="display:block;font-size:12px;color:var(--muted);margin:0 0 4px">Confirmar</label>
+          <input class="form-input" type="password" id="sn-aut-conf" placeholder="Repita a nova senha" style="margin-bottom:14px">
+          <button class="btn btn-primary" onclick="salvarSenhaAutorizacao()">Salvar senha de autorização</button>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- ==================== DRAWERS ==================== -->
+
+<!-- DRAWER UNIDADE -->
+<div class="overlay" id="overlay-drawer-unidade" onclick="closeDrawerOverlay(event,'drawer-unidade')">
+  <div class="drawer" id="drawer-unidade">
+    <div class="drawer-header">
+      <div>
+        <div class="drawer-title" id="drawer-unidade-title">Nova Unidade</div>
+        <div class="drawer-subtitle" id="drawer-unidade-sub">Preencha os dados da unidade</div>
+      </div>
+      <div class="drawer-close" onclick="closeDrawer('drawer-unidade')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </div>
+    </div>
+    <div class="drawer-body">
+      <div class="form-section-title">Identificação</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Nome da unidade</label>
+          <input class="form-input" id="uni-nome" placeholder="Ex: Centro">
+        </div>
+      </div>
+      <div class="form-row cols-2">
+        <div class="form-group">
+          <label class="form-label">Telefone</label>
+          <input class="form-input" id="uni-telefone" placeholder="(51) 00000-0000">
+        </div>
+        <div class="form-group">
+          <label class="form-label">E-mail</label>
+          <input class="form-input" id="uni-email" placeholder="unidade@exemplo.com.br">
+        </div>
+      </div>
+
+      <div class="form-divider"></div>
+      <div class="form-section-title">Endereço</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Logradouro</label>
+          <input class="form-input" id="uni-endereco" placeholder="Rua, número">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Link do mapa</label>
+          <input class="form-input" id="uni-link-mapa" placeholder="https://maps.google.com/?q=...">
+          <div class="form-hint">A IA manda este link quando o cliente pergunta onde fica. No Google Maps: buscar a barbearia &rsaquo; Compartilhar &rsaquo; Copiar link.</div>
+        </div>
+      </div>
+      <div class="form-row cols-3">
+        <div class="form-group">
+          <label class="form-label">Bairro</label>
+          <input class="form-input" id="uni-bairro" placeholder="Bairro">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Cidade</label>
+          <input class="form-input" id="uni-cidade" placeholder="Cidade">
+        </div>
+        <div class="form-group">
+          <label class="form-label">CEP</label>
+          <input class="form-input" id="uni-cep" placeholder="00000-000">
+        </div>
+      </div>
+
+      <div class="form-divider"></div>
+      <div class="form-section-title">Horários de funcionamento</div>
+      <div class="horarios-grid" id="uni-horarios"></div>
+
+      <div class="form-divider"></div>
+      <div class="toggle-wrap">
+        <div>
+          <div class="toggle-label">Unidade ativa</div>
+          <div class="toggle-sub">Unidade visível para agendamentos</div>
+        </div>
+        <button class="toggle on" id="uni-ativa" onclick="this.classList.toggle('on')"></button>
+      </div>
+    </div>
+    <div class="drawer-footer">
+      <button class="btn btn-ghost" id="uni-btn-excluir" onclick="excluirUnidade()" style="display:none;color:var(--red)">Excluir</button>
+      <button class="btn btn-ghost" onclick="closeDrawer('drawer-unidade')">Cancelar</button>
+      <button class="btn btn-primary" id="uni-btn-salvar" onclick="salvarUnidade()">Salvar unidade</button>
+    </div>
+  </div>
+</div>
+
+<!-- DRAWER COLABORADOR -->
+<div class="overlay" id="overlay-drawer-colaborador" onclick="closeDrawerOverlay(event,'drawer-colaborador')">
+  <div class="drawer" id="drawer-colaborador">
+    <div class="drawer-header">
+      <div>
+        <div class="drawer-title" id="drawer-colaborador-title">Novo Colaborador</div>
+        <div class="drawer-subtitle" id="drawer-colaborador-sub">Preencha os dados do colaborador</div>
+      </div>
+      <div class="drawer-close" onclick="closeDrawer('drawer-colaborador')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </div>
+    </div>
+    <div class="drawer-body">
+      <div class="avatar-upload" style="gap:22px;flex-wrap:wrap">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div class="avatar-preview" id="av-colab" style="background-size:cover;background-position:center">RS</div>
+          <div>
+            <div style="font-size:13px;color:var(--white);margin-bottom:2px;">Foto padrão</div>
+            <div style="font-size:10px;color:var(--muted);margin-bottom:5px">Braços cruzados</div>
+            <input type="file" id="colab-foto-input" accept="image/png,image/jpeg,image/jpg,image/webp" style="display:none" onchange="processarFotoColab(this.files[0])">
+            <button type="button" class="avatar-upload-btn" onclick="document.getElementById('colab-foto-input').click()">Fazer upload</button>
+            <button type="button" class="avatar-upload-btn" id="btn-remover-foto" onclick="removerFotoColab()" style="display:none;margin-left:6px;border-color:var(--red);color:var(--red)">Remover</button>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px">
+          <div class="avatar-preview" id="av-colab-2" style="background-size:cover;background-position:center;font-size:20px">👍</div>
+          <div>
+            <div style="font-size:13px;color:var(--white);margin-bottom:2px;">Foto ao selecionar <span style="font-size:9px;color:var(--gold);background:var(--gold-dim);padding:1px 5px;border-radius:4px">app cliente</span></div>
+            <div style="font-size:10px;color:var(--muted);margin-bottom:5px">Feliz / positivo 👍 (opcional)</div>
+            <input type="file" id="colab-foto2-input" accept="image/png,image/jpeg,image/jpg,image/webp" style="display:none" onchange="processarFotoColab2(this.files[0])">
+            <button type="button" class="avatar-upload-btn" onclick="document.getElementById('colab-foto2-input').click()">Fazer upload</button>
+            <button type="button" class="avatar-upload-btn" id="btn-remover-foto2" onclick="removerFotoColab2()" style="display:none;margin-left:6px;border-color:var(--red);color:var(--red)">Remover</button>
+          </div>
+        </div>
+      </div>
+      <div class="form-hint" style="margin-bottom:4px">JPG ou PNG, máx. 2MB cada.</div>
+
+      <div class="form-divider"></div>
+      <div class="form-section-title">Dados pessoais</div>
+      <div class="form-row cols-2">
+        <div class="form-group">
+          <label class="form-label">Nome completo</label>
+          <input class="form-input" id="colab-nome" placeholder="Nome completo">
+          <label style="display:flex;align-items:center;gap:8px;margin-top:8px;font-size:13px;color:var(--muted);cursor:pointer">
+            <input type="checkbox" id="colab-mostrar-sobrenome" style="width:16px;height:16px;accent-color:var(--gold)">
+            Mostrar sobrenome nas telas <span style="color:var(--muted);font-size:12px">(quando há outro barbeiro com o mesmo primeiro nome)</span>
+          </label>
+        </div>
+        <div class="form-group">
+          <label class="form-label">CPF</label>
+          <input class="form-input" id="colab-cpf" placeholder="000.000.000-00">
+        </div>
+      </div>
+      <div class="form-row cols-2">
+        <div class="form-group">
+          <label class="form-label">WhatsApp</label>
+          <input class="form-input" id="colab-whats" placeholder="(51) 99999-9999">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Data de nascimento</label>
+          <input class="form-input" id="colab-nasc" type="date">
+        </div>
+      </div>
+
+      <div class="form-divider"></div>
+      <div class="form-section-title">Acesso ao sistema</div>
+      <div class="form-row cols-2">
+        <div class="form-group">
+          <label class="form-label">E-mail de acesso</label>
+          <input class="form-input" id="colab-email" placeholder="email@suabarbearia.com">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Nível de acesso</label>
+          <select class="form-select" id="colab-perfil" onchange="onPerfilColabChange()">
+            <option value="colaborador">Barbeiro Colaborador</option>
+            <option value="gerente">Barbeiro Gerente</option>
+            <option value="caixa">Caixa / Recepção</option>
+            <option value="proprietario">Proprietário</option>
+            <option value="funcionario">Funcionário (não comissionado)</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row cols-2">
+        <div class="form-group">
+          <label class="form-label">Unidade principal</label>
+          <select class="form-select" id="colab-unidade" data-unidades="1">
+          </select>
+          <button type="button" id="btn-transferir-colab" onclick="transferirColaborador()" style="display:none;margin-top:8px;width:100%;padding:9px;border-radius:8px;border:0.5px solid var(--border-strong);background:var(--gold-dim);color:var(--gold);font-size:13px;font-weight:600;cursor:pointer">🔄 Transferir para a unidade selecionada</button>
+          <div class="form-hint" id="hint-transferir" style="display:none;margin-top:4px;color:var(--muted)">A transferência move o barbeiro de unidade na hora. Agendamentos já marcados ficam na unidade antiga (você verá um alerta pra acompanhá-los).</div>
+          <button type="button" id="btn-redefinir-acesso" onclick="redefinirAcessoColaborador()" style="display:none;margin-top:10px;width:100%;padding:9px;border-radius:8px;border:0.5px solid var(--blue);background:var(--blue-dim);color:var(--blue-text);font-size:13px;font-weight:600;cursor:pointer">🔑 Redefinir acesso (corrigir email / definir senha)</button>
+        </div>
+        <div class="form-group" id="grupo-comissao" style="display:none">
+          <!-- Comissão vem da % cadastrada em cada serviço. Campo mantido oculto
+               só para não quebrar código antigo que lê este id. -->
+          <input class="form-input" id="colab-comissao" type="hidden" value="0">
+        </div>
+        <div class="form-group" id="grupo-salario" style="display:none">
+          <label class="form-label">Salário mensal (R$)</label>
+          <input class="form-input" id="colab-salario" placeholder="0,00" value="" type="number" min="0" step="0.01">
+          <div class="form-hint" style="color:var(--muted);margin-top:4px">Funcionário não comissionado — salário fixo (usado no DRE e contracheque).</div>
+        </div>
+        <div class="form-group" id="grupo-subgerente" style="display:none">
+          <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:14px">
+            <input type="checkbox" id="colab-subgerente" style="width:16px;height:16px;accent-color:var(--gold)">
+            É subgerente da unidade
+          </label>
+          <div class="form-hint" style="color:var(--muted);margin-top:4px">Auxilia o gerente na unidade.</div>
+        </div>
+      </div>
+
+      <div id="bloco-barbeiro">
+      <div class="form-divider"></div>
+      <div class="toggle-wrap">
+        <div>
+          <div class="toggle-label">Colaborador ativo</div>
+          <div class="toggle-sub">Aparece na agenda e pode receber agendamentos</div>
+        </div>
+        <button class="toggle on" onclick="this.classList.toggle('on')"></button>
+      </div>
+
+      <div class="form-divider"></div>
+      <div class="toggle-wrap">
+        <div>
+          <div class="toggle-label">Atende como barbeiro</div>
+          <div class="toggle-sub">Aparece na agenda e recebe agendamentos</div>
+        </div>
+        <button class="toggle" id="colab-atende" onclick="this.classList.toggle('on');onAtendeChange()"></button>
+      </div>
+
+      <div id="bloco-atende">
+        <div class="form-divider"></div>
+        <div style="font-size:11px;font-weight:500;color:var(--gold);text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px">Horário de atendimento</div>
+        <div class="toggle-wrap" style="margin-bottom:10px">
+          <div>
+            <div class="toggle-label">Horário próprio</div>
+            <div class="toggle-sub">Desligado, ele segue o horário da unidade</div>
+          </div>
+          <button class="toggle" id="colab-horario-proprio" onclick="this.classList.toggle('on');onHorarioProprioChange()"></button>
+        </div>
+        <div id="colab-horarios-wrap" style="display:none">
+          <div style="font-size:12px;color:var(--muted);margin-bottom:10px">Ele nunca atende fora do horário da unidade — para isso existe o Encaixe.</div>
+          <div class="horarios-grid" id="colab-horarios"></div>
+        </div>
+
+        <div class="form-divider"></div>
+        <div style="font-size:11px;font-weight:500;color:var(--gold);text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px">Serviços que ele faz</div>
+        <div style="font-size:12px;color:var(--muted);margin-bottom:10px">Marque os serviços e ajuste o tempo deste barbeiro em cada um. Nada marcado = faz todos.</div>
+        <div id="tempos-servico-lista" style="display:flex;flex-direction:column;gap:8px">
+          <div style="font-size:12px;color:var(--muted);text-align:center;padding:12px">Carregando serviços...</div>
+        </div>
+      </div>
+
+      <div class="form-divider"></div>
+      <div style="font-size:11px;font-weight:500;color:var(--gold);text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px">Folgas agendadas</div>
+      <div style="display:flex;gap:8px;margin-bottom:8px">
+        <input class="form-input" type="date" id="nova-folga-data" style="flex:1">
+        <select class="form-select" id="nova-folga-periodo" style="width:130px">
+          <option value="dia_todo">Dia todo</option>
+          <option value="manha">Manhã</option>
+          <option value="tarde">Tarde</option>
+        </select>
+        <button class="btn btn-ghost btn-sm" onclick="adicionarFolga()">+ Folga</button>
+      </div>
+      <div id="folgas-lista" style="display:flex;flex-direction:column;gap:6px">
+        <div style="font-size:12px;color:var(--muted)">Nenhuma folga agendada</div>
+      </div>
+      </div>
+    </div>
+    <div class="drawer-footer">
+      <button class="btn btn-ghost" id="btn-demitir-colab" onclick="demitirColaborador()" style="display:none;margin-right:auto;color:var(--red);border-color:var(--red)">Demitir</button>
+      <button class="btn btn-ghost" onclick="closeDrawer('drawer-colaborador')">Cancelar</button>
+      <button class="btn btn-primary" onclick="salvarColaborador()">Salvar colaborador</button>
+    </div>
+  </div>
+</div>
+
+<!-- DRAWER CLIENTE -->
+<div class="overlay" id="overlay-drawer-cliente" onclick="closeDrawerOverlay(event,'drawer-cliente')">
+  <div class="drawer" id="drawer-cliente">
+    <div class="drawer-header">
+      <div>
+        <div class="drawer-title" id="drawer-cliente-title">Novo Cliente</div>
+        <div class="drawer-subtitle" id="drawer-cliente-sub">Cadastro de cliente</div>
+      </div>
+      <div class="drawer-close" onclick="closeDrawer('drawer-cliente')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </div>
+    </div>
+    <div class="drawer-body">
+      <!-- guarda o id ao editar; sem ele, salvar criaria um cliente novo -->
+      <input type="hidden" id="cli-id">
+      <div class="form-section-title">Dados pessoais</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Nome completo</label>
+          <input class="form-input" placeholder="Nome completo" id="cli-nome">
+        </div>
+      </div>
+      <div class="form-row cols-2">
+        <div class="form-group">
+          <label class="form-label">CPF</label>
+          <input class="form-input" placeholder="000.000.000-00" id="cli-cpf">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Data de nascimento</label>
+          <input class="form-input" type="date" id="cli-nascimento">
+        </div>
+      </div>
+      <div class="form-row cols-2">
+        <div class="form-group">
+          <label class="form-label">WhatsApp</label>
+          <input class="form-input" placeholder="(51) 99999-9999" id="cli-whatsapp">
+        </div>
+        <div class="form-group">
+          <label class="form-label">E-mail</label>
+          <input class="form-input" placeholder="email@exemplo.com" id="cli-email">
+        </div>
+      </div>
+
+      <div class="form-divider"></div>
+      <div class="form-section-title">Preferências de atendimento</div>
+      <div class="form-row cols-2">
+        <div class="form-group">
+          <label class="form-label">Barbeiro preferido</label>
+          <select class="form-select" id="cli-barbeiro-pref">
+            <option value="">Sem preferência</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Unidade habitual</label>
+          <select class="form-select" id="cli-unidade-pref" data-unidades>
+            <option value="">Sem preferência</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Serviços preferidos</label>
+          <div class="tags-wrap">
+            <div class="tag selected" onclick="this.classList.toggle('selected')">Degradê</div>
+            <div class="tag selected" onclick="this.classList.toggle('selected')">Barba Completa</div>
+            <div class="tag" onclick="this.classList.toggle('selected')">Corte Masculino</div>
+            <div class="tag" onclick="this.classList.toggle('selected')">Sobrancelha</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-divider"></div>
+      <div class="form-section-title">Plano</div>
+      <div class="form-row cols-2">
+        <div class="form-group">
+          <label class="form-label">Plano ativo</label>
+          <!-- Planos vêm do cadastro; ver o drawer de assinante em Operacional.
+               Antes eram nomes fixos de maquete. -->
+          <select class="form-select" id="cli-plano" disabled>
+            <option>Gerenciado em Operacional &gt; Planos</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Renovação</label>
+          <input class="form-input" type="date">
+        </div>
+      </div>
+
+      <div class="form-divider"></div>
+      <div class="form-section-title">Observações internas</div>
+      <div class="form-group">
+        <label class="form-label">Anotações do barbeiro</label>
+        <textarea class="form-textarea" id="cli-obs" placeholder="Preferências de corte, informações pessoais, observações..."></textarea>
+        <div class="form-hint">Visível apenas para a equipe. O cliente não vê.</div>
+      </div>
+    </div>
+    <div class="drawer-footer">
+      <button class="btn btn-ghost" onclick="closeDrawer('drawer-cliente')">Cancelar</button>
+      <button class="btn btn-primary" id="cli-btn-salvar" onclick="salvarCliente()">Salvar cliente</button>
+    </div>
+  </div>
+</div>
+
+<!-- DRAWER SERVIÇO -->
+<div class="overlay" id="overlay-drawer-servico" onclick="closeDrawerOverlay(event,'drawer-servico')">
+  <div class="drawer" id="drawer-servico">
+    <div class="drawer-header">
+      <div>
+        <div class="drawer-title" id="drawer-servico-title">Novo Serviço</div>
+        <div class="drawer-subtitle">Cadastre um serviço oferecido</div>
+      </div>
+      <div class="drawer-close" onclick="closeDrawer('drawer-servico')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </div>
+    </div>
+    <div class="drawer-body">
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Nome do serviço</label>
+          <input class="form-input" id="svc-nome" placeholder="Ex: Corte Masculino">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Descrição</label>
+        <textarea class="form-textarea" id="svc-descricao" placeholder="Descreva o serviço..."></textarea>
+      </div>
+      <div class="form-row cols-3">
+        <div class="form-group">
+          <label class="form-label">Valor (R$)</label>
+          <input class="form-input" id="svc-valor" placeholder="0,00">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Duração (min)</label>
+          <select class="form-select" id="svc-duracao">
+            <option>15</option>
+            <option>20</option>
+            <option selected>30</option>
+            <option>45</option>
+            <option>60</option>
+            <option>75</option>
+            <option>90</option>
+            <option>120</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Comissão (%)</label>
+          <input class="form-input" id="svc-comissao" placeholder="0" inputmode="decimal">
+          <div class="form-hint">Quanto o barbeiro recebe deste serviço</div>
+        </div>
+      </div>
+      <div class="toggle-wrap">
+        <div>
+          <div class="toggle-label">Disponível para agendamento online</div>
+          <div class="toggle-sub">Aparece no app e no WhatsApp para os clientes</div>
+        </div>
+        <button class="toggle on" id="svc-online" onclick="this.classList.toggle('on')"></button>
+      </div>
+      <div class="toggle-wrap">
+        <div>
+          <div class="toggle-label">Serviço ativo</div>
+          <div class="toggle-sub">Disponível no sistema</div>
+        </div>
+        <button class="toggle on" id="svc-ativo" onclick="this.classList.toggle('on')"></button>
+      </div>
+      <div style="border-top:0.5px solid var(--border);margin:16px 0 12px;padding-top:16px">
+        <div style="font-size:11px;font-weight:500;color:var(--gold);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px">Fidelidade</div>
+        <div class="form-row cols-2">
+          <div class="form-group">
+            <label class="form-label">Pontos que o cliente ganha</label>
+            <input class="form-input" id="svc-pontos-ganha" placeholder="vazio = regra geral" inputmode="numeric">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Pontos para resgatar</label>
+            <input class="form-input" id="svc-pontos-resgate" placeholder="0 = não resgatável" inputmode="numeric">
+          </div>
+        </div>
+      </div>
+      <div class="form-hint" style="margin-top:14px">
+        Quais barbeiros fazem este serviço você define no cadastro de cada barbeiro.
+      </div>
+    </div>
+    <div class="drawer-footer">
+      <button class="btn btn-ghost" onclick="closeDrawer('drawer-servico')">Cancelar</button>
+      <button class="btn btn-primary" id="svc-btn-salvar" onclick="salvarServico()">Salvar serviço</button>
+    </div>
+  </div>
+</div>
+
+<!-- DRAWER PRODUTO -->
+<div class="overlay" id="overlay-drawer-produto" onclick="closeDrawerOverlay(event,'drawer-produto')">
+  <!-- ==================== DRAWER CATEGORIAS DE PRODUTO ==================== -->
+  <div class="drawer" id="drawer-categorias">
+    <div class="drawer-header">
+      <div>
+        <div class="drawer-title" id="drawer-categorias-title">Categorias de produto</div>
+        <div class="drawer-sub">Produto de bar normalmente não paga comissão</div>
+      </div>
+      <button class="drawer-close" onclick="closeDrawer('drawer-categorias')">&times;</button>
+    </div>
+    <div class="drawer-body">
+      <div class="form-row cols-2" style="align-items:flex-end">
+        <div class="form-group">
+          <label class="form-label">Nova categoria</label>
+          <input class="form-input" id="cat-nome" placeholder="Ex: Bar, Pomadas, Acessórios">
+        </div>
+        <div class="form-group">
+          <button class="btn btn-primary" style="width:100%" onclick="criarCategoria()">Adicionar</button>
+        </div>
+      </div>
+      <label class="chk" style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);margin:-4px 0 16px">
+        <input type="checkbox" id="cat-paga" checked style="width:auto"> paga comissão ao barbeiro
+      </label>
+      <div class="form-divider"></div>
+      <div id="lista-categorias" style="display:flex;flex-direction:column;gap:8px"></div>
+    </div>
+    <div class="drawer-footer">
+      <button class="btn btn-ghost" onclick="closeDrawer('drawer-categorias')">Fechar</button>
+    </div>
+  </div>
+
+  <div class="drawer" id="drawer-produto">
+    <div class="drawer-header">
+      <div>
+        <div class="drawer-title" id="drawer-produto-title">Novo Produto</div>
+        <div class="drawer-subtitle">Cadastre um produto do estoque</div>
+      </div>
+      <div class="drawer-close" onclick="closeDrawer('drawer-produto')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </div>
+    </div>
+    <div class="drawer-body">
+      <input type="hidden" id="prod-id">
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Nome do produto</label>
+          <input class="form-input" placeholder="Ex: Pomada Matte Black" id="prod-nome">
+        </div>
+      </div>
+      <div class="form-row cols-2">
+        <div class="form-group">
+          <label class="form-label">Categoria</label>
+          <select class="form-select" id="prod-categoria">
+            <option value="">Sem categoria</option>
+          </select>
+          <div class="form-hint">Gerencie as categorias pelo botão “Categorias”</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Código de barras</label>
+          <input class="form-input" placeholder="EAN / barcode" id="prod-barcode">
+          <div class="form-hint">Use o leitor para agilizar</div>
+        </div>
+      </div>
+      <div class="form-row cols-2">
+        <div class="form-group">
+          <label class="form-label">Valor de venda (R$)</label>
+          <input class="form-input" placeholder="0,00" id="prod-valor">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Preço p/ colaborador (R$)</label>
+          <input class="form-input" placeholder="0,00" id="prod-valor-colaborador">
+          <div class="form-hint">Preço do consumo/vale do funcionário</div>
+        </div>
+      </div>
+      <div class="form-row cols-2">
+        <div class="form-group">
+          <label class="form-label">Comissão (%)</label>
+          <input class="form-input" placeholder="0" id="prod-comissao" inputmode="decimal">
+          <div class="form-hint">Quanto o barbeiro recebe na venda deste produto</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Pontos que o cliente ganha</label>
+          <input class="form-input" placeholder="vazio = regra geral" id="prod-pontos-ganha" inputmode="numeric">
+        </div>
+      </div>
+      <div class="form-row cols-2">
+        <div class="form-group">
+          <label class="form-label">Estoque atual</label>
+          <input class="form-input" type="number" placeholder="0" id="prod-estoque">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Estoque mínimo</label>
+          <input class="form-input" type="number" placeholder="0" id="prod-estoque-min">
+          <div class="form-hint">Alerta de reposição</div>
+        </div>
+      </div>
+      <div class="form-row cols-2">
+        <div class="form-group">
+          <label class="form-label">Pontos para resgate (cashback)</label>
+          <input class="form-input" type="number" placeholder="0" id="prod-pontos-resgate" min="0">
+          <div class="form-hint">0 = não disponível para resgate por pontos</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Comissão venda (%)</label>
+          <input class="form-input" type="number" placeholder="10" value="10" min="0" max="100">
+          <div class="form-hint">% sobre o valor de venda</div>
+        </div>
+      </div>
+      <div class="toggle-wrap">
+        <div>
+          <div class="toggle-label">Disponível para venda ao cliente</div>
+          <div class="toggle-sub">Aparece na comanda como item vendável</div>
+        </div>
+        <button class="toggle on" onclick="this.classList.toggle('on')"></button>
+      </div>
+      <div class="toggle-wrap">
+        <div>
+          <div class="toggle-label">Produto ativo</div>
+          <div class="toggle-sub">Disponível no sistema</div>
+        </div>
+        <button class="toggle on" onclick="this.classList.toggle('on')"></button>
+      </div>
+    </div>
+    <div class="drawer-footer">
+      <button class="btn btn-ghost" onclick="closeDrawer('drawer-produto')">Cancelar</button>
+      <button class="btn btn-primary" onclick="salvarProduto()">Salvar produto</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ---- Navegação entre views ---- */
+// ---- Feriados ----
+async function carregarFeriados() {
+  var wrap = document.getElementById('feriados-lista')
+  if (!wrap) return
+  wrap.innerHTML = '<div style="text-align:center;padding:24px;color:var(--muted);font-size:13px">Carregando…</div>'
+  try {
+    var lista = await req('GET', '/feriados') || []
+    if (!lista.length) {
+      wrap.innerHTML = '<div style="text-align:center;padding:24px;color:var(--muted);font-size:13px">Nenhum feriado cadastrado ainda.</div>'
+      return
+    }
+    var hoje = new Date().toISOString().split('T')[0]
+    var nomes = ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb']
+    wrap.innerHTML = lista.map(function(f){
+      var p = f.data.split('-')
+      var dataBR = p[2]+'/'+p[1]+'/'+p[0]
+      var passado = f.data < hoje
+      var dia = nomes[new Date(f.data+'T12:00:00').getDay()]
+      var func = f.fechado
+        ? '<span style="color:var(--red)">🔒 Fechado o dia todo</span>'
+        : ((f.hora_abre && f.hora_fecha)
+            ? '<span style="color:var(--gold-light)">🕐 '+f.hora_abre+'–'+f.hora_fecha+'</span>'
+            : '<span style="color:var(--gold-light)">🕐 09:00–18:00</span>')
+      return '<div style="display:flex;align-items:center;justify-content:space-between;background:var(--bg2);border:0.5px solid var(--border);border-radius:10px;padding:12px 14px;margin-bottom:8px'+(passado?';opacity:.5':'')+'">'
+        + '<div>'
+        +   '<div style="font-size:14px;font-weight:500;color:var(--white)">'+dataBR+' <span style="font-size:11px;color:var(--muted);font-weight:400">· '+dia+'</span></div>'
+        +   '<div style="font-size:12px;color:var(--muted)">'+(f.descricao || 'Feriado')+(passado?' · já passou':'')+'</div>'
+        +   '<div style="font-size:12px;margin-top:3px">'+func+'</div>'
+        + '</div>'
+        + '<button onclick="excluirFeriado(\''+f.id+'\')" style="background:none;border:0.5px solid rgba(210,40,40,.3);color:var(--red);border-radius:8px;padding:6px 12px;font-size:12px;cursor:pointer;font-family:inherit">Excluir</button>'
+        + '</div>'
+    }).join('')
+  } catch(e) {
+    wrap.innerHTML = '<div style="text-align:center;padding:24px;color:var(--red);font-size:13px">Erro ao carregar feriados</div>'
+  }
+}
+
+function ferTipoChange(){
+  var tipo = document.getElementById('fer-tipo').value
+  document.getElementById('fer-custom').style.display = (tipo === 'custom') ? 'flex' : 'none'
+}
+async function salvarFeriado() {
+  var data = document.getElementById('fer-data').value
+  var desc = document.getElementById('fer-desc').value
+  var tipo = document.getElementById('fer-tipo').value
+  if (!data) { alert('Escolha a data do feriado'); return }
+  var payload = { data: data, descricao: desc, fechado: false, hora_abre: null, hora_fecha: null }
+  if (tipo === 'fechado') {
+    payload.fechado = true
+  } else if (tipo === 'custom') {
+    var abre = document.getElementById('fer-abre').value
+    var fecha = document.getElementById('fer-fecha').value
+    if (!abre || !fecha) { alert('Defina os horários de abertura e fechamento'); return }
+    if (abre >= fecha) { alert('A abertura precisa ser antes do fechamento'); return }
+    payload.hora_abre = abre; payload.hora_fecha = fecha
+  }
+  try {
+    await req('POST', '/feriados', payload)
+    document.getElementById('fer-data').value = ''
+    document.getElementById('fer-desc').value = ''
+    document.getElementById('fer-tipo').value = 'padrao'
+    ferTipoChange()
+    carregarFeriados()
+  } catch(e) {
+    alert('Erro ao salvar feriado: ' + (e.message || 'tente de novo'))
+  }
+}
+
+async function excluirFeriado(id) {
+  if (!confirm('Excluir este feriado?')) return
+  try {
+    await req('DELETE', '/feriados/' + id)
+    carregarFeriados()
+  } catch(e) {
+    alert('Erro ao excluir: ' + (e.message || 'tente de novo'))
+  }
+}
+
+function showView(name, btn) {
+  document.querySelectorAll('.view').forEach(function(v){ v.classList.remove('active'); });
+  document.getElementById('view-'+name).classList.add('active');
+  document.querySelectorAll('.nav-item').forEach(function(n){ n.classList.remove('active'); });
+  btn.classList.add('active');
+  var labels = { unidades:'Unidades', colaboradores:'Colaboradores', clientes:'Clientes', produtos:'Produtos e Serviços', importacao:'Importação', feriados:'Feriados' };
+  document.getElementById('topbar-title').textContent = labels[name] || '';
+  document.getElementById('topbar-crumb').textContent = labels[name] || '';
+  if (name === 'feriados') carregarFeriados();
+  if (name === 'clientes') carregarContadoresClientes();
+}
+
+/* ---- Tabs produtos/serviços ---- */
+function switchTab(btn, tabId) {
+  document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); });
+  btn.classList.add('active');
+  document.getElementById('tab-servicos').style.display = 'none';
+  document.getElementById('tab-produtos').style.display  = 'none';
+  document.getElementById(tabId).style.display = 'block';
+}
+
+/* ---- Drawers ---- */
+function openDrawer(id, title, sub) {
+  var drawerId   = id.startsWith('drawer-') ? id : 'drawer-' + id;
+  var overlayId  = 'overlay-' + drawerId;
+  var titleEl    = document.getElementById(drawerId + '-title');
+  var subEl      = document.getElementById(drawerId + '-sub');
+  if (titleEl) titleEl.textContent = title;
+  if (subEl)   subEl.textContent   = sub || '';
+  var overlay = document.getElementById(overlayId);
+  if (overlay) { overlay.classList.add('open'); document.body.style.overflow = 'hidden'; }
+}
+
+function closeDrawer(id) {
+  var drawerId  = id.startsWith('drawer-') ? id : 'drawer-' + id;
+  var overlayId = 'overlay-' + drawerId;
+  var overlay   = document.getElementById(overlayId);
+  if (overlay) { overlay.classList.remove('open'); document.body.style.overflow = ''; }
+}
+
+function closeDrawerOverlay(e, id) {
+  if (e.target === e.currentTarget) closeDrawer(id);
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('.overlay.open').forEach(function(o){
+      o.classList.remove('open');
+    });
+    document.body.style.overflow = '';
+  }
+});
+
+// ---- Carrega dados reais ----
+var perfilMap = { proprietario: 'Proprietário', gerente: 'Gerente', colaborador: 'Colaborador', caixa: 'Caixa', funcionario: 'Funcionário' }
+var badgeMap  = { proprietario: 'badge-gold', gerente: 'badge-gold', colaborador: 'badge-blue', caixa: 'badge-gray' }
+var unidadeShort = {}   // nome da unidade vem do banco; sem apelido fixo
+
+function ini2(nome) {
+  return (nome||'').split(' ').map(function(w){return w[0]||'';}).slice(0,2).join('').toUpperCase()
+}
+
+// Cache de colaboradores para o drawer
+var _colaboradoresCache = {}
+var _verDemitidos = false
+
+function toggleVerDemitidos(){
+  _verDemitidos = !_verDemitidos
+  var b = document.getElementById('btn-toggle-demitidos')
+  if(b) b.textContent = _verDemitidos ? '← Ver ativos' : 'Ver demitidos'
+  carregarColaboradores()
+}
+
+async function demitirColaborador(){
+  if(!colaboradorAtualId){ alert('Salve o colaborador antes de demitir.'); return; }
+  var dados = _colaboradoresCache[colaboradorAtualId] || {}
+  if(!confirm('Demitir '+(dados.nome||'este colaborador')+'?\n\nEle perde o acesso (não loga mais) e sai da lista, da agenda e do app. O histórico é preservado, e dá pra readmitir depois em "Ver demitidos".')) return
+  try{
+    await req('POST','/colaboradores/'+colaboradorAtualId+'/demitir', {})
+    if(typeof closeDrawer==='function') closeDrawer('drawer-colaborador')
+    await carregarColaboradores()
+    alert('Colaborador demitido. Ele está em "Ver demitidos" caso precise readmitir.')
+  }catch(e){ alert('Erro ao demitir: '+(e.message||e)) }
+}
+
+async function readmitirColaborador(id){
+  var dados = _colaboradoresCache[id] || {}
+  if(!confirm('Readmitir '+(dados.nome||'este colaborador')+'?\n\nEle volta pra lista, agenda e app, e volta a conseguir logar.')) return
+  try{
+    await req('POST','/colaboradores/'+id+'/readmitir', {})
+    await carregarColaboradores()
+    alert('Colaborador readmitido.')
+  }catch(e){ alert('Erro ao readmitir: '+(e.message||e)) }
+}
+
+
+async function carregarColaboradores() {
+  var tbody = document.getElementById('tbody-colaboradores')
+  if (!tbody) return
+  tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;padding:24px;color:var(--muted);font-size:13px">Carregando...</td></tr>'
+  try {
+    var data = await req('GET', '/colaboradores-todos' + (_verDemitidos ? '?demitidos=true' : ''))
+    if (!data || !data.length) {
+      tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;padding:24px;color:var(--muted);font-size:13px">'+(_verDemitidos?'Nenhum colaborador demitido':'Nenhum colaborador encontrado')+'</td></tr>'
+      return
+    }
+
+    // Guarda no cache
+    _colaboradoresCache = {}
+    data.forEach(function(c){ _colaboradoresCache[c.id] = c })
+
+    // Preenche os selects/tags de barbeiros com os REAIS (cadastro de cliente e de serviço)
+    var _barbeirosReais = data.filter(_soQuemAtende)
+    var _selPref = document.getElementById('cli-barbeiro-pref')
+    if (_selPref) {
+      _selPref.innerHTML = '<option value="">Sem preferência</option>' +
+        _barbeirosReais.map(function(c){ return '<option value="' + c.id + '">' + c.nome + '</option>' }).join('')
+    }
+    var _tagsSvc = document.getElementById('svc-barbeiros-tags')
+    if (_tagsSvc) {
+      _tagsSvc.innerHTML = '<div class="tag selected" onclick="this.classList.toggle(\'selected\')" data-id="todos">Todos</div>' +
+        _barbeirosReais.map(function(c){ return '<div class="tag" onclick="this.classList.toggle(\'selected\')" data-id="' + c.id + '">' + c.nome + '</div>' }).join('')
+    }
+
+    var unidadeShort = {}   // nome da unidade vem do banco; sem apelido fixo
+    var perfilMap = {proprietario:'Proprietário',gerente:'Gerente',colaborador:'Colaborador',caixa:'Caixa',funcionario:'Funcionário'}
+    var badgeMap  = {proprietario:'badge-gold',gerente:'badge-blue',colaborador:'badge-green',caixa:'badge-gray'}
+
+    function ini2(n){ return (n||'').split(' ').map(function(w){return w[0]||''}).slice(0,2).join('').toUpperCase() }
+
+    tbody.innerHTML = data.map(function(c) {
+      var unidade = (c.unidades && c.unidades.nome) ? (unidadeShort[c.unidades.nome] || c.unidades.nome) : '—'
+      var badge   = badgeMap[c.perfil] || 'badge-gray'
+      var label   = perfilMap[c.perfil] || c.perfil
+      var initls  = ini2(c.nome)
+      var rowClick = _verDemitidos ? '' : ('onclick="abrirDrawerColaborador(\'' + c.id + '\')" style="cursor:pointer"')
+      var statusCell = _verDemitidos
+        ? '<span class="badge" style="background:var(--red-dim);color:var(--red-text)">● Demitido</span>'
+        : '<span class="badge badge-green">● Ativo</span>'
+      var acaoCell = _verDemitidos
+        ? '<button class="btn btn-ghost btn-sm" onclick="event.stopPropagation();readmitirColaborador(\'' + c.id + '\')" style="color:var(--green);border-color:var(--green-dim)">Readmitir</button>'
+        : '<div class="icon-btn" onclick="event.stopPropagation();abrirDrawerColaborador(\'' + c.id + '\')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div>'
+      return '<tr ' + rowClick + '>'
+        + '<td><div style="display:flex;align-items:center;gap:10px">'
+        + '<div style="width:32px;height:32px;border-radius:50%;background:var(--bg3);border:0.5px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;color:var(--muted);flex-shrink:0">' + initls + '</div>'
+        + '<div><div style="font-weight:500">' + c.nome + '</div><div class="td-muted">' + c.email + '</div></div>'
+        + '</div></td>'
+        + '<td><span class="badge ' + badge + '">' + label + '</span></td>'
+        + '<td class="td-muted">' + unidade + '</td>'
+        + '<td class="td-muted">' + (c.comissao_pct ? c.comissao_pct + '%' : '—') + '</td>'
+        + '<td>' + statusCell + '</td>'
+        + '<td><div class="td-actions">' + acaoCell + '</div></td>'
+        + '</tr>'
+    }).join('')
+  } catch(e) {
+    tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;padding:24px;color:var(--muted);font-size:13px">Erro ao carregar colaboradores</td></tr>'
+  }
+}
+// ---- Item 13a: funcionário não comissionado (mostra salário / esconde comissão) ----
+function onPerfilColabChange() {
+  var perfil = (document.getElementById('colab-perfil')||{}).value
+  var ehFunc = (perfil === 'funcionario')
+  var gc = document.getElementById('grupo-comissao')
+  var gs = document.getElementById('grupo-salario')
+  var bloco = document.getElementById('bloco-barbeiro')
+  if (gc) gc.style.display = ehFunc ? 'none' : ''
+  if (gs) gs.style.display = ehFunc ? '' : 'none'
+  if (bloco) bloco.style.display = ehFunc ? 'none' : ''
+  var gsub = document.getElementById('grupo-subgerente')
+  if (gsub) gsub.style.display = (perfil === 'gerente') ? '' : 'none'
+}
+
+// ---- Item 8: alterar minhas senhas ----
+async function salvarSenhaLogin() {
+  var atual = (document.getElementById('sn-login-atual')||{}).value || ''
+  var nova  = (document.getElementById('sn-login-nova')||{}).value || ''
+  var conf  = (document.getElementById('sn-login-conf')||{}).value || ''
+  if (nova.length < 4) { alert('A nova senha precisa ter ao menos 4 caracteres.'); return }
+  if (nova !== conf) { alert('A confirmação não confere com a nova senha.'); return }
+  try {
+    await req('POST', '/minha-senha/login', { senha_atual: atual, senha_nova: nova })
+    alert('Senha de login alterada com sucesso!')
+    document.getElementById('sn-login-atual').value = ''
+    document.getElementById('sn-login-nova').value = ''
+    document.getElementById('sn-login-conf').value = ''
+  } catch(e) {
+    alert('Erro: ' + (e.message || 'não foi possível alterar. Confira a senha atual.'))
+  }
+}
+
+async function salvarSenhaAutorizacao() {
+  var nova = (document.getElementById('sn-aut-nova')||{}).value || ''
+  var conf = (document.getElementById('sn-aut-conf')||{}).value || ''
+  if (nova.length < 4) { alert('A senha de autorização precisa ter ao menos 4 caracteres.'); return }
+  if (nova !== conf) { alert('A confirmação não confere.'); return }
+  try {
+    await req('POST', '/autorizacao/definir', { senha: nova })
+    alert('Senha de autorização alterada com sucesso!')
+    document.getElementById('sn-aut-nova').value = ''
+    document.getElementById('sn-aut-conf').value = ''
+  } catch(e) {
+    alert('Erro: ' + (e.message || 'não foi possível alterar.'))
+  }
+}
+
+var _buscaClienteTimer = null
+function onBuscaCliente() {
+  clearTimeout(_buscaClienteTimer)
+  _buscaClienteTimer = setTimeout(function () {
+    var termo = (document.getElementById('busca-cliente') || {}).value || ''
+    carregarClientes(termo.trim())
+  }, 350)
+}
+
+// Item 11: carrega os contadores de clientes
+async function carregarContadoresClientes() {
+  try {
+    var c = await req('GET', '/clientes/contagem')
+    var fmt = function(n){ return (n||0).toLocaleString('pt-BR') }
+    var set = function(id,v){ var e=document.getElementById(id); if(e) e.textContent=fmt(v) }
+    set('cc-total', c.total)
+    set('cc-import', c.importados)
+    set('cc-sistema', c.sistema)
+    set('cc-app', c.com_login_app)
+  } catch(e) {}
+}
+
+async function carregarClientes(termo) {
+  var tbody = document.getElementById('tbody-clientes')
+  if (!tbody) return
+  try {
+    var url = '/clientes?limit=50'
+    if (termo) url += '&q=' + encodeURIComponent(termo)
+    var data = await req('GET', url)
+    if (!data || !data.length) {
+      tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;padding:24px;color:var(--muted);font-size:13px">Nenhum cliente encontrado</td></tr>'
+      return
+    }
+    tbody.innerHTML = data.map(function(c) {
+      var pts = c.carteira_pontos && c.carteira_pontos[0] ? c.carteira_pontos[0].saldo : 0
+      var unidade = c.unidades ? (unidadeShort[c.unidades.nome] || c.unidades.nome) : '—'
+      var dados = encodeURIComponent(JSON.stringify({id:c.id,nome:c.nome,email:c.email,whatsapp:c.whatsapp,cpf:c.cpf,data_nasc:c.data_nasc,observacoes:c.observacoes,unidade_pref:c.unidade_pref,colaborador_pref:c.colaborador_pref}))
+      return '<tr onclick="abrirDrawerCliente(\''+dados+'\')">'
+        + '<td><div style="font-weight:500">'+c.nome+'</div><div class="td-muted">'+(c.email||c.whatsapp||'—')+'</div></td>'
+        + '<td class="td-muted">'+(c.whatsapp||'—')+'</td>'
+        + '<td class="td-muted">'+unidade+'</td>'
+        + '<td><span class="badge badge-blue">'+pts+' pts</span></td>'
+        + '<td><span class="badge badge-green">● Ativo</span></td>'
+        + '<td><div class="td-actions"><div class="icon-btn" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div></div></td>'
+        + '</tr>'
+    }).join('')
+  } catch(e) {
+    tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;padding:24px;color:var(--muted);font-size:13px">Erro ao carregar clientes</td></tr>'
+  }
+}
+
+function abrirDrawerCliente(dadosEnc) {
+  var d = {}
+  try { d = JSON.parse(decodeURIComponent(dadosEnc)) } catch(e) {}
+  openDrawer('drawer-cliente', d.nome || 'Novo Cliente', d.id ? 'Editando cliente' : 'Novo cliente')
+  var set = function(id, val){ var el=document.getElementById(id); if(el) el.value = val||''; }
+  set('cli-id',        d.id)
+  set('cli-nome',      d.nome)
+  set('cli-email',     d.email)
+  set('cli-whatsapp',  d.whatsapp)
+  set('cli-cpf',       d.cpf)
+  set('cli-nascimento',d.data_nasc)
+  set('cli-obs',           d.observacoes)
+  set('cli-unidade-pref',  d.unidade_pref)
+  set('cli-barbeiro-pref', d.colaborador_pref)
+}
+
+// Salva o cliente. O botão existia mas não chamava nada, e a rota POST nem
+// existia no backend — por isso "não acontecia nada" ao clicar em Salvar.
+async function salvarCliente(){
+  var v = function(id){ var el=document.getElementById(id); return el ? String(el.value||'').trim() : '' }
+  var id   = v('cli-id')
+  var nome = v('cli-nome')
+  if(!nome){ toast('Informe o nome do cliente', true); return }
+
+  // CPF é obrigatório só para assinante, mas se foi digitado tem que estar
+  // completo: CPF errado só falha lá na frente, ao gerar a cobrança.
+  var cpf = v('cli-cpf').replace(/\D/g,'')
+  if(cpf && cpf.length !== 11){ toast('CPF incompleto', true); return }
+
+  var dados = {
+    nome: nome,
+    whatsapp: v('cli-whatsapp').replace(/\D/g,'') || null,
+    email: v('cli-email') || null,
+    cpf: cpf || null,
+    data_nasc: v('cli-nascimento') || null,
+    unidade_pref: v('cli-unidade-pref') || null,
+    colaborador_pref: v('cli-barbeiro-pref') || null,
+    observacoes: v('cli-obs') || null
+  }
+
+  var btn = document.getElementById('cli-btn-salvar')
+  if(btn){ btn.disabled = true; btn.style.opacity = '.5' }
+  try{
+    if(id) await req('PUT','/clientes/'+id, dados)
+    else   await req('POST','/clientes', dados)
+    toast(id ? 'Cliente atualizado' : 'Cliente cadastrado')
+    closeDrawer('drawer-cliente')
+    if(typeof carregarClientes === 'function') carregarClientes()
+  }catch(e){
+    toast((e && e.message) || 'Erro ao salvar cliente', true)
+  }finally{
+    if(btn){ btn.disabled = false; btn.style.opacity = '' }
+  }
+}
+
+
+function _soQuemAtende(c){
+  if(!c) return false;
+  if(c.atende === 1 || c.atende === true) return true;
+  if(c.atende === 0 || c.atende === false) return false;
+  return c.perfil==='colaborador' || c.perfil==='gerente';
+}
+
+
+// ============================================================
+// CATEGORIAS DE PRODUTO
+// A categoria decide se o produto paga comissão (bar normalmente não paga).
+// ============================================================
+var CATEGORIAS_CACHE = []
+
+async function carregarCategorias(){
+  try{
+    CATEGORIAS_CACHE = await req('GET','/categorias-produto') || []
+  }catch(e){ CATEGORIAS_CACHE = [] }
+  preencherSelectsCategoria()
+  renderCategorias()
+}
+
+function preencherSelectsCategoria(){
+  var opts = CATEGORIAS_CACHE.map(function(c){
+    return '<option value="'+c.id+'">'+c.nome+'</option>'
+  }).join('')
+  var f = document.getElementById('filtro-categoria')
+  if(f){ var v=f.value; f.innerHTML = '<option value="">Todas as categorias</option>'+opts; f.value=v }
+  var d = document.getElementById('prod-categoria')
+  if(d){ var v2=d.value; d.innerHTML = '<option value="">Sem categoria</option>'+opts; d.value=v2 }
+}
+
+function renderCategorias(){
+  var box = document.getElementById('lista-categorias')
+  if(!box) return
+  if(!CATEGORIAS_CACHE.length){
+    box.innerHTML = '<div style="font-size:13px;color:var(--muted);text-align:center;padding:16px">Nenhuma categoria ainda.</div>'
+    return
+  }
+  box.innerHTML = CATEGORIAS_CACHE.map(function(c){
+    var paga = (c.paga_comissao === 1 || c.paga_comissao === true)
+    return '<div style="display:flex;align-items:center;gap:10px;padding:9px 12px;background:var(--bg3);border-radius:8px">'
+      + '<span style="flex:1;font-size:13px;color:var(--white)">'+c.nome+'</span>'
+      + '<label style="display:flex;align-items:center;gap:6px;font-size:11px;color:var(--muted);cursor:pointer">'
+      +   '<input type="checkbox"'+(paga?' checked':'')+' style="width:auto" onchange="alternarComissaoCategoria(\''+c.id+'\',this.checked)"> comissão'
+      + '</label>'
+      + '<button class="btn btn-ghost" style="padding:4px 9px;font-size:11px" onclick="excluirCategoria(\''+c.id+'\')">Excluir</button>'
+      + '</div>'
+  }).join('')
+}
+
+function abrirDrawerCategorias(){
+  carregarCategorias()
+  openDrawer('drawer-categorias','Categorias de produto','Produto de bar normalmente não paga comissão')
+}
+
+async function criarCategoria(){
+  var nome = document.getElementById('cat-nome').value.trim()
+  if(!nome){ alert('Informe o nome da categoria'); return }
+  var paga = document.getElementById('cat-paga').checked
+  try{
+    await req('POST','/categorias-produto',{ nome: nome, paga_comissao: paga })
+    document.getElementById('cat-nome').value = ''
+    document.getElementById('cat-paga').checked = true
+    await carregarCategorias()
+    marcarCadastroMudou()
+  }catch(e){ alert('Erro: '+(e.message||'tente de novo')) }
+}
+
+async function alternarComissaoCategoria(id, paga){
+  try{
+    await req('PUT','/categorias-produto/'+id,{ paga_comissao: paga })
+    await carregarCategorias()
+  }catch(e){ alert('Erro: '+(e.message||'tente de novo')); carregarCategorias() }
+}
+
+async function excluirCategoria(id){
+  var c = CATEGORIAS_CACHE.filter(function(x){ return x.id===id })[0] || {}
+  if(!confirm('Excluir a categoria "'+(c.nome||'')+'"?')) return
+  try{
+    await req('DELETE','/categorias-produto/'+id)
+    await carregarCategorias()
+  }catch(e){ alert('Erro: '+(e.message||'tente de novo')) }
+}
+
+var _servicosCache = {}
+async function carregarServicos() {
+  var tbody = document.getElementById('tbody-servicos')
+  if (!tbody) return
+  try {
+    var data = await req('GET', '/servicos?incluir_inativos=1') || []
+    _servicosCache = {}
+    data.forEach(function(x){ _servicosCache[x.id] = x })
+    if (!data.length) {
+      tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;padding:24px;color:var(--muted);font-size:13px">Nenhum serviço cadastrado. Clique em “Novo serviço”.</td></tr>'
+      return
+    }
+    tbody.innerHTML = data.map(function(s) {
+      var valor = 'R$ ' + parseFloat(s.valor||0).toFixed(2).replace('.', ',')
+      var dur   = s.duracao_min ? s.duracao_min + ' min' : '—'
+      var com   = (s.comissao_pct==null || s.comissao_pct==='') ? '—' : (parseFloat(s.comissao_pct)+'%')
+      var ativo = s.ativo !== false && s.ativo !== 0
+      return '<tr onclick="abrirDrawerServico(\''+s.id+'\')" style="cursor:pointer">'
+        + '<td><div style="font-weight:500">'+s.nome+'</div></td>'
+        + '<td class="td-muted">'+dur+'</td>'
+        + '<td style="font-weight:500;color:var(--gold-light)">'+valor+'</td>'
+        + '<td class="td-muted">'+com+'</td>'
+        + '<td><span class="badge '+(ativo?'badge-green':'badge-red')+'">● '+(ativo?'Ativo':'Inativo')+'</span></td>'
+        + '<td><div class="td-actions"><div class="icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div></div></td>'
+        + '</tr>'
+    }).join('')
+  } catch(e) {
+    tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;padding:24px;color:var(--muted);font-size:13px">Erro ao carregar serviços</td></tr>'
+  }
+}
+
+// ---- drawer de serviço ----
+var servicoAtualId = null
+function abrirDrawerServico(id){
+  servicoAtualId = id || null
+  var s = id ? (_servicosCache[id] || {}) : {}
+  document.getElementById('svc-nome').value      = s.nome || ''
+  document.getElementById('svc-descricao').value = s.descricao || ''
+  document.getElementById('svc-valor').value     = (s.valor!=null) ? String(s.valor).replace('.', ',') : ''
+  document.getElementById('svc-comissao').value  = (s.comissao_pct!=null) ? String(s.comissao_pct).replace('.', ',') : ''
+  document.getElementById('svc-pontos-ganha').value   = (s.pontos_ganha!=null) ? s.pontos_ganha : ''
+  document.getElementById('svc-pontos-resgate').value = (s.pontos_resgate!=null) ? s.pontos_resgate : ''
+  var sel = document.getElementById('svc-duracao')
+  var dur = String(s.duracao_min || 30)
+  if(!Array.prototype.some.call(sel.options, function(o){ return o.value===dur || o.text===dur })){
+    var o=document.createElement('option'); o.text=dur; o.value=dur; sel.appendChild(o)
+  }
+  sel.value = dur
+  document.getElementById('svc-online').classList.toggle('on', s.disponivel_online !== false && s.disponivel_online !== 0)
+  document.getElementById('svc-ativo').classList.toggle('on', id ? (s.ativo !== false && s.ativo !== 0) : true)
+  openDrawer('drawer-servico', id ? (s.nome||'Serviço') : 'Novo Serviço', id ? 'Editando serviço' : 'Cadastre um novo serviço')
+}
+
+function _num(v){
+  var n = parseFloat(String(v||'').replace(/\./g,'').replace(',', '.'))
+  return isNaN(n) ? null : n
+}
+
+async function salvarServico(){
+  var nome = document.getElementById('svc-nome').value.trim()
+  if(!nome){ alert('Dê um nome para o serviço'); return }
+  var valor = _num(document.getElementById('svc-valor').value)
+  if(valor===null){ alert('Informe o valor do serviço'); return }
+  var com = _num(document.getElementById('svc-comissao').value)
+  if(com===null) com = 0
+  if(com < 0 || com > 100){ alert('A comissão precisa ficar entre 0 e 100%'); return }
+
+  var corpo = {
+    nome: nome,
+    descricao: document.getElementById('svc-descricao').value.trim() || null,
+    valor: valor,
+    duracao_min: parseInt(document.getElementById('svc-duracao').value, 10) || 30,
+    comissao_pct: com,
+    pontos_ganha:   document.getElementById('svc-pontos-ganha').value.trim()   === '' ? null : (parseInt(document.getElementById('svc-pontos-ganha').value,10)   || 0),
+    pontos_resgate: document.getElementById('svc-pontos-resgate').value.trim() === '' ? null : (parseInt(document.getElementById('svc-pontos-resgate').value,10) || 0),
+    disponivel_online: document.getElementById('svc-online').classList.contains('on') ? 1 : 0,
+    ativo: document.getElementById('svc-ativo').classList.contains('on') ? 1 : 0
+  }
+
+  var btn = document.getElementById('svc-btn-salvar')
+  btn.disabled = true; btn.textContent = 'Salvando…'
+  try{
+    if(servicoAtualId) await req('PUT','/servicos/'+servicoAtualId, corpo)
+    else               await req('POST','/servicos', corpo)
+    marcarCadastroMudou()
+    closeDrawer('drawer-servico')
+    await carregarServicos()
+  }catch(e){
+    alert('Erro ao salvar: '+(e.message||'tente de novo'))
+  }finally{
+    btn.disabled = false; btn.textContent = 'Salvar serviço'
+  }
+}
+
+var _produtosCache = {}
+async function carregarProdutos() {
+  var tbody = document.getElementById('tbody-produtos')
+  if (!tbody) return
+  try {
+    var data = await req('GET', '/produtos') || []
+    var _fc = (document.getElementById('filtro-categoria')||{}).value || ''
+    if (_fc) data = data.filter(function(p){ return p.categoria_id === _fc })
+    if (!data.length) {
+      tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;padding:24px;color:var(--muted);font-size:13px">Nenhum produto encontrado</td></tr>'
+      return
+    }
+    _produtosCache = {}
+    data.forEach(function(p){ _produtosCache[p.id] = p })
+    var _brl = function(v){ return (v==null||v==='')?'—':('R$ '+parseFloat(v||0).toFixed(2).replace('.', ',')) }
+    tbody.innerHTML = data.map(function(p) {
+      var cat = (p.categorias_produto && p.categorias_produto.nome) || p.categoria || '—'
+      var estoque = (p.estoque!=null) ? p.estoque : ((p.estoque_atual!=null) ? p.estoque_atual : '—')
+      var ativo = p.ativo !== false
+      return '<tr onclick="abrirDrawerProduto(\''+p.id+'\')" style="cursor:pointer">'
+        + '<td><div style="font-weight:500">'+p.nome+'</div></td>'
+        + '<td class="td-muted">'+cat+'</td>'
+        + '<td style="font-weight:500;color:var(--gold-light)">'+_brl(p.valor_venda||p.valor)+'</td>'
+        + '<td class="td-muted">'+_brl(p.valor_colaborador)+'</td>'
+        + '<td class="td-muted">'+estoque+'</td>'
+        + '<td>'+(ativo?'<span class="badge badge-green">● Ativo</span>':'<span class="badge badge-gray">● Inativo</span>')+'</td>'
+        + '<td><div class="td-actions"><div class="icon-btn" onclick="event.stopPropagation();abrirDrawerProduto(\''+p.id+'\')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div></div></td>'
+        + '</tr>'
+    }).join('')
+  } catch(e) {
+    tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;padding:24px;color:var(--muted);font-size:13px">Erro ao carregar produtos</td></tr>'
+  }
+}
+
+function abrirDrawerProduto(id) {
+  var d = (id && _produtosCache[id]) ? _produtosCache[id] : {}
+  openDrawer('drawer-produto', d.nome || 'Novo Produto', d.id ? 'Editando produto' : 'Novo produto')
+  var set = function(fid, val){ var el=document.getElementById(fid); if(el) el.value = (val==null?'':val); }
+  set('prod-id',            d.id)
+  set('prod-nome',          d.nome)
+  set('prod-barcode',       d.barcode || d.codigo_barras)
+  set('prod-valor',         (d.valor_venda!=null ? d.valor_venda : d.valor))
+  set('prod-valor-colaborador', d.valor_colaborador)
+  set('prod-comissao',      d.comissao_pct)
+  set('prod-pontos-ganha',  d.pontos_ganha)
+  preencherSelectsCategoria()
+  set('prod-categoria',     d.categoria_id)
+  set('prod-estoque',       (d.estoque!=null ? d.estoque : d.estoque_atual))
+  set('prod-estoque-min',   d.estoque_minimo)
+  set('prod-pontos-resgate',d.pontos_resgate)
+}
+
+// Salva o produto (cria ou edita). Envia só os campos editáveis aqui — os demais
+// (estoque atual, categoria, disponibilidade) não são tocados.
+async function salvarProduto(){
+  var el = function(id){ var e=document.getElementById(id); return e?String(e.value||'').trim():'' }
+  var num = function(id){ var s=el(id); if(!s) return null; if(s.indexOf(',')>=0) s=s.replace(/\./g,'').replace(',','.'); var n=parseFloat(s); return isNaN(n)?null:n }
+  var inteiro = function(id){ var s=el(id); if(s==='') return null; var n=parseInt(s,10); return isNaN(n)?null:n }
+  var nome = el('prod-nome')
+  if(!nome){ alert('Informe o nome do produto.'); return }
+  var id = el('prod-id')
+  // Envia só os campos preenchidos — não sobrescreve nem zera o que está vazio.
+  var payload = { nome: nome }
+  var vv = num('prod-valor');                if(vv!=null)   payload.valor_venda = vv
+  var vcol = num('prod-valor-colaborador');  if(vcol!=null) payload.valor_colaborador = vcol
+  var pc = num('prod-comissao');             if(pc!=null)   payload.comissao_pct = pc
+  var _pg = document.getElementById('prod-pontos-ganha')
+  payload.pontos_ganha = (_pg && _pg.value.trim()!=='') ? (parseInt(_pg.value,10)||0) : null
+  var _cat = document.getElementById('prod-categoria')
+  payload.categoria_id = (_cat && _cat.value) ? _cat.value : null
+  var em = inteiro('prod-estoque-min');       if(em!=null)  payload.estoque_minimo = em
+  var pr = inteiro('prod-pontos-resgate');    if(pr!=null)  payload.pontos_resgate = pr
+  try{
+    if(id){ await req('PUT','/produtos/'+id, payload) }
+    else { payload.ativo = true; await req('POST','/produtos', payload) }
+    closeDrawer('drawer-produto')
+    if(typeof carregarProdutos==='function') await carregarProdutos()
+    alert('Produto salvo.')
+  }catch(e){ alert('Erro ao salvar produto: '+(e.message||e)) }
+}
+
+// ---- Tempos de serviço por colaborador ----
+var colaboradorAtualId = null
+
+async function redefinirAcessoColaborador(){
+  if(!colaboradorAtualId){ alert('Salve o colaborador antes de redefinir o acesso.'); return; }
+  var dados=_colaboradoresCache[colaboradorAtualId]||{};
+  var emailAtual=(document.getElementById('colab-email')||{}).value||dados.email||'';
+  var email=prompt('Email de LOGIN do colaborador (corrija se estiver errado):', emailAtual);
+  if(email===null) return;
+  email=(email||'').trim();
+  var senha=prompt('Nova senha (deixe em branco para NÃO alterar a senha):','');
+  if(senha===null) return;
+  if(!email && !senha){ alert('Nada para alterar.'); return; }
+  var resumo='Confirmar:\n'+(email?('• Email de login → '+email+'\n'):'')+(senha?'• Definir uma nova senha\n':'');
+  if(!confirm(resumo)) return;
+  try{
+    var body={}; if(email) body.email=email; if(senha) body.senha=senha;
+    await req('POST','/colaboradores/'+colaboradorAtualId+'/redefinir-acesso', body);
+    if(email){ var ef=document.getElementById('colab-email'); if(ef) ef.value=email; if(dados) dados.email=email; }
+    alert('Acesso atualizado.'+(email?(' Login: '+email+'.'):'')+(senha?' Nova senha definida.':''));
+  }catch(e){ alert('Erro ao redefinir acesso: '+(e.message||e)); }
+}
+
+async function transferirColaborador(){
+  if(!colaboradorAtualId){ alert('Salve o colaborador antes de transferir.'); return; }
+  var uniSel=document.getElementById('colab-unidade');
+  var novaUni=uniSel?uniSel.value:'';
+  if(!novaUni){ alert('Selecione a unidade de destino.'); return; }
+  var dados=_colaboradoresCache[colaboradorAtualId];
+  if(dados && String(dados.unidade_id)===String(novaUni)){ alert('O barbeiro já está nessa unidade.'); return; }
+  var nomeUni=(uniSel.options[uniSel.selectedIndex]||{}).text||'a unidade selecionada';
+  if(!confirm('Transferir '+(dados?dados.nome:'este barbeiro')+' para '+nomeUni+'?\n\nOs agendamentos já marcados ficam na unidade antiga (você verá um alerta pra acompanhá-los).')) return;
+  try{
+    await req('POST','/colaboradores/'+colaboradorAtualId+'/transferir',{ nova_unidade_id: novaUni });
+    if(dados) dados.unidade_id=novaUni;
+    var t=document.createElement('div');
+    t.style.cssText='position:fixed;bottom:24px;right:24px;background:var(--bg2);border:0.5px solid rgba(7,67,145,.4);border-radius:10px;padding:12px 16px;font-size:13px;color:var(--white);z-index:9999';
+    t.textContent='✅ Transferido para '+nomeUni;
+    document.body.appendChild(t); setTimeout(function(){t.remove()},3000);
+    if(typeof carregarColaboradores==='function') await carregarColaboradores();
+  }catch(e){ alert('Erro ao transferir: '+(e.message||e)); }
+}
+
+function abrirDrawerColaborador(id) {
+  colaboradorAtualId = id || null
+  var dados = id ? _colaboradoresCache[id] : null
+  var titulo = dados ? dados.nome : 'Novo Colaborador'
+  var sub    = dados ? 'Editando colaborador' : 'Preencha os dados'
+  openDrawer('drawer-colaborador', titulo, sub)
+  var _btnT=document.getElementById('btn-transferir-colab'), _hintT=document.getElementById('hint-transferir');
+  if(_btnT) _btnT.style.display = id ? 'block' : 'none';
+  if(_hintT) _hintT.style.display = id ? 'block' : 'none';
+  var _btnR=document.getElementById('btn-redefinir-acesso'); if(_btnR) _btnR.style.display = id ? 'block' : 'none';
+  var _btnD=document.getElementById('btn-demitir-colab'); if(_btnD) _btnD.style.display = id ? '' : 'none';
+
+  if (dados) {
+    setVal('colab-nome',     dados.nome || '')
+    setVal('colab-email',    dados.email || '')
+    setVal('colab-whats',    dados.whatsapp || '')
+    setVal('colab-cpf',      dados.cpf || '')
+    setVal('colab-nasc',     dados.data_nasc ? dados.data_nasc.split('T')[0] : '')
+    setVal('colab-comissao', dados.comissao_pct || 0)
+    var _at = document.getElementById('colab-atende')
+    if (_at) _at.classList.toggle('on', dados.atende === 1 || dados.atende === true)
+    setVal('colab-salario',  dados.salario || '')
+    var uniSel = document.getElementById('colab-unidade')
+    if (uniSel && dados.unidade_id) uniSel.value = dados.unidade_id
+    var selPerfil = document.getElementById('colab-perfil')
+    if (selPerfil && dados.perfil) selPerfil.value = dados.perfil
+    var _ms = document.getElementById('colab-mostrar-sobrenome'); if (_ms) _ms.checked = !!dados.mostrar_sobrenome
+    var _sub = document.getElementById('colab-subgerente'); if (_sub) _sub.checked = !!dados.is_subgerente
+  } else {
+    setVal('colab-nome',''); setVal('colab-email','')
+    setVal('colab-whats',''); setVal('colab-cpf','')
+    setVal('colab-nasc',''); setVal('colab-comissao', 0)
+    var _at2 = document.getElementById('colab-atende')
+    if (_at2) _at2.classList.add('on')   // novo colaborador já nasce atendendo
+    setVal('colab-salario','')
+    var selPerfil = document.getElementById('colab-perfil')
+    if (selPerfil) selPerfil.value = 'colaborador'
+    var _ms2 = document.getElementById('colab-mostrar-sobrenome'); if (_ms2) _ms2.checked = false
+  }
+  onPerfilColabChange()  // aplica o toggle salário/comissão conforme o perfil
+
+  if (id) {
+    carregarTemposServico(id)
+    carregarHorariosColab(id)
+    onAtendeChange()
+    carregarFolgas(id)
+  } else {
+    // Novo colaborador: mostra a lista de serviços atualizada (tempos padrão), sem folgas
+    carregarTemposServico(null)
+    carregarHorariosColab(null)
+    onAtendeChange()
+    var lf = document.getElementById('folgas-lista')
+    if (lf) lf.innerHTML = '<div style="font-size:12px;color:var(--muted)">Salve o colaborador para agendar folgas</div>'
+  }
+
+  // Foto: zera estado e mostra a atual (ou iniciais)
+  _colabFotoNova = undefined
+  var _inpFoto = document.getElementById('colab-foto-input'); if (_inpFoto) _inpFoto.value = ''
+  setPreviewColab(dados && dados.foto_url ? dados.foto_url : null, dados ? dados.nome : '')
+  // Foto 2 (selecionado)
+  _colabFoto2Nova = undefined
+  var _inpFoto2 = document.getElementById('colab-foto2-input'); if (_inpFoto2) _inpFoto2.value = ''
+  setPreviewColab2(dados && dados.foto_url_2 ? dados.foto_url_2 : null)
+}
+
+function setVal(id, val) {
+  var el = document.getElementById(id)
+  if (el) el.value = val
+}
+var servicosCache = []
+
+async function carregarTemposServico(colaborador_id) {
+  colaboradorAtualId = colaborador_id
+  var lista = document.getElementById('tempos-servico-lista')
+  if (!lista) return
+  try {
+    // sempre busca serviços frescos (pega serviços recém-cadastrados)
+    servicosCache = await req('GET', '/servicos') || []
+
+    var tempoMap = {}
+    if (colaborador_id) {
+      var tempos = await req('GET', '/colaboradores/' + colaborador_id + '/tempos-servico') || []
+      tempos.forEach(function(t){ tempoMap[t.servico_id] = t.duracao_min })
+    }
+
+    if (!servicosCache.length) {
+      lista.innerHTML = '<div style="font-size:12px;color:var(--muted);text-align:center;padding:12px">Nenhum serviço cadastrado ainda.</div>'
+      return
+    }
+
+    // quais serviços este barbeiro já faz
+    var vinculados = {}
+    if (colaborador_id) {
+      try {
+        var meus = await req('GET', '/servicos?colaborador_id=' + colaborador_id) || []
+        // se vier a lista inteira, é porque não há vínculo — trata como "faz todos"
+        if (meus.length && meus.length < servicosCache.length) {
+          meus.forEach(function(m){ vinculados[m.id] = true })
+        }
+      } catch(e) {}
+    }
+    var temVinculo = Object.keys(vinculados).length > 0
+
+    lista.innerHTML = servicosCache.map(function(s) {
+      var dur = tempoMap[s.id] || s.duracao_min || 30
+      var marcado = temVinculo ? !!vinculados[s.id] : true
+      return '<div style="display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 12px;background:var(--bg3);border-radius:8px">'
+        + '<label style="display:flex;align-items:center;gap:9px;flex:1;cursor:pointer;min-width:0">'
+        + '<input type="checkbox" class="svc-check" data-servico-id="' + s.id + '"' + (marcado?' checked':'') + ' style="width:16px;height:16px;flex:none;accent-color:var(--gold)">'
+        + '<span style="font-size:13px;color:var(--white);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">' + s.nome + '</span>'
+        + '</label>'
+        + '<div style="display:flex;align-items:center;gap:8px;flex:none">'
+        + '<input type="number" min="5" max="240" step="5" value="' + dur + '" data-servico-id="' + s.id + '" style="width:60px;background:var(--bg2);border:0.5px solid var(--border);border-radius:6px;padding:4px 8px;color:var(--white);font-family:\'DM Sans\',sans-serif;font-size:13px;text-align:center" onchange="salvarTempoServico(\'' + s.id + '\',this.value)">'
+        + '<span style="font-size:11px;color:var(--muted)">min</span>'
+        + '</div></div>'
+    }).join('')
+  } catch(e) {
+    lista.innerHTML = '<div style="font-size:12px;color:var(--muted)">Erro ao carregar tempos</div>'
+  }
+}
+
+async function salvarTempoServico(servico_id, duracao_min) {
+  if (!colaboradorAtualId) return
+  try {
+    await req('POST', '/colaboradores/' + colaboradorAtualId + '/tempos-servico', { servico_id, duracao_min: parseInt(duracao_min) })
+  } catch(e) { console.warn('Erro ao salvar tempo:', e) }
+}
+
+// ---- Folgas ----
+var folgasTemp = []
+
+async function carregarFolgas(colaborador_id) {
+  var lista = document.getElementById('folgas-lista')
+  if (!lista) return
+  try {
+    var mes = new Date().toISOString().slice(0,7)
+    var data = await req('GET', '/folgas?colaborador_id=' + colaborador_id + '&mes=' + mes) || []
+    folgasTemp = data
+    renderFolgas()
+  } catch(e) {}
+}
+
+function renderFolgas() {
+  var lista = document.getElementById('folgas-lista')
+  if (!lista) return
+  if (!folgasTemp.length) { lista.innerHTML = '<div style="font-size:12px;color:var(--muted)">Nenhuma folga agendada</div>'; return }
+  lista.innerHTML = folgasTemp.map(function(f, i) {
+    var periodoLabel = { dia_todo: 'Dia todo', manha: 'Manhã', tarde: 'Tarde' }[f.periodo] || f.periodo
+    return '<div style="display:flex;align-items:center;justify-content:space-between;padding:8px 12px;background:var(--bg3);border-radius:8px">'
+      + '<div>'
+      + '<div style="font-size:13px;color:var(--white)">' + f.data_folga + ' · ' + periodoLabel + '</div>'
+      + '<div style="font-size:11px;color:var(--muted)">' + (f.status === 'aprovada' ? '✓ Aprovada' : '⏳ Solicitada') + '</div>'
+      + '</div>'
+      + '<div onclick="cancelarFolga(\'' + f.id + '\',' + i + ')" style="cursor:pointer;color:var(--muted);font-size:18px;padding:0 4px">✕</div>'
+      + '</div>'
+  }).join('')
+}
+
+async function adicionarFolga() {
+  if (!colaboradorAtualId) return
+  var data_folga = document.getElementById('nova-folga-data').value
+  var periodo    = document.getElementById('nova-folga-periodo').value
+  if (!data_folga) { alert('Selecione uma data'); return }
+  try {
+    await req('POST', '/folgas', { colaborador_id: colaboradorAtualId, data_folga, periodo })
+    await carregarFolgas(colaboradorAtualId)
+    document.getElementById('nova-folga-data').value = ''
+  } catch(e) { alert('Erro ao adicionar folga') }
+}
+
+async function cancelarFolga(id, idx) {
+  if (!confirm('Cancelar esta folga?')) return
+  try {
+    await req('DELETE', '/folgas/' + id)
+    folgasTemp.splice(idx, 1)
+    renderFolgas()
+  } catch(e) { alert('Erro ao cancelar folga') }
+}
+
+// ---- Foto do colaborador (upload via base64 redimensionado, sem precisar de storage) ----
+var _colabFotoNova = undefined  // undefined = sem mudança · null = remover · string = nova foto
+
+function ini2Colab(n){ return (n||'').split(' ').filter(Boolean).map(function(w){return w[0]||''}).slice(0,2).join('').toUpperCase() || '?' }
+
+function setPreviewColab(fotoUrl, nome){
+  var el = document.getElementById('av-colab')
+  var btnRem = document.getElementById('btn-remover-foto')
+  if(!el) return
+  if(fotoUrl){
+    el.style.backgroundImage = 'url("'+fotoUrl+'")'
+    el.textContent = ''
+    if(btnRem) btnRem.style.display = 'inline-block'
+  } else {
+    el.style.backgroundImage = 'none'
+    el.textContent = ini2Colab(nome)
+    if(btnRem) btnRem.style.display = 'none'
+  }
+}
+
+function processarFotoColab(file){
+  if(!file) return
+  if(!/^image\/(png|jpe?g|webp)$/.test(file.type)){ alert('Use uma imagem JPG, PNG ou WEBP.'); return }
+  if(file.size > 2*1024*1024){ alert('A imagem é muito grande (máx. 2MB). Escolha uma menor.'); return }
+  var reader = new FileReader()
+  reader.onload = function(e){
+    var img = new Image()
+    img.onload = function(){
+      // Reduz pra no máx 256px (mantém proporção) e gera JPEG leve
+      var max = 256, w = img.width, h = img.height
+      if(w > h){ if(w > max){ h = Math.round(h*max/w); w = max } }
+      else     { if(h > max){ w = Math.round(w*max/h); h = max } }
+      var canvas = document.createElement('canvas')
+      canvas.width = w; canvas.height = h
+      canvas.getContext('2d').drawImage(img, 0, 0, w, h)
+      _colabFotoNova = canvas.toDataURL('image/jpeg', 0.85)
+      setPreviewColab(_colabFotoNova, '')
+    }
+    img.onerror = function(){ alert('Não consegui ler essa imagem. Tente outra.') }
+    img.src = e.target.result
+  }
+  reader.onerror = function(){ alert('Erro ao ler o arquivo.') }
+  reader.readAsDataURL(file)
+}
+
+function removerFotoColab(){
+  _colabFotoNova = null
+  var inp = document.getElementById('colab-foto-input'); if(inp) inp.value = ''
+  var nomeEl = document.getElementById('colab-nome')
+  setPreviewColab(null, nomeEl ? nomeEl.value : '')
+}
+
+// ---- Foto 2 (mostrada quando o cliente seleciona o barbeiro no app) ----
+var _colabFoto2Nova = undefined  // undefined = sem mudança · null = remover · string = nova foto
+
+function setPreviewColab2(fotoUrl){
+  var el = document.getElementById('av-colab-2')
+  var btnRem = document.getElementById('btn-remover-foto2')
+  if(!el) return
+  if(fotoUrl){
+    el.style.backgroundImage = 'url("'+fotoUrl+'")'
+    el.textContent = ''
+    if(btnRem) btnRem.style.display = 'inline-block'
+  } else {
+    el.style.backgroundImage = 'none'
+    el.textContent = '👍'
+    if(btnRem) btnRem.style.display = 'none'
+  }
+}
+
+function processarFotoColab2(file){
+  if(!file) return
+  if(!/^image\/(png|jpe?g|webp)$/.test(file.type)){ alert('Use uma imagem JPG, PNG ou WEBP.'); return }
+  if(file.size > 2*1024*1024){ alert('A imagem é muito grande (máx. 2MB). Escolha uma menor.'); return }
+  var reader = new FileReader()
+  reader.onload = function(e){
+    var img = new Image()
+    img.onload = function(){
+      var max = 256, w = img.width, h = img.height
+      if(w > h){ if(w > max){ h = Math.round(h*max/w); w = max } }
+      else     { if(h > max){ w = Math.round(w*max/h); h = max } }
+      var canvas = document.createElement('canvas')
+      canvas.width = w; canvas.height = h
+      canvas.getContext('2d').drawImage(img, 0, 0, w, h)
+      _colabFoto2Nova = canvas.toDataURL('image/jpeg', 0.85)
+      setPreviewColab2(_colabFoto2Nova)
+    }
+    img.onerror = function(){ alert('Não consegui ler essa imagem. Tente outra.') }
+    img.src = e.target.result
+  }
+  reader.onerror = function(){ alert('Erro ao ler o arquivo.') }
+  reader.readAsDataURL(file)
+}
+
+function removerFotoColab2(){
+  _colabFoto2Nova = null
+  var inp = document.getElementById('colab-foto2-input'); if(inp) inp.value = ''
+  setPreviewColab2(null)
+}
+
+// ---- Abre drawer do colaborador com dados reais ----
+// Item 9: carrega perfis novos (não-fixos) no select de perfil do colaborador
+async function carregarPerfisSelect(){
+  var u = requireAuth();
+  if(!u || u.perfil!=='proprietario' && u.perfil!=='gerente') return;
+  try{
+    var perfis = await req('GET','/permissoes/perfis') || [];
+    var sel = document.getElementById('colab-perfil');
+    if(!sel) return;
+    var fixos = ['proprietario','gerente','caixa','colaborador','funcionario'];
+    perfis.forEach(function(p){
+      if(fixos.indexOf(p.chave)!==-1) return; // fixos já estão no HTML
+      if(sel.querySelector('option[value="'+p.chave+'"]')) return; // evita duplicar
+      var opt=document.createElement('option');
+      opt.value=p.chave; opt.textContent=p.nome+' (base: '+p.base+')';
+      sel.appendChild(opt);
+    });
+  }catch(e){}
+}
+
+// ---- horário próprio do colaborador ----
+function onHorarioProprioChange(){
+  var on = document.getElementById('colab-horario-proprio').classList.contains('on')
+  document.getElementById('colab-horarios-wrap').style.display = on ? '' : 'none'
+  if (on && !document.querySelector('#colab-horarios .horario-row')) montarHorariosColab([])
+}
+
+function montarHorariosColab(horarios){
+  var wrap = document.getElementById('colab-horarios')
+  if(!wrap) return
+  var porDia = {}
+  ;(horarios||[]).forEach(function(h){ porDia[h.dia_semana] = h })
+  var ordem = [1,2,3,4,5,6,0]
+  wrap.innerHTML = ordem.map(function(d){
+    var h = porDia[d] || {}
+    var aberto = (h.aberto === undefined) ? (d !== 0) : (h.aberto === 1 || h.aberto === true)
+    return '<div class="horario-row" data-dia="'+d+'">'
+      + '<div class="dia-label">'+DIAS_SEMANA[d]+'</div>'
+      + '<input class="form-input" type="time" value="'+((h.hora_inicio||'09:00').slice(0,5))+'">'
+      + '<input class="form-input" type="time" value="'+((h.hora_fim||'19:00').slice(0,5))+'">'
+      + '<button class="toggle'+(aberto?' on':'')+'" onclick="this.classList.toggle(\'on\')" title="Atende neste dia"></button>'
+      + '</div>'
+  }).join('')
+}
+
+function lerHorariosColab(){
+  var linhas = document.querySelectorAll('#colab-horarios .horario-row')
+  var out = []
+  Array.prototype.forEach.call(linhas, function(l){
+    var ins = l.querySelectorAll('input[type=time]')
+    out.push({
+      dia_semana: parseInt(l.dataset.dia, 10),
+      hora_inicio: ins[0].value || null,
+      hora_fim: ins[1].value || null,
+      aberto: l.querySelector('.toggle').classList.contains('on') ? 1 : 0
+    })
+  })
+  return out
+}
+
+async function carregarHorariosColab(colaborador_id){
+  var tg = document.getElementById('colab-horario-proprio')
+  if(!tg) return
+  var lista = []
+  if (colaborador_id) {
+    try { lista = await req('GET', '/colaboradores/' + colaborador_id + '/horarios') || [] } catch(e) {}
+  }
+  tg.classList.toggle('on', lista.length > 0)
+  montarHorariosColab(lista)
+  onHorarioProprioChange()
+}
+
+// A senha aparece UMA vez. Depois disso nem o sistema sabe qual é —
+// se perder, é só usar "Redefinir acesso" e sortear outra.
+function mostrarSenhaGerada(nomeColab, senha){
+  var fundo = document.createElement('div')
+  fundo.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:99999;'+
+    'display:flex;align-items:center;justify-content:center;padding:20px'
+  fundo.innerHTML =
+    '<div style="background:var(--bg2);border:1px solid var(--border);border-radius:14px;'+
+      'padding:26px;max-width:420px;width:100%">'+
+      '<div style="font-size:17px;font-weight:700;color:var(--white);margin-bottom:6px">Acesso criado</div>'+
+      '<div style="font-size:13.5px;color:var(--muted);margin-bottom:18px">Anote ou envie esta senha para '+
+        (nomeColab||'o colaborador')+'. Ela aparece só desta vez.</div>'+
+      '<div style="display:flex;gap:8px;align-items:center;margin-bottom:18px">'+
+        '<code id="senha-gerada" style="flex:1;background:var(--bg3);border:1px solid var(--border);'+
+          'border-radius:9px;padding:13px 15px;font-size:19px;letter-spacing:.09em;'+
+          'color:var(--gold);text-align:center;font-family:ui-monospace,Menlo,monospace">'+senha+'</code>'+
+        '<button id="btn-copiar-senha" class="btn btn-ghost" style="padding:13px 15px">Copiar</button>'+
+      '</div>'+
+      '<button id="btn-fechar-senha" class="btn btn-primary" style="width:100%">Anotei, pode fechar</button>'+
+    '</div>'
+  document.body.appendChild(fundo)
+  fundo.querySelector('#btn-copiar-senha').onclick = function(){
+    var b = this
+    navigator.clipboard.writeText(senha).then(function(){
+      b.textContent = 'Copiado'
+      setTimeout(function(){ b.textContent = 'Copiar' }, 2000)
+    }).catch(function(){
+      var ta=document.createElement('textarea'); ta.value=senha
+      document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove()
+      b.textContent = 'Copiado'
+    })
+  }
+  fundo.querySelector('#btn-fechar-senha').onclick = function(){ fundo.remove() }
+}
+
+function onAtendeChange(){
+  var on = document.getElementById('colab-atende').classList.contains('on')
+  var bloco = document.getElementById('bloco-atende')
+  if (bloco) bloco.style.display = on ? '' : 'none'
+}
+
+async function salvarColaborador() {
+  var nome  = document.getElementById('colab-nome').value.trim()
+  var email = document.getElementById('colab-email').value.trim()
+  var whats = document.getElementById('colab-whats').value.replace(/\D/g,'')
+  var perfil= document.getElementById('colab-perfil').value
+  var nasc  = document.getElementById('colab-nasc').value
+  var comissao = parseFloat(document.getElementById('colab-comissao').value) || 0
+  var ehFuncionario = (perfil === 'funcionario')
+
+  if (!nome)  { alert('Informe o nome do colaborador'); return }
+  if (!email && !ehFuncionario) { alert('Informe o e-mail'); return }
+
+  var payload = { nome, perfil, ativo: true }
+  // atende como barbeiro (vale para qualquer perfil, inclusive proprietário)
+  var _atEl = document.getElementById('colab-atende')
+  payload.atende = (_atEl && _atEl.classList.contains('on')) ? 1 : 0
+  // serviços que ele faz — só faz sentido para quem atende
+  if (payload.atende) {
+    // horário próprio: lista vazia = segue o horário da unidade
+    var _hp = document.getElementById('colab-horario-proprio')
+    if (_hp && _hp.classList.contains('on')) {
+      var _hs = lerHorariosColab()
+      var _ruim = _hs.filter(function(h){ return h.aberto && h.hora_inicio && h.hora_fim && h.hora_inicio >= h.hora_fim })
+      if (_ruim.length) { alert('Em '+DIAS_SEMANA[_ruim[0].dia_semana]+', a entrada precisa ser antes da saída.'); return }
+      payload.horarios = _hs
+    } else {
+      payload.horarios = []
+    }
+    var marcados = document.querySelectorAll('#tempos-servico-lista .svc-check:checked')
+    var todos    = document.querySelectorAll('#tempos-servico-lista .svc-check')
+    // tudo marcado = faz todos = sem restrição (lista vazia)
+    if (marcados.length && marcados.length < todos.length) {
+      payload.servico_ids = Array.prototype.map.call(marcados, function(c){ return c.dataset.servicoId })
+    } else {
+      payload.servico_ids = []
+    }
+  }
+  var _msEl = document.getElementById('colab-mostrar-sobrenome')
+  payload.mostrar_sobrenome = !!(_msEl && _msEl.checked)
+  var _subEl = document.getElementById('colab-subgerente')
+  payload.is_subgerente = (perfil === 'gerente') ? !!(_subEl && _subEl.checked) : false
+  // unidade principal do colaborador
+  var uniEl = document.getElementById('colab-unidade')
+  if (uniEl && uniEl.value) payload.unidade_id = uniEl.value
+  if (ehFuncionario) {
+    // funcionário não comissionado: sem comissão, com salário
+    payload.comissao_pct = 0
+    payload.salario = parseFloat(document.getElementById('colab-salario').value) || 0
+  } else {
+    payload.comissao_pct = comissao
+    // A senha de primeiro acesso é sorteada pelo SERVIDOR e volta na resposta.
+    // Antes ficava escrita aqui, igual para toda barbearia.
+  }
+  if (email) payload.email = email
+  if (whats) payload.whatsapp = whats
+  if (nasc)  payload.data_nasc = nasc
+  if (_colabFotoNova !== undefined) payload.foto_url = _colabFotoNova  // nova foto ou null (remover)
+  if (_colabFoto2Nova !== undefined) payload.foto_url_2 = _colabFoto2Nova  // foto "selecionado"
+
+  try {
+    var resposta
+    if (colaboradorAtualId) {
+      resposta = await req('PUT', '/colaboradores/' + colaboradorAtualId, payload)
+    } else {
+      resposta = await req('POST', '/colaboradores', payload)
+    }
+    marcarCadastroMudou()
+    closeDrawer('drawer-colaborador')
+    await carregarColaboradores()
+    if (resposta && resposta.senha_primeiro_acesso) {
+      mostrarSenhaGerada(nome, resposta.senha_primeiro_acesso)
+    } else {
+      var t = document.createElement('div')
+      t.style.cssText = 'position:fixed;bottom:24px;right:24px;background:var(--bg2);border:0.5px solid rgba(7,67,145,.4);border-radius:10px;padding:12px 16px;font-size:13px;color:var(--white);z-index:9999'
+      t.textContent = '✅ Colaborador salvo com sucesso!'
+      document.body.appendChild(t)
+      setTimeout(function(){ t.remove() }, 3000)
+    }
+  } catch(e) {
+    alert('Erro ao salvar: ' + (e.message || 'verifique os dados'))
+  }
+}
+
+
+// ============================================================
+// UNIDADES — tabela e drawer ligados na API
+// ============================================================
+var UNIDADES_CACHE = [];
+var unidadeAtualId = null;
+var DIAS_SEMANA = ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'];
+
+// Avisa as outras telas (painel) que o cadastro mudou, para elas
+// descartarem o que tiverem guardado em cache.
+function marcarCadastroMudou(){
+  try{ localStorage.setItem('cadastro_mudou_em', String(Date.now())); }catch(e){}
+}
+
+async function carregarUnidades(){
+  try{
+    UNIDADES_CACHE = await req('GET','/unidades') || [];
+  }catch(e){
+    UNIDADES_CACHE = [];
+    document.getElementById('tbody-unidades').innerHTML =
+      '<tr><td colspan="6" class="td-muted" style="text-align:center;padding:28px">Erro ao carregar: '+(e.message||'tente de novo')+'</td></tr>';
+    return;
+  }
+  renderUnidades();
+}
+
+function _resumoHorario(u){
+  var hs = u.horarios_unidade || [];
+  var abertos = hs.filter(function(h){ return h.aberto; });
+  if(!abertos.length) return 'Sem horário definido';
+  var ini = abertos.map(function(h){ return h.hora_inicio; }).sort()[0];
+  var fim = abertos.map(function(h){ return h.hora_fim; }).sort().reverse()[0];
+  return 'Abertura: '+(ini||'--')+' · Fechamento: '+(fim||'--');
+}
+
+function renderUnidades(){
+  var tb = document.getElementById('tbody-unidades');
+  if(!tb) return;
+  var q = (document.getElementById('busca-unidade')||{}).value || '';
+  q = q.trim().toLowerCase();
+  var lista = UNIDADES_CACHE.filter(function(u){
+    if(!q) return true;
+    return (u.nome||'').toLowerCase().indexOf(q) !== -1
+        || (u.endereco||'').toLowerCase().indexOf(q) !== -1;
+  });
+  if(!lista.length){
+    tb.innerHTML = '<tr><td colspan="6" class="td-muted" style="text-align:center;padding:28px">'
+                 + (q ? 'Nenhuma unidade encontrada.' : 'Nenhuma unidade cadastrada. Clique em “Nova unidade”.')
+                 + '</td></tr>';
+    return;
+  }
+  tb.innerHTML = lista.map(function(u){
+    var end = [u.endereco, u.bairro, u.cidade].filter(Boolean).join(' — ') || '—';
+    return '<tr onclick="abrirDrawerUnidade(\'' + u.id + '\')">'
+      + '<td><div style="font-weight:500">'+(u.nome||'')+'</div><div class="td-muted">'+_resumoHorario(u)+'</div></td>'
+      + '<td class="td-muted">'+end+'</td>'
+      + '<td class="td-muted">'+(u.telefone||'—')+'</td>'
+      + '<td><span class="badge badge-blue">'+_contaColabs(u.id)+' colaboradores</span></td>'
+      + '<td><span class="badge '+(u.ativa===false?'badge-red':'badge-green')+'">● '+(u.ativa===false?'Inativa':'Ativa')+'</span></td>'
+      + '<td><div class="td-actions"><div class="icon-btn" title="Editar">'
+      + '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>'
+      + '</div></div></td>'
+      + '</tr>';
+  }).join('');
+}
+
+function _contaColabs(unidadeId){
+  try{
+    return Object.keys(_colaboradoresCache||{}).filter(function(k){
+      return _colaboradoresCache[k].unidade_id === unidadeId;
+    }).length;
+  }catch(e){ return 0; }
+}
+
+// ---- horários do drawer ----
+function montarHorariosUnidade(horarios){
+  var wrap = document.getElementById('uni-horarios');
+  if(!wrap) return;
+  var porDia = {};
+  (horarios||[]).forEach(function(h){ porDia[h.dia_semana] = h; });
+  var ordem = [1,2,3,4,5,6,0];   // segunda → domingo
+  wrap.innerHTML = ordem.map(function(d){
+    var h = porDia[d] || {};
+    var aberto = (h.aberto === undefined) ? (d !== 0) : !!h.aberto;
+    return '<div class="horario-row" data-dia="'+d+'">'
+      + '<div class="dia-label">'+DIAS_SEMANA[d]+'</div>'
+      + '<input class="form-input" type="time" value="'+(h.hora_inicio||'09:00')+'">'
+      + '<input class="form-input" type="time" value="'+(h.hora_fim||'19:00')+'">'
+      + '<button class="toggle'+(aberto?' on':'')+'" onclick="this.classList.toggle(\'on\')" title="Aberto neste dia"></button>'
+      + '</div>';
+  }).join('');
+}
+
+function lerHorariosUnidade(){
+  var linhas = document.querySelectorAll('#uni-horarios .horario-row');
+  var out = [];
+  Array.prototype.forEach.call(linhas, function(l){
+    var ins = l.querySelectorAll('input[type=time]');
+    out.push({
+      dia_semana: parseInt(l.dataset.dia, 10),
+      hora_inicio: ins[0].value || null,
+      hora_fim: ins[1].value || null,
+      aberto: l.querySelector('.toggle').classList.contains('on') ? 1 : 0
+    });
+  });
+  return out;
+}
+
+// ---- abrir ----
+function abrirDrawerUnidade(id){
+  // o clique na linha vinha ativando a busca; limpa antes de abrir
+  var _b = document.getElementById('busca-unidade');
+  if(_b && _b.value){ _b.value = ''; renderUnidades(); }
+  unidadeAtualId = id || null;
+  var u = id ? (UNIDADES_CACHE.filter(function(x){ return x.id === id; })[0] || {}) : {};
+  document.getElementById('uni-nome').value     = u.nome || '';
+  document.getElementById('uni-telefone').value = u.telefone || '';
+  document.getElementById('uni-email').value    = u.email || '';
+  document.getElementById('uni-endereco').value = u.endereco || '';
+  var _lm=document.getElementById('uni-link-mapa'); if(_lm) _lm.value = u.link_mapa || '';
+  document.getElementById('uni-bairro').value   = u.bairro || '';
+  document.getElementById('uni-cidade').value   = u.cidade || (window.TENANT && TENANT.cidade) || '';
+  document.getElementById('uni-cep').value      = u.cep || '';
+  var tg = document.getElementById('uni-ativa');
+  tg.classList.toggle('on', u.ativa !== false);
+  montarHorariosUnidade(u.horarios_unidade);
+  document.getElementById('uni-btn-excluir').style.display = id ? '' : 'none';
+  openDrawer('drawer-unidade',
+    id ? (u.nome || 'Unidade') : 'Nova Unidade',
+    id ? 'Editando unidade' : 'Preencha os dados da nova unidade');
+}
+
+// ---- salvar ----
+async function salvarUnidade(){
+  var nome = document.getElementById('uni-nome').value.trim();
+  if(!nome){ alert('Dê um nome para a unidade'); return; }
+
+  var horarios = lerHorariosUnidade();
+  var ruim = horarios.filter(function(h){
+    return h.aberto && h.hora_inicio && h.hora_fim && h.hora_inicio >= h.hora_fim;
+  });
+  if(ruim.length){ alert('Em '+DIAS_SEMANA[ruim[0].dia_semana]+', a abertura precisa ser antes do fechamento.'); return; }
+
+  var corpo = {
+    nome: nome,
+    telefone: document.getElementById('uni-telefone').value.trim() || null,
+    email:    document.getElementById('uni-email').value.trim() || null,
+    endereco: document.getElementById('uni-endereco').value.trim() || null,
+    link_mapa: ((document.getElementById('uni-link-mapa')||{}).value||'').trim() || null,
+    bairro:   document.getElementById('uni-bairro').value.trim() || null,
+    cidade:   document.getElementById('uni-cidade').value.trim() || null,
+    cep:      document.getElementById('uni-cep').value.trim() || null,
+    horarios: horarios
+  };
+
+  var btn = document.getElementById('uni-btn-salvar');
+  btn.disabled = true; btn.textContent = 'Salvando…';
+  try{
+    if(unidadeAtualId){
+      corpo.ativa = document.getElementById('uni-ativa').classList.contains('on') ? 1 : 0;
+      await req('PUT','/unidades/'+unidadeAtualId, corpo);
+    } else {
+      await req('POST','/unidades', corpo);
+    }
+    marcarCadastroMudou();
+    closeDrawer('drawer-unidade');
+    await carregarUnidades();
+    if(window.TENANT && TENANT.recarregarUnidades) TENANT.recarregarUnidades();
+  }catch(e){
+    alert('Erro ao salvar: '+(e.message||'tente de novo'));
+  }finally{
+    btn.disabled = false; btn.textContent = 'Salvar unidade';
+  }
+}
+
+// ---- excluir ----
+async function excluirUnidade(){
+  if(!unidadeAtualId){ return; }
+  var u = UNIDADES_CACHE.filter(function(x){ return x.id === unidadeAtualId; })[0] || {};
+  if(!confirm('Excluir a unidade "'+(u.nome||'')+'"?\n\nISSO APAGA TUDO da unidade: agenda, comandas, caixa, estoque, metas e colaboradores. Não tem volta.')) return;
+  if(!confirm('Tem certeza mesmo? Digite OK no próximo aviso para confirmar.')) return;
+  var btn = document.getElementById('uni-btn-excluir');
+  btn.disabled = true; btn.textContent = 'Excluindo…';
+  try{
+    await req('DELETE','/unidades/'+unidadeAtualId);
+    marcarCadastroMudou();
+    closeDrawer('drawer-unidade');
+    await carregarUnidades();
+    if(window.TENANT && TENANT.recarregarUnidades) TENANT.recarregarUnidades();
+  }catch(e){
+    alert('Erro ao excluir: '+(e.message||'tente de novo'));
+  }finally{
+    btn.disabled = false; btn.textContent = 'Excluir';
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  var u = requireAuth();
+  if (u) {
+    carregarUnidades()
+    carregarCategorias()
+    carregarColaboradores()
+    carregarClientes()
+    carregarServicos()
+    carregarProdutos()
+    carregarPerfisSelect()
+    // Feriados: só gerente/proprietário
+    var navFer = document.getElementById('nav-feriados');
+    if (navFer && u.perfil !== 'proprietario' && u.perfil !== 'gerente') navFer.style.display = 'none';
+  }
+})
+</script>
+<!-- IMPORTAÇÃO: SheetJS para ler Excel -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script>
+var impDados = null;
+
+function handleImpDrop(e) {
+  e.preventDefault();
+  document.getElementById('imp-dropzone').style.borderColor = 'var(--border2)';
+  var file = e.dataTransfer.files[0];
+  if (file) processarArquivoImportacao(file);
+}
+
+function processarArquivoImportacao(file) {
+  if (!file) return;
+  var reader = new FileReader();
+  reader.onload = function(e) {
+    try {
+      var wb = XLSX.read(e.target.result, { type: 'array', cellDates: true });
+      var ws = wb.Sheets[wb.SheetNames[0]];
+      var data = XLSX.utils.sheet_to_json(ws, { defval: '' });
+
+      if (!data.length) { alert('Arquivo vazio ou formato inválido.'); return; }
+
+      // Normaliza colunas
+      var rows = data.map(function(r) {
+        return {
+          servico:     r['Serviço'] || r['Servico'] || '',
+          cliente:     r['Cliente'] || '',
+          telefone:    r['Telefone'] || '',
+          profissional:r['Profissional'] || '',
+          data:        r['Data'] || '',
+          valor:       parseFloat(String(r['Valor']||'0').replace(/[^\d,\.]/g,'').replace(',','.')) || 0,
+          forma_pgto:  r['Forma Pgto.'] || r['Forma Pgto'] || '',
+          pontos:      parseInt(r['Pts.'] || r['Pts'] || 0) || 0,
+          status:      r['Status'] || '',
+        };
+      }).filter(function(r){ return r.cliente && r.data; });
+
+      impDados = rows;
+
+      // Calcula stats
+      var totalValor = rows.reduce(function(s,r){ return s + r.valor; }, 0);
+      var datas = rows.map(function(r){ return r.data; }).filter(Boolean).sort();
+
+      document.getElementById('imp-filename').textContent = file.name;
+      document.getElementById('imp-total-linhas').textContent = rows.length.toLocaleString('pt-BR');
+      document.getElementById('imp-total-valor').textContent = 'R$ ' + totalValor.toLocaleString('pt-BR', {minimumFractionDigits:0});
+      document.getElementById('imp-periodo').textContent = datas.length ? (String(datas[0]).slice(0,10) + ' a ' + String(datas[datas.length-1]).slice(0,10)) : '—';
+
+      // Amostra
+      var tbody = document.getElementById('imp-tabela-body');
+      tbody.innerHTML = rows.slice(0,5).map(function(r){
+        var statusCor = r.status.toLowerCase().includes('conclu') ? '#4caf7d' : r.status.toLowerCase().includes('cancel') ? '#e07070' : 'var(--muted)';
+        return '<tr style="border-top:0.5px solid var(--border)">' +
+          '<td style="padding:8px 12px;color:var(--white)">' + r.cliente + '</td>' +
+          '<td style="padding:8px 12px;color:var(--muted)">' + r.servico + '</td>' +
+          '<td style="padding:8px 12px;color:var(--muted)">' + r.profissional + '</td>' +
+          '<td style="padding:8px 12px;color:var(--muted)">' + String(r.data).slice(0,10) + '</td>' +
+          '<td style="padding:8px 12px;text-align:right;color:var(--gold-light)">R$ ' + r.valor.toFixed(2).replace('.',',') + '</td>' +
+          '<td style="padding:8px 12px;color:' + statusCor + '">' + r.status + '</td>' +
+          '</tr>';
+      }).join('');
+
+      document.getElementById('imp-preview').style.display = 'block';
+    } catch(err) {
+      alert('Erro ao ler o arquivo: ' + err.message);
+    }
+  };
+  reader.readAsArrayBuffer(file);
+}
+
+async function confirmarImportacao() {
+  var unidade = document.getElementById('imp-unidade').value;
+  if (!unidade) { alert('Selecione a unidade antes de importar.'); return; }
+  if (!impDados || !impDados.length) return;
+
+  document.getElementById('imp-preview').style.display = 'none';
+  document.getElementById('imp-progresso').style.display = 'block';
+
+  var total = impDados.length;
+  var inseridos = 0, erros = 0;
+
+  for (var i = 0; i < impDados.length; i++) {
+    var row = impDados[i];
+    try {
+      await API.post('/historico-servicos', {
+        unidade_slug:  unidade,
+        servico_nome:  row.servico,
+        cliente_nome:  row.cliente,
+        cliente_fone:  row.telefone,
+        profissional:  row.profissional,
+        data:          row.data,
+        valor:         row.valor,
+        forma_pgto:    row.forma_pgto,
+        pontos:        row.pontos,
+        status:        row.status,
+      });
+      inseridos++;
+    } catch(e) {
+      erros++;
+    }
+
+    // Atualiza barra
+    var pct = Math.round((i+1)/total*100);
+    document.getElementById('imp-prog-bar').style.width = pct + '%';
+    document.getElementById('imp-prog-detalhe').textContent = (i+1) + ' de ' + total + ' registros';
+    document.getElementById('imp-prog-texto').textContent = 'Importando... ' + pct + '%';
+
+    // Pausa a cada 50 para não travar o browser
+    if (i % 50 === 0) await new Promise(function(r){ setTimeout(r,10); });
+  }
+
+  document.getElementById('imp-progresso').style.display = 'none';
+  document.getElementById('imp-resultado').style.display = 'block';
+  document.getElementById('imp-res-titulo').textContent = 'Importação concluída!';
+  document.getElementById('imp-res-detalhe').textContent = inseridos.toLocaleString('pt-BR') + ' registros importados' + (erros ? ' · ' + erros + ' com erro' : ' com sucesso');
+}
+
+function limparImportacao() {
+  impDados = null;
+  document.getElementById('imp-preview').style.display = 'none';
+  document.getElementById('imp-progresso').style.display = 'none';
+  document.getElementById('imp-resultado').style.display = 'none';
+  document.getElementById('imp-file').value = '';
+  document.getElementById('imp-unidade').value = '';
+}
+</script>
+
+</body>
+</html>

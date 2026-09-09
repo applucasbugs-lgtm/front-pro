@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <script src="tenant.js"></script>
+<link rel="icon" href="/icons/favicon-48.png">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>APP LUCAS BUGS | HAIR STYLIST — Balanço de Estoque</title>
+<style>
+  :root{
+/* TEMA:INICIO — gerado pelo personalizador, não edite à mão */
+  --bg:#000000;
+  --bg2:#0b0b0b;
+  --bg3:#161616;
+  --bg4:#212121;
+  --black:#000000;
+  --white:#ffffff;
+  --cream:#e6fdf6;
+  --muted:#949494;
+  --muted2:#707070;
+  --border:rgba(255,255,255,0.1);
+  --border2:rgba(255,255,255,0.18);
+  --gold:#00eba4;
+  --gold-light:#ffffff;
+  --gold-dim:rgba(0,235,164,0.12);
+  --gold-border:rgba(0,235,164,0.3);
+  --border-strong:rgba(0,235,164,0.4);
+  --on-primary:#0d0d10;
+  --green:#2ecc71;
+  --green-dim:rgba(46,204,113,0.14);
+  --green-text:#54d58b;
+  --on-green:#0d1526;
+  --red:#ef5350;
+  --red-dim:rgba(239,83,80,0.14);
+  --red-text:#f27270;
+  --amber:#f0b429;
+  --amber-dim:rgba(240,180,41,0.16);
+  --blue:#4b9bf5;
+  --blue-dim:rgba(75,155,245,0.14);
+  --blue-text:#6badf7;
+  --roxo:#a97bf0;
+  --roxo-dim:rgba(169,123,240,0.14);
+  --roxo-text:#b893f3;
+  --overlay:rgba(0,0,0,0.05);
+  --overlay2:rgba(0,0,0,0.1);
+  --wpp:#25D366;
+  --wpp-dim:rgba(37,211,102,0.12);
+  --serie-1:#2a78d6;
+  --serie-2:#eb6834;
+  --serie-3:#1baf7a;
+  --serie-4:#eda100;
+  --serie-5:#e87ba4;
+  --serie-6:#008300;
+  --serie-7:#4a3aa7;
+  --serie-8:#e34948;
+  --ag-bg:#0b0b0b;
+  --ag-bg-header:#161616;
+  --ag-bg-time:#0b0b0b;
+  --ag-line:rgba(255,255,255,0.09);
+  --ag-line-full:rgba(255,255,255,0.16);
+  --ag-text:#ffffff;
+  --ag-text-muted:#737373;
+  --ag-hover:rgba(255,255,255,0.04);
+  --ag-mine-bg:rgba(0,235,164,0.14);
+  --ag-mine-border:rgba(0,235,164,0.4);
+  --ev-agendado-bar:#2a71c8;
+  --ev-agendado-bg:#122135;
+  --ev-agendado-text:#75a3db;
+  --ev-concluido-bar:#2ecc71;
+  --ev-concluido-bg:#133521;
+  --ev-concluido-text:#77dea3;
+  --ev-atrasado-bar:#c2650a;
+  --ev-atrasado-bg:#331f0b;
+  --ev-atrasado-text:#d79b60;
+  --ev-nao-veio-bar:#ef5350;
+  --ev-nao-veio-bg:#3d1b1a;
+  --ev-nao-veio-text:#f58f8d;
+  --ev-bloqueado-bar:#7a7a7a;
+  --ev-bloqueado-bg:#232323;
+  --ev-bloqueado-text:#a9a9a9;
+  /* TEMA:FIM */
+}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--white);font-family:'Inter',-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+  .wrap{max-width:960px;margin:0 auto;padding:24px 18px 80px}
+  h1{font-size:20px;margin:0 0 4px}
+  .sub{color:var(--muted);font-size:13px;margin:0 0 22px}
+  .card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:18px;margin-bottom:16px}
+  label{display:block;font-size:12px;color:var(--muted);margin:0 0 5px;text-transform:uppercase;letter-spacing:.06em}
+  select,input,textarea{width:100%;padding:10px;border:1px solid var(--border);border-radius:9px;background:var(--bg3);color:var(--white);font-size:14px;font-family:inherit}
+  .row{display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end}
+  .row>div{flex:1;min-width:150px}
+  .btn{padding:11px 18px;border:0;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit}
+  .btn-primary{background:var(--gold);color:var(--on-primary)}
+  .btn-ghost{background:var(--bg3);color:var(--white);border:1px solid var(--border)}
+  .btn-green{background:var(--green);color:var(--on-green)}
+  .btn-red{background:transparent;color:var(--red);border:1px solid var(--red)}
+  .btn:disabled{opacity:.5;cursor:default}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th,td{padding:9px 8px;text-align:left;border-bottom:1px solid var(--border)}
+  th{color:var(--muted);font-weight:500;font-size:11px;text-transform:uppercase}
+  td input{padding:7px;font-size:13px;max-width:90px}
+  .muted{color:var(--muted)} .gold{color:var(--gold)} .green{color:var(--green)} .red{color:var(--red)}
+  .sec-title{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--gold);margin:6px 0 12px}
+  .back{display:inline-block;color:var(--muted);text-decoration:none;font-size:13px;margin-bottom:14px}
+  .hidden{display:none}
+  .pill{font-size:11px;padding:2px 9px;border-radius:20px;font-weight:600}
+  .pill-pend{background:var(--gold-dim);color:var(--gold)}
+  .pill-ok{background:var(--green-dim);color:var(--green-text)}
+  .diff-pos{color:var(--green)} .diff-neg{color:var(--red)} .diff-zero{color:var(--muted)}
+  .item-bal{border-bottom:1px solid var(--border);padding:12px 0}
+  .toast{position:fixed;bottom:24px;right:24px;background:var(--bg2);border:1px solid var(--border-strong);border-radius:10px;padding:12px 16px;font-size:13px;color:var(--gold-light);z-index:9999}
+  .tabs{display:flex;gap:8px;margin-bottom:18px}
+  .tab{padding:9px 16px;border-radius:10px;background:var(--bg2);border:1px solid var(--border);color:var(--muted);cursor:pointer;font-size:13px}
+  .tab.active{background:var(--gold);color:var(--on-primary);border-color:var(--gold);font-weight:600}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <a href="appsuabarbearia-dashboard.html" class="back">← Voltar ao Painel</a>
+    <h1>Balanço de Estoque</h1>
+    <p class="sub" id="page-sub">Confira o estoque físico e envie para aprovação.</p>
+
+    <!-- abas (só proprietário vê as duas) -->
+    <div class="tabs" id="tabs" style="display:none">
+      <div class="tab active" id="tab-contar" onclick="mostrarAba('contar')">Fazer contagem</div>
+      <div class="tab" id="tab-aprovar" onclick="mostrarAba('aprovar')">Aprovar pendentes <span id="badge-pend"></span></div>
+    </div>
+
+    <!-- ===================== ABA CONTAGEM ===================== -->
+    <div id="aba-contar">
+      <div class="card">
+        <div class="row">
+          <div id="wrap-unidade-b">
+            <label>Unidade</label>
+            <select id="b-unidade"><option value="">Carregando…</option></select>
+          </div>
+          <div>
+            <button class="btn btn-ghost" style="width:100%" onclick="carregarProdutos()">Carregar produtos</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" id="card-contagem" style="display:none">
+        <div class="sec-title">Contagem física — preencha o que contou</div>
+        <p class="muted" style="font-size:12px;margin:0 0 12px">Digite a quantidade real contada de cada produto. Produtos deixados em branco não entram no balanço.</p>
+        <div style="overflow-x:auto">
+          <table>
+            <thead>
+              <tr><th>Produto</th><th>Categoria</th><th>Sistema</th><th>Contagem física</th></tr>
+            </thead>
+            <tbody id="tbody-contagem"></tbody>
+          </table>
+        </div>
+        <div style="margin-top:14px">
+          <label>Observação (opcional)</label>
+          <textarea id="b-obs" rows="2" placeholder="Ex: contagem do fim do mês"></textarea>
+        </div>
+        <div style="margin-top:14px">
+          <button class="btn btn-primary" onclick="enviarBalanco()" id="btn-enviar">Enviar balanço para aprovação</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== ABA APROVAÇÃO (proprietário) ===================== -->
+    <div id="aba-aprovar" style="display:none">
+      <div class="card" id="card-lista-pend">
+        <div class="sec-title">Balanços aguardando aprovação</div>
+        <div id="lista-pendentes"><div class="muted" style="font-size:13px">Carregando…</div></div>
+      </div>
+
+      <div class="card" id="card-detalhe" style="display:none">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+          <div class="sec-title" style="margin:0">Detalhe do balanço</div>
+          <button class="btn btn-ghost" onclick="voltarLista()">← Voltar</button>
+        </div>
+        <div id="detalhe-info" class="muted" style="font-size:12px;margin-bottom:12px"></div>
+        <div id="detalhe-itens"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="api.js"></script>
+<script src="ajuda.js"></script>
+  <script>
+  var usuario = (typeof requireAuth==='function') ? requireAuth() : null;
+  var perfil = (usuario && usuario.perfil) || 'caixa';
+  var minhaUnidade = (usuario && usuario.unidade_id) || '';
+  var ehProprietario = (perfil==='proprietario');
+
+  function toast(msg){ var t=document.createElement('div'); t.className='toast'; t.textContent=msg; document.body.appendChild(t); setTimeout(function(){t.remove()},3200) }
+  function val(id){ var e=document.getElementById(id); return e?e.value:'' }
+  function dt(s){ if(!s) return '—'; var d=new Date(s); return d.toLocaleDateString('pt-BR')+' '+d.toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'}) }
+
+  (function(){
+    if(ehProprietario){
+      document.getElementById('tabs').style.display='flex';
+      document.getElementById('page-sub').textContent='Faça a contagem ou aprove os balanços pendentes das unidades.';
+    } else {
+      document.getElementById('page-sub').textContent='Confira o estoque físico e envie para aprovação do proprietário.';
+    }
+  })();
+
+  function mostrarAba(qual){
+    document.getElementById('aba-contar').style.display = qual==='contar'?'':'none';
+    document.getElementById('aba-aprovar').style.display = qual==='aprovar'?'':'none';
+    document.getElementById('tab-contar').classList.toggle('active', qual==='contar');
+    document.getElementById('tab-aprovar').classList.toggle('active', qual==='aprovar');
+    if(qual==='aprovar') carregarPendentes();
+  }
+
+  // ---------- unidades ----------
+  async function carregarUnidades(){
+    var sel = document.getElementById('b-unidade');
+    if(!ehProprietario){
+      document.getElementById('wrap-unidade-b').style.display='none';
+      return;
+    }
+    try{
+      var us = await req('GET','/unidades') || [];
+      sel.innerHTML = us.map(function(u){ return '<option value="'+u.id+'">'+u.nome+'</option>'; }).join('');
+    }catch(e){ sel.innerHTML='<option value="">Erro</option>'; }
+  }
+  function unidadeSel(){ return ehProprietario ? val('b-unidade') : minhaUnidade; }
+
+  // ---------- CONTAGEM ----------
+  async function carregarProdutos(){
+    var uni = unidadeSel();
+    if(ehProprietario && !uni){ toast('Escolha a unidade'); return; }
+    var tb = document.getElementById('tbody-contagem');
+    document.getElementById('card-contagem').style.display='';
+    tb.innerHTML = '<tr><td colspan="4" class="muted" style="text-align:center;padding:18px">Carregando…</td></tr>';
+    try{
+      var r = await req('GET','/balanco/produtos'+(uni?('?unidade_id='+uni):''));
+      var prods = (r && r.produtos) || [];
+      if(!prods.length){ tb.innerHTML='<tr><td colspan="4" class="muted" style="text-align:center;padding:18px">Nenhum produto ativo.</td></tr>'; return; }
+      tb.innerHTML = prods.map(function(p){
+        return '<tr>'
+          + '<td>'+p.nome+'</td>'
+          + '<td class="muted">'+p.categoria+'</td>'
+          + '<td>'+p.saldo_sistema+'</td>'
+          + '<td><input type="number" min="0" step="1" data-pid="'+p.produto_id+'" data-nome="'+String(p.nome).replace(/"/g,'&quot;')+'" data-sis="'+p.saldo_sistema+'" placeholder="—"></td>'
+        + '</tr>';
+      }).join('');
+    }catch(e){ tb.innerHTML='<tr><td colspan="4" class="red" style="text-align:center;padding:18px">Erro: '+(e.message||'')+'</td></tr>'; }
+  }
+
+  async function enviarBalanco(){
+    var uni = unidadeSel();
+    var itens = [];
+    document.querySelectorAll('#tbody-contagem input').forEach(function(i){
+      if(i.value!=='' && i.value!=null){
+        itens.push({ produto_id:i.dataset.pid, produto_nome:i.dataset.nome, contagem_fisica:parseFloat(i.value)||0 });
+      }
+    });
+    if(!itens.length){ toast('Preencha ao menos um produto contado'); return; }
+    if(!confirm('Enviar balanço com '+itens.length+' produto(s) contados?\n\nO estoque NÃO será alterado agora — o proprietário precisa aprovar.')) return;
+    var btn=document.getElementById('btn-enviar'); btn.disabled=true; btn.textContent='Enviando…';
+    try{
+      var body={ itens:itens, observacao:val('b-obs') };
+      if(ehProprietario) body.unidade_id=uni;
+      var r = await req('POST','/balanco', body);
+      toast('Balanço enviado ✓ ('+r.itens+' itens). Aguardando aprovação.');
+      document.getElementById('card-contagem').style.display='none';
+      document.getElementById('b-obs').value='';
+    }catch(e){ toast('Erro: '+(e.message||'tente de novo')); }
+    finally{ btn.disabled=false; btn.textContent='Enviar balanço para aprovação'; }
+  }
+
+  // ---------- APROVAÇÃO ----------
+  async function carregarPendentes(){
+    var box=document.getElementById('lista-pendentes');
+    document.getElementById('card-detalhe').style.display='none';
+    document.getElementById('card-lista-pend').style.display='';
+    box.innerHTML='<div class="muted" style="font-size:13px">Carregando…</div>';
+    try{
+      var lista = await req('GET','/balanco/pendentes') || [];
+      var badge=document.getElementById('badge-pend');
+      if(badge) badge.textContent = lista.length ? '('+lista.length+')' : '';
+      if(!lista.length){ box.innerHTML='<div class="muted" style="font-size:13px">Nenhum balanço pendente. 🎉</div>'; return; }
+      box.innerHTML = lista.map(function(b){
+        return '<div style="display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--border)">'
+          + '<div><div style="font-weight:600">'+b.unidade+'</div>'
+          + '<div class="muted" style="font-size:12px">Por '+(b.criado_por_nome||'—')+' · '+dt(b.criado_em)+'</div></div>'
+          + '<button class="btn btn-ghost" onclick="abrirDetalhe(\''+b.id+'\')">Abrir</button>'
+        + '</div>';
+      }).join('');
+    }catch(e){ box.innerHTML='<div class="red" style="font-size:13px">Erro ao carregar.</div>'; }
+  }
+
+  async function abrirDetalhe(id){
+    document.getElementById('card-lista-pend').style.display='none';
+    var card=document.getElementById('card-detalhe'); card.style.display='';
+    document.getElementById('detalhe-itens').innerHTML='<div class="muted" style="font-size:13px">Carregando…</div>';
+    try{
+      var b = await req('GET','/balanco/'+id);
+      document.getElementById('detalhe-info').innerHTML =
+        '<b style="color:var(--white)">'+b.unidade+'</b> · por '+(b.criado_por_nome||'—')+' · '+dt(b.criado_em)
+        + (b.observacao?('<br>Obs: '+b.observacao):'');
+      renderItens(b);
+    }catch(e){ document.getElementById('detalhe-itens').innerHTML='<div class="red">Erro ao abrir.</div>'; }
+  }
+
+  function renderItens(b){
+    var box=document.getElementById('detalhe-itens');
+    if(!b.itens || !b.itens.length){ box.innerHTML='<div class="muted">Sem itens.</div>'; return; }
+    box.innerHTML = b.itens.map(function(it){
+      var diff = parseFloat(it.diferenca)||0;
+      var cls = diff>0?'diff-pos':(diff<0?'diff-neg':'diff-zero');
+      var sinal = diff>0?'+':'';
+      var aprovado = it.status==='aprovado';
+      var acoes = aprovado
+        ? '<span class="pill pill-ok">aprovado</span>'
+        : '<button class="btn btn-green" style="padding:7px 12px;font-size:12px" onclick="aprovarItem(\''+it.id+'\',this)">Aprovar</button>'
+          + ' <button class="btn btn-red" style="padding:7px 12px;font-size:12px" onclick="reprovarItem(\''+it.id+'\',this)">Reprovar</button>';
+      return '<div class="item-bal" data-item="'+it.id+'">'
+        + '<div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">'
+          + '<div><div style="font-weight:600">'+(it.produto_nome||'—')+'</div>'
+          + '<div style="font-size:12px" class="muted">Sistema: '+it.saldo_sistema+' · Contado: '+it.contagem_fisica+' · Diferença: <span class="'+cls+'" style="font-weight:600">'+sinal+diff+'</span></div></div>'
+          + '<div style="display:flex;gap:6px;align-items:center" class="acoes-item">'+acoes+'</div>'
+        + '</div></div>';
+    }).join('');
+  }
+
+  async function aprovarItem(id, btn){
+    if(!confirm('Aprovar este item? O estoque será ajustado para a contagem física.')) return;
+    btn.disabled=true;
+    try{
+      var r = await req('POST','/balanco/item/'+id+'/aprovar',{});
+      var row=document.querySelector('[data-item="'+id+'"] .acoes-item');
+      if(row) row.innerHTML='<span class="pill pill-ok">aprovado</span>';
+      if(r.balanco_concluido){ toast('Balanço concluído ✓ Todos os itens aprovados.'); setTimeout(function(){ voltarLista(); carregarPendentes(); }, 1200); }
+      else toast('Item aprovado ✓');
+    }catch(e){ toast('Erro: '+(e.message||'')); btn.disabled=false; }
+  }
+
+  async function reprovarItem(id, btn){
+    if(!confirm('Reprovar este item? Ele fica pendente e você pode aprovar depois. O estoque não muda.')) return;
+    btn.disabled=true;
+    try{
+      await req('POST','/balanco/item/'+id+'/reprovar',{});
+      toast('Item mantido pendente.');
+      btn.disabled=false;
+    }catch(e){ toast('Erro: '+(e.message||'')); btn.disabled=false; }
+  }
+
+  function voltarLista(){
+    document.getElementById('card-detalhe').style.display='none';
+    document.getElementById('card-lista-pend').style.display='';
+  }
+
+  // init
+  (async function(){
+    await carregarUnidades();
+    if(ehProprietario){ /* começa na aba contar; badge carrega ao abrir aprovar */
+      // pré-carrega a contagem de pendentes para o badge
+      try{ var lp=await req('GET','/balanco/pendentes'); var badge=document.getElementById('badge-pend'); if(badge&&lp&&lp.length) badge.textContent='('+lp.length+')'; }catch(e){}
+    }
+  })();
+  </script>
+</body>
+</html>

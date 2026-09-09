@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <script src="tenant.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#000000">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="LUCAS BUGS | Hair Stylist PRO">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<link rel="icon" href="/icons/favicon-48.png">
+<title>APP LUCAS BUGS | HAIR STYLIST — Clientes</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black:wght@400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+/* TEMA:INICIO — gerado pelo personalizador, não edite à mão */
+  --bg:#000000;
+  --bg2:#0b0b0b;
+  --bg3:#161616;
+  --bg4:#212121;
+  --black:#000000;
+  --white:#ffffff;
+  --cream:#e6fdf6;
+  --muted:#949494;
+  --muted2:#707070;
+  --border:rgba(255,255,255,0.1);
+  --border2:rgba(255,255,255,0.18);
+  --gold:#00eba4;
+  --gold-light:#ffffff;
+  --gold-dim:rgba(0,235,164,0.12);
+  --gold-border:rgba(0,235,164,0.3);
+  --border-strong:rgba(0,235,164,0.4);
+  --on-primary:#0d0d10;
+  --green:#2ecc71;
+  --green-dim:rgba(46,204,113,0.14);
+  --green-text:#54d58b;
+  --on-green:#0d1526;
+  --red:#ef5350;
+  --red-dim:rgba(239,83,80,0.14);
+  --red-text:#f27270;
+  --amber:#f0b429;
+  --amber-dim:rgba(240,180,41,0.16);
+  --blue:#4b9bf5;
+  --blue-dim:rgba(75,155,245,0.14);
+  --blue-text:#6badf7;
+  --roxo:#a97bf0;
+  --roxo-dim:rgba(169,123,240,0.14);
+  --roxo-text:#b893f3;
+  --overlay:rgba(0,0,0,0.05);
+  --overlay2:rgba(0,0,0,0.1);
+  --wpp:#25D366;
+  --wpp-dim:rgba(37,211,102,0.12);
+  --serie-1:#2a78d6;
+  --serie-2:#eb6834;
+  --serie-3:#1baf7a;
+  --serie-4:#eda100;
+  --serie-5:#e87ba4;
+  --serie-6:#008300;
+  --serie-7:#4a3aa7;
+  --serie-8:#e34948;
+  --ag-bg:#0b0b0b;
+  --ag-bg-header:#161616;
+  --ag-bg-time:#0b0b0b;
+  --ag-line:rgba(255,255,255,0.09);
+  --ag-line-full:rgba(255,255,255,0.16);
+  --ag-text:#ffffff;
+  --ag-text-muted:#737373;
+  --ag-hover:rgba(255,255,255,0.04);
+  --ag-mine-bg:rgba(0,235,164,0.14);
+  --ag-mine-border:rgba(0,235,164,0.4);
+  --ev-agendado-bar:#2a71c8;
+  --ev-agendado-bg:#122135;
+  --ev-agendado-text:#75a3db;
+  --ev-concluido-bar:#2ecc71;
+  --ev-concluido-bg:#133521;
+  --ev-concluido-text:#77dea3;
+  --ev-atrasado-bar:#c2650a;
+  --ev-atrasado-bg:#331f0b;
+  --ev-atrasado-text:#d79b60;
+  --ev-nao-veio-bar:#ef5350;
+  --ev-nao-veio-bg:#3d1b1a;
+  --ev-nao-veio-text:#f58f8d;
+  --ev-bloqueado-bar:#7a7a7a;
+  --ev-bloqueado-bg:#232323;
+  --ev-bloqueado-text:#a9a9a9;
+  /* TEMA:FIM */
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--white);min-height:100vh;-webkit-font-smoothing:antialiased}
+.topbar{display:flex;align-items:center;gap:16px;padding:16px 24px;border-bottom:0.5px solid var(--border);position:sticky;top:0;background:var(--bg);z-index:10}
+.back{display:flex;align-items:center;gap:7px;font-size:13px;color:var(--muted);cursor:pointer;background:none;border:none;font-family:inherit}
+.back:hover{color:var(--white)}
+.top-title{font-family:'Archivo Black',serif;font-size:18px}
+.top-sub{font-size:11px;color:var(--muted);margin-top:1px}
+.wrap{max-width:980px;margin:0 auto;padding:18px 24px 80px}
+.tabs{display:flex;gap:6px;margin-bottom:18px;border-bottom:0.5px solid var(--border)}
+.tab{background:none;border:none;color:var(--muted);font-family:inherit;font-size:14px;padding:10px 16px;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px}
+.tab.active{color:var(--gold-light);border-bottom-color:var(--gold)}
+.controls{display:flex;flex-wrap:wrap;align-items:flex-end;gap:14px;background:var(--bg2);border:0.5px solid var(--border);border-radius:14px;padding:16px 18px;margin-bottom:18px}
+.ctrl{display:flex;flex-direction:column;gap:5px}
+.ctrl label{font-size:11px;color:var(--muted)}
+.ctrl select{background:var(--bg3);border:0.5px solid var(--border2);border-radius:8px;padding:9px 11px;font-size:13px;color:var(--white);font-family:inherit;outline:none;cursor:pointer}
+.btn-go{background:var(--gold);border:none;border-radius:8px;padding:10px 20px;font-size:13px;font-weight:500;color:var(--on-primary);font-family:inherit;cursor:pointer}
+.btn-go:hover{opacity:.88}
+.summary{font-size:12px;color:var(--muted);margin-bottom:12px}
+.tbl-scroll{overflow-x:auto;border:0.5px solid var(--border);border-radius:12px;background:var(--bg2)}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:13px}
+thead th{background:var(--bg3);color:var(--muted);font-weight:500;padding:11px 12px;text-align:left;white-space:nowrap;border-bottom:0.5px solid var(--border2)}
+thead th.r{text-align:right}
+tbody td{padding:11px 12px;border-bottom:0.5px solid var(--border);white-space:nowrap}
+tbody td.r{text-align:right}
+tbody tr:last-child td{border-bottom:none}
+.pos{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:7px;background:var(--bg3);font-size:12px;color:var(--muted);font-weight:600}
+tr.top1 .pos{background:var(--gold-border);color:var(--gold)}
+tr.top2 .pos,tr.top3 .pos{background:var(--gold-dim);color:var(--gold)}
+.nome{font-weight:500;color:var(--white)}
+.wpp{font-size:11px;color:var(--green);text-decoration:none;margin-left:8px}
+.wpp:hover{text-decoration:underline}
+.val{font-family:'Archivo Black',serif;font-size:15px;color:var(--gold-light)}
+.mut{color:var(--muted);font-size:12px}
+.badge{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.4px;border-radius:5px;padding:2px 8px;white-space:nowrap}
+.b-atrasado{color:var(--amber);background:var(--amber-dim);border:0.5px solid var(--border-strong)}
+.b-sumido{color:var(--red-text);background:var(--red-dim);border:0.5px solid var(--red)}
+.state{padding:50px 20px;text-align:center;color:var(--muted);font-size:13px}
+.note{font-size:11px;color:var(--muted);background:var(--bg2);border:0.5px solid var(--border);border-radius:10px;padding:11px 14px;margin-bottom:16px;line-height:1.5}
+@media(max-width:640px){.wrap{padding:14px 12px 70px}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <button class="back" onclick="window.location.href='appsuabarbearia-dashboard.html'">&larr; Painel</button>
+  <div><div class="top-title">Clientes</div><div class="top-sub">Ranking e reativação</div></div>
+</div>
+
+<div class="wrap">
+  <div class="tabs">
+    <button class="tab active" id="t-rank" onclick="trocarAba('rank')">Ranking por valor</button>
+    <button class="tab" id="t-freq" onclick="trocarAba('freq')">Reativação (frequência)</button>
+  </div>
+
+  <!-- ABA RANKING -->
+  <div id="aba-rank">
+    <div class="controls">
+      <div class="ctrl">
+        <label>Período</label>
+        <select id="periodo">
+          <option value="mes">Este mês</option>
+          <option value="ano">Este ano</option>
+          <option value="12m" selected>Últimos 12 meses</option>
+          <option value="tudo">Todo o período</option>
+        </select>
+      </div>
+      <div class="ctrl">
+        <label>Ordenar por</label>
+        <select id="ordenar-rank">
+          <option value="valor" selected>Valor gasto</option>
+          <option value="atendimentos">Nº de atendimentos</option>
+          <option value="frequencia">Frequência (visitas/mês)</option>
+          <option value="ticket">Ticket médio</option>
+        </select>
+      </div>
+      <div class="ctrl ctrl-uni" style="display:none">
+        <label>Unidade</label>
+        <select id="uni-rank"><option value="">Todas</option></select>
+      </div>
+      <button class="btn-go" onclick="gerarRanking()">Gerar</button>
+    </div>
+    <div class="summary" id="sum-rank"></div>
+    <div id="res-rank"><div class="state">Carregando…</div></div>
+  </div>
+
+  <!-- ABA FREQUÊNCIA -->
+  <div id="aba-freq" style="display:none">
+    <div class="note">
+      O sistema calcula de quanto em quanto tempo cada cliente costuma vir (a <b>cadência</b> dele) e mostra quem
+      passou do prazo. <b>Atrasado</b> = passou da cadência. <b>Sumido</b> = passou do dobro (ou cliente de 1 visita há +45 dias).
+    </div>
+    <div class="controls">
+      <div class="ctrl">
+        <label>Mostrar</label>
+        <select id="freq-status">
+          <option value="todos" selected>Atrasados + Sumidos</option>
+          <option value="atrasado">Só atrasados</option>
+          <option value="sumido">Só sumidos</option>
+        </select>
+      </div>
+      <div class="ctrl ctrl-uni" style="display:none">
+        <label>Unidade</label>
+        <select id="uni-freq"><option value="">Todas</option></select>
+      </div>
+      <button class="btn-go" onclick="gerarFreq()">Gerar</button>
+    </div>
+    <div class="summary" id="sum-freq"></div>
+    <div id="res-freq"><div class="state">Clique em <b>Gerar</b>.</div></div>
+  </div>
+</div>
+
+<script src="api.js"></script>
+<script src="ajuda.js"></script>
+<script>
+var usuario = requireAuth();
+
+function brl(n){ return 'R$ ' + (parseFloat(n)||0).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2}); }
+function dataBR(iso){ if(!iso) return '—'; try{ return new Date(iso).toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit',year:'numeric'}); }catch(e){ return '—'; } }
+function wppLink(num){ if(!num) return ''; var d=(''+num).replace(/\D/g,''); if(!d) return ''; if(d.length<=11) d='55'+d; return '<a class="wpp" href="https://wa.me/'+d+'" target="_blank">WhatsApp</a>'; }
+
+function trocarAba(qual){
+  document.getElementById('t-rank').classList.toggle('active', qual==='rank');
+  document.getElementById('t-freq').classList.toggle('active', qual==='freq');
+  document.getElementById('aba-rank').style.display = qual==='rank'?'':'none';
+  document.getElementById('aba-freq').style.display = qual==='freq'?'':'none';
+  if(qual==='freq' && !window._freqCarregada){ window._freqCarregada=true; gerarFreq(); }
+}
+
+// ---------- RANKING ----------
+async function gerarRanking(){
+  var periodo=document.getElementById('periodo').value;
+  var uni=(document.getElementById('uni-rank')||{}).value||'';
+  var alvo=document.getElementById('res-rank'), sum=document.getElementById('sum-rank');
+  alvo.innerHTML='<div class="state">Calculando…</div>'; sum.textContent='';
+  try{
+    var ordenar=(document.getElementById('ordenar-rank')||{}).value||'valor';
+    var d=await req('GET','/financeiro/ranking-clientes?periodo='+periodo+'&ordenar='+ordenar+(uni?'&unidade_id='+uni:''));
+    var lista=d.ranking||[];
+    if(!lista.length){ alvo.innerHTML='<div class="state">Sem clientes no período.</div>'; return; }
+    var comoOrdenou={valor:'que mais gastaram',atendimentos:'que mais vieram',
+      frequencia:'que vêm com mais frequência',ticket:'com maior ticket médio'}[ordenar]||'que mais gastaram';
+    sum.innerHTML=d.total_clientes+' cliente(s) no período. Mostrando os '+lista.length+' '+comoOrdenou+'.';
+    var linhas=lista.map(function(c,i){
+      var cls=i===0?'top1':(i===1?'top2':(i===2?'top3':''));
+      return '<tr class="'+cls+'"><td><span class="pos">'+(i+1)+'</span></td>'+
+        '<td><span class="nome">'+c.nome+'</span>'+wppLink(c.whatsapp)+'</td>'+
+        '<td class="r mut">'+c.atendimentos+'</td>'+
+        '<td class="r mut">'+(c.frequencia!=null?c.frequencia.toFixed(1).replace('.',','):'—')+'</td>'+
+        '<td class="r mut">'+brl(c.ticket)+'</td>'+
+        '<td class="r mut">'+dataBR(c.ultima)+'</td><td class="r"><span class="val">'+brl(c.total)+'</span></td></tr>';
+    }).join('');
+    alvo.innerHTML='<div class="tbl-scroll"><table><thead><tr><th>#</th><th>Cliente</th><th class="r">Atend.</th><th class="r">Visitas/mês</th><th class="r">Ticket</th><th class="r">Última visita</th><th class="r">Total gasto</th></tr></thead><tbody>'+linhas+'</tbody></table></div>';
+  }catch(e){ alvo.innerHTML='<div class="state">Não consegui gerar agora.</div>'; }
+}
+
+// ---------- FREQUÊNCIA ----------
+async function gerarFreq(){
+  var status=document.getElementById('freq-status').value;
+  var uni=(document.getElementById('uni-freq')||{}).value||'';
+  var alvo=document.getElementById('res-freq'), sum=document.getElementById('sum-freq');
+  alvo.innerHTML='<div class="state">Calculando cadências…</div>'; sum.textContent='';
+  try{
+    var d=await req('GET','/financeiro/frequencia-clientes?status='+status+(uni?'&unidade_id='+uni:''));
+    var lista=d.clientes||[];
+    if(!lista.length){ alvo.innerHTML='<div class="state">Ninguém atrasado por aqui 🎉</div>'; return; }
+    sum.innerHTML=d.total+' cliente(s) para reativar.';
+    var linhas=lista.map(function(c){
+      var badge = c.status==='sumido' ? '<span class="badge b-sumido">Sumido</span>' : '<span class="badge b-atrasado">Atrasado</span>';
+      var cad = c.cadencia ? ('a cada '+c.cadencia+' dias') : '—';
+      return '<tr><td><span class="nome">'+c.nome+'</span>'+wppLink(c.whatsapp)+'</td>'+
+        '<td class="r mut">'+c.visitas+'</td><td class="mut">'+cad+'</td>'+
+        '<td class="mut">'+dataBR(c.ultima)+'</td><td class="r mut">há '+c.dias_desde+' dias</td>'+
+        '<td>'+badge+'</td></tr>';
+    }).join('');
+    alvo.innerHTML='<div class="tbl-scroll"><table><thead><tr><th>Cliente</th><th class="r">Visitas</th><th>Cadência</th><th>Última visita</th><th class="r">Sem vir</th><th>Status</th></tr></thead><tbody>'+linhas+'</tbody></table></div>';
+  }catch(e){ alvo.innerHTML='<div class="state">Não consegui gerar agora.</div>'; }
+}
+
+(function init(){
+  if(usuario && usuario.perfil==='proprietario'){
+    document.querySelectorAll('.ctrl-uni').forEach(function(c){ c.style.display='flex'; });
+    req('GET','/unidades').then(function(us){
+      ['uni-rank','uni-freq'].forEach(function(id){
+        var sel=document.getElementById(id);
+        (us||[]).forEach(function(u){ var o=document.createElement('option'); o.value=u.id; o.textContent=u.nome; sel.appendChild(o); });
+      });
+    }).catch(function(){});
+  }
+  gerarRanking();
+})();
+</script>
+<script>if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('/sw.js').catch(function(){});});}</script>
+</body>
+</html>

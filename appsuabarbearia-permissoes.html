@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <script src="tenant.js"></script>
+<link rel="icon" href="/icons/favicon-48.png">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>APP LUCAS BUGS | HAIR STYLIST — Perfis de Acesso</title>
+<style>
+  :root{
+/* TEMA:INICIO — gerado pelo personalizador, não edite à mão */
+  --bg:#000000;
+  --bg2:#0b0b0b;
+  --bg3:#161616;
+  --bg4:#212121;
+  --black:#000000;
+  --white:#ffffff;
+  --cream:#e6fdf6;
+  --muted:#949494;
+  --muted2:#707070;
+  --border:rgba(255,255,255,0.1);
+  --border2:rgba(255,255,255,0.18);
+  --gold:#00eba4;
+  --gold-light:#ffffff;
+  --gold-dim:rgba(0,235,164,0.12);
+  --gold-border:rgba(0,235,164,0.3);
+  --border-strong:rgba(0,235,164,0.4);
+  --on-primary:#0d0d10;
+  --green:#2ecc71;
+  --green-dim:rgba(46,204,113,0.14);
+  --green-text:#54d58b;
+  --on-green:#0d1526;
+  --red:#ef5350;
+  --red-dim:rgba(239,83,80,0.14);
+  --red-text:#f27270;
+  --amber:#f0b429;
+  --amber-dim:rgba(240,180,41,0.16);
+  --blue:#4b9bf5;
+  --blue-dim:rgba(75,155,245,0.14);
+  --blue-text:#6badf7;
+  --roxo:#a97bf0;
+  --roxo-dim:rgba(169,123,240,0.14);
+  --roxo-text:#b893f3;
+  --overlay:rgba(0,0,0,0.05);
+  --overlay2:rgba(0,0,0,0.1);
+  --wpp:#25D366;
+  --wpp-dim:rgba(37,211,102,0.12);
+  --serie-1:#2a78d6;
+  --serie-2:#eb6834;
+  --serie-3:#1baf7a;
+  --serie-4:#eda100;
+  --serie-5:#e87ba4;
+  --serie-6:#008300;
+  --serie-7:#4a3aa7;
+  --serie-8:#e34948;
+  --ag-bg:#0b0b0b;
+  --ag-bg-header:#161616;
+  --ag-bg-time:#0b0b0b;
+  --ag-line:rgba(255,255,255,0.09);
+  --ag-line-full:rgba(255,255,255,0.16);
+  --ag-text:#ffffff;
+  --ag-text-muted:#737373;
+  --ag-hover:rgba(255,255,255,0.04);
+  --ag-mine-bg:rgba(0,235,164,0.14);
+  --ag-mine-border:rgba(0,235,164,0.4);
+  --ev-agendado-bar:#2a71c8;
+  --ev-agendado-bg:#122135;
+  --ev-agendado-text:#75a3db;
+  --ev-concluido-bar:#2ecc71;
+  --ev-concluido-bg:#133521;
+  --ev-concluido-text:#77dea3;
+  --ev-atrasado-bar:#c2650a;
+  --ev-atrasado-bg:#331f0b;
+  --ev-atrasado-text:#d79b60;
+  --ev-nao-veio-bar:#ef5350;
+  --ev-nao-veio-bg:#3d1b1a;
+  --ev-nao-veio-text:#f58f8d;
+  --ev-bloqueado-bar:#7a7a7a;
+  --ev-bloqueado-bg:#232323;
+  --ev-bloqueado-text:#a9a9a9;
+  /* TEMA:FIM */
+}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--white);font-family:'Inter',-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+  .wrap{max-width:1000px;margin:0 auto;padding:24px 18px 80px}
+  h1{font-size:20px;margin:0 0 4px}
+  .sub{color:var(--muted);font-size:13px;margin:0 0 22px}
+  .card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:18px;margin-bottom:16px}
+  label{display:block;font-size:12px;color:var(--muted);margin:0 0 5px;text-transform:uppercase;letter-spacing:.06em}
+  select,input{width:100%;padding:10px;border:1px solid var(--border);border-radius:9px;background:var(--bg3);color:var(--white);font-size:14px;font-family:inherit}
+  .row{display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end}
+  .row>div{flex:1;min-width:140px}
+  .btn{padding:11px 18px;border:0;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit}
+  .btn-primary{background:var(--gold);color:var(--on-primary)}
+  .btn-ghost{background:var(--bg3);color:var(--white);border:1px solid var(--border)}
+  .btn-red{background:transparent;color:var(--red);border:1px solid var(--red)}
+  .btn:disabled{opacity:.5;cursor:default}
+  .sec-title{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--gold);margin:6px 0 12px}
+  .back{display:inline-block;color:var(--muted);text-decoration:none;font-size:13px;margin-bottom:14px}
+  .muted{color:var(--muted)} .gold{color:var(--gold)}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th,td{padding:9px 8px;text-align:center;border-bottom:1px solid var(--border)}
+  th:first-child,td:first-child{text-align:left}
+  th{color:var(--muted);font-weight:500;font-size:11px;text-transform:uppercase}
+  .perfil-item{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border)}
+  .tag{font-size:11px;padding:2px 9px;border-radius:20px;background:var(--bg3);border:1px solid var(--border);color:var(--muted)}
+  .tag-fixo{color:var(--gold);border-color:var(--border-strong)}
+  /* toggle */
+  .sw{position:relative;display:inline-block;width:40px;height:22px}
+  .sw input{opacity:0;width:0;height:0}
+  .sl{position:absolute;cursor:pointer;inset:0;background:var(--bg3);border:1px solid var(--border);border-radius:22px;transition:.2s}
+  .sl:before{content:'';position:absolute;height:16px;width:16px;left:2px;top:2px;background:var(--muted);border-radius:50%;transition:.2s}
+  .sw input:checked + .sl{background:var(--green);border-color:var(--green)}
+  .sw input:checked + .sl:before{transform:translateX(18px);background:var(--green)}
+  .toast{position:fixed;bottom:24px;right:24px;background:var(--bg2);border:1px solid var(--border-strong);border-radius:10px;padding:12px 16px;font-size:13px;color:var(--gold-light);z-index:9999}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <a href="appsuabarbearia-dashboard.html" class="back">← Voltar ao Painel</a>
+    <h1>Perfis de Acesso</h1>
+    <p class="sub">Crie perfis, atribua colaboradores e controle quais telas cada perfil acessa. O proprietário sempre vê tudo.</p>
+
+    <!-- CRIAR / LISTAR PERFIS -->
+    <div class="card">
+      <div class="sec-title">Perfis do sistema</div>
+      <div id="lista-perfis"><div class="muted" style="font-size:13px">Carregando…</div></div>
+      <div style="margin-top:16px;padding-top:16px;border-top:1px solid var(--border)">
+        <div class="row">
+          <div>
+            <label>Nome do novo perfil</label>
+            <input id="np-nome" placeholder="Ex: Subgerente">
+          </div>
+          <div>
+            <label>Baseado em (herda as permissões)</label>
+            <select id="np-base">
+              <option value="gerente">Gerente</option>
+              <option value="caixa">Caixa / Recepção</option>
+              <option value="colaborador">Colaborador (barbeiro)</option>
+              <option value="funcionario">Funcionário (sem login)</option>
+            </select>
+          </div>
+          <div style="max-width:180px">
+            <button class="btn btn-primary" style="width:100%" onclick="criarPerfil()">Criar perfil</button>
+          </div>
+        </div>
+        <p class="muted" style="font-size:11px;margin:8px 0 0">O perfil novo começa com os mesmos acessos do perfil base. Depois você ajusta as telas na grade abaixo.</p>
+      </div>
+    </div>
+
+    <!-- GRADE DE TELAS -->
+    <div class="card">
+      <div class="sec-title">Acesso por tela</div>
+      <p class="muted" style="font-size:12px;margin:0 0 12px">Ligue ou desligue o acesso de cada perfil a cada tela. O proprietário não aparece aqui (vê tudo sempre).</p>
+      <div style="overflow-x:auto">
+        <table id="grade">
+          <thead id="grade-head"></thead>
+          <tbody id="grade-body"><tr><td colspan="99" class="muted">Carregando…</td></tr></tbody>
+        </table>
+      </div>
+      <div style="margin-top:16px">
+        <button class="btn btn-primary" onclick="salvarGrade()">Salvar permissões de tela</button>
+      </div>
+    </div>
+
+    <!-- GRADE DE FUNÇÕES -->
+    <div class="card">
+      <div class="sec-title">Funções sensíveis</div>
+      <p class="muted" style="font-size:12px;margin:0 0 12px">Controle ações específicas (além do acesso à tela). Ex.: um perfil pode entrar no caixa mas não fazer retirada. O proprietário sempre pode tudo.</p>
+      <div style="overflow-x:auto">
+        <table id="grade-fn">
+          <thead id="gradefn-head"></thead>
+          <tbody id="gradefn-body"><tr><td colspan="99" class="muted">Carregando…</td></tr></tbody>
+        </table>
+      </div>
+      <div style="margin-top:16px">
+        <button class="btn btn-primary" onclick="salvarFuncoes()">Salvar permissões de funções</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="api.js"></script>
+<script src="ajuda.js"></script>
+  <script>
+  var TELAS = [], PERFIS = [], GRADE = {};
+  function toast(msg){ var t=document.createElement('div'); t.className='toast'; t.textContent=msg; document.body.appendChild(t); setTimeout(function(){t.remove()},3200) }
+
+  // ---------- PERFIS ----------
+  async function carregarPerfis(){
+    var box=document.getElementById('lista-perfis');
+    try{
+      var perfis = await req('GET','/permissoes/perfis') || [];
+      box.innerHTML = perfis.map(function(p){
+        var badge = p.fixo ? '<span class="tag tag-fixo">fixo</span>' : '<span class="tag">base: '+p.base+'</span>';
+        var excluir = p.fixo ? '' : '<button class="btn btn-red" style="padding:6px 12px;font-size:12px" onclick="excluirPerfil(\''+p.chave+'\',\''+p.nome.replace(/'/g,"")+'\')">Excluir</button>';
+        return '<div class="perfil-item"><div><span style="font-weight:600">'+p.nome+'</span> '+badge+'</div><div>'+excluir+'</div></div>';
+      }).join('');
+    }catch(e){ box.innerHTML='<div class="red" style="font-size:13px">Erro ao carregar perfis.</div>'; }
+  }
+
+  async function criarPerfil(){
+    var nome=(document.getElementById('np-nome').value||'').trim();
+    var base=document.getElementById('np-base').value;
+    if(!nome){ toast('Digite o nome do perfil'); return; }
+    try{
+      await req('POST','/permissoes/perfis',{ nome:nome, base:base });
+      document.getElementById('np-nome').value='';
+      toast('Perfil "'+nome+'" criado ✓');
+      await carregarPerfis();
+      await carregarGrade();
+      await carregarFuncoes();
+    }catch(e){ toast('Erro: '+(e.message||'tente de novo')); }
+  }
+
+  async function excluirPerfil(chave, nome){
+    if(!confirm('Excluir o perfil "'+nome+'"?\n\nSó é possível se nenhum colaborador estiver usando.')) return;
+    try{
+      await req('DELETE','/permissoes/perfis/'+chave);
+      toast('Perfil excluído ✓');
+      await carregarPerfis();
+      await carregarGrade();
+      await carregarFuncoes();
+    }catch(e){ toast('Erro: '+(e.message||'tente de novo')); }
+  }
+
+  // ---------- GRADE DE TELAS ----------
+  async function carregarGrade(){
+    try{
+      var r = await req('GET','/permissoes');
+      TELAS = r.telas || []; PERFIS = r.perfis || []; GRADE = r.grade || {};
+      renderGrade();
+    }catch(e){ document.getElementById('grade-body').innerHTML='<tr><td colspan="99" class="red">Erro ao carregar.</td></tr>'; }
+  }
+
+  function renderGrade(){
+    // cabeçalho: Tela | perfil1 | perfil2 ...
+    var head='<tr><th>Tela</th>'+PERFIS.map(function(p){ return '<th>'+p.nome+'</th>'; }).join('')+'</tr>';
+    document.getElementById('grade-head').innerHTML=head;
+
+    var body = TELAS.map(function(t){
+      var celulas = PERFIS.map(function(p){
+        var val = GRADE[p.chave] && GRADE[p.chave][t.chave];
+        return '<td><label class="sw"><input type="checkbox" data-perfil="'+p.chave+'" data-tela="'+t.chave+'" '+(val?'checked':'')+'><span class="sl"></span></label></td>';
+      }).join('');
+      return '<tr><td>'+t.nome+'</td>'+celulas+'</tr>';
+    }).join('');
+    document.getElementById('grade-body').innerHTML = body || '<tr><td colspan="99" class="muted">Sem telas.</td></tr>';
+  }
+
+  async function salvarGrade(){
+    var grade={};
+    document.querySelectorAll('#grade-body input[type="checkbox"]').forEach(function(i){
+      var pf=i.dataset.perfil, tl=i.dataset.tela;
+      if(!grade[pf]) grade[pf]={};
+      grade[pf][tl]=i.checked;
+    });
+    try{
+      await req('POST','/permissoes',{ grade:grade });
+      toast('Permissões salvas ✓');
+    }catch(e){ toast('Erro: '+(e.message||'tente de novo')); }
+  }
+
+  // ---------- GRADE DE FUNÇÕES ----------
+  var FUNCOES=[], FN_PERFIS=[], FN_GRADE={};
+  async function carregarFuncoes(){
+    try{
+      var r = await req('GET','/permissoes/funcoes');
+      FUNCOES = r.funcoes || []; FN_PERFIS = r.perfis || []; FN_GRADE = r.grade || {};
+      renderFuncoes();
+    }catch(e){ document.getElementById('gradefn-body').innerHTML='<tr><td colspan="99" class="red">Erro ao carregar.</td></tr>'; }
+  }
+  function renderFuncoes(){
+    var head='<tr><th>Função</th>'+FN_PERFIS.map(function(p){ return '<th>'+p.nome+'</th>'; }).join('')+'</tr>';
+    document.getElementById('gradefn-head').innerHTML=head;
+    var body = FUNCOES.map(function(f){
+      var celulas = FN_PERFIS.map(function(p){
+        var val = FN_GRADE[p.chave] && FN_GRADE[p.chave][f.chave];
+        return '<td><label class="sw"><input type="checkbox" data-perfil="'+p.chave+'" data-func="'+f.chave+'" '+(val?'checked':'')+'><span class="sl"></span></label></td>';
+      }).join('');
+      return '<tr><td>'+f.nome+'</td>'+celulas+'</tr>';
+    }).join('');
+    document.getElementById('gradefn-body').innerHTML = body || '<tr><td colspan="99" class="muted">Sem funções.</td></tr>';
+  }
+  async function salvarFuncoes(){
+    var grade={};
+    document.querySelectorAll('#gradefn-body input[type="checkbox"]').forEach(function(i){
+      var pf=i.dataset.perfil, fn=i.dataset.func;
+      if(!grade[pf]) grade[pf]={};
+      grade[pf][fn]=i.checked;
+    });
+    try{
+      await req('POST','/permissoes/funcoes',{ grade:grade });
+      toast('Permissões de funções salvas ✓');
+    }catch(e){ toast('Erro: '+(e.message||'tente de novo')); }
+  }
+
+  // init
+  (async function(){
+    await carregarPerfis();
+    await carregarGrade();
+    await carregarFuncoes();
+  })();
+  </script>
+</body>
+</html>

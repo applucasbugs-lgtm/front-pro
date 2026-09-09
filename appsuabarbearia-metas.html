@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <script src="tenant.js"></script>
+<link rel="icon" href="/icons/favicon-48.png">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>APP LUCAS BUGS | HAIR STYLIST — Metas</title>
+<style>
+  :root{
+/* TEMA:INICIO — gerado pelo personalizador, não edite à mão */
+  --bg:#000000;
+  --bg2:#0b0b0b;
+  --bg3:#161616;
+  --bg4:#212121;
+  --black:#000000;
+  --white:#ffffff;
+  --cream:#e6fdf6;
+  --muted:#949494;
+  --muted2:#707070;
+  --border:rgba(255,255,255,0.1);
+  --border2:rgba(255,255,255,0.18);
+  --gold:#00eba4;
+  --gold-light:#ffffff;
+  --gold-dim:rgba(0,235,164,0.12);
+  --gold-border:rgba(0,235,164,0.3);
+  --border-strong:rgba(0,235,164,0.4);
+  --on-primary:#0d0d10;
+  --green:#2ecc71;
+  --green-dim:rgba(46,204,113,0.14);
+  --green-text:#54d58b;
+  --on-green:#0d1526;
+  --red:#ef5350;
+  --red-dim:rgba(239,83,80,0.14);
+  --red-text:#f27270;
+  --amber:#f0b429;
+  --amber-dim:rgba(240,180,41,0.16);
+  --blue:#4b9bf5;
+  --blue-dim:rgba(75,155,245,0.14);
+  --blue-text:#6badf7;
+  --roxo:#a97bf0;
+  --roxo-dim:rgba(169,123,240,0.14);
+  --roxo-text:#b893f3;
+  --overlay:rgba(0,0,0,0.05);
+  --overlay2:rgba(0,0,0,0.1);
+  --wpp:#25D366;
+  --wpp-dim:rgba(37,211,102,0.12);
+  --serie-1:#2a78d6;
+  --serie-2:#eb6834;
+  --serie-3:#1baf7a;
+  --serie-4:#eda100;
+  --serie-5:#e87ba4;
+  --serie-6:#008300;
+  --serie-7:#4a3aa7;
+  --serie-8:#e34948;
+  --ag-bg:#0b0b0b;
+  --ag-bg-header:#161616;
+  --ag-bg-time:#0b0b0b;
+  --ag-line:rgba(255,255,255,0.09);
+  --ag-line-full:rgba(255,255,255,0.16);
+  --ag-text:#ffffff;
+  --ag-text-muted:#737373;
+  --ag-hover:rgba(255,255,255,0.04);
+  --ag-mine-bg:rgba(0,235,164,0.14);
+  --ag-mine-border:rgba(0,235,164,0.4);
+  --ev-agendado-bar:#2a71c8;
+  --ev-agendado-bg:#122135;
+  --ev-agendado-text:#75a3db;
+  --ev-concluido-bar:#2ecc71;
+  --ev-concluido-bg:#133521;
+  --ev-concluido-text:#77dea3;
+  --ev-atrasado-bar:#c2650a;
+  --ev-atrasado-bg:#331f0b;
+  --ev-atrasado-text:#d79b60;
+  --ev-nao-veio-bar:#ef5350;
+  --ev-nao-veio-bg:#3d1b1a;
+  --ev-nao-veio-text:#f58f8d;
+  --ev-bloqueado-bar:#7a7a7a;
+  --ev-bloqueado-bg:#232323;
+  --ev-bloqueado-text:#a9a9a9;
+  /* TEMA:FIM */
+}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--white);font-family:'Inter',-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+  .wrap{max-width:960px;margin:0 auto;padding:24px 18px 60px}
+  h1{font-size:20px;margin:0 0 4px}
+  .sub{color:var(--muted);font-size:13px;margin:0 0 22px}
+  .card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:18px;margin-bottom:16px}
+  label{display:block;font-size:12px;color:var(--muted);margin:0 0 5px;text-transform:uppercase;letter-spacing:.06em}
+  select,input{width:100%;padding:10px;border:1px solid var(--border);border-radius:9px;background:var(--bg3);color:var(--white);font-size:14px;font-family:inherit}
+  .row{display:flex;gap:12px;flex-wrap:wrap}
+  .row>div{flex:1;min-width:150px}
+  .btn{padding:11px 18px;border:0;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit}
+  .btn-primary{background:var(--gold);color:var(--on-primary)}
+  .btn-ghost{background:var(--bg3);color:var(--white);border:1px solid var(--border)}
+  .btn:disabled{opacity:.5;cursor:default}
+  .grid5{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+  .metcampo{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:12px}
+  .metcampo label{margin-bottom:6px}
+  .muted{color:var(--muted)} .gold{color:var(--gold)}
+  .sec-title{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--gold);margin:6px 0 10px}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th,td{padding:8px 6px;text-align:left;border-bottom:1px solid var(--border)}
+  th{color:var(--muted);font-weight:500;font-size:11px;text-transform:uppercase}
+  td input{padding:7px;font-size:13px}
+  .back{display:inline-block;color:var(--muted);text-decoration:none;font-size:13px;margin-bottom:14px}
+  .hidden{display:none}
+  .tag{font-size:11px;padding:2px 8px;border-radius:20px;background:var(--bg3);border:1px solid var(--border);color:var(--muted)}
+  .toast{position:fixed;bottom:24px;right:24px;background:var(--bg2);border:1px solid var(--border-strong);border-radius:10px;padding:12px 16px;font-size:13px;color:var(--gold-light);z-index:9999}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <a href="appsuabarbearia-dashboard.html" class="back">← Voltar ao Painel</a>
+    <h1>Metas</h1>
+    <p class="sub" id="page-sub">Defina e acompanhe as metas do mês.</p>
+
+    <!-- filtros -->
+    <div class="card">
+      <div class="row">
+        <div id="wrap-unidade">
+          <label>Unidade</label>
+          <select id="f-unidade"><option value="">Carregando…</option></select>
+        </div>
+        <div>
+          <label>Mês</label>
+          <input type="month" id="f-mes">
+        </div>
+        <div style="display:flex;align-items:flex-end">
+          <button class="btn btn-ghost" style="width:100%" onclick="carregarTudo()">Carregar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- META DA UNIDADE (proprietário edita; gerente vê) -->
+    <div class="card" id="card-unidade">
+      <div class="sec-title">Meta da unidade — <span id="lbl-mes">—</span></div>
+      <div class="grid5" id="grid-unidade"></div>
+      <div style="margin-top:14px" id="acao-unidade">
+        <button class="btn btn-primary" onclick="salvarMetaUnidade()">Salvar meta da unidade</button>
+      </div>
+    </div>
+
+    <!-- DISTRIBUIÇÃO POR BARBEIRO -->
+    <div class="card" id="card-distrib">
+      <div class="sec-title">Distribuição por barbeiro</div>
+      <p class="muted" style="font-size:12px;margin:0 0 12px">Divida a meta entre os barbeiros. Cada um pode ter valores diferentes. A soma aparece no rodapé para conferência.</p>
+      <div style="overflow-x:auto">
+        <table id="tbl-distrib">
+          <thead>
+            <tr>
+              <th>Barbeiro</th>
+              <th>Clientes</th>
+              <th>Faturamento R$</th>
+              <th>Produtos (un)</th>
+              <th>Planos</th>
+              <th>Bar R$</th>
+            </tr>
+          </thead>
+          <tbody id="tbody-distrib">
+            <tr><td colspan="6" class="muted" style="text-align:center;padding:18px">Carregue um mês e unidade.</td></tr>
+          </tbody>
+          <tfoot id="tfoot-distrib"></tfoot>
+        </table>
+      </div>
+      <div style="margin-top:14px">
+        <button class="btn btn-primary" onclick="salvarDistribuicao()">Salvar distribuição</button>
+      </div>
+    </div>
+
+    <!-- ACOMPANHAMENTO (progresso real + bússola) -->
+    <div class="card" id="card-progresso">
+      <div class="sec-title">Acompanhamento do mês — progresso real</div>
+      <div id="prog-unidade"></div>
+      <div id="prog-barbeiros" style="margin-top:16px"></div>
+    </div>
+  </div>
+
+  <script src="api.js"></script>
+<script src="ajuda.js"></script>
+  <script>
+  var CATS = ['clientes','faturamento','produtos','planos','bar'];
+  var LABELS = { clientes:'Clientes', faturamento:'Faturamento R$', produtos:'Produtos (un)', planos:'Planos', bar:'Bar R$' };
+  var usuario = (typeof requireAuth==='function') ? requireAuth() : null;
+  var perfil = (usuario && usuario.perfil) || 'proprietario';
+  var minhaUnidade = (usuario && usuario.unidade_id) || '';
+  var barbeiros = [];       // colaboradores da unidade
+  var metaUnidadeAtual = {};
+
+  function brl(n){ return 'R$ ' + (parseFloat(n)||0).toFixed(2).replace('.',',') }
+  function toast(msg){ var t=document.createElement('div'); t.className='toast'; t.textContent=msg; document.body.appendChild(t); setTimeout(function(){t.remove()},3000) }
+  function val(id){ var e=document.getElementById(id); return e?e.value:'' }
+
+  // mês atual como padrão
+  (function(){
+    var h=new Date(); document.getElementById('f-mes').value = h.toISOString().slice(0,7);
+    document.getElementById('page-sub').textContent =
+      perfil==='gerente' ? 'Distribua a meta da sua unidade entre os barbeiros.' :
+      perfil==='proprietario' ? 'Defina as metas das unidades e acompanhe.' :
+      'Acompanhe suas metas.';
+  })();
+
+  // monta o formulário da meta da unidade (5 campos)
+  function montarGridUnidade(dados){
+    var g = document.getElementById('grid-unidade');
+    var somenteLeitura = (perfil==='gerente');
+    g.innerHTML = CATS.map(function(c){
+      var v = dados && dados[c]!=null ? dados[c] : '';
+      return '<div class="metcampo"><label>'+LABELS[c]+'</label>'
+        + '<input type="number" min="0" step="0.01" id="mu-'+c+'" value="'+v+'" '+(somenteLeitura?'readonly':'')+'></div>';
+    }).join('');
+    // gerente não edita a meta da unidade
+    document.getElementById('acao-unidade').style.display = somenteLeitura ? 'none' : '';
+  }
+
+function _soQuemAtende(c){
+  if(!c) return false;
+  if(c.atende === 1 || c.atende === true) return true;
+  if(c.atende === 0 || c.atende === false) return false;
+  return c.perfil==='colaborador' || c.perfil==='gerente';
+}
+
+  // carrega colaboradores da unidade selecionada
+  async function carregarBarbeiros(unidade_id){
+    try{
+      var todos = await req('GET','/colaboradores') || [];
+      barbeiros = todos.filter(function(c){
+        var ok = _soQuemAtende(c);
+        if(unidade_id) return ok && c.unidade_id===unidade_id;
+        return ok;
+      });
+    }catch(e){ barbeiros = []; }
+  }
+
+  async function carregarUnidades(){
+    var sel = document.getElementById('f-unidade');
+    if(perfil==='gerente'){
+      // gerente: fixa a própria unidade
+      document.getElementById('wrap-unidade').style.display='none';
+      return;
+    }
+    try{
+      var us = await req('GET','/unidades') || [];
+      sel.innerHTML = us.map(function(u){ return '<option value="'+u.id+'">'+u.nome+'</option>'; }).join('');
+    }catch(e){ sel.innerHTML = '<option value="">Erro ao carregar</option>'; }
+  }
+
+  function unidadeSelecionada(){
+    if(perfil==='gerente') return minhaUnidade;
+    return val('f-unidade');
+  }
+
+  async function carregarTudo(){
+    var uni = unidadeSelecionada();
+    var mes = val('f-mes');
+    if(!mes){ toast('Escolha o mês'); return; }
+    if(!uni && perfil!=='gerente'){ toast('Escolha a unidade'); return; }
+    document.getElementById('lbl-mes').textContent = mes.split('-').reverse().join('/');
+
+    await carregarBarbeiros(uni);
+
+    // meta da unidade
+    try{
+      var metas = await req('GET','/metas/unidade?mes='+mes+(uni?'&unidade_id='+uni:''));
+      metaUnidadeAtual = (metas && metas.length) ? metas[0] : {};
+    }catch(e){ metaUnidadeAtual = {}; }
+    montarGridUnidade(metaUnidadeAtual);
+
+    // distribuição por barbeiro (mescla metas já salvas)
+    var jaSalvas = {};
+    try{
+      var mc = await req('GET','/metas/colaboradores?mes='+mes+(uni?'&unidade_id='+uni:''));
+      (mc||[]).forEach(function(m){ jaSalvas[m.colaborador_id]=m; });
+    }catch(e){}
+    montarTabelaDistrib(jaSalvas);
+    carregarProgresso(uni, mes);
+  }
+
+  var PLABELS = { clientes:'Clientes', faturamento:'Faturamento', produtos:'Produtos (un)', planos:'Planos', bar:'Bar' };
+  function pval(cat,v){ return (cat==='faturamento'||cat==='bar') ? brl(v) : (Math.round((parseFloat(v)||0)*10)/10); }
+  function pcor(pct){ if(pct>=100) return 'var(--green)'; if(pct>=60) return 'var(--gold)'; return 'var(--blue)'; }
+  function barrinha(d, cat){
+    var pct = Math.min(100, d.pct);
+    var bussola = d.por_dia>0 ? ('<span style="color:var(--gold)"> · faltam '+pval(cat,d.por_dia)+'/dia útil</span>') : '';
+    return '<div style="margin-bottom:10px">'
+      + '<div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:2px"><span>'+PLABELS[cat]+'</span>'
+      + '<span class="muted">'+pval(cat,d.realizado)+' / '+pval(cat,d.meta)+' ('+d.pct+'%)</span></div>'
+      + '<div style="height:6px;background:var(--bg3);border-radius:3px;overflow:hidden"><div style="height:100%;width:'+pct+'%;background:'+pcor(d.pct)+';border-radius:3px"></div></div>'
+      + '<div style="font-size:10px;color:var(--muted)">'+(d.falta>0?('falta '+pval(cat,d.falta)):'✓ batida')+bussola+'</div></div>';
+  }
+  async function carregarProgresso(uni, mes){
+    var box = document.getElementById('prog-unidade');
+    var boxB = document.getElementById('prog-barbeiros');
+    box.innerHTML = '<div class="muted" style="font-size:12px">Calculando…</div>';
+    boxB.innerHTML = '';
+    try{
+      var prog = await req('GET','/metas/progresso?mes='+mes+(uni?'&unidade_id='+uni:''));
+      if(!prog || prog.tipo!=='unidade'){ box.innerHTML=''; return; }
+      var cats = prog.unidade.categorias;
+      box.innerHTML = '<div style="font-size:12px;color:var(--gold);margin-bottom:8px">Unidade · '+prog.unidade.dias_uteis_restantes+' dias úteis restantes</div>'
+        + CATS.map(function(c){ return cats[c] && cats[c].meta>0 ? barrinha(cats[c],c) : ''; }).join('');
+      // por barbeiro (faturamento)
+      if(prog.barbeiros && prog.barbeiros.length){
+        boxB.innerHTML = '<div class="sec-title">Por barbeiro (faturamento)</div>' + prog.barbeiros.map(function(b){
+          var f = b.categorias.faturamento||{meta:0,realizado:0,pct:0,por_dia:0};
+          if(f.meta<=0) return '';
+          var pct=Math.min(100,f.pct);
+          return '<div style="margin-bottom:10px"><div style="display:flex;justify-content:space-between;font-size:12px"><span>'+b.nome+'</span>'
+            + '<span class="muted">'+brl(f.realizado)+' / '+brl(f.meta)+' ('+f.pct+'%)</span></div>'
+            + '<div style="height:6px;background:var(--bg3);border-radius:3px;overflow:hidden"><div style="height:100%;width:'+pct+'%;background:'+pcor(f.pct)+';border-radius:3px"></div></div>'
+            + (f.por_dia>0?'<div style="font-size:10px;color:var(--gold)">faltam '+brl(f.por_dia)+'/dia útil</div>':'')+'</div>';
+        }).join('');
+      }
+    }catch(e){ box.innerHTML='<div class="muted" style="font-size:12px">Não foi possível carregar o progresso.</div>'; }
+  }
+
+  function montarTabelaDistrib(jaSalvas){
+    var tb = document.getElementById('tbody-distrib');
+    if(!barbeiros.length){ tb.innerHTML='<tr><td colspan="6" class="muted" style="text-align:center;padding:18px">Nenhum barbeiro nesta unidade.</td></tr>'; document.getElementById('tfoot-distrib').innerHTML=''; return; }
+    tb.innerHTML = barbeiros.map(function(b){
+      var m = jaSalvas[b.id] || {};
+      var tds = CATS.map(function(c){
+        var v = m[c]!=null ? m[c] : '';
+        return '<td><input type="number" min="0" step="0.01" data-bid="'+b.id+'" data-cat="'+c+'" value="'+v+'" oninput="recalcSoma()"></td>';
+      }).join('');
+      return '<tr><td>'+b.nome+(b.perfil==='gerente'?' <span class="tag">gerente</span>':'')+'</td>'+tds+'</tr>';
+    }).join('');
+    recalcSoma();
+  }
+
+  function recalcSoma(){
+    var somas = { clientes:0, faturamento:0, produtos:0, planos:0, bar:0 };
+    document.querySelectorAll('#tbody-distrib input').forEach(function(i){
+      somas[i.dataset.cat] += parseFloat(i.value)||0;
+    });
+    var metaU = {};
+    CATS.forEach(function(c){ var e=document.getElementById('mu-'+c); metaU[c]=e?(parseFloat(e.value)||0):0; });
+    var cells = CATS.map(function(c){
+      var s = somas[c], alvo = metaU[c];
+      var cor = alvo>0 ? (Math.abs(s-alvo)<0.01?'var(--green)': (s>alvo?'var(--red)':'var(--muted)')) : 'var(--muted)';
+      var txt = (c==='faturamento'||c==='bar') ? brl(s) : (Math.round(s*100)/100);
+      var alvoTxt = alvo>0 ? ((c==='faturamento'||c==='bar')?brl(alvo):alvo) : '—';
+      return '<td style="color:'+cor+';font-weight:600">'+txt+'<div style="font-size:10px;color:var(--muted);font-weight:400">meta: '+alvoTxt+'</div></td>';
+    }).join('');
+    document.getElementById('tfoot-distrib').innerHTML = '<tr><th>Soma distribuída</th>'+cells+'</tr>';
+  }
+
+  async function salvarMetaUnidade(){
+    var uni = unidadeSelecionada();
+    var mes = val('f-mes');
+    if(!uni || !mes){ toast('Escolha unidade e mês'); return; }
+    var body = { unidade_id: uni, mes: mes };
+    CATS.forEach(function(c){ body[c] = parseFloat(val('mu-'+c))||0; });
+    try{
+      await req('POST','/metas/unidade', body);
+      toast('Meta da unidade salva ✓');
+      recalcSoma();
+    }catch(e){ toast('Erro: '+(e.message||'tente de novo')); }
+  }
+
+  async function salvarDistribuicao(){
+    var uni = unidadeSelecionada();
+    var mes = val('f-mes');
+    if(!uni || !mes){ toast('Escolha unidade e mês'); return; }
+    // agrupa inputs por barbeiro
+    var porBarbeiro = {};
+    document.querySelectorAll('#tbody-distrib input').forEach(function(i){
+      var bid = i.dataset.bid;
+      if(!porBarbeiro[bid]) porBarbeiro[bid] = { colaborador_id:bid, unidade_id:uni, mes:mes };
+      porBarbeiro[bid][i.dataset.cat] = parseFloat(i.value)||0;
+    });
+    var lista = Object.values(porBarbeiro);
+    if(!lista.length){ toast('Nada para salvar'); return; }
+    // trava: se TUDO está zerado, provavelmente foi salvar por engano (campos vazios) — confirma
+    var somaTudo = 0;
+    lista.forEach(function(l){ CATS.forEach(function(c){ somaTudo += (parseFloat(l[c])||0); }); });
+    if(somaTudo === 0){
+      if(!confirm('Todos os valores estão ZERADOS. Isso vai apagar a distribuição atual desses barbeiros.\n\nTem certeza que quer salvar zerado?')) return;
+    }
+    try{
+      for(var k=0;k<lista.length;k++){ await req('POST','/metas/colaborador', lista[k]); }
+      toast('Distribuição salva ✓ ('+lista.length+' barbeiros)');
+      await carregarTudo(); // recarrega mostrando os valores gravados = confirmação visível
+    }catch(e){ toast('Erro: '+(e.message||'tente de novo')); }
+  }
+
+  // init
+  (async function(){
+    await carregarUnidades();
+    // gerente já carrega direto; proprietário espera escolher
+    if(perfil==='gerente'){ await carregarTudo(); }
+  })();
+  </script>
+</body>
+</html>

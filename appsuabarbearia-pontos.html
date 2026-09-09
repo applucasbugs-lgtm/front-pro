@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <script src="tenant.js"></script>
+<link rel="icon" href="/icons/favicon-48.png">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>APP LUCAS BUGS | HAIR STYLIST — Ajustar Pontos</title>
+<style>
+  :root{
+/* TEMA:INICIO — gerado pelo personalizador, não edite à mão */
+  --bg:#000000;
+  --bg2:#0b0b0b;
+  --bg3:#161616;
+  --bg4:#212121;
+  --black:#000000;
+  --white:#ffffff;
+  --cream:#e6fdf6;
+  --muted:#949494;
+  --muted2:#707070;
+  --border:rgba(255,255,255,0.1);
+  --border2:rgba(255,255,255,0.18);
+  --gold:#00eba4;
+  --gold-light:#ffffff;
+  --gold-dim:rgba(0,235,164,0.12);
+  --gold-border:rgba(0,235,164,0.3);
+  --border-strong:rgba(0,235,164,0.4);
+  --on-primary:#0d0d10;
+  --green:#2ecc71;
+  --green-dim:rgba(46,204,113,0.14);
+  --green-text:#54d58b;
+  --on-green:#0d1526;
+  --red:#ef5350;
+  --red-dim:rgba(239,83,80,0.14);
+  --red-text:#f27270;
+  --amber:#f0b429;
+  --amber-dim:rgba(240,180,41,0.16);
+  --blue:#4b9bf5;
+  --blue-dim:rgba(75,155,245,0.14);
+  --blue-text:#6badf7;
+  --roxo:#a97bf0;
+  --roxo-dim:rgba(169,123,240,0.14);
+  --roxo-text:#b893f3;
+  --overlay:rgba(0,0,0,0.05);
+  --overlay2:rgba(0,0,0,0.1);
+  --wpp:#25D366;
+  --wpp-dim:rgba(37,211,102,0.12);
+  --serie-1:#2a78d6;
+  --serie-2:#eb6834;
+  --serie-3:#1baf7a;
+  --serie-4:#eda100;
+  --serie-5:#e87ba4;
+  --serie-6:#008300;
+  --serie-7:#4a3aa7;
+  --serie-8:#e34948;
+  --ag-bg:#0b0b0b;
+  --ag-bg-header:#161616;
+  --ag-bg-time:#0b0b0b;
+  --ag-line:rgba(255,255,255,0.09);
+  --ag-line-full:rgba(255,255,255,0.16);
+  --ag-text:#ffffff;
+  --ag-text-muted:#737373;
+  --ag-hover:rgba(255,255,255,0.04);
+  --ag-mine-bg:rgba(0,235,164,0.14);
+  --ag-mine-border:rgba(0,235,164,0.4);
+  --ev-agendado-bar:#2a71c8;
+  --ev-agendado-bg:#122135;
+  --ev-agendado-text:#75a3db;
+  --ev-concluido-bar:#2ecc71;
+  --ev-concluido-bg:#133521;
+  --ev-concluido-text:#77dea3;
+  --ev-atrasado-bar:#c2650a;
+  --ev-atrasado-bg:#331f0b;
+  --ev-atrasado-text:#d79b60;
+  --ev-nao-veio-bar:#ef5350;
+  --ev-nao-veio-bg:#3d1b1a;
+  --ev-nao-veio-text:#f58f8d;
+  --ev-bloqueado-bar:#7a7a7a;
+  --ev-bloqueado-bg:#232323;
+  --ev-bloqueado-text:#a9a9a9;
+  /* TEMA:FIM */
+}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--white);font-family:'Inter',-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+  .wrap{max-width:640px;margin:0 auto;padding:24px 18px 80px}
+  h1{font-size:20px;margin:0 0 4px}
+  .sub{color:var(--muted);font-size:13px;margin:0 0 22px}
+  .card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:18px;margin-bottom:16px}
+  label{display:block;font-size:12px;color:var(--muted);margin:0 0 5px;text-transform:uppercase;letter-spacing:.06em}
+  input,select,textarea{width:100%;padding:11px;border:1px solid var(--border);border-radius:9px;background:var(--bg3);color:var(--white);font-size:14px;font-family:inherit}
+  textarea{resize:vertical;min-height:64px}
+  .btn{padding:11px 18px;border:0;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit}
+  .btn-primary{background:var(--gold);color:var(--on-primary)}
+  .btn-ghost{background:var(--bg3);color:var(--white);border:1px solid var(--border)}
+  .btn-green{background:var(--green);color:var(--on-green)}
+  .btn-red{background:transparent;color:var(--red);border:1px solid var(--red)}
+  .btn:disabled{opacity:.5;cursor:default}
+  .back{display:inline-block;color:var(--muted);text-decoration:none;font-size:13px;margin-bottom:14px}
+  .muted{color:var(--muted)} .gold{color:var(--gold)} .green{color:var(--green)} .red{color:var(--red)}
+  .cli-item{padding:11px;border:1px solid var(--border);border-radius:9px;margin-bottom:8px;cursor:pointer;background:var(--bg3)}
+  .cli-item:hover{border-color:var(--gold)}
+  .cli-nome{font-weight:600;font-size:14px}
+  .cli-sub{font-size:12px;color:var(--muted);margin-top:2px}
+  .saldo-box{text-align:center;padding:18px;background:linear-gradient(135deg,var(--gold-dim),transparent);border:1px solid var(--border);border-radius:12px;margin-bottom:16px}
+  .saldo-num{font-size:40px;font-weight:700;color:var(--white);line-height:1}
+  .saldo-lbl{font-size:12px;color:var(--gold);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
+  .seg{display:flex;gap:8px;margin-bottom:14px}
+  .seg button{flex:1;padding:12px;border:1px solid var(--border);border-radius:10px;background:var(--bg3);color:var(--muted);font-weight:600;font-size:14px;cursor:pointer;font-family:inherit}
+  .seg button.on-cred{background:var(--green-dim);border-color:var(--green-text);color:var(--green-text)}
+  .seg button.on-deb{background:var(--red-dim);border-color:var(--red-text);color:var(--red-text)}
+  .hist-item{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid var(--border);font-size:13px}
+  .hist-item:last-child{border-bottom:0}
+  .hist-pts{font-weight:700;white-space:nowrap}
+  .toast{position:fixed;bottom:24px;right:24px;background:var(--bg2);border:1px solid var(--border-strong);border-radius:10px;padding:12px 16px;font-size:13px;color:var(--gold-light);z-index:9999;max-width:320px}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <a href="appsuabarbearia-dashboard.html" class="back">← Voltar ao Painel</a>
+    <h1>Ajustar Pontos</h1>
+    <p class="sub">Credite ou debite pontos manualmente para corrigir divergências (importação, débito equivocado). Todo ajuste fica registrado.</p>
+
+    <!-- BUSCA DE CLIENTE -->
+    <div class="card" id="card-busca">
+      <label>Buscar cliente (nome ou WhatsApp)</label>
+      <div style="display:flex;gap:8px">
+        <input id="busca" placeholder="Digite nome ou telefone…" onkeydown="if(event.key==='Enter')buscarCliente()">
+        <button class="btn btn-primary" style="min-width:110px" onclick="buscarCliente()">Buscar</button>
+      </div>
+      <div id="resultados" style="margin-top:12px"></div>
+    </div>
+
+    <!-- CLIENTE SELECIONADO + AJUSTE -->
+    <div class="card" id="card-ajuste" style="display:none">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
+        <div>
+          <div class="cli-nome" id="sel-nome">—</div>
+          <div class="cli-sub" id="sel-sub">—</div>
+        </div>
+        <button class="btn btn-ghost" style="padding:7px 12px;font-size:12px" onclick="trocarCliente()">Trocar</button>
+      </div>
+
+      <div class="saldo-box">
+        <div class="saldo-lbl">Saldo atual</div>
+        <div class="saldo-num" id="saldo-atual">—</div>
+      </div>
+
+      <div class="seg">
+        <button id="seg-cred" class="on-cred" onclick="setModo('cred')">＋ Creditar</button>
+        <button id="seg-deb" onclick="setModo('deb')">－ Debitar</button>
+      </div>
+
+      <div style="margin-bottom:14px">
+        <label>Quantidade de pontos</label>
+        <input id="qtd" type="number" min="1" step="1" placeholder="Ex: 150">
+      </div>
+
+      <div style="margin-bottom:16px">
+        <label>Motivo (obrigatório)</label>
+        <textarea id="motivo" placeholder="Ex: correção de divergência da importação do AppBarber"></textarea>
+      </div>
+
+      <button class="btn btn-primary" style="width:100%" id="btn-aplicar" onclick="aplicarAjuste()">Aplicar ajuste</button>
+    </div>
+
+    <!-- HISTÓRICO -->
+    <div class="card" id="card-hist" style="display:none">
+      <label>Histórico de movimentações</label>
+      <div id="hist"></div>
+    </div>
+  </div>
+
+  <script src="api.js"></script>
+<script src="ajuda.js"></script>
+  <script>
+  var _cli=null, _modo='cred';
+  function toast(msg){ var t=document.createElement('div'); t.className='toast'; t.textContent=msg; document.body.appendChild(t); setTimeout(function(){t.remove()},3600) }
+  function fmtWpp(w){ if(!w) return ''; var d=String(w).replace(/\D/g,''); if(d.length>=11){var n=d.slice(-11); return '('+n.slice(0,2)+') '+n.slice(2,7)+'-'+n.slice(7);} return w; }
+
+  async function buscarCliente(){
+    var termo=(document.getElementById('busca').value||'').trim();
+    if(!termo){ toast('Digite um nome ou telefone'); return; }
+    var box=document.getElementById('resultados');
+    box.innerHTML='<div class="muted" style="font-size:13px">Buscando…</div>';
+    try{
+      var lista=await req('GET','/clientes?busca='+encodeURIComponent(termo)+'&limit=20')||[];
+      if(!lista.length){ box.innerHTML='<div class="muted" style="font-size:13px">Nenhum cliente encontrado.</div>'; return; }
+      box.innerHTML=lista.map(function(c){
+        return '<div class="cli-item" onclick="selecionar(\''+c.id+'\',\''+(c.nome||'').replace(/'/g,"")+'\',\''+(c.whatsapp||'')+'\')">'
+          +'<div class="cli-nome">'+(c.nome||'Sem nome')+'</div>'
+          +'<div class="cli-sub">'+(fmtWpp(c.whatsapp)||'sem telefone')+(c.cpf?' · CPF '+c.cpf:'')+'</div></div>';
+      }).join('');
+    }catch(e){ box.innerHTML='<div class="red" style="font-size:13px">Erro na busca.</div>'; }
+  }
+
+  async function selecionar(id,nome,wpp){
+    _cli={id:id,nome:nome,whatsapp:wpp};
+    document.getElementById('sel-nome').textContent=nome||'—';
+    document.getElementById('sel-sub').textContent=fmtWpp(wpp)||'sem telefone';
+    document.getElementById('card-busca').style.display='none';
+    document.getElementById('card-ajuste').style.display='';
+    document.getElementById('card-hist').style.display='';
+    document.getElementById('qtd').value='';
+    document.getElementById('motivo').value='';
+    setModo('cred');
+    await carregarSaldo();
+    await carregarHistorico();
+  }
+
+  function trocarCliente(){
+    _cli=null;
+    document.getElementById('card-busca').style.display='';
+    document.getElementById('card-ajuste').style.display='none';
+    document.getElementById('card-hist').style.display='none';
+    document.getElementById('resultados').innerHTML='';
+    document.getElementById('busca').value='';
+  }
+
+  function setModo(m){
+    _modo=m;
+    document.getElementById('seg-cred').className = (m==='cred')?'on-cred':'';
+    document.getElementById('seg-deb').className  = (m==='deb')?'on-deb':'';
+  }
+
+  async function carregarSaldo(){
+    var el=document.getElementById('saldo-atual'); el.textContent='…';
+    try{
+      var r=await req('GET','/cashback/saldo/'+_cli.id);
+      el.textContent=(r&&r.saldo!=null)?r.saldo:0;
+    }catch(e){ el.textContent='0'; }
+  }
+
+  async function carregarHistorico(){
+    var box=document.getElementById('hist'); box.innerHTML='<div class="muted" style="font-size:13px">Carregando…</div>';
+    try{
+      var h=await req('GET','/cashback/historico/'+_cli.id)||[];
+      if(!h.length){ box.innerHTML='<div class="muted" style="font-size:13px">Sem movimentações registradas.</div>'; return; }
+      box.innerHTML=h.map(function(x){
+        var d=new Date(x.criado_em);
+        var df=String(d.getDate()).padStart(2,'0')+'/'+String(d.getMonth()+1).padStart(2,'0')+'/'+d.getFullYear();
+        var pos=(x.pontos||0)>=0;
+        return '<div class="hist-item"><div><div>'+(x.descricao||x.tipo||'movimentação')+'</div><div class="muted" style="font-size:11px;margin-top:2px">'+df+'</div></div>'
+          +'<div class="hist-pts '+(pos?'green':'red')+'">'+(pos?'+':'')+(x.pontos||0)+'</div></div>';
+      }).join('');
+    }catch(e){ box.innerHTML='<div class="red" style="font-size:13px">Erro ao carregar histórico.</div>'; }
+  }
+
+  async function aplicarAjuste(){
+    if(!_cli){ toast('Selecione um cliente'); return; }
+    var q=parseInt(document.getElementById('qtd').value);
+    var motivo=(document.getElementById('motivo').value||'').trim();
+    if(!q || q<=0){ toast('Informe uma quantidade válida'); return; }
+    if(!motivo){ toast('O motivo é obrigatório'); return; }
+    var pontos = (_modo==='deb') ? -Math.abs(q) : Math.abs(q);
+    var acao = (_modo==='deb') ? 'debitar '+q+' pontos' : 'creditar '+q+' pontos';
+    if(!confirm('Confirmar '+acao+' para '+_cli.nome+'?')) return;
+    var btn=document.getElementById('btn-aplicar'); btn.disabled=true; btn.textContent='Aplicando…';
+    try{
+      var r=await req('POST','/cashback/ajustar',{ cliente_id:_cli.id, pontos:pontos, motivo:motivo });
+      toast('Ajuste aplicado. Novo saldo: '+r.saldo_novo+' pts');
+      document.getElementById('qtd').value=''; document.getElementById('motivo').value='';
+      await carregarSaldo();
+      await carregarHistorico();
+    }catch(e){ toast((e && e.message) || 'Erro ao aplicar ajuste'); }
+    btn.disabled=false; btn.textContent='Aplicar ajuste';
+  }
+  </script>
+</body>
+</html>

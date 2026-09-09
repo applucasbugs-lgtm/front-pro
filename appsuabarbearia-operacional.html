@@ -1,0 +1,3255 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <script src="tenant.js"></script>
+<link rel="icon" href="/icons/favicon-48.png">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>APP LUCAS BUGS | HAIR STYLIST — Gestão Operacional</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black:wght@400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+/* TEMA:INICIO — gerado pelo personalizador, não edite à mão */
+  --bg:#000000;
+  --bg2:#0b0b0b;
+  --bg3:#161616;
+  --bg4:#212121;
+  --black:#000000;
+  --white:#ffffff;
+  --cream:#e6fdf6;
+  --muted:#949494;
+  --muted2:#707070;
+  --border:rgba(255,255,255,0.1);
+  --border2:rgba(255,255,255,0.18);
+  --gold:#00eba4;
+  --gold-light:#ffffff;
+  --gold-dim:rgba(0,235,164,0.12);
+  --gold-border:rgba(0,235,164,0.3);
+  --border-strong:rgba(0,235,164,0.4);
+  --on-primary:#0d0d10;
+  --green:#2ecc71;
+  --green-dim:rgba(46,204,113,0.14);
+  --green-text:#54d58b;
+  --on-green:#0d1526;
+  --red:#ef5350;
+  --red-dim:rgba(239,83,80,0.14);
+  --red-text:#f27270;
+  --amber:#f0b429;
+  --amber-dim:rgba(240,180,41,0.16);
+  --blue:#4b9bf5;
+  --blue-dim:rgba(75,155,245,0.14);
+  --blue-text:#6badf7;
+  --roxo:#a97bf0;
+  --roxo-dim:rgba(169,123,240,0.14);
+  --roxo-text:#b893f3;
+  --overlay:rgba(0,0,0,0.05);
+  --overlay2:rgba(0,0,0,0.1);
+  --wpp:#25D366;
+  --wpp-dim:rgba(37,211,102,0.12);
+  --serie-1:#2a78d6;
+  --serie-2:#eb6834;
+  --serie-3:#1baf7a;
+  --serie-4:#eda100;
+  --serie-5:#e87ba4;
+  --serie-6:#008300;
+  --serie-7:#4a3aa7;
+  --serie-8:#e34948;
+  --ag-bg:#0b0b0b;
+  --ag-bg-header:#161616;
+  --ag-bg-time:#0b0b0b;
+  --ag-line:rgba(255,255,255,0.09);
+  --ag-line-full:rgba(255,255,255,0.16);
+  --ag-text:#ffffff;
+  --ag-text-muted:#737373;
+  --ag-hover:rgba(255,255,255,0.04);
+  --ag-mine-bg:rgba(0,235,164,0.14);
+  --ag-mine-border:rgba(0,235,164,0.4);
+  --ev-agendado-bar:#2a71c8;
+  --ev-agendado-bg:#122135;
+  --ev-agendado-text:#75a3db;
+  --ev-concluido-bar:#2ecc71;
+  --ev-concluido-bg:#133521;
+  --ev-concluido-text:#77dea3;
+  --ev-atrasado-bar:#c2650a;
+  --ev-atrasado-bg:#331f0b;
+  --ev-atrasado-text:#d79b60;
+  --ev-nao-veio-bar:#ef5350;
+  --ev-nao-veio-bg:#3d1b1a;
+  --ev-nao-veio-text:#f58f8d;
+  --ev-bloqueado-bar:#7a7a7a;
+  --ev-bloqueado-bg:#232323;
+  --ev-bloqueado-text:#a9a9a9;
+  /* TEMA:FIM */
+  --sidebar-w:220px; --topbar-h:56px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--white);min-height:100vh;display:flex;-webkit-font-smoothing:antialiased}
+
+/* SIDEBAR */
+.sidebar{width:var(--sidebar-w);min-height:100vh;background:var(--black);border-right:0.5px solid var(--border);display:flex;flex-direction:column;flex-shrink:0;position:fixed;top:0;left:0;bottom:0;z-index:100}
+.sidebar-logo{height:var(--topbar-h);padding:0 18px;display:flex;align-items:center;gap:10px;border-bottom:0.5px solid var(--border)}
+.logo-mark{width:32px;height:32px;border:0.5px solid var(--border-strong);border-radius:4px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.logo-mark svg{width:16px;height:16px;color:var(--gold)}
+.logo-name{font-family:'Archivo Black',serif;font-size:13px;color:var(--white)}
+.logo-sub{font-size:9px;color:var(--gold);letter-spacing:.1em;text-transform:uppercase}
+.sidebar-nav{flex:1;padding:12px 0;overflow-y:auto}
+.nav-sec{font-size:9px;font-weight:500;color:var(--muted2);letter-spacing:.12em;text-transform:uppercase;padding:12px 18px 5px}
+.nav-item{display:flex;align-items:center;gap:10px;padding:10px 18px;cursor:pointer;border:none;background:none;width:100%;text-align:left;color:var(--muted);font-family:'Inter',sans-serif;font-size:13px;font-weight:400;position:relative;transition:background .15s}
+.nav-item:hover{background:var(--overlay);color:var(--white)}
+.nav-item.active{background:var(--gold-dim);color:var(--gold)}
+.nav-item.active::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--gold);border-radius:0 2px 2px 0}
+.nav-item svg{width:16px;height:16px;flex-shrink:0}
+
+/* MAIN */
+.main{margin-left:var(--sidebar-w);flex:1;display:flex;flex-direction:column;min-height:100vh}
+.topbar{height:var(--topbar-h);background:var(--black);border-bottom:0.5px solid var(--border);display:flex;align-items:center;padding:0 24px;gap:12px;position:sticky;top:0;z-index:50;flex-shrink:0}
+.topbar-title{font-size:14px;font-weight:500;color:var(--white);flex:1}
+.topbar-crumb{font-size:12px;color:var(--muted)}
+.topbar-crumb span{color:var(--gold)}
+.content{flex:1;padding:24px;overflow-y:auto}
+
+/* VIEW */
+.view{display:none}
+.view.active{display:block}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:7px;font-family:'Inter',sans-serif;font-size:13px;font-weight:500;padding:8px 16px;border-radius:8px;border:none;cursor:pointer;transition:opacity .15s;white-space:nowrap}
+.btn:hover{opacity:.85}
+.btn-primary{background:var(--gold);color:var(--on-primary)}
+.btn-ghost{background:var(--bg3);color:var(--white);border:0.5px solid var(--border2)}
+.btn-success{background:var(--green-dim);color:var(--green-text);border:0.5px solid var(--green)}
+.btn-danger{background:var(--red-dim);color:var(--red-text);border:0.5px solid var(--red)}
+.btn-sm{padding:5px 12px;font-size:12px}
+.btn svg{width:14px;height:14px}
+
+/* CARD */
+.card{background:var(--bg2);border:0.5px solid var(--border);border-radius:10px;overflow:hidden}
+.card-header{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-bottom:0.5px solid var(--border)}
+.card-title{font-size:13px;font-weight:500;color:var(--white);display:flex;align-items:center;gap:8px}
+.card-title svg{width:15px;height:15px;color:var(--gold)}
+
+/* TOOLBAR */
+.toolbar{display:flex;align-items:center;gap:10px;margin-bottom:18px;flex-wrap:wrap}
+.search-wrap{display:flex;align-items:center;gap:8px;background:var(--bg2);border:0.5px solid var(--border2);border-radius:8px;padding:8px 12px;flex:1;min-width:180px}
+.search-wrap svg{width:14px;height:14px;color:var(--muted);flex-shrink:0}
+.search-wrap input{background:none;border:none;outline:none;font-family:'Inter',sans-serif;font-size:13px;color:var(--white);width:100%}
+.search-wrap input::placeholder{color:var(--muted)}
+
+/* TABLE */
+.table-wrap{background:var(--bg2);border:0.5px solid var(--border);border-radius:10px;overflow:hidden}
+table{width:100%;border-collapse:collapse}
+thead tr{border-bottom:0.5px solid var(--border2)}
+th{text-align:left;font-size:10px;font-weight:500;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;padding:11px 16px;white-space:nowrap}
+tbody tr{border-bottom:0.5px solid var(--border);transition:background .12s;cursor:pointer}
+tbody tr:last-child{border-bottom:none}
+tbody tr:hover{background:var(--overlay)}
+td{padding:12px 16px;font-size:13px;color:var(--white);vertical-align:middle}
+.td-m{color:var(--muted);font-size:12px}
+
+/* BADGE */
+.badge{display:inline-flex;align-items:center;font-size:11px;font-weight:500;padding:2px 9px;border-radius:10px;white-space:nowrap}
+.bg{background:var(--green-dim);color:var(--green-text)}
+.br{background:var(--red-dim);color:var(--red-text)}
+.bb{background:var(--blue-dim);color:var(--blue-text)}
+.bo{background:var(--gold-dim);color:var(--gold)}
+.bgr{background:var(--overlay);color:var(--muted)}
+
+/* FORM */
+.form-group{display:flex;flex-direction:column;gap:5px}
+.form-label{font-size:11px;font-weight:500;color:var(--muted);text-transform:uppercase;letter-spacing:.07em}
+.form-input,.form-select,.form-textarea{background:var(--bg3);border:0.5px solid var(--border2);border-radius:8px;padding:10px 12px;font-family:'Inter',sans-serif;font-size:13px;color:var(--white);outline:none;width:100%;transition:border-color .15s}
+.form-input::placeholder{color:var(--muted)}
+.form-input:focus,.form-select:focus{border-color:var(--gold)}
+.form-select option{background:var(--bg3)}
+.form-textarea{resize:vertical;min-height:72px}
+.form-hint{font-size:11px;color:var(--muted)}
+.frow{display:grid;gap:12px}
+.f2{grid-template-columns:1fr 1fr}
+.f3{grid-template-columns:1fr 1fr 1fr}
+.fsec{font-size:11px;font-weight:500;color:var(--gold);text-transform:uppercase;letter-spacing:.08em;margin-top:4px}
+.fdiv{height:0.5px;background:var(--border);margin:4px 0}
+
+/* TOGGLE */
+.toggle-row{display:flex;align-items:center;justify-content:space-between;background:var(--bg3);border:0.5px solid var(--border2);border-radius:8px;padding:10px 14px}
+.tg-label{font-size:13px;color:var(--white)}
+.tg-sub{font-size:11px;color:var(--muted)}
+.toggle{width:36px;height:20px;background:var(--muted2);border-radius:20px;position:relative;cursor:pointer;transition:background .2s;flex-shrink:0;border:none}
+.toggle.on{background:var(--green)}
+.toggle::after{content:'';position:absolute;width:14px;height:14px;border-radius:50%;background:var(--white);top:3px;left:3px;transition:left .2s}
+.toggle.on::after{left:19px}
+
+/* ICON BTN */
+.ib{width:30px;height:30px;border-radius:6px;background:var(--bg3);border:0.5px solid var(--border2);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .15s}
+.ib:hover{background:var(--bg4)}
+.ib svg{width:14px;height:14px;color:var(--muted)}
+.ib.del:hover{background:var(--red-dim);border-color:var(--red-text)}
+.ib.del:hover svg{color:var(--red)}
+.td-act{display:flex;gap:6px;justify-content:flex-end}
+
+/* OVERLAY / DRAWER */
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:200;display:none;align-items:flex-start;justify-content:flex-end}
+.overlay.open{display:flex}
+.drawer{width:500px;max-width:100%;height:100vh;background:var(--bg2);border-left:0.5px solid var(--border2);display:flex;flex-direction:column;animation:slideIn .25s ease;overflow:hidden}
+@keyframes slideIn{from{transform:translateX(60px);opacity:0}to{transform:translateX(0);opacity:1}}
+.dh{padding:18px 20px;border-bottom:0.5px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.dh-title{font-size:15px;font-weight:500;color:var(--white)}
+.dh-sub{font-size:12px;color:var(--muted);margin-top:2px}
+.dc-btn{width:32px;height:32px;border-radius:6px;background:var(--bg3);border:0.5px solid var(--border2);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--muted)}
+.dc-btn:hover{background:var(--bg4);color:var(--white)}
+.dc-btn svg{width:16px;height:16px}
+.db{flex:1;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:14px}
+.db>*{flex-shrink:0}
+#comanda-itens-card{overflow:visible}
+.df{padding:16px 20px;border-top:0.5px solid var(--border);display:flex;gap:10px;justify-content:flex-end;flex-shrink:0}
+
+/* STEPPER */
+.stepper{display:flex;gap:0;margin-bottom:24px;border-bottom:0.5px solid var(--border)}
+.step-btn{font-family:'Inter',sans-serif;font-size:13px;font-weight:400;color:var(--muted);background:none;border:none;padding:10px 18px;cursor:pointer;position:relative;transition:color .15s;display:flex;align-items:center;gap:7px}
+.step-btn:hover{color:var(--white)}
+.step-btn.active{color:var(--gold-light)}
+.step-btn.active::after{content:'';position:absolute;bottom:-0.5px;left:0;right:0;height:2px;background:var(--gold)}
+.step-btn.done{color:var(--green)}
+.step-num{width:18px;height:18px;border-radius:50%;font-size:10px;font-weight:500;display:flex;align-items:center;justify-content:center;background:var(--bg3);color:var(--muted);flex-shrink:0}
+.step-btn.active .step-num{background:var(--gold-dim);color:var(--gold)}
+.step-btn.done .step-num{background:var(--green-dim);color:var(--green-text)}
+.step-panel{display:none}
+.step-panel.active{display:block}
+
+/* MÉTRICAS */
+.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:24px}
+.metric{background:var(--bg2);border:0.5px solid var(--border);border-radius:10px;padding:16px;position:relative;overflow:hidden}
+.metric::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
+.metric.gn::before{background:var(--green)}
+.metric.gd::before{background:var(--gold)}
+.metric.bl::before{background:var(--blue)}
+.metric.rd::before{background:var(--red)}
+.m-label{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px}
+.m-val{font-family:'Archivo Black',serif;font-size:26px;font-weight:400;color:var(--white);line-height:1;margin-bottom:4px}
+.m-sub{font-size:11px;color:var(--muted);font-weight:300}
+
+/* COMANDA */
+.comanda-layout{display:grid;grid-template-columns:1fr 340px;gap:16px}
+@media(max-width:1000px){.comanda-layout{grid-template-columns:1fr}}
+.item-row{display:flex;align-items:center;gap:12px;padding:10px 16px;border-bottom:0.5px solid var(--border)}
+.item-row:last-child{border-bottom:none}
+.item-name{font-size:13px;font-weight:500;color:var(--white);flex:1}
+.item-type{font-size:10px;color:var(--muted)}
+.item-val{font-size:13px;font-weight:500;color:var(--gold-light);min-width:70px;text-align:right}
+.qty-ctrl{display:flex;align-items:center;gap:6px}
+.qty-btn{width:24px;height:24px;border-radius:4px;background:var(--bg3);border:0.5px solid var(--border2);color:var(--white);font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.qty-num{font-size:13px;min-width:20px;text-align:center}
+.total-row{display:flex;justify-content:space-between;align-items:center;padding:10px 16px;border-top:0.5px solid var(--border)}
+.total-label{font-size:13px;color:var(--muted)}
+.total-val{font-size:15px;font-weight:500;color:var(--white)}
+.total-final{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;background:var(--gold-dim);border-top:0.5px solid var(--gold-border)}
+.total-final-label{font-size:14px;font-weight:500;color:var(--gold-light)}
+.total-final-val{font-family:'Archivo Black',serif;font-size:24px;color:var(--gold-light)}
+.pgto-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:14px 16px}
+.pgto-btn{background:var(--bg3);border:0.5px solid var(--border2);border-radius:8px;padding:10px;text-align:center;cursor:pointer;transition:all .15s;font-family:'Inter',sans-serif}
+.pgto-btn:hover{background:var(--gold-dim);border-color:var(--gold-border)}
+.pgto-btn.sel{background:var(--gold-dim);border-color:var(--gold);box-shadow:inset 0 0 0 1.5px var(--gold)}
+.pgto-btn.sel .pgto-label{color:var(--gold-light);font-weight:600}
+.pgto-btn.sel .pgto-icon{transform:scale(1.08)}
+#ov-comanda input[type=number]::-webkit-inner-spin-button,#ov-comanda input[type=number]::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+#ov-comanda input[type=number]{-moz-appearance:textfield;appearance:textfield}
+.pgto-icon{font-size:18px;margin-bottom:4px}
+.pgto-label{font-size:12px;color:var(--white);font-weight:500}
+
+/* CAIXA */
+.pgto-resumo{display:flex;flex-direction:column;gap:0}
+.pr-item{display:flex;justify-content:space-between;align-items:center;padding:10px 16px;border-bottom:0.5px solid var(--border)}
+.pr-item:last-child{border-bottom:none}
+.pr-label{font-size:13px;color:var(--muted)}
+.pr-val{font-size:13px;font-weight:500;color:var(--white)}
+
+/* BARCODE */
+.barcode-area{background:var(--bg3);border:0.5px dashed var(--border2);border-radius:8px;padding:16px;text-align:center;cursor:pointer;transition:border-color .15s}
+.barcode-area:hover{border-color:var(--gold)}
+.barcode-area svg{width:28px;height:28px;color:var(--muted);margin:0 auto 8px}
+.barcode-hint{font-size:12px;color:var(--muted)}
+
+/* BLOQUEIO */
+.dia-toggle{background:var(--bg3);border:0.5px solid var(--border2);border-radius:8px;padding:7px 12px;font-size:12px;color:var(--muted);font-family:inherit;cursor:pointer;transition:all .15s}
+.dia-toggle:hover{border-color:var(--gold-border)}
+.dia-toggle.on{background:var(--gold-dim);border-color:var(--gold-border);color:var(--gold);font-weight:600}
+.barber-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px}
+.barber-card{background:var(--bg3);border:0.5px solid var(--border2);border-radius:8px;padding:12px;cursor:pointer;transition:all .15s;text-align:center}
+.barber-card:hover,.barber-card.sel{background:var(--gold-dim);border-color:var(--gold-border)}
+.barber-av{width:36px;height:36px;border-radius:50%;background:var(--bg2);border:0.5px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;color:var(--muted);margin:0 auto 8px}
+.barber-card.sel .barber-av{background:var(--gold-dim);color:var(--gold)}
+.barber-name{font-size:12px;font-weight:500;color:var(--white)}
+.barber-unit{font-size:10px;color:var(--muted)}
+
+/* PLANOS */
+.plano-card{background:var(--bg2);border:0.5px solid var(--border);border-radius:10px;padding:16px;position:relative;cursor:pointer;transition:border-color .15s}
+.plano-card:hover{border-color:var(--gold-border)}
+.plano-name{font-size:15px;font-weight:500;color:var(--white);margin-bottom:4px}
+.plano-price{font-family:'Archivo Black',serif;font-size:28px;color:var(--gold-light);margin-bottom:8px}
+.plano-price span{font-family:'Inter',sans-serif;font-size:12px;color:var(--muted);font-weight:300}
+.plano-items{display:flex;flex-direction:column;gap:5px}
+.plano-item{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:6px}
+.plano-item svg{width:12px;height:12px;color:var(--green);flex-shrink:0}
+
+@media(max-width:768px){
+  .sidebar{display:none}
+  .main{margin-left:0}
+  .f2,.f3{grid-template-columns:1fr}
+  .drawer{width:100%}
+}
+</style>
+<script src="api.js"></script>
+<script src="ajuda.js" data-tour="operacional"></script>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+  <div class="sidebar-logo">
+    <div class="logo-mark">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg>
+    </div>
+    <div><div class="logo-name">LUCAS BUGS | Hair Stylist</div><div class="logo-sub">Gestão</div></div>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-sec">Operacional</div>
+    <button class="nav-item active" onclick="nav('comandas',this)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+      Comandas
+    </button>
+    <button class="nav-item" onclick="nav('caixa',this)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+      Fechamento de Caixa
+    </button>
+    <button class="nav-item" onclick="nav('bloqueios',this)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+      Bloqueios e Folgas
+    </button>
+    <button class="nav-item" onclick="nav('planos',this)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      Planos de Assinatura
+    </button>
+  </nav>
+</aside>
+
+<!-- MAIN -->
+<div class="main">
+  <header class="topbar">
+    <button onclick="window.location.href='appsuabarbearia-dashboard.html'" style="display:flex;align-items:center;gap:6px;background:var(--bg3);border:0.5px solid var(--border);border-radius:6px;padding:6px 12px;color:var(--muted);font-family:'Inter',sans-serif;font-size:12px;cursor:pointer;flex-shrink:0">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      Dashboard
+    </button>
+    <div class="topbar-title" id="ttitle">Comandas</div>
+    <div class="topbar-crumb">Operacional › <span id="tcrumb">Comandas</span></div>
+  </header>
+  <main class="content">
+
+    <!-- ============ COMANDAS ============ -->
+    <div class="view active" id="view-comandas">
+      <!-- AÇÕES RÁPIDAS (#2 comanda avulsa, #11 vale, #12 saída) -->
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px">
+        <button class="btn btn-primary" onclick="abrirAvulsaWidget()" style="flex:1;min-width:150px">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Comanda avulsa
+        </button>
+        <button class="btn btn-g" onclick="openD('vale-funcionario')" style="flex:1;min-width:150px;background:var(--gold-dim);border:0.5px solid var(--gold-border);color:var(--gold-light)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12V22H4V12"/><path d="M22 7H2v5h20V7z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z"/></svg>
+          Vale funcionário
+        </button>
+        <button class="btn btn-danger" data-func="retirada_caixa" onclick="openD('saida-caixa')" style="flex:1;min-width:150px">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+          Saída do caixa
+        </button>
+      </div>
+
+      <div class="toolbar" style="flex-wrap:wrap;gap:8px">
+        <div class="search-wrap" style="flex:1;min-width:180px">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input id="cf-busca" placeholder="Buscar cliente ou nº da comanda..." oninput="aplicarFiltrosComanda()">
+        </div>
+        <button class="btn btn-g" onclick="abrirAvulsaWidget()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Nova comanda
+        </button>
+      </div>
+      <!-- PAINEL DE FILTROS -->
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px;align-items:end">
+        <div>
+          <label style="display:block;font-size:11px;color:var(--muted);margin-bottom:3px">De</label>
+          <input id="cf-data-ini" type="date" class="form-select" style="width:auto;padding:7px 10px" onchange="recarregarComandasPeriodo()">
+        </div>
+        <div>
+          <label style="display:block;font-size:11px;color:var(--muted);margin-bottom:3px">Até</label>
+          <input id="cf-data-fim" type="date" class="form-select" style="width:auto;padding:7px 10px" onchange="recarregarComandasPeriodo()">
+        </div>
+        <div>
+          <label style="display:block;font-size:11px;color:var(--muted);margin-bottom:3px">Status</label>
+          <select id="cf-status" class="form-select" style="width:auto;padding:7px 10px" onchange="aplicarFiltrosComanda()">
+            <option value="">Todas</option>
+            <option value="aberta">Em aberto</option>
+            <option value="finalizada">Finalizadas</option>
+          </select>
+        </div>
+        <div>
+          <label style="display:block;font-size:11px;color:var(--muted);margin-bottom:3px">Barbeiro</label>
+          <select id="cf-barbeiro" class="form-select" style="width:auto;padding:7px 10px" onchange="aplicarFiltrosComanda()">
+            <option value="">Todos</option>
+          </select>
+        </div>
+        <div>
+          <label style="display:block;font-size:11px;color:var(--muted);margin-bottom:3px">Pagamento</label>
+          <select id="cf-forma" class="form-select" style="width:auto;padding:7px 10px" onchange="aplicarFiltrosComanda()">
+            <option value="">Todas</option>
+            <option value="dinheiro">Dinheiro</option>
+            <option value="pix">PIX</option>
+            <option value="credito">Crédito</option>
+            <option value="debito">Débito</option>
+          </select>
+        </div>
+        <div>
+          <label style="display:block;font-size:11px;color:var(--muted);margin-bottom:3px">Valor mín.</label>
+          <input id="cf-valor-min" type="number" inputmode="decimal" placeholder="0" class="form-select" style="width:90px;padding:7px 10px" oninput="aplicarFiltrosComanda()">
+        </div>
+        <div>
+          <label style="display:block;font-size:11px;color:var(--muted);margin-bottom:3px">Valor máx.</label>
+          <input id="cf-valor-max" type="number" inputmode="decimal" placeholder="∞" class="form-select" style="width:90px;padding:7px 10px" oninput="aplicarFiltrosComanda()">
+        </div>
+        <button class="btn btn-ghost" onclick="limparFiltrosComanda()" style="padding:7px 12px;font-size:12px">Limpar</button>
+        <div id="cf-resumo" style="font-size:12px;color:var(--muted);margin-left:auto;align-self:center"></div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>#</th><th>Cliente</th><th>Barbeiro</th><th>Serviços / Produtos</th><th>Total</th><th>Pagamento</th><th>Status</th><th></th></tr></thead>
+          <tbody id="op-comandas-tbody"><tr><td colspan="8" style="text-align:center;padding:24px;color:var(--muted);font-size:13px">Carregando...</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ============ FECHAMENTO DE CAIXA ============ -->
+    <div class="view" id="view-caixa">
+      <div id="cx-status-banner" style="margin-bottom:16px"></div>
+      <div class="metrics">
+        <div class="metric gn"><div class="m-label">Faturamento bruto</div><div class="m-val" id="cx-faturamento">R$ 0,00</div><div class="m-sub" id="cx-faturamento-sub">0 comandas finalizadas</div></div>
+        <div class="metric gd"><div class="m-label">Ticket médio</div><div class="m-val" id="cx-ticket">R$ 0,00</div><div class="m-sub">por comanda</div></div>
+        <div class="metric rd"><div class="m-label">Saídas</div><div class="m-val" id="cx-saidas">R$ 0,00</div><div class="m-sub">sangrias · vales · saídas</div></div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+              Formas de pagamento
+            </div>
+          </div>
+          <div class="pgto-resumo">
+            <div class="pr-item"><span class="pr-label">Dinheiro</span><span class="pr-val" id="cx-f-dinheiro">R$ 0,00</span></div>
+            <div class="pr-item"><span class="pr-label">Cartão de Débito</span><span class="pr-val" id="cx-f-debito">R$ 0,00</span></div>
+            <div class="pr-item"><span class="pr-label">Cartão de Crédito</span><span class="pr-val" id="cx-f-credito">R$ 0,00</span></div>
+            <div class="pr-item"><span class="pr-label">Pix</span><span class="pr-val" id="cx-f-pix">R$ 0,00</span></div>
+            <div class="pr-item" style="background:var(--gold-dim);border-top:0.5px solid var(--gold-border)"><span style="font-weight:500;color:var(--gold-light)">Total</span><span style="font-family:'Archivo Black',serif;font-size:20px;color:var(--gold-light)" id="cx-f-total">R$ 0,00</span></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+              Saídas registradas
+            </div>
+          </div>
+          <div class="pgto-resumo">
+            <div id="cx-saidas-lista"><div class="pr-item"><span class="pr-label" style="color:var(--muted)">Nenhuma saída registrada</span></div></div>
+            <div class="pr-item" style="background:var(--red-dim);border-top:0.5px solid var(--red)"><span style="font-weight:500;color:var(--red)">Total saídas</span><span style="font-size:18px;font-weight:500;color:var(--red)" id="cx-saidas-total">R$ 0,00</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:16px;display:flex;gap:12px;justify-content:flex-end">
+        <button class="btn btn-ghost" onclick="abrirHistoricoCaixa()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v5h5"/><path d="M3.05 13A9 9 0 106 5.3L3 8"/><path d="M12 7v5l4 2"/></svg>
+          Histórico de caixa
+        </button>
+        <button class="btn btn-ghost">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+          Imprimir relatório
+        </button>
+        <button class="btn btn-danger" data-func="retirada_caixa" onclick="openD('saida-caixa')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+          Registrar saída
+        </button>
+        <button class="btn btn-primary" id="btn-fechar-caixa" onclick="abrirFechamentoCaixa()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Fechar caixa
+        </button>
+      </div>
+    </div>
+
+    <!-- ============ BLOQUEIOS E FOLGAS ============ -->
+    <div class="view" id="view-bloqueios">
+      <div class="toolbar">
+        <div class="search-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input placeholder="Buscar por barbeiro ou data...">
+        </div>
+        <button class="btn btn-danger" onclick="abrirBloqueioRec()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+          Bloquear horário
+        </button>
+        <button class="btn btn-primary" onclick="openD('folga')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Lançar folga
+        </button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Barbeiro</th><th>Tipo</th><th>Data / Período</th><th>Horário</th><th>Dias</th><th>Motivo</th><th></th></tr></thead>
+          <tbody id="op-bloqueios-tbody"><tr><td colspan="7" style="text-align:center;padding:24px;color:var(--muted);font-size:13px">Nenhum bloqueio ou folga cadastrado</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ============ PLANOS DE ASSINATURA ============ -->
+    <div class="view" id="view-planos">
+      <div style="display:flex;gap:0;border-bottom:0.5px solid var(--border);margin-bottom:24px" id="planos-tabs">
+        <button class="step-btn active" style="padding:10px 18px" onclick="switchPlanoTab('planos-tab-planos',this)">Planos</button>
+        <button class="step-btn" style="padding:10px 18px" onclick="switchPlanoTab('planos-tab-assinantes',this)">Assinantes</button>
+      </div>
+
+      <!-- Tab Planos -->
+      <div id="planos-tab-planos">
+        <div class="toolbar">
+          <div style="flex:1"></div>
+          <button class="btn btn-primary" onclick="abrirDrawerPlano(null)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Novo plano
+          </button>
+        </div>
+        <div id="planos-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px">
+          <div style="color:var(--muted);font-size:13px;padding:24px">Carregando planos...</div>
+        </div>
+      </div>
+
+      <!-- Tab Assinantes -->
+      <div id="planos-tab-assinantes" style="display:none">
+        <div class="toolbar">
+          <div class="search-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input id="busca-assinante" placeholder="Buscar assinante..." oninput="filtrarAssinantes()">
+          </div>
+          <select id="filtro-plano-assinante" class="form-select" style="width:auto;padding:8px 12px" onchange="filtrarAssinantes()">
+            <option value="">Todos os planos</option>
+          </select>
+          <select id="filtro-status-assinante" class="form-select" style="width:auto;padding:8px 12px" onchange="filtrarAssinantes()">
+            <option value="">Todos os status</option>
+            <option value="ativa">Ativa</option>
+            <option value="vencida">Vencida</option>
+            <option value="suspensa">Suspensa</option>
+            <option value="cancelada">Cancelada</option>
+          </select>
+          <select id="filtro-unidade-assinante" class="form-select" style="width:auto;padding:8px 12px" onchange="filtrarAssinantes()" data-unidades="1">
+            <option value="">Todas as unidades</option>
+          </select>
+          <button class="btn btn-primary" data-func="vender_plano" onclick="abrirVenderPlano()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Vender / ativar plano
+          </button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Cliente</th><th>Plano</th><th>Início</th><th>Renovação</th><th>Status</th><th></th></tr></thead>
+            <tbody id="op-assinantes-tbody"><tr><td colspan="7" style="text-align:center;padding:24px;color:var(--muted);font-size:13px">Carregando...</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- ====== DRAWERS ====== -->
+
+<!-- Comanda -->
+<!-- (drawer de comanda removido: era maquete e NUNCA era aberto — openD('comanda')
+     não existe em lugar nenhum. A comanda de verdade é o ComandaWidget.
+     O total dela era calculado sobre "var base = 90" fixo, então qualquer
+     desconto que aparecesse ali seria inventado.) -->
+
+
+<!-- Sangria -->
+<!-- (drawer de sangria removido: era maquete sem ação e não era aberto
+     de lugar nenhum. a retirada de caixa já é feita pelo caminho que funciona, com senha e responsável.) -->
+
+
+<!-- Fechamento -->
+<div class="overlay" id="ov-fechamento" onclick="closeOv(event,'fechamento')">
+  <div class="drawer" style="width:380px">
+    <div class="dh">
+      <div><div class="dh-title">Fechar Caixa</div><div class="dh-sub" id="fechamento-data">Confirme o fechamento do dia</div></div>
+      <div class="dc-btn" onclick="closeD('fechamento')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+    </div>
+    <div class="db">
+      <!-- Aviso de comandas abertas (trava) -->
+      <div id="fechamento-alerta"></div>
+      <!-- Resumo do dia carregado da API -->
+      <div id="fechamento-resumo" style="margin-bottom:12px">
+        <div style="font-size:12px;color:var(--muted);text-align:center;padding:12px">Carregando resumo...</div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Dinheiro em caixa (conferência)</label>
+        <input class="form-input" id="fechamento-dinheiro" placeholder="R$ 0,00" type="number" min="0" step="0.01">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Observações</label>
+        <textarea class="form-textarea" id="fechamento-obs" placeholder="Alguma observação sobre o dia..." style="min-height:80px"></textarea>
+      </div>
+    </div>
+    <div class="df">
+      <button class="btn btn-ghost" onclick="closeD('fechamento')">Cancelar</button>
+      <button class="btn btn-primary" id="btn-confirmar-fechamento" onclick="confirmarFechamentoCaixa()">✓ Confirmar fechamento</button>
+    </div>
+  </div>
+</div>
+
+<!-- Histórico de caixa -->
+<div class="overlay" id="ov-historico-caixa" onclick="closeOv(event,'historico-caixa')">
+  <div class="drawer" style="width:520px;max-width:94vw">
+    <div class="dh">
+      <div><div class="dh-title">📜 Histórico de caixa</div><div class="dh-sub" id="hist-caixa-sub">Aberturas e fechamentos desta unidade</div></div>
+      <div class="dc-btn" onclick="closeD('historico-caixa')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+    </div>
+    <div class="db" id="hist-caixa-body">
+      <div style="font-size:12px;color:var(--muted);text-align:center;padding:16px">Carregando...</div>
+    </div>
+  </div>
+</div>
+
+<!-- Bloqueio -->
+<div class="overlay" id="ov-bloqueio" onclick="closeOv(event,'bloqueio')">
+  <div class="drawer" style="width:420px">
+    <div class="dh"><div><div class="dh-title">Bloqueio recorrente</div><div class="dh-sub">Bloqueia faixas de horário em dias da semana (blocos de 15 min)</div></div><div class="dc-btn" onclick="closeD('bloqueio')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div></div>
+    <div class="db">
+      <div class="form-group"><label class="form-label">Barbeiro</label><select class="form-select js-colab-select" id="bl-barbeiro"><option value="">Carregando...</option></select></div>
+      <div class="form-group">
+        <label class="form-label">Dias da semana</label>
+        <div id="bl-dias" style="display:flex;gap:6px;flex-wrap:wrap">
+          <button type="button" class="dia-toggle" data-d="1" onclick="this.classList.toggle('on')">Seg</button>
+          <button type="button" class="dia-toggle" data-d="2" onclick="this.classList.toggle('on')">Ter</button>
+          <button type="button" class="dia-toggle" data-d="3" onclick="this.classList.toggle('on')">Qua</button>
+          <button type="button" class="dia-toggle" data-d="4" onclick="this.classList.toggle('on')">Qui</button>
+          <button type="button" class="dia-toggle" data-d="5" onclick="this.classList.toggle('on')">Sex</button>
+          <button type="button" class="dia-toggle" data-d="6" onclick="this.classList.toggle('on')">Sáb</button>
+          <button type="button" class="dia-toggle" data-d="0" onclick="this.classList.toggle('on')">Dom</button>
+        </div>
+      </div>
+      <div class="frow f2">
+        <div class="form-group"><label class="form-label">Hora início</label><input class="form-input" type="time" id="bl-hora-ini" value="14:00"></div>
+        <div class="form-group"><label class="form-label">Hora fim</label><input class="form-input" type="time" id="bl-hora-fim" value="16:00"></div>
+      </div>
+      <div class="frow f2">
+        <div class="form-group"><label class="form-label">A partir de</label><input class="form-input" type="date" id="bl-data-ini"></div>
+        <div class="form-group"><label class="form-label">Até a data</label><input class="form-input" type="date" id="bl-data-fim"></div>
+      </div>
+      <div class="form-group"><label class="form-label">Motivo (opcional)</label><input class="form-input" id="bl-motivo" placeholder="Ex: Curso, compromisso fixo..."></div>
+      <div class="form-hint">Vira blocos de 15 min. Horários com cliente já marcado são pulados. Depois dá pra desbloquear um horário específico direto na agenda.</div>
+    </div>
+    <div class="df"><button class="btn btn-ghost" onclick="closeD('bloqueio')">Cancelar</button><button class="btn btn-danger" id="bl-confirm" onclick="confirmarBloqueioRec()">Confirmar bloqueio</button></div>
+  </div>
+</div>
+
+<!-- Folga -->
+<div class="overlay" id="ov-folga" onclick="closeOv(event,'folga')">
+  <div class="drawer" style="width:420px">
+    <div class="dh"><div><div class="dh-title">Lançar Folga</div><div class="dh-sub">Dia(s) de descanso do colaborador</div></div><div class="dc-btn" onclick="closeD('folga')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div></div>
+    <div class="db">
+      <div class="form-group"><label class="form-label">Barbeiro</label><select class="form-select js-colab-select" id="folga-colab"><option value="">Carregando...</option></select></div>
+      <div class="frow f2">
+        <div class="form-group"><label class="form-label">Data início</label><input class="form-input" type="date" id="folga-ini"></div>
+        <div class="form-group"><label class="form-label">Data fim</label><input class="form-input" type="date" id="folga-fim"></div>
+      </div>
+      <!-- A recorrência foi removida: o backend grava folga por DIA, e o
+           campo prometia algo que não acontecia. Para folga fixa toda semana,
+           use "Bloqueio recorrente" em Bloqueios e Folgas. -->
+      <div class="form-group"><label class="form-label">Observação</label><input class="form-input" id="folga-obs" placeholder="Ex: Folga semanal, férias..."></div>
+      <div class="form-hint" style="margin-top:-6px">Cada dia do intervalo vira uma folga. Para folga fixa toda semana, use bloqueio recorrente.</div>
+    </div>
+    <div class="df"><button class="btn btn-ghost" onclick="closeD('folga')">Cancelar</button><button class="btn btn-primary" id="folga-btn" onclick="salvarFolga()">Confirmar folga</button></div>
+  </div>
+</div>
+
+<!-- Plano -->
+<!-- (o drawer antigo de plano foi removido: era maquete, com visitas por semana) -->
+
+<!-- Vincular cliente a plano -->
+<!-- (drawer de vincular removido: era maquete sem ação e não era aberto
+     de lugar nenhum. vincular cliente a plano já é feito por "Vender / ativar plano".) -->
+
+
+<!-- Editar assinante -->
+<div class="overlay" id="ov-editar-assinante" onclick="closeOv(event,'editar-assinante')">
+  <div class="drawer" style="width:420px">
+    <div class="dh"><div><div class="dh-title">Editar assinante</div><div class="dh-sub" id="ea-sub">—</div></div><div class="dc-btn" onclick="closeD('editar-assinante')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div></div>
+    <div class="db">
+      <input type="hidden" id="ea-id"><input type="hidden" id="ea-cliente-id">
+      <div class="form-group"><label class="form-label">Nome</label><input id="ea-nome" class="form-input"></div>
+      <div class="form-group"><label class="form-label">Telefone</label><input id="ea-whatsapp" class="form-input"></div>
+      <div class="form-group"><label class="form-label">E-mail</label><input id="ea-email" class="form-input"></div>
+      <!-- CPF e nascimento: obrigatórios para ASSINANTE. O Asaas recusa gerar
+           cobrança sem CPF, e antes isso só aparecia como erro na hora de
+           gerar o link — sem lugar nenhum para corrigir. -->
+      <div class="form-row cols-2" style="display:flex;gap:12px">
+        <div class="form-group" style="flex:1"><label class="form-label">CPF <span style="color:var(--red)">*</span></label><input id="ea-cpf" class="form-input" placeholder="000.000.000-00" inputmode="numeric"></div>
+        <div class="form-group" style="flex:1"><label class="form-label">Nascimento</label><input id="ea-nascimento" type="date" class="form-input"></div>
+      </div>
+      <div style="font-size:11.5px;color:var(--muted);margin:-6px 0 12px">O CPF é exigido pelo banco para gerar a cobrança da assinatura.</div>
+      <div class="form-group"><label class="form-label">Plano</label><select id="ea-plano" class="form-select"></select></div>
+      <div class="form-group"><label class="form-label">Status</label><select id="ea-status" class="form-select"><option value="ativa">Ativa</option><option value="vencida">Vencida</option><option value="suspensa">Suspensa</option><option value="cancelada">Cancelada</option></select></div>
+      <!-- Barbeiro titular removido: no modelo do Lucas o assinante é atendido
+           por qualquer barbeiro, e a comissão sai pela fração do atendimento
+           (valor do plano ÷ atendimentos), com a % do serviço de quem atendeu. -->
+      <div style="display:flex;gap:10px">
+        <div class="form-group" style="flex:1"><label class="form-label">Início</label><input id="ea-inicio" class="form-input" type="date"></div>
+        <div class="form-group" style="flex:1"><label class="form-label">Renovação</label><input id="ea-renovacao" class="form-input" type="date"></div>
+      </div>
+    </div>
+    <div class="df" style="justify-content:space-between">
+      <button class="btn btn-ghost" style="color:var(--red)" onclick="excluirAssinante()">Excluir</button>
+      <div style="display:flex;gap:8px"><button class="btn btn-ghost" onclick="closeD('editar-assinante')">Cancelar</button><button class="btn btn-primary" onclick="salvarAssinante()">Salvar</button></div>
+    </div>
+  </div>
+</div>
+
+<!-- Vender / Renovar plano (cobrança da mensalidade) -->
+<div class="overlay" id="ov-cobrar-plano" onclick="closeOv(event,'cobrar-plano')">
+  <div class="drawer" style="width:420px">
+    <div class="dh"><div><div class="dh-title" id="cp-title">Vender / ativar plano</div><div class="dh-sub" id="cp-sub">Ativa o plano e lança a mensalidade no caixa</div></div><div class="dc-btn" onclick="closeD('cobrar-plano')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div></div>
+    <div class="db">
+      <input type="hidden" id="cp-assinatura-id">
+      <input type="hidden" id="cp-cliente-id">
+      <div class="form-group" style="position:relative">
+        <label class="form-label">Cliente</label>
+        <input class="form-input" id="cp-cli-input" placeholder="Nome ou WhatsApp..." autocomplete="off" oninput="buscarClientePlano(this.value)">
+        <div id="cp-cli-results" style="display:none;position:absolute;top:100%;left:0;right:0;background:var(--bg3);border:0.5px solid var(--border);border-radius:8px;margin-top:4px;max-height:220px;overflow:auto;z-index:30"></div>
+      </div>
+      <div class="form-group"><label class="form-label">Plano</label><select class="form-select" id="cp-plano" onchange="cpAtualizarValor()"></select></div>
+      <!-- Barbeiro/vendedor removido: na barbearia do Lucas ninguém ganha
+           comissão por VENDER plano. A comissão é só sobre os atendimentos,
+           pela fração (valor do plano ÷ atendimentos) com a % do serviço. -->
+      <div class="form-group"><label class="form-label">Forma de pagamento</label><select class="form-select" id="cp-forma"><option value="dinheiro">Dinheiro</option><option value="debito">Cartão de Débito</option><option value="credito">Cartão de Crédito</option><option value="pix">Pix</option></select></div>
+      <div class="form-group"><label class="form-label">Vencimento <span style="color:var(--muted);font-weight:400;font-size:12px">(pode ajustar)</span></label><input type="date" class="form-select" id="cp-vencimento"><div style="font-size:11px;color:var(--muted);margin-top:4px">Deixe como está para +1 mês, ou escolha outra data.</div></div>
+      <div style="background:var(--bg3);border:0.5px solid var(--border);border-radius:10px;padding:12px 14px;display:flex;justify-content:space-between;align-items:center;margin-top:4px">
+        <span style="font-size:13px;color:var(--muted)">Mensalidade a cobrar</span>
+        <span style="font-size:18px;font-weight:700;color:var(--gold-light)" id="cp-valor">R$ 0,00</span>
+      </div>
+      <div class="form-group" style="margin-top:12px">
+        <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13px;color:var(--white)">
+          <input type="checkbox" id="cp-lancar-caixa" checked style="width:16px;height:16px;accent-color:var(--gold);cursor:pointer">
+          Lançar valor no caixa
+        </label>
+        <div style="font-size:11px;color:var(--muted);margin-top:4px">Desmarque se o cliente já pagou por fora — o plano é ativado/renovado sem lançar a entrada no caixa.</div>
+      </div>
+    </div>
+    <div class="df"><button class="btn btn-ghost" onclick="closeD('cobrar-plano')">Cancelar</button><button class="btn btn-primary" id="cp-btn" onclick="confirmarCobrarPlano()">Confirmar venda</button></div>
+  </div>
+</div>
+
+<script>
+// ===== ITEM 9 Camada 2: esconde botoes de funcoes bloqueadas =====
+window._MINHAS_FUNCOES = null;
+async function aplicarPermissoesFuncao(){
+  try{
+    if(!window._MINHAS_FUNCOES){
+      var r = await req('GET','/permissoes/minhas-funcoes');
+      window._MINHAS_FUNCOES = (r && r.funcoes) || {};
+    }
+    var fn = window._MINHAS_FUNCOES;
+    document.querySelectorAll('[data-func]').forEach(function(el){
+      var chave = el.getAttribute('data-func');
+      if(fn[chave]===false){ el.style.display='none'; }
+    });
+  }catch(e){ /* silencioso: mantem botoes se falhar */ }
+}
+
+var VIEWS = {comandas:'Comandas',caixa:'Fechamento de Caixa',bloqueios:'Bloqueios e Folgas',planos:'Planos de Assinatura'};
+
+function nav(id, btn) {
+  document.querySelectorAll('.view').forEach(function(v){v.classList.remove('active')});
+  document.getElementById('view-'+id).classList.add('active');
+  document.querySelectorAll('.nav-item').forEach(function(n){n.classList.remove('active')});
+  btn.classList.add('active');
+  document.getElementById('ttitle').textContent = VIEWS[id];
+  document.getElementById('tcrumb').textContent = VIEWS[id];
+  if(id==='comandas') carregarComandasOp();
+  if(id==='caixa') carregarResumoCaixa();
+  if(id==='planos') carregarPlanos();
+  if(id==='bloqueios') carregarBloqueiosRec();
+}
+
+// ============================================================
+// ATALHOS VINDOS DO PAINEL
+// O botão flutuante do caixa manda para cá com um #atalho na URL.
+//   #comandas  lista de comandas do dia
+//   #avulsa    abre direto a comanda avulsa
+//   #caixa     tela de Fechamento de Caixa
+//   #bloqueios / #planos
+// ============================================================
+function navPorId(id){
+  var botoes = document.querySelectorAll('.nav-item');
+  for(var i=0;i<botoes.length;i++){
+    var oc = botoes[i].getAttribute('onclick') || '';
+    if(oc.indexOf("nav('"+id+"'") !== -1){ nav(id, botoes[i]); return true; }
+  }
+  return false;
+}
+
+function aplicarAtalho(){
+  var alvo = (location.hash || '').replace('#','').trim();
+  if(!alvo) return;
+  if(alvo === 'avulsa'){
+    navPorId('comandas');
+    setTimeout(function(){
+      if(typeof abrirAvulsaWidget === 'function') abrirAvulsaWidget();
+    }, 350);
+    return;
+  }
+  navPorId(alvo);
+}
+
+document.addEventListener('DOMContentLoaded', function(){ setTimeout(aplicarAtalho, 250); });
+window.addEventListener('hashchange', aplicarAtalho);
+
+/* Stepper */
+var curStep = 1;
+function goStep(n) {
+  for(var i=1;i<=5;i++){
+    document.getElementById('sp'+i).classList.toggle('active',i===n);
+    var sb = document.getElementById('step-btn-'+i);
+    sb.classList.remove('active','done');
+    if(i===n) sb.classList.add('active');
+    else if(i<n) sb.classList.add('done');
+  }
+  curStep = n;
+}
+
+function selectBarber(el){document.querySelectorAll('.barber-card').forEach(function(c){c.classList.remove('sel')});el.classList.add('sel')}
+function selectSvc(el){document.querySelectorAll('#sp2 .barber-card').forEach(function(c){c.classList.remove('sel')});el.classList.add('sel')}
+function selectClient(el){
+  document.querySelectorAll('#client-results > div').forEach(function(c){
+    c.style.borderColor='var(--border2)';
+    var badge=c.querySelector('.badge');if(badge)badge.remove();
+  });
+  el.style.borderColor='var(--gold-border)';
+  var b=document.createElement('span');b.className='badge bg';b.style.marginLeft='auto';b.textContent='Selecionado';el.appendChild(b);
+}
+
+function confirmarAgendamento(){
+  var btn=document.getElementById('btn-confirmar');
+  btn.innerHTML='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Agendamento confirmado!';
+  btn.style.background='var(--green)';
+  setTimeout(function(){goStep(1);btn.innerHTML='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Confirmar agendamento';btn.style.background='';},2000);
+}
+
+/* Tabs planos */
+function switchPlanoTab(tabId, btn) {
+  document.getElementById('planos-tab-planos').style.display='none';
+  document.getElementById('planos-tab-assinantes').style.display='none';
+  document.getElementById(tabId).style.display='block';
+  document.querySelectorAll('#planos-tabs .step-btn').forEach(function(b){b.classList.remove('active')});
+  btn.classList.add('active');
+  if(tabId==='planos-tab-assinantes') carregarAssinantes();
+}
+
+// ============================================================
+// PLANOS (cards reais do banco)
+// ============================================================
+
+// ============================================================
+// PLANOS — criar e editar
+//
+// O plano do Lucas é: valor por mês + quais serviços entram e quantas
+// vezes cada um + descontos para o que ficou de fora.
+//
+// A COMISSÃO sai da FRAÇÃO: valor do plano dividido pelo total de
+// atendimentos contratados. Se o plano é R$150 com 4 cortes, cada corte
+// vale R$37,50, e o barbeiro recebe a % do serviço sobre isso — não
+// sobre o preço cheio da tabela.
+// ============================================================
+var _planoEditandoId = null;
+var _servicosPlano = [];
+
+function _numPlano(v){
+  var n = parseFloat(String(v||'').replace(/\./g,'').replace(',','.'));
+  return isNaN(n) ? 0 : n;
+}
+
+function calcularFracao(){
+  var valor = _numPlano(document.getElementById('plano-valor').value);
+  var total = 0;
+  document.querySelectorAll('#plano-servicos .svc-plano').forEach(function(l){
+    if(l.querySelector('input[type=checkbox]').checked){
+      total += parseInt(l.querySelector('input[type=number]').value, 10) || 0;
+    }
+  });
+  var box = document.getElementById('plano-fracao');
+  if(!valor || !total){
+    box.innerHTML = 'Escolha o valor e os serviços para ver quanto vale cada atendimento.';
+    return;
+  }
+  var fracao = valor / total;
+  box.innerHTML = '<b style="color:var(--white)">' + total + ' atendimentos por mês</b><br>' +
+    'Cada atendimento vale <b style="color:var(--gold)">R$ ' +
+    fracao.toFixed(2).replace('.',',') + '</b> — é sobre esse valor que a comissão do barbeiro é calculada.';
+}
+
+async function montarServicosPlano(selecionados){
+  var box = document.getElementById('plano-servicos');
+  if(!box) return;
+  if(!_servicosPlano.length){
+    try { _servicosPlano = await req('GET','/servicos') || []; }
+    catch(e){ box.innerHTML = '<div style="font-size:12px;color:var(--red)">Erro ao carregar serviços</div>'; return; }
+  }
+  if(!_servicosPlano.length){
+    box.innerHTML = '<div style="font-size:12px;color:var(--muted)">Cadastre os serviços antes de criar um plano.</div>';
+    return;
+  }
+  var mapa = {};
+  (selecionados||[]).forEach(function(x){ mapa[x.servico_id] = x.limite_mes || 1; });
+  box.innerHTML = _servicosPlano.map(function(sv){
+    var marcado = mapa[sv.id] !== undefined;
+    return '<div class="svc-plano" style="display:flex;align-items:center;gap:10px;padding:9px 12px;background:var(--bg3);border-radius:8px">' +
+      '<label style="display:flex;align-items:center;gap:9px;flex:1;cursor:pointer;min-width:0">' +
+        '<input type="checkbox" data-id="'+sv.id+'"'+(marcado?' checked':'')+' onchange="calcularFracao()" style="width:16px;height:16px;flex:none;accent-color:var(--gold)">' +
+        '<span style="font-size:13px;color:var(--white);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">'+sv.nome+'</span>' +
+      '</label>' +
+      '<input type="number" min="1" max="31" value="'+(mapa[sv.id]||1)+'" oninput="calcularFracao()" ' +
+        'style="width:56px;background:var(--bg2);border:0.5px solid var(--border);border-radius:6px;padding:5px 8px;color:var(--white);font-size:13px;text-align:center">' +
+      '<span style="font-size:11px;color:var(--muted);flex:none">x/mês</span>' +
+    '</div>';
+  }).join('');
+  calcularFracao();
+}
+
+function lerServicosPlano(){
+  var out = [];
+  document.querySelectorAll('#plano-servicos .svc-plano').forEach(function(l){
+    var chk = l.querySelector('input[type=checkbox]');
+    if(!chk.checked) return;
+    out.push({ servico_id: chk.dataset.id, limite_mes: parseInt(l.querySelector('input[type=number]').value,10) || 1 });
+  });
+  return out;
+}
+
+async function abrirDrawerPlano(id){
+  _planoEditandoId = id || null;
+  var p = id ? (_planosCache.filter(function(x){ return x.id===id })[0] || {}) : {};
+  document.getElementById('plano-titulo').textContent = id ? (p.nome||'Plano') : 'Novo plano';
+  document.getElementById('plano-nome').value      = p.nome || '';
+  document.getElementById('plano-descricao').value = p.descricao || '';
+  document.getElementById('plano-valor').value     = p.valor_mensal!=null ? String(p.valor_mensal).replace('.',',') : '';
+  document.getElementById('plano-desc-prod').value = p.desconto_produtos_pct || '';
+  document.getElementById('plano-desc-serv').value = p.desconto_servicos_pct || '';
+  document.getElementById('plano-fichas').value    = p.fichas_bar_mes != null ? p.fichas_bar_mes : 0;
+  document.getElementById('plano-excluir').style.display = id ? '' : 'none';
+  openD('plano');
+  await montarServicosPlano(p.plano_servicos || []);
+}
+
+async function salvarPlano(){
+  var nome = document.getElementById('plano-nome').value.trim();
+  if(!nome){ alert('Dê um nome ao plano'); return; }
+  var valor = _numPlano(document.getElementById('plano-valor').value);
+  if(!valor){ alert('Informe o valor mensal'); return; }
+  var servicos = lerServicosPlano();
+  if(!servicos.length){ alert('Marque pelo menos um serviço incluído no plano'); return; }
+
+  var corpo = {
+    nome: nome,
+    descricao: document.getElementById('plano-descricao').value.trim() || null,
+    valor_mensal: valor,
+    desconto_produtos_pct: _numPlano(document.getElementById('plano-desc-prod').value),
+    desconto_servicos_pct: _numPlano(document.getElementById('plano-desc-serv').value),
+    fichas_bar_mes: parseInt(document.getElementById('plano-fichas').value,10) || 0,
+    servicos: servicos
+  };
+  var btn = document.getElementById('plano-salvar');
+  btn.disabled = true; btn.textContent = 'Salvando…';
+  try{
+    if(_planoEditandoId) await req('PUT','/planos/'+_planoEditandoId, corpo);
+    else                 await req('POST','/planos', corpo);
+    closeD('plano');
+    await carregarPlanos();
+  }catch(e){ alert('Erro ao salvar: '+(e.message||'tente de novo')); }
+  finally{ btn.disabled = false; btn.textContent = 'Salvar plano'; }
+}
+
+async function excluirPlano(){
+  if(!_planoEditandoId) return;
+  var p = _planosCache.filter(function(x){ return x.id===_planoEditandoId })[0] || {};
+  if(!confirm('Excluir o plano "'+(p.nome||'')+'"?\n\nSe já houver assinante, ele é apenas desativado — o histórico de quem assinou depende dele.')) return;
+  try{
+    var r = await req('DELETE','/planos/'+_planoEditandoId);
+    closeD('plano');
+    await carregarPlanos();
+    if(r && r.desativado) alert(r.motivo);
+  }catch(e){ alert('Erro ao excluir: '+(e.message||'tente de novo')); }
+}
+
+async function carregarPlanos(){
+  var grid=document.getElementById('planos-grid');
+  if(!grid) return;
+  grid.innerHTML='<div style="color:var(--muted);font-size:13px;padding:24px">Carregando planos...</div>';
+  var planos;
+  try { planos = await req('GET','/planos') || []; }
+  catch(e){ grid.innerHTML='<div style="color:var(--red);font-size:13px;padding:24px">Erro ao carregar planos: '+(e.message||e)+'</div>'; return; }
+  _planosCache = planos;
+  if(!planos.length){ grid.innerHTML='<div style="color:var(--muted);font-size:13px;padding:24px">Nenhum plano cadastrado</div>'; return; }
+  var CHK='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+  grid.innerHTML = planos.map(function(p){
+    var itens=[];
+    (p.plano_servicos||[]).forEach(function(s){
+      var nome = s.servicos ? s.servicos.nome : 'serviço';
+      itens.push((s.limite_mes||1)+'x '+nome+' por mês');
+    });
+    if(p.desconto_servicos_pct) itens.push(p.desconto_servicos_pct+'% em outros serviços');
+    if(p.desconto_produtos_pct) itens.push(p.desconto_produtos_pct+'% em produtos');
+    if(p.fichas_bar_mes) itens.push(p.fichas_bar_mes+' fichas do bar/mês');
+    var valor=(parseFloat(p.valor_mensal)||0).toLocaleString('pt-BR',{minimumFractionDigits:0,maximumFractionDigits:0});
+    var fracao = p.valor_atendimento
+      ? '<div style="font-size:11px;color:var(--muted);margin-top:8px;padding-top:8px;border-top:0.5px solid var(--border)">'+
+        p.atendimentos_mes+' atendimentos · R$ '+String(p.valor_atendimento.toFixed(2)).replace('.',',')+' cada</div>'
+      : '';
+    return '<div class="plano-card" onclick="abrirDrawerPlano(\''+p.id+'\')" style="cursor:pointer">'+
+      '<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px"><div class="plano-name">'+p.nome+'</div></div>'+
+      '<div class="plano-price">R$ '+valor+'<span>/mês</span></div>'+
+      '<div class="plano-items">'+itens.map(function(t){return '<div class="plano-item">'+CHK+t+'</div>';}).join('')+'</div>'+
+      fracao+
+    '</div>';
+  }).join('');
+}
+
+// ============================================================
+// ASSINANTES (lista editável)
+// ============================================================
+var _assinantes = [];
+var _planosCache = [];
+// Nome de exibição do barbeiro (respeita o toggle mostrar_sobrenome).
+function nomeBarbOp(c){ if(!c) return ''; if(c.nome_exibicao) return c.nome_exibicao; return c.mostrar_sobrenome ? String(c.nome||'') : String(c.nome||'').split(' ')[0]; }
+var _barbeiros = [];
+
+async function carregarAssinantes(){
+  var tb = document.getElementById('op-assinantes-tbody');
+  if(tb) tb.innerHTML = '<tr><td colspan="7" style="text-align:center;padding:24px;color:var(--muted);font-size:13px">Carregando...</td></tr>';
+  try {
+    if(!_planosCache.length){ try { _planosCache = await req('GET','/planos') || []; } catch(e){ _planosCache=[]; } }
+    if(!_barbeiros.length){
+      var bb=null;
+      try { bb = await req('GET','/colaboradores-minha-unidade'); } catch(e){}
+      if(!bb || !bb.length){ try { bb = await req('GET','/colaboradores'); } catch(e){} }
+      _barbeiros = (bb||[]).filter(function(c){return c.perfil!=='caixa';});
+    }
+    _assinantes = await req('GET','/assinaturas') || [];
+  } catch(e){
+    if(tb) tb.innerHTML = '<tr><td colspan="7" style="text-align:center;padding:24px;color:var(--red);font-size:13px">Erro ao carregar: '+(e.message||e)+'</td></tr>';
+    return;
+  }
+  var filtro = document.getElementById('filtro-plano-assinante');
+  if(filtro){
+    var atual = filtro.value;
+    filtro.innerHTML = '<option value="">Todos os planos</option>' + _planosCache.map(function(p){return '<option value="'+p.id+'">'+p.nome+'</option>';}).join('');
+    filtro.value = atual;
+  }
+  var selP = document.getElementById('ea-plano');
+  if(selP) selP.innerHTML = _planosCache.map(function(p){return '<option value="'+p.id+'">'+p.nome+'</option>';}).join('');
+  filtrarAssinantes();
+}
+
+function _fmtBR(d){ if(!d) return '—'; var p=String(d).slice(0,10).split('-'); return p.length===3 ? p[2]+'/'+p[1]+'/'+p[0] : d; }
+function _statusBadge(s){
+  var map={ativa:['#1f3d2b','#5fcf80','Ativa'],vencida:['#3d2a1f','#e0a96b','Vencida'],suspensa:['#2a2a3d','#9b9bd6','Suspensa'],cancelada:['#3d1f1f','#e06b6b','Cancelada']};
+  var c=map[s]||['#2a2a2a','#999',s||'—'];
+  return '<span style="background:'+c[0]+';color:'+c[1]+';padding:3px 10px;border-radius:20px;font-size:12px;font-weight:600">'+c[2]+'</span>';
+}
+
+function filtrarAssinantes(){
+  var termo=((document.getElementById('busca-assinante')||{}).value||'').trim().toLowerCase();
+  var plano=(document.getElementById('filtro-plano-assinante')||{}).value||'';
+  var status=(document.getElementById('filtro-status-assinante')||{}).value||'';
+  var unidade=(document.getElementById('filtro-unidade-assinante')||{}).value||'';
+  var lista=_assinantes.filter(function(a){
+    var cli=a.clientes||{};
+    var okT = !termo || (cli.nome||'').toLowerCase().indexOf(termo)>=0 || (cli.whatsapp||'').indexOf(termo)>=0;
+    var okP = !plano || a.plano_id===plano;
+    var okS = !status || a.status===status;
+    var okU = !unidade || cli.unidade_pref===unidade;
+    return okT && okP && okS && okU;
+  });
+  renderAssinantes(lista);
+}
+
+
+
+// ===== 2º barbeiro (divisão do plano) — coluna da tabela de assinantes =====
+
+function renderAssinantes(lista){
+  var tb=document.getElementById('op-assinantes-tbody');
+  if(!tb) return;
+  if(!lista.length){ tb.innerHTML='<tr><td colspan="6" style="text-align:center;padding:24px;color:var(--muted);font-size:13px">Nenhum assinante encontrado</td></tr>'; return; }
+  tb.innerHTML = lista.map(function(a){
+    var cli=a.clientes||{}, pl=a.planos||{}, tit=a.colaboradores||null;
+    return '<tr>'+
+      '<td><div style="font-weight:600">'+(cli.nome||'—')+'</div><div style="font-size:12px;color:var(--muted)">'+(cli.whatsapp||'')+'</div></td>'+
+      '<td>'+(pl.nome||'—')+'</td>'+
+      '<td>'+_fmtBR(a.data_inicio)+'</td>'+
+      '<td>'+_fmtBR(a.data_renovacao)+'</td>'+
+      '<td>'+_statusBadge(a.status)+_selagemCobranca(a)+'</td>'+
+      '<td style="text-align:right;white-space:nowrap">'+
+        '<button data-func="vender_plano" class="btn btn-primary" style="padding:6px 12px;font-size:13px;margin-right:6px" onclick="abrirRenovarPlano(\''+a.id+'\')">🔄 Renovar</button>'+
+        '<button class="btn btn-ghost" style="padding:6px 12px;font-size:13px;margin-right:6px" onclick="abrirCobranca(\''+a.id+'\')">💳 Cobrança</button>'+
+        '<button class="btn btn-ghost" style="padding:6px 12px;font-size:13px" onclick="abrirEditarAssinante(\''+a.id+'\')">Editar</button>'+
+      '</td>'+
+    '</tr>';
+  }).join('');
+  if(typeof aplicarPermissoesFuncao==='function') aplicarPermissoesFuncao();
+}
+
+
+// ============================================================
+// COBRANÇA DA ASSINATURA — controle do proprietário
+//
+// O Asaas só automatiza quem escolheu pagar online. Receber na
+// barbearia, liberar por cortesia, pausar e cancelar continuam aqui, na mão
+// do Lucas — inclusive para quem tem cobrança automática ligada.
+// ============================================================
+var _cobrancaId = null;
+
+function _selagemCobranca(a){
+  if(a.mp_status === 'authorized') return '<div style="font-size:11px;color:var(--green);margin-top:3px">cartão automático</div>';
+  if(a.mp_preapproval_id)          return '<div style="font-size:11px;color:var(--muted);margin-top:3px">cartão pendente</div>';
+  return '';
+}
+
+async function abrirCobranca(id){
+  _cobrancaId = id;
+  var a = _assinantes.find(function(x){ return x.id===id; }) || {};
+  var cli = a.clientes||{}, pl = a.planos||{};
+  document.getElementById('cob-sub').textContent = (cli.nome||'') + ' · ' + (pl.nome||'');
+  document.getElementById('cob-valor').value = pl.valor_mensal!=null ? String(pl.valor_mensal).replace('.',',') : '';
+  document.getElementById('cob-renovacao').textContent = _fmtBR(a.data_renovacao);
+  document.getElementById('cob-historico').innerHTML = '<div style="font-size:12px;color:var(--muted)">Carregando…</div>';
+  var aviso = document.getElementById('cob-aviso');
+  aviso.style.display='none';
+  // esconde o link da vez anterior e escreve o aviso da forma selecionada
+  var _lw = document.getElementById('cob-link-wrap'); if(_lw) _lw.style.display='none';
+  atualizarAvisoForma();
+  openD('cobranca');
+
+  try{
+    var st = await req('GET','/pagamentos/gateway/situacao');
+    if(!st.configurado){
+      aviso.style.display='';
+      aviso.textContent = 'A cobrança online ainda não está ligada. Você pode registrar o pagamento recebido na barbearia normalmente.';
+    }
+  }catch(e){}
+
+  try{
+    var cobs = await req('GET','/pagamentos/assinatura/'+id+'/cobrancas') || [];
+    document.getElementById('cob-historico').innerHTML = cobs.length
+      ? cobs.map(function(c){
+          var cor = c.status==='pago' ? 'var(--green)' : c.status==='cortesia' ? 'var(--gold)' : 'var(--muted)';
+          return '<div style="display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-bottom:0.5px solid var(--border);font-size:12.5px">'+
+            '<span>'+_fmtBR(c.data_cobranca)+'</span>'+
+            '<span style="color:var(--muted)">'+(c.forma_pgto||'—')+'</span>'+
+            '<span>R$ '+(parseFloat(c.valor)||0).toFixed(2).replace('.',',')+'</span>'+
+            '<span style="color:'+cor+'">'+c.status+'</span>'+
+          '</div>';
+        }).join('')
+      : '<div style="font-size:12px;color:var(--muted)">Nenhuma cobrança registrada ainda.</div>';
+  }catch(e){
+    document.getElementById('cob-historico').innerHTML = '<div style="font-size:12px;color:var(--red)">Erro ao carregar histórico</div>';
+  }
+}
+
+async function _acaoCobranca(caminho, corpo, confirmacao){
+  if(confirmacao && !confirm(confirmacao)) return;
+  try{
+    var r = await req('POST','/pagamentos/assinatura/'+_cobrancaId+caminho, corpo||{});
+    if(r && r.aviso) alert(r.aviso);
+    closeD('cobranca');
+    await carregarAssinantes();
+  }catch(e){ alert('Erro: '+(e.message||'tente de novo')); }
+}
+
+function receberNaBarbearia(){
+  var v = parseFloat(String(document.getElementById('cob-valor').value||'').replace('.','').replace(',','.'));
+  var forma = document.getElementById('cob-forma').value;
+  if(isNaN(v) || v<=0){ alert('Informe o valor recebido'); return; }
+  _acaoCobranca('/pagamento-manual', { valor:v, forma_pgto:forma });
+}
+
+function liberarCortesia(){
+  _acaoCobranca('/liberar', {}, 'Liberar mais um mês sem cobrar?\n\nFica registrado como cortesia no histórico.');
+}
+
+// Explica o que muda entre as duas formas — a diferença é operacional, não
+// estética: no cartão o Asaas cobra sozinho; no Pix o cliente precisa pagar
+// cada mês, e é aí que aparece inadimplência.
+function atualizarAvisoForma(){
+  var sel = document.getElementById('cob-forma-recorrencia');
+  var el  = document.getElementById('cob-aviso-forma');
+  if(!sel || !el) return;
+  el.textContent = sel.value === 'PIX'
+    ? 'O cliente recebe um Pix por mês e precisa pagar cada um. Não há débito automático.'
+    : 'O cliente autoriza uma vez e o Asaas cobra sozinho todo mês.';
+}
+
+async function enviarLinkCartao(){
+  try{
+    var forma = (document.getElementById('cob-forma-recorrencia')||{}).value || 'CREDIT_CARD';
+    var r = await req('POST','/pagamentos/assinatura/'+_cobrancaId+'/recorrencia', { forma: forma });
+    if(r && r.link){
+      document.getElementById('cob-link-wrap').style.display='';
+      document.getElementById('cob-link').value = r.link;
+    }
+  }catch(e){ alert('Erro: '+(e.message||'tente de novo')); }
+}
+
+function copiarLinkCartao(){
+  var el = document.getElementById('cob-link');
+  el.select(); navigator.clipboard.writeText(el.value).catch(function(){ document.execCommand('copy'); });
+  mostrarToast && mostrarToast('Link copiado');
+}
+
+function abrirEditarAssinante(id){
+  var a=_assinantes.find(function(x){return x.id===id;});
+  if(!a) return;
+  var cli=a.clientes||{};
+  document.getElementById('ea-id').value=a.id;
+  document.getElementById('ea-cliente-id').value=cli.id||'';
+  document.getElementById('ea-sub').textContent=cli.nome||'';
+  document.getElementById('ea-nome').value=cli.nome||'';
+  document.getElementById('ea-whatsapp').value=cli.whatsapp||'';
+  document.getElementById('ea-email').value=cli.email||'';
+  var _cpf=document.getElementById('ea-cpf'); if(_cpf) _cpf.value=cli.cpf||'';
+  var _nasc=document.getElementById('ea-nascimento'); if(_nasc) _nasc.value=cli.data_nasc?String(cli.data_nasc).slice(0,10):'';
+  document.getElementById('ea-plano').value=a.plano_id||'';
+  document.getElementById('ea-status').value=a.status||'ativa';
+  document.getElementById('ea-inicio').value=a.data_inicio?String(a.data_inicio).slice(0,10):'';
+  document.getElementById('ea-renovacao').value=a.data_renovacao?String(a.data_renovacao).slice(0,10):'';
+  openD('editar-assinante');
+}
+
+// ===== Vender / Renovar plano (cobrança da mensalidade) =====
+async function _cpGarantirCaches(){
+  if(!_planosCache.length){ try{ _planosCache = await req('GET','/planos') || []; }catch(e){} }
+  if(!_barbeiros.length){
+    var bb=null;
+    try { bb = await req('GET','/colaboradores-minha-unidade'); } catch(e){}
+    if(!bb || !bb.length){ try { bb = await req('GET','/colaboradores'); } catch(e){} }
+    _barbeiros = (bb||[]).filter(function(c){return c.perfil!=='caixa';});
+  }
+}
+function cpPopularSelects(){
+  var selP=document.getElementById('cp-plano');
+  if(selP) selP.innerHTML=_planosCache.map(function(p){return '<option value="'+p.id+'" data-valor="'+(p.valor_mensal||0)+'">'+p.nome+' — '+brl(p.valor_mensal||0)+'</option>';}).join('');
+}
+function cpValorNum(){
+  var selP=document.getElementById('cp-plano');
+  if(selP && selP.selectedIndex>=0){ var o=selP.options[selP.selectedIndex]; return parseFloat(o&&o.dataset?o.dataset.valor:0)||0; }
+  return 0;
+}
+function cpAtualizarValor(){
+  var v=cpValorNum();
+  var el=document.getElementById('cp-valor'); if(el) el.textContent=brl(v);
+}
+async function abrirVenderPlano(){
+  await _cpGarantirCaches();
+  cpPopularSelects();
+  document.getElementById('cp-assinatura-id').value='';
+  document.getElementById('cp-cliente-id').value='';
+  var inp=document.getElementById('cp-cli-input'); if(inp){ inp.value=''; inp.disabled=false; inp.style.opacity=''; }
+  document.getElementById('cp-title').textContent='Vender / ativar plano';
+  document.getElementById('cp-sub').textContent='Ativa o plano e lança a mensalidade no caixa';
+  document.getElementById('cp-btn').textContent='Confirmar venda';
+  cpSugerirVencimento(null);   // nova venda: +1 mês de hoje
+  cpAtualizarValor();
+  var _lc=document.getElementById('cp-lancar-caixa'); if(_lc) _lc.checked=true;
+  openD('cobrar-plano');
+}
+async function abrirRenovarPlano(id){
+  var a=_assinantes.find(function(x){return x.id===id;}); if(!a) return;
+  await _cpGarantirCaches();
+  cpPopularSelects();
+  var cli=a.clientes||{};
+  document.getElementById('cp-assinatura-id').value=a.id;
+  document.getElementById('cp-cliente-id').value=cli.id||'';
+  var inp=document.getElementById('cp-cli-input'); if(inp){ inp.value=cli.nome||''; inp.disabled=true; inp.style.opacity='.6'; }
+  var selP=document.getElementById('cp-plano'); if(selP) selP.value=a.plano_id||'';
+  document.getElementById('cp-title').textContent='Renovar plano';
+  document.getElementById('cp-sub').textContent=(cli.nome||'')+' · vence '+_fmtBR(a.data_renovacao);
+  document.getElementById('cp-btn').textContent='Confirmar renovação';
+  // sugere vencimento = +1 mês a partir do vencimento atual (se ainda ativo) ou de hoje
+  cpSugerirVencimento(a.data_renovacao);
+  cpAtualizarValor();
+  var _lc=document.getElementById('cp-lancar-caixa'); if(_lc) _lc.checked=true;
+  openD('cobrar-plano');
+}
+// Preenche o campo de vencimento com a sugestão (+1 mês). base opcional = venc atual.
+function cpSugerirVencimento(baseData){
+  var inp=document.getElementById('cp-vencimento'); if(!inp) return;
+  var hoje=new Date(); hoje.setHours(12,0,0,0);
+  var base=hoje;
+  if(baseData){
+    var b=new Date(String(baseData).slice(0,10)+'T12:00:00');
+    if(!isNaN(b) && b>=hoje) base=b;   // se ainda ativo, soma a partir do vencimento
+  }
+  var d=new Date(base); d.setMonth(d.getMonth()+1);
+  var y=d.getFullYear(), m=String(d.getMonth()+1).padStart(2,'0'), dd=String(d.getDate()).padStart(2,'0');
+  inp.value=y+'-'+m+'-'+dd;
+}
+function buscarClientePlano(q){
+  var box=document.getElementById('cp-cli-results'); if(!box) return;
+  if(!q || q.length<2){ box.style.display='none'; box.innerHTML=''; return; }
+  clearTimeout(window._cpCliT);
+  window._cpCliT=setTimeout(async function(){
+    try{
+      var data=await req('GET','/clientes?q='+encodeURIComponent(q)+'&limit=6');
+      if(!data || !data.length){ box.innerHTML='<div style="padding:10px 12px;font-size:13px;color:var(--muted)">Nenhum cliente</div>'; box.style.display='block'; return; }
+      box.innerHTML=data.map(function(c){
+        var nm=(c.nome||'').replace(/'/g,"\\'");
+        return '<div onpointerdown="selecionarClientePlano(\''+c.id+'\',\''+nm+'\')" style="padding:10px 12px;cursor:pointer;font-size:13px;color:var(--white);border-bottom:0.5px solid var(--border)" onmouseover="this.style.background=\'rgba(255,255,255,.05)\'" onmouseout="this.style.background=\'\'">'+(c.nome||'')+'<span style="color:var(--muted);font-size:12px"> · '+(c.whatsapp||'')+'</span></div>';
+      }).join('');
+      box.style.display='block';
+    }catch(e){ box.style.display='none'; }
+  },250);
+}
+function selecionarClientePlano(id,nome){
+  document.getElementById('cp-cliente-id').value=id;
+  var inp=document.getElementById('cp-cli-input'); if(inp) inp.value=nome;
+  var box=document.getElementById('cp-cli-results'); if(box){ box.style.display='none'; box.innerHTML=''; }
+}
+async function confirmarCobrarPlano(){
+  var assinaturaId=document.getElementById('cp-assinatura-id').value||'';
+  var clienteId=document.getElementById('cp-cliente-id').value||'';
+  var planoId=document.getElementById('cp-plano').value||'';
+  var forma=document.getElementById('cp-forma').value||'';
+  if(!clienteId){ mostrarToast('⚠️ Selecione o cliente'); return; }
+  if(!planoId){ mostrarToast('⚠️ Selecione o plano'); return; }
+  var btn=document.getElementById('cp-btn'); if(btn){ btn.disabled=true; btn.style.opacity='.5'; }
+  try{
+    var payload={ cliente_id:clienteId, plano_id:planoId, forma_pgto:forma };
+    var venc=(document.getElementById('cp-vencimento')||{}).value||'';
+    if(venc) payload.data_renovacao=venc;   // data escolhida manualmente
+    if(assinaturaId) payload.assinatura_id=assinaturaId;
+    var lancarCaixa=(document.getElementById('cp-lancar-caixa')||{checked:true}).checked;
+    if(!lancarCaixa) payload.sem_comanda=true;   // já pago por fora: ativa/renova sem lançar no caixa
+    var r=await req('POST','/assinaturas/cobrar',payload);
+    mostrarToast((r&&r.renovou?'🔄 Plano renovado':'✅ Plano ativado')+(lancarCaixa?(' · mensalidade '+brl((r&&r.valor)||0)+' lançada no caixa'):' · sem lançamento no caixa'));
+    closeD('cobrar-plano');
+    carregarAssinantes();
+    if(typeof carregarResumoCaixa==='function') carregarResumoCaixa();
+  }catch(e){
+    mostrarToast('⚠️ '+((e&&e.message)||'Não consegui processar o plano'));
+  }finally{ if(btn){ btn.disabled=false; btn.style.opacity=''; } }
+}
+
+async function salvarAssinante(){
+  var id=document.getElementById('ea-id').value;
+  var cliId=document.getElementById('ea-cliente-id').value;
+  try {
+    if(cliId){
+      var _cpfVal=(document.getElementById('ea-cpf')||{}).value||'';
+      _cpfVal=_cpfVal.replace(/\D/g,'');
+      if(_cpfVal && _cpfVal.length!==11){ mostrarToast('CPF incompleto'); return; }
+      await req('PUT','/clientes/'+cliId,{
+        nome:document.getElementById('ea-nome').value.trim(),
+        whatsapp:document.getElementById('ea-whatsapp').value.trim(),
+        email:document.getElementById('ea-email').value.trim()||null,
+        cpf:_cpfVal||null,
+        data_nasc:(document.getElementById('ea-nascimento')||{}).value||null
+      });
+    }
+    await req('PATCH','/assinaturas/'+id,{
+      plano_id:document.getElementById('ea-plano').value,
+      status:document.getElementById('ea-status').value,
+      data_inicio:document.getElementById('ea-inicio').value||null,
+      data_renovacao:document.getElementById('ea-renovacao').value||null
+    });
+    mostrarToast('Assinante atualizado');
+    closeD('editar-assinante');
+    await carregarAssinantes();
+  } catch(e){
+    mostrarToast('Erro: '+(e.message||e));
+  }
+}
+
+async function excluirAssinante(){
+  var id=document.getElementById('ea-id').value;
+  var nome=document.getElementById('ea-nome').value;
+  if(!confirm('Remover a assinatura de '+nome+'?\n\nO cliente continua cadastrado — só a assinatura é removida.')) return;
+  try {
+    await req('DELETE','/assinaturas/'+id);
+    mostrarToast('Assinatura removida');
+    closeD('editar-assinante');
+    await carregarAssinantes();
+  } catch(e){
+    mostrarToast('Erro: '+(e.message||e));
+  }
+}
+
+/* Drawers */
+function openD(id){document.getElementById('ov-'+id).classList.add('open');document.body.style.overflow='hidden';if(id==='comanda'&&typeof renderItensComandaAtual==='function')renderItensComandaAtual();if(id==='vale-funcionario'&&typeof carregarProdutosVale==='function'){carregarProdutosVale();if(typeof resetVale==='function')resetVale();}}
+function closeD(id){document.getElementById('ov-'+id).classList.remove('open');document.body.style.overflow=''}
+function closeOv(e,id){if(e.target===e.currentTarget)closeD(id)}
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){document.querySelectorAll('.overlay.open').forEach(function(o){o.classList.remove('open')});document.body.style.overflow=''}});
+
+/* Formas pagamento */
+// Lança folga. O drawer existia e abria, mas o botão não tinha ação e nenhum
+// campo tinha id — nada do que fosse preenchido chegava ao servidor.
+//
+// O backend grava UM DIA por vez, então o intervalo vira um dia após o outro.
+async function salvarFolga(){
+  var v = function(id){ var el=document.getElementById(id); return el ? String(el.value||'').trim() : '' };
+  var colab = v('folga-colab');
+  var ini   = v('folga-ini');
+  var fim   = v('folga-fim') || ini;
+  var obs   = v('folga-obs');
+
+  if(!colab){ mostrarToast('Escolha o barbeiro'); return; }
+  if(!ini){ mostrarToast('Informe a data de início'); return; }
+  if(fim < ini){ mostrarToast('A data fim não pode ser antes do início'); return; }
+
+  // Intervalo grande costuma ser engano de digitação (ex.: ano errado).
+  var dias = Math.round((new Date(fim) - new Date(ini)) / 86400000) + 1;
+  if(dias > 60){ mostrarToast('Intervalo muito longo (' + dias + ' dias). Confira as datas.'); return; }
+
+  var btn = document.getElementById('folga-btn');
+  if(btn){ btn.disabled = true; btn.style.opacity = '.5'; }
+
+  var falhas = 0, ok = 0;
+  var d = new Date(ini + 'T12:00:00');
+  var ultimo = new Date(fim + 'T12:00:00');
+  try{
+    while(d <= ultimo){
+      var iso = d.toISOString().slice(0,10);
+      try{
+        await req('POST','/folgas',{ colaborador_id: colab, data_folga: iso, periodo: 'dia_todo', obs: obs || null });
+        ok++;
+      }catch(e){ falhas++; }
+      d.setDate(d.getDate() + 1);
+    }
+    if(ok && !falhas)      mostrarToast(ok === 1 ? 'Folga lançada' : ok + ' dias de folga lançados');
+    else if(ok && falhas)  mostrarToast(ok + ' dia(s) lançado(s), ' + falhas + ' falhou(aram)');
+    else                   mostrarToast('Não consegui lançar a folga');
+    if(ok){
+      closeD('folga');
+      if(typeof carregarBloqueios === 'function') carregarBloqueios();
+    }
+  }finally{
+    if(btn){ btn.disabled = false; btn.style.opacity = ''; }
+  }
+}
+
+async function togglePlano(v) {
+  var el = document.getElementById('plano-opcoes');
+  if(el) el.style.display = v ? 'flex' : 'none';
+  if(!v) { document.getElementById('plano-resumo').style.display='none'; document.getElementById('sel-plano').value=''; return; }
+
+  // Preenche com os planos DO CADASTRO. Antes eram três fixos no HTML que não
+  // existiam na barbearia — o Lucas escolheria um plano inexistente.
+  var sel = document.getElementById('sel-plano');
+  if(!sel || sel.options.length > 1) return;
+  try{
+    if(!_planosCache || !_planosCache.length) _planosCache = await req('GET','/planos') || [];
+    sel.innerHTML = '<option value="">Selecionar plano...</option>' +
+      _planosCache.map(function(p){
+        var v = parseFloat(p.valor_mensal)||0;
+        return '<option value="'+v+'" data-id="'+p.id+'">'+p.nome+' — R$ '+
+               v.toFixed(2).replace('.',',')+'/mês</option>';
+      }).join('');
+  }catch(e){
+    sel.innerHTML = '<option value="">Não consegui carregar os planos</option>';
+  }
+}
+function atualizarTotalComPlano() {
+  var sel = document.getElementById('sel-plano');
+  var resumo = document.getElementById('plano-resumo');
+  var totalEl = document.getElementById('plano-total');
+  if(!sel.value){resumo.style.display='none';return;}
+  resumo.style.display='block';
+  if(totalEl) totalEl.textContent = 'R$ ' + parseFloat(sel.value).toFixed(2).replace('.',',');
+}
+function selPgto(el){document.querySelectorAll('.pgto-btn').forEach(function(b){b.classList.remove('sel')});el.classList.add('sel')}
+
+/* (grade de horários de exemplo removida: era maquete com horários fixos
+   e 'ocupados' escolhidos por posição, e o elemento h-slots nem existe) */
+
+function toggleAvulsaCliente(comCliente) {
+  var w = document.getElementById('avulsa-cliente-wrap');
+  if(w) w.style.display = comCliente ? 'flex' : 'none';
+}
+
+// ============================================================
+// COMANDA AVULSA — funcional
+// ============================================================
+var _avulsaItens = [];
+var _avulsaClienteId = null;
+var _avulsaForma = 'dinheiro';
+var _avulsaBuscaTimer = null;
+var _avulsaServicos = [];
+var _avulsaProdutos = [];
+
+// Mostra o selo de PLANO ATIVO do cliente (assinatura) no atendimento
+async function mostrarPlanoCliente(clienteId, alvoId){
+  var el = document.getElementById(alvoId || 'comanda-plano');
+  if(!el) return;
+  el.innerHTML='';
+  if(!clienteId) return;
+  try{
+    var p = await req('GET','/clientes/'+clienteId+'/plano');
+    if(!p || !p.ativo){ el.innerHTML=''; return; }
+    var nome = (p.plano && p.plano.nome) ? p.plano.nome : 'Plano ativo';
+    var servicos='';
+    if(Array.isArray(p.servicos) && p.servicos.length){
+      servicos = '<div style="margin-top:7px;display:flex;flex-wrap:wrap;gap:5px">'+
+        p.servicos.map(function(s){
+          var lim = (s.limite_mes!=null) ? (s.usado+'/'+s.limite_mes) : (s.usado+'×');
+          return '<span style="font-size:11px;color:var(--gold);background:var(--gold-dim);border:0.5px solid var(--gold-border);border-radius:5px;padding:2px 7px">'+s.nome+' <b>'+lim+'</b></span>';
+        }).join('')+'</div>';
+    }
+    var credito = (p.credito_saldo!=null && parseFloat(p.credito_saldo)>0)
+      ? '<span style="font-size:11px;color:var(--green);margin-left:auto">Crédito R$ '+parseFloat(p.credito_saldo).toFixed(2).replace('.',',')+'</span>' : '';
+    el.innerHTML =
+      '<div style="background:var(--gold-dim);border:0.5px solid var(--gold-border);border-radius:10px;padding:11px 14px;margin-bottom:12px">'
+      +'<div style="display:flex;align-items:center;gap:8px">'
+      +'<span style="font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--gold);background:var(--bg3);border:0.5px solid var(--gold-border);border-radius:5px;padding:2px 7px;white-space:nowrap">★ Assinante</span>'
+      +'<span style="font-size:13px;font-weight:500;color:var(--white)">'+nome+'</span>'+credito+'</div>'
+      +servicos+'</div>';
+  }catch(e){ el.innerHTML=''; }
+}
+
+function abrirComandaAvulsa() {
+  _avulsaItens = [];
+  _avulsaClienteId = null;
+  _avulsaForma = 'dinheiro';
+  limparClienteAvulsa();
+  var ap=document.getElementById('avulsa-plano'); if(ap) ap.innerHTML='';
+  renderItensAvulsa();
+  carregarItensAvulsa();
+  openD('comanda-avulsa');
+}
+
+function buscarClienteAvulsa(q) {
+  var res = document.getElementById('avulsa-cli-resultados');
+  if(_avulsaBuscaTimer) clearTimeout(_avulsaBuscaTimer);
+  if(!q || q.length < 2) { res.style.display='none'; return; }
+  _avulsaBuscaTimer = setTimeout(async function(){
+    try{
+      var data = await req('GET', '/clientes?q='+encodeURIComponent(q)+'&limit=6');
+      if(!data||!data.length){ res.style.display='block'; res.innerHTML='<div style="padding:10px;font-size:12px;color:var(--muted)">Nenhum encontrado</div>'; return; }
+      res.style.display='block';
+      res.innerHTML = data.map(function(c){
+        return '<div onpointerdown="selecionarClienteAvulsa(\''+c.id+'\',\''+c.nome.replace(/'/g,"\\'")+'\')" style="padding:10px 12px;cursor:pointer;font-size:13px;color:var(--white);border-bottom:0.5px solid var(--border)" onmouseover="this.style.background=\'rgba(255,255,255,.05)\'" onmouseout="this.style.background=\'\'">'
+          + c.nome + (c.whatsapp ? '<div style="font-size:11px;color:var(--muted)">'+c.whatsapp+'</div>' : '') + '</div>';
+      }).join('');
+    }catch(e){ res.style.display='none'; }
+  }, 400);
+}
+
+function selecionarClienteAvulsa(id, nome) {
+  _avulsaClienteId = id;
+  document.getElementById('avulsa-cli-input').value = nome;
+  document.getElementById('avulsa-cli-resultados').style.display = 'none';
+  document.getElementById('avulsa-cli-selecionado').style.display = 'flex';
+  document.getElementById('avulsa-cli-nome').textContent = nome;
+  mostrarPlanoCliente(id, 'avulsa-plano');
+}
+
+function limparClienteAvulsa() {
+  _avulsaClienteId = null;
+  var inp = document.getElementById('avulsa-cli-input');
+  if(inp) inp.value = '';
+  var res = document.getElementById('avulsa-cli-resultados');
+  if(res) res.style.display = 'none';
+  var sel = document.getElementById('avulsa-cli-selecionado');
+  if(sel) sel.style.display = 'none';
+  var ap = document.getElementById('avulsa-plano'); if(ap) ap.innerHTML='';
+}
+
+async function carregarItensAvulsa() {
+  var tipo = (document.getElementById('avulsa-tipo')||{}).value || 'servico';
+  var sel  = document.getElementById('avulsa-item-sel');
+  if(!sel) return;
+  try{
+    if(tipo === 'servico') {
+      if(!_avulsaServicos.length) _avulsaServicos = await req('GET','/servicos') || [];
+      sel.innerHTML = '<option value="">Selecionar serviço...</option>' +
+        _avulsaServicos.map(function(s){ return '<option value="'+s.id+'" data-val="'+(s.valor||0)+'" data-nome="'+s.nome.replace(/"/g,"'")+'">'+s.nome+' — R$ '+parseFloat(s.valor||0).toFixed(2).replace('.',',')+'</option>'; }).join('');
+    } else {
+      if(!_avulsaProdutos.length) _avulsaProdutos = await req('GET','/produtos') || [];
+      sel.innerHTML = '<option value="">Selecionar produto...</option>' +
+        _avulsaProdutos.map(function(p){ var pv = parseFloat(p.valor_venda||p.valor||0)||0; return '<option value="'+p.id+'" data-val="'+pv+'" data-nome="'+p.nome.replace(/"/g,"'")+'">'+p.nome+' — R$ '+pv.toFixed(2).replace('.',',')+'</option>'; }).join('');
+    }
+  }catch(e){}
+}
+
+function adicionarItemAvulsa() {
+  var sel = document.getElementById('avulsa-item-sel');
+  var tipo = document.getElementById('avulsa-tipo').value;
+  if(!sel || !sel.value) return;
+  var opt = sel.options[sel.selectedIndex];
+  _avulsaItens.push({ id:sel.value, nome:opt.dataset.nome||opt.text.split(' —')[0], valor:parseFloat(opt.dataset.val)||0, tipo:tipo });
+  renderItensAvulsa();
+  sel.value = '';
+}
+
+function removerItemAvulsa(idx) {
+  _avulsaItens.splice(idx,1);
+  renderItensAvulsa();
+}
+
+function renderItensAvulsa() {
+  var el = document.getElementById('avulsa-itens');
+  if(!el) return;
+  if(!_avulsaItens.length){
+    el.innerHTML='<div style="font-size:12px;color:var(--muted);text-align:center;padding:12px">Nenhum item adicionado</div>';
+  } else {
+    el.innerHTML = _avulsaItens.map(function(item,i){
+      return '<div style="display:flex;align-items:center;justify-content:space-between;background:var(--bg3);border-radius:8px;padding:10px 12px">'
+        +'<div><div style="font-size:13px;color:var(--white)">'+item.nome+'</div><div style="font-size:11px;color:var(--muted)">'+item.tipo+'</div></div>'
+        +'<div style="display:flex;align-items:center;gap:12px">'
+        +'<span style="font-size:13px;font-weight:500;color:var(--gold-light)">R$ '+item.valor.toFixed(2).replace('.',',')+'</span>'
+        +'<button onclick="removerItemAvulsa('+i+')" style="background:none;border:none;color:var(--muted);cursor:pointer;font-size:16px">✕</button>'
+        +'</div></div>';
+    }).join('');
+  }
+  var total = _avulsaItens.reduce(function(s,i){ return s+i.valor; }, 0);
+  var totalEl = document.getElementById('avulsa-total');
+  var btnEl   = document.getElementById('btn-finalizar-avulsa');
+  if(totalEl) totalEl.textContent = 'R$ '+total.toFixed(2).replace('.',',');
+  if(btnEl)   btnEl.textContent   = '✓ Finalizar — R$ '+total.toFixed(2).replace('.',',');
+}
+
+function selPgtoAvulsa(el, forma) {
+  _avulsaForma = forma;
+  el.closest('.db').querySelectorAll('.pgto-btn').forEach(function(b){ b.classList.remove('sel'); });
+  el.classList.add('sel');
+}
+
+async function finalizarComandaAvulsa() {
+  if(!_avulsaItens.length){ alert('Adicione pelo menos um item'); return; }
+  var total = _avulsaItens.reduce(function(s,i){ return s+i.valor; }, 0);
+  try{
+    await req('POST', '/comandas/avulsa', {
+      cliente_id:      _avulsaClienteId || null,
+      forma_pagamento: _avulsaForma,
+      valor_total:     total,
+      itens:           _avulsaItens
+    });
+    closeD('comanda-avulsa');
+    _avulsaItens = [];
+    _avulsaClienteId = null;
+    mostrarToast('✅ Comanda finalizada — R$ '+total.toFixed(2).replace('.',','));
+  }catch(e){
+    mostrarToast('\u26a0\ufe0f N\u00e3o consegui finalizar: '+(e.message||'tente de novo'));
+  }
+}
+
+function mostrarToast(msg) {
+  var t = document.createElement('div');
+  t.style.cssText = 'position:fixed;bottom:24px;right:24px;background:var(--bg2);border:0.5px solid rgba(76,175,80,.4);border-radius:10px;padding:12px 16px;font-size:13px;color:var(--white);z-index:9999';
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(function(){ t.remove(); }, 3500);
+}
+
+// ============================================================
+// COMANDA PRINCIPAL — finalizar com valores reais
+// ============================================================
+function recalcularTotal() {
+  // Soma direto da fonte de verdade (itensComandaAtual), não do DOM
+  var base = (typeof itensComandaAtual !== 'undefined' ? itensComandaAtual : [])
+    .reduce(function(s,it){ return s + (parseFloat(it.valor)||0) }, 0);
+
+  if(document.getElementById('chk-convenio') && document.getElementById('chk-convenio').checked) base -= base * 0.15;
+  if(document.getElementById('chk-fidelidade') && document.getElementById('chk-fidelidade').checked) base -= 5;
+  if(document.getElementById('chk-credito') && document.getElementById('chk-credito').checked) base -= 20;
+  base = Math.max(0, base);
+
+  var totalEl = document.getElementById('comanda-total');
+  var btnEl   = document.getElementById('btn-finalizar-comanda');
+  if(totalEl) totalEl.textContent = 'R$ ' + base.toFixed(2).replace('.',',');
+  if(btnEl)   btnEl.textContent   = '✓ Finalizar comanda — R$ ' + base.toFixed(2).replace('.',',');
+  return base;
+}
+</script>
+
+<!-- DRAWER: Comanda Avulsa (#2) -->
+<div class="overlay" id="ov-comanda-avulsa" onclick="if(event.target===this)closeD('comanda-avulsa')">
+  <div class="drawer">
+    <div class="dh">
+      <div><div class="dh-title">Comanda Avulsa</div><div class="dh-sub">Venda sem agendamento</div></div>
+      <div class="dc-btn" onclick="closeD('comanda-avulsa')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+    </div>
+    <div class="db">
+
+      <!-- Cliente -->
+      <div class="form-group">
+        <label class="form-label">Cliente (opcional)</label>
+        <div style="position:relative">
+          <input class="form-input" id="avulsa-cli-input" placeholder="Nome ou WhatsApp..." autocomplete="off" oninput="buscarClienteAvulsa(this.value)">
+        </div>
+        <div id="avulsa-cli-resultados" style="display:none;background:var(--bg3);border:0.5px solid var(--border2);border-radius:8px;margin-top:4px;max-height:140px;overflow-y:auto;z-index:10"></div>
+        <div id="avulsa-cli-selecionado" style="display:none;background:var(--gold-dim);border:0.5px solid var(--gold-border);border-radius:8px;padding:8px 12px;margin-top:4px;align-items:center;justify-content:space-between">
+          <div id="avulsa-cli-nome" style="font-size:13px;color:var(--white)"></div>
+          <button onclick="limparClienteAvulsa()" style="background:none;border:none;color:var(--muted);cursor:pointer;font-size:16px">✕</button>
+        </div>
+        <div id="avulsa-plano" style="margin-top:6px"></div>
+      </div>
+
+      <!-- Adicionar item -->
+      <div style="height:0.5px;background:var(--border);margin:4px 0"></div>
+      <div class="form-group">
+        <label class="form-label">Adicionar item</label>
+        <div style="display:flex;gap:8px;margin-bottom:8px">
+          <select id="avulsa-tipo" onchange="carregarItensAvulsa()" style="background:var(--bg3);border:0.5px solid var(--border2);border-radius:8px;padding:8px 10px;font-size:12px;color:var(--white);font-family:'Inter',sans-serif;outline:none">
+            <option value="servico">Serviço</option>
+            <option value="produto">Produto</option>
+          </select>
+          <select id="avulsa-item-sel" style="flex:1;background:var(--bg3);border:0.5px solid var(--border2);border-radius:8px;padding:8px 10px;font-size:12px;color:var(--white);font-family:'Inter',sans-serif;outline:none">
+            <option value="">Selecionar...</option>
+          </select>
+          <button onclick="adicionarItemAvulsa()" class="btn btn-ghost btn-sm">+ Add</button>
+        </div>
+      </div>
+
+      <!-- Itens -->
+      <div id="avulsa-itens" style="display:flex;flex-direction:column;gap:6px;margin-bottom:8px"></div>
+
+      <!-- Total -->
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-top:0.5px solid var(--border);border-bottom:0.5px solid var(--border);margin-bottom:8px">
+        <span style="font-size:13px;color:var(--muted)">Total</span>
+        <span style="font-size:20px;font-weight:500;color:var(--gold-light)" id="avulsa-total">R$ 0,00</span>
+      </div>
+
+      <!-- Forma de pagamento -->
+      <div class="form-group">
+        <label class="form-label">Forma de pagamento</label>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+          <div class="pgto-btn sel" onclick="selPgtoAvulsa(this,'dinheiro')"><div class="pgto-icon">💵</div><div class="pgto-label">Dinheiro</div></div>
+          <div class="pgto-btn" onclick="selPgtoAvulsa(this,'pix')"><div class="pgto-icon">📱</div><div class="pgto-label">PIX</div></div>
+          <div class="pgto-btn" onclick="selPgtoAvulsa(this,'debito')"><div class="pgto-icon">💳</div><div class="pgto-label">Débito</div></div>
+          <div class="pgto-btn" onclick="selPgtoAvulsa(this,'credito')"><div class="pgto-icon">💳</div><div class="pgto-label">Crédito</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="df">
+      <button class="btn btn-ghost" onclick="closeD('comanda-avulsa')">Cancelar</button>
+      <button class="btn btn-success" id="btn-finalizar-avulsa" onclick="finalizarComandaAvulsa()">✓ Finalizar — R$ 0,00</button>
+    </div>
+  </div>
+</div>
+
+<!-- DRAWER: Vale Funcionário (#11) -->
+<!-- ==================== DRAWER PLANO ==================== -->
+<div class="overlay" id="ov-plano" onclick="if(event.target===this)closeD('plano')">
+  <div class="drawer" style="width:520px">
+    <div class="dh">
+      <div>
+        <div class="dh-title" id="plano-titulo">Novo plano</div>
+        <div class="dh-sub">O que o assinante leva por mês</div>
+      </div>
+      <div class="dc-btn" onclick="closeD('plano')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+    </div>
+    <div class="db">
+
+      <div class="form-group">
+        <label class="form-label">Nome do plano</label>
+        <input class="form-input" id="plano-nome" placeholder="Ex: Plano Cabelo">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Descrição</label>
+        <input class="form-input" id="plano-descricao" placeholder="Aparece para o cliente (opcional)">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Valor por mês (R$)</label>
+        <input class="form-input" id="plano-valor" placeholder="150" inputmode="decimal" oninput="calcularFracao()">
+      </div>
+
+      <div style="border-top:0.5px solid var(--border);margin:18px 0 14px;padding-top:16px">
+        <div style="font-size:11px;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px">Serviços incluídos</div>
+        <div style="font-size:12px;color:var(--muted);margin-bottom:12px">Marque os serviços e diga quantas vezes por mês cada um está incluído.</div>
+        <div id="plano-servicos" style="display:flex;flex-direction:column;gap:8px">
+          <div style="font-size:12px;color:var(--muted)">Carregando serviços…</div>
+        </div>
+      </div>
+
+      <div id="plano-fracao" style="background:var(--bg3);border-radius:9px;padding:12px 14px;margin-bottom:18px;font-size:12.5px;color:var(--muted)">
+        Escolha o valor e os serviços para ver quanto vale cada atendimento.
+      </div>
+
+      <div style="border-top:0.5px solid var(--border);margin:0 0 14px;padding-top:16px">
+        <div style="font-size:11px;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px">Descontos do assinante</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+          <div class="form-group" style="margin:0">
+            <label class="form-label">Em produtos (%)</label>
+            <input class="form-input" id="plano-desc-prod" placeholder="0" inputmode="decimal">
+          </div>
+          <div class="form-group" style="margin:0">
+            <label class="form-label">Em outros serviços (%)</label>
+            <input class="form-input" id="plano-desc-serv" placeholder="0" inputmode="decimal">
+          </div>
+        </div>
+        <div style="font-size:11.5px;color:var(--muted);margin-top:8px">Vale para o que <b>não</b> está incluído no plano.</div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Fichas do bar por mês</label>
+        <input class="form-input" id="plano-fichas" placeholder="0" inputmode="numeric">
+      </div>
+
+    </div>
+    <div class="df">
+      <button class="btn btn-ghost" id="plano-excluir" onclick="excluirPlano()" style="display:none;color:var(--red)">Excluir</button>
+      <button class="btn btn-ghost" onclick="closeD('plano')">Cancelar</button>
+      <button class="btn btn-primary" id="plano-salvar" onclick="salvarPlano()">Salvar plano</button>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== DRAWER COBRANÇA DA ASSINATURA ==================== -->
+<div class="overlay" id="ov-cobranca" onclick="if(event.target===this)closeD('cobranca')">
+  <div class="drawer" style="width:480px">
+    <div class="dh">
+      <div>
+        <div class="dh-title">Cobrança da assinatura</div>
+        <div class="dh-sub" id="cob-sub"></div>
+      </div>
+      <div class="dc-btn" onclick="closeD('cobranca')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+    </div>
+    <div class="db">
+
+      <div id="cob-aviso" style="display:none;background:rgba(201,168,76,.12);border:1px solid rgba(201,168,76,.3);border-radius:8px;padding:11px 13px;font-size:12.5px;color:var(--gold);margin-bottom:16px"></div>
+
+      <div style="background:var(--bg3);border-radius:9px;padding:12px 14px;margin-bottom:18px;font-size:13px">
+        Válido até <b id="cob-renovacao" style="color:var(--white)">—</b>
+      </div>
+
+      <div style="font-size:11px;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px">Recebi na barbearia</div>
+      <div class="frow f2">
+        <div class="form-group">
+          <label class="form-label">Valor (R$)</label>
+          <input class="form-input" id="cob-valor" inputmode="decimal">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Forma</label>
+          <select class="form-select" id="cob-forma">
+            <option value="dinheiro">Dinheiro</option>
+            <option value="pix">Pix</option>
+            <option value="debito">Débito</option>
+            <option value="credito">Crédito</option>
+            <option value="outros">Outros</option>
+          </select>
+        </div>
+      </div>
+      <button class="btn btn-primary" style="width:100%" onclick="receberNaBarbearia()">Registrar pagamento e liberar o mês</button>
+
+      <div class="form-divider" style="margin:20px 0 16px"></div>
+
+      <div style="font-size:11px;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px">Cobrança automática</div>
+
+      <!-- O Asaas aceita UMA forma por assinatura. Escolher aqui evita que o
+           boleto apareça na tela do cliente, e deixa claro para o Lucas a
+           diferença que importa: no cartão renova sozinho, no Pix o cliente
+           paga todo mês. -->
+      <div class="form-group" style="margin-bottom:10px">
+        <label class="form-label">Como o cliente vai pagar?</label>
+        <select class="form-select" id="cob-forma-recorrencia" onchange="atualizarAvisoForma()">
+          <option value="CREDIT_CARD">Cartão de crédito — renova sozinho</option>
+          <option value="PIX">Pix — o cliente paga todo mês</option>
+        </select>
+      </div>
+      <div id="cob-aviso-forma" style="font-size:12.5px;color:var(--muted);margin-bottom:11px"></div>
+      <button class="btn btn-ghost" style="width:100%" onclick="enviarLinkCartao()">Gerar link de cobrança</button>
+      <div id="cob-link-wrap" style="display:none;margin-top:10px">
+        <div style="display:flex;gap:8px">
+          <input class="form-input" id="cob-link" readonly style="flex:1;font-size:12px">
+          <button class="btn btn-ghost" onclick="copiarLinkCartao()">Copiar</button>
+        </div>
+        <div style="font-size:11.5px;color:var(--muted);margin-top:6px">Mande esse link para o cliente pelo WhatsApp. Ele escolhe como pagar.</div>
+      </div>
+
+      <div class="form-divider" style="margin:20px 0 16px"></div>
+
+      <div style="font-size:11px;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px">Histórico</div>
+      <div id="cob-historico"></div>
+
+      <div class="form-divider" style="margin:20px 0 16px"></div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <button class="btn btn-ghost" style="flex:1" onclick="liberarCortesia()">Liberar sem cobrar</button>
+        <button class="btn btn-ghost" style="flex:1" onclick="_acaoCobranca('/pausar',{},'Pausar esta assinatura?')">Pausar</button>
+        <button class="btn btn-ghost" style="flex:1" onclick="_acaoCobranca('/retomar',{},'Retomar esta assinatura?')">Retomar</button>
+      </div>
+      <button class="btn btn-ghost" style="width:100%;margin-top:8px;color:var(--red)" onclick="_acaoCobranca('/cancelar',{},'Cancelar esta assinatura?\n\nSe houver cobrança automática, ela também é cancelada no gateway.')">Cancelar assinatura</button>
+
+    </div>
+    <div class="df"><button class="btn btn-ghost" onclick="closeD('cobranca')">Fechar</button></div>
+  </div>
+</div>
+
+<div class="overlay" id="ov-vale-funcionario" onclick="if(event.target===this)closeD('vale-funcionario')">
+  <div class="drawer" style="width:440px">
+    <div class="dh">
+      <div><div class="dh-title">Vale de Funcionário</div><div class="dh-sub">Debitado da comissão no fechamento</div></div>
+      <div class="dc-btn" onclick="closeD('vale-funcionario')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+    </div>
+    <div class="db">
+
+      <!-- Toggle Normal / PIX -->
+      <div style="display:flex;gap:0;border:0.5px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:4px">
+        <button id="btn-vale-normal" onclick="setTipoVale('normal')" style="flex:1;padding:9px;font-size:13px;font-weight:500;background:var(--gold);color:var(--black);border:none;cursor:pointer;font-family:'Inter',sans-serif;transition:all .2s">Vale Normal</button>
+        <button id="btn-vale-pix" onclick="setTipoVale('pix')" style="flex:1;padding:9px;font-size:13px;font-weight:500;background:none;color:var(--muted);border:none;cursor:pointer;font-family:'Inter',sans-serif;transition:all .2s">Vale via PIX</button>
+      </div>
+
+      <!-- Aviso normal -->
+      <div id="aviso-vale-normal" style="background:var(--red-dim);border:0.5px solid var(--red);border-radius:8px;padding:10px 14px;font-size:12px;color:var(--red)">
+        ⚠️ Vale debitado da comissão do colaborador no fechamento mensal
+      </div>
+      <!-- Aviso PIX -->
+      <div id="aviso-vale-pix" style="display:none;background:var(--gold-dim);border:0.5px solid var(--gold-border);border-radius:8px;padding:10px 14px;font-size:12px;color:var(--gold-light)">
+        💸 Vale via PIX não sai do caixa físico. O valor é registrado na carteira do barbeiro e descontado no pagamento mensal.
+      </div>
+
+      <div class="form-group"><label class="form-label">Colaborador</label>
+        <select class="form-select" id="vale-colaborador">
+          <option value="">Carregando...</option>
+        </select>
+        <label style="display:flex;align-items:center;gap:8px;margin-top:8px;font-size:12px;color:var(--muted);cursor:pointer">
+          <input type="checkbox" id="vale-outra-unidade" onchange="carregarColaboradoresVale()" style="width:15px;height:15px;accent-color:var(--gold)">
+          Colaborador de outra unidade (ex.: transferido)
+        </label>
+      </div>
+
+      <!-- Itens (vale normal) -->
+      <div id="secao-itens-vale">
+        <div style="font-size:11px;font-weight:500;color:var(--gold);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px">Produtos do bar (preço colaborador)</div>
+        <div id="vale-produtos-bar" style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px"></div>
+
+        <div style="font-size:11px;font-weight:500;color:var(--gold);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px">Outro item (digitar)</div>
+        <div style="display:flex;gap:8px">
+          <input class="form-input" id="vale-item-input" placeholder="Nome do produto..." style="flex:1">
+          <input class="form-input" id="vale-item-valor" placeholder="R$" type="number" style="width:80px">
+          <button class="btn btn-ghost btn-sm" onclick="addItemVale()">+</button>
+        </div>
+        <div id="vale-itens-lista" style="margin-top:8px;display:flex;flex-direction:column;gap:6px"></div>
+      </div>
+
+      <!-- Valor direto (PIX) -->
+      <div id="secao-valor-pix" style="display:none">
+        <div class="form-group"><label class="form-label">Valor do PIX (R$)</label>
+          <input class="form-input" id="vale-pix-valor" type="number" placeholder="0,00" oninput="atualizarTotalVale()">
+        </div>
+        <div class="form-group"><label class="form-label">Descrição / Motivo</label>
+          <input class="form-input" id="vale-pix-desc" placeholder="Ex: adiantamento, combustível...">
+        </div>
+      </div>
+
+      <div style="display:flex;justify-content:space-between;padding:10px 0;border-top:0.5px solid var(--border);margin-top:8px">
+        <span style="font-size:13px;color:var(--muted)">Total do vale</span>
+        <span style="font-size:16px;font-weight:500;color:var(--red)" id="vale-total-display">R$ 0,00</span>
+      </div>
+    </div>
+    <div class="df">
+      <button class="btn btn-ghost" onclick="closeD('vale-funcionario')">Cancelar</button>
+      <button class="btn btn-danger" id="btn-registrar-vale" onclick="registrarVale()">Registrar vale — R$ 0,00</button>
+    </div>
+  </div>
+</div>
+
+<!-- DRAWER: Saída do Caixa (#12) -->
+<div class="overlay" id="ov-saida-caixa" onclick="if(event.target===this)closeD('saida-caixa')">
+  <div class="drawer" style="width:400px">
+    <div class="dh">
+      <div><div class="dh-title">Registrar Saída do Caixa</div><div class="dh-sub">Requer autenticação do gerente</div></div>
+      <div class="dc-btn" onclick="closeD('saida-caixa')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+    </div>
+    <div class="db">
+      <div class="form-group"><label class="form-label">Motivo</label>
+        <select class="form-select" id="saida-motivo"><option>Sangria (retirada de dinheiro)</option><option>Compra de insumos</option><option>Pagamento de nota/entrega</option><option>Manutenção</option><option>Vale funcionário</option><option>Outro</option></select>
+      </div>
+      <div class="form-group"><label class="form-label">Valor (R$)</label>
+        <input class="form-input" id="saida-valor" type="number" min="0" step="0.01" placeholder="0,00">
+      </div>
+      <div class="form-group"><label class="form-label">Descrição</label>
+        <textarea class="form-textarea" id="saida-desc" placeholder="Descreva o que foi pago/comprado..."></textarea>
+      </div>
+      <div class="form-group"><label class="form-label">Responsável</label>
+        <select class="form-select js-colab-select" id="saida-resp"><option value="">Carregando...</option></select>
+      </div>
+      <div style="height:0.5px;background:var(--border);margin:4px 0"></div>
+      <div style="font-size:11px;font-weight:500;color:var(--gold);text-transform:uppercase;letter-spacing:.08em">Autenticação do Gerente</div>
+      <div class="form-group"><label class="form-label">Senha de autorização</label>
+        <input class="form-input" id="saida-senha" type="password" placeholder="••••••••">
+      </div>
+    </div>
+    <div class="df">
+      <button class="btn btn-ghost" onclick="closeD('saida-caixa')">Cancelar</button>
+      <button class="btn btn-danger" onclick="confirmarSaidaCaixa()">Confirmar saída</button>
+    </div>
+  </div>
+</div>
+
+<!-- SCRIPTS NOVOS -->
+<script>
+// ===== ITENS DA COMANDA =====
+var tipoItemAtual = 'servico'
+var itemsCache = { servicos: [], produtos: [] }
+var comandaAtualId = null
+var itensComandaAtual = []
+// Converte um item vindo do servidor (comanda aberta) pro formato da tela
+function _itemFromServer(it){
+  return {
+    id: it.id,
+    nome: it.descricao || 'Item',
+    tipo: it.tipo === 'produto' ? 'Produto' : (it.tipo === 'plano' ? 'Plano' : 'Serviço'),
+    valor: Number(it.valor_unit) || 0,
+    quantidade: it.quantidade || 1,
+    servico_id: it.servico_id || null,
+    produto_id: it.produto_id || null,
+  }
+}
+
+async function carregarItensComanda() {
+  try {
+    if (!itemsCache.servicos.length) {
+      itemsCache.servicos = await req('GET', '/servicos') || []
+    }
+    if (!itemsCache.produtos.length) {
+      itemsCache.produtos = await req('GET', '/produtos') || []
+    }
+    popularSelectComanda()
+  } catch(e) {}
+}
+
+function setTipoItem(tipo, btn) {
+  tipoItemAtual = tipo
+  document.getElementById('btn-tipo-servico').style.background = tipo === 'servico' ? 'var(--gold-dim)' : 'none'
+  document.getElementById('btn-tipo-servico').style.color      = tipo === 'servico' ? 'var(--gold-light)' : 'var(--muted)'
+  document.getElementById('btn-tipo-servico').style.borderColor= tipo === 'servico' ? 'var(--gold-border)' : 'var(--border)'
+  document.getElementById('btn-tipo-produto').style.background = tipo === 'produto' ? 'var(--gold-dim)' : 'none'
+  document.getElementById('btn-tipo-produto').style.color      = tipo === 'produto' ? 'var(--gold-light)' : 'var(--muted)'
+  document.getElementById('btn-tipo-produto').style.borderColor= tipo === 'produto' ? 'var(--gold-border)' : 'var(--border)'
+  var label = document.getElementById('label-tipo-item')
+  if (label) label.textContent = tipo === 'servico' ? 'serviço' : 'produto'
+  popularSelectComanda()
+}
+
+function popularSelectComanda() {
+  var sel = document.getElementById('sel-item-comanda')
+  if (!sel) return
+  var lista = tipoItemAtual === 'servico' ? itemsCache.servicos : itemsCache.produtos
+  sel.innerHTML = '<option value="">Selecionar ' + (tipoItemAtual === 'servico' ? 'serviço' : 'produto') + '...</option>' +
+    lista.map(function(i) {
+      var val = parseFloat(i.valor_venda || i.valor || 0)
+      return '<option value="' + i.id + '" data-valor="' + val + '" data-nome="' + i.nome + '">' + i.nome + ' — R$ ' + val.toFixed(2).replace('.',',') + '</option>'
+    }).join('')
+}
+
+function previewItemComanda() {
+  var sel = document.getElementById('sel-item-comanda')
+  var preview = document.getElementById('preview-item-comanda')
+  if (!sel || !preview) return
+  var opt = sel.options[sel.selectedIndex]
+  if (!opt || !opt.value) { preview.style.display = 'none'; return }
+  document.getElementById('preview-item-nome').textContent = opt.dataset.nome
+  document.getElementById('preview-item-val').textContent = 'R$ ' + parseFloat(opt.dataset.valor).toFixed(2).replace('.',',')
+  preview.style.display = 'flex'
+}
+
+async function adicionarItemComanda() {
+  var sel = document.getElementById('sel-item-comanda')
+  if (!sel || !sel.value) { alert('Selecione um item'); return }
+  var opt = sel.options[sel.selectedIndex]
+  if (window._comandaId) {
+    // Comanda ABERTA: salva o item no servidor na hora (preço do catálogo)
+    var tipoServidor = (tipoItemAtual === 'servico') ? 'servico' : 'produto'
+    var body = { tipo: tipoServidor, quantidade: 1 }
+    if (tipoServidor === 'servico') { body.servico_id = sel.value } else { body.produto_id = sel.value }
+    try {
+      var novo = await req('POST', '/comandas/' + window._comandaId + '/itens', body)
+      itensComandaAtual.push(_itemFromServer(novo))
+    } catch (e) {
+      mostrarToast('⚠️ Não consegui salvar o item: ' + (e.message || 'tente de novo'))
+      return
+    }
+  } else {
+    var item = { nome: opt.dataset.nome, tipo: tipoItemAtual === 'servico' ? 'Serviço' : 'Produto', valor: parseFloat(opt.dataset.valor) }
+    if (tipoItemAtual === 'servico') { item.servico_id = sel.value } else { item.produto_id = sel.value }
+    itensComandaAtual.push(item)
+  }
+  renderItensComandaAtual()
+  sel.value = ''
+  document.getElementById('preview-item-comanda').style.display = 'none'
+  atualizarTotalComanda()
+}
+
+async function removerItemComanda(idx) {
+  var it = itensComandaAtual[idx]
+  if (window._comandaId && it && it.id) {
+    try { await req('DELETE', '/comandas/' + window._comandaId + '/itens/' + it.id) }
+    catch (e) { mostrarToast('⚠️ Não consegui remover: ' + (e.message || 'tente de novo')); return }
+  }
+  itensComandaAtual.splice(idx, 1)
+  renderItensComandaAtual()
+  atualizarTotalComanda()
+}
+
+function renderItensComandaAtual() {
+  var lista = document.getElementById('comanda-itens-lista')
+  if (!lista) return
+  if (!itensComandaAtual.length) {
+    lista.innerHTML = '<div style="padding:14px 16px;color:var(--muted);font-size:12px;text-align:center">Nenhum item ainda. Adicione serviços ou produtos abaixo. 👇</div>'
+  } else {
+    lista.innerHTML = itensComandaAtual.map(function(it, i) {
+      return '<div class="item-row">'
+        + '<div style="flex:1;min-width:0">'
+        +   '<input value="' + String(it.nome||'').replace(/"/g,'&quot;') + '" placeholder="Nome do item" onchange="editarNomeItem(' + i + ', this.value)" onclick="event.stopPropagation()" style="width:100%;background:transparent;border:none;color:var(--white);font-size:13px;font-weight:500;font-family:inherit;padding:0;outline:none">'
+        +   '<div class="item-type">' + (it.tipo||'') + '</div>'
+        + '</div>'
+        + '<div class="item-val" style="display:flex;align-items:center;gap:3px;flex-shrink:0"><span style="color:var(--muted);font-size:12px">R$</span><input type="number" min="0" step="0.50" value="' + (Number(it.valor)||0) + '" onchange="editarValorItem(' + i + ', this.value)" onclick="event.stopPropagation()" style="width:64px;background:var(--bg3);border:0.5px solid var(--border2);border-radius:6px;color:var(--gold-light);font-size:13px;font-weight:500;padding:3px 6px;text-align:right;font-family:inherit"></div>'
+        + '<div class="ib del" onclick="removerItemComanda(' + i + ')" title="Remover" style="flex-shrink:0;cursor:pointer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H5L4 6"/></svg></div>'
+        + '</div>'
+    }).join('')
+  }
+  var subtotal = itensComandaAtual.reduce(function(s,it){ return s+(parseFloat(it.valor)||0) }, 0)
+  var subEl = document.getElementById('comanda-subtotal')
+  var totEl = document.getElementById('comanda-total')
+  if (subEl) subEl.textContent = 'R$ ' + subtotal.toFixed(2).replace('.',',')
+  if (totEl) totEl.textContent = 'R$ ' + subtotal.toFixed(2).replace('.',',')
+}
+
+function atualizarTotalComanda() {
+  var subtotal = itensComandaAtual.reduce(function(s,it){ return s+(parseFloat(it.valor)||0) }, 0)
+  var el = document.getElementById('comanda-total')
+  var btn = document.getElementById('btn-finalizar-comanda')
+  if (el) el.textContent = 'R$ ' + subtotal.toFixed(2).replace('.',',')
+  if (btn) btn.textContent = '✓ Finalizar — R$ ' + subtotal.toFixed(2).replace('.',',')
+  var svsTotal = itensComandaAtual.filter(function(it){ return it.tipo === 'Serviço' }).reduce(function(s,it){ return s+it.valor }, 0)
+  atualizarCashbackPreview(svsTotal)
+}
+
+// Edita o preço de um item da comanda (importados do AppBarber às vezes vêm sem valor)
+function editarValorItem(idx, val){
+  if (window._comandaId) { renderItensComandaAtual(); return } // comanda aberta: valor fixo
+  if(itensComandaAtual[idx]){
+    itensComandaAtual[idx].valor = parseFloat(val) || 0
+    renderItensComandaAtual()
+    atualizarTotalComanda()
+  }
+}
+
+// Edita o nome de um item (importados às vezes vêm sem o nome do serviço)
+function editarNomeItem(idx, val){
+  if (window._comandaId) { renderItensComandaAtual(); return } // comanda aberta: nome fixo
+  if(itensComandaAtual[idx]){
+    itensComandaAtual[idx].nome = (val || '').trim() || 'Serviço'
+    atualizarTotalComanda()
+  }
+}
+
+// Reabrir comanda atual
+function reabrirComandaAtual() {
+  var id = comandaAtualId
+  if (!id) {
+    // Simula modal de reabrir mesmo sem ID real
+    document.getElementById('reabrir-motivo') && (document.getElementById('reabrir-motivo').value = '')
+    document.getElementById('reabrir-senha')  && (document.getElementById('reabrir-senha').value  = '')
+    var modal = document.getElementById('modal-reabrir-comanda')
+    if (modal) modal.style.display = 'flex'
+    return
+  }
+  document.getElementById('reabrir-motivo').value = ''
+  document.getElementById('reabrir-senha').value  = ''
+  document.getElementById('modal-reabrir-comanda').style.display = 'flex'
+}
+
+// Inicializa ao abrir o drawer da comanda
+document.addEventListener('DOMContentLoaded', function() {
+  carregarItensComanda()
+  renderItensComandaAtual()
+  atualizarTotalComanda()
+})
+
+var _saidaEnviando = false;
+async function confirmarSaidaCaixa() {
+  if (_saidaEnviando) return;
+  var motivo = (document.getElementById('saida-motivo')||{}).value || ''
+  var valor  = parseFloat((document.getElementById('saida-valor')||{}).value || '0')
+  var desc   = (document.getElementById('saida-desc')||{}).value || ''
+  var resp   = (document.getElementById('saida-resp')||{}).value || ''
+  var senha  = (document.getElementById('saida-senha')||{}).value || ''
+  if (!valor || valor <= 0) { alert('Informe um valor válido.'); return }
+  if (!senha)              { alert('Informe a senha de autorização do gerente.'); return }
+  _saidaEnviando = true;
+  try {
+    var r = await req('POST', '/caixa/retirada', { valor: valor, motivo: motivo, descricao: desc, responsavel_id: resp, senha: senha })
+    closeD('saida-caixa')
+    var quem = (r && r.autorizado_por) ? (' (autorizado por ' + r.autorizado_por + ')') : ''
+    alert('✅ Saída registrada' + quem + ': R$ ' + valor.toFixed(2).replace('.', ','))
+    var v = document.getElementById('saida-valor'); if (v) v.value = ''
+    var d = document.getElementById('saida-desc');  if (d) d.value = ''
+    var s = document.getElementById('saida-senha'); if (s) s.value = ''
+    if (typeof carregarSaidasCaixa === 'function') { try { carregarSaidasCaixa() } catch(e){} }
+  } catch(e) {
+    alert('⚠️ ' + ((e && e.message) || 'Não consegui registrar a saída. Verifique a senha de autorização.'))
+  } finally {
+    _saidaEnviando = false;
+  }
+}
+
+async function confirmarReabrirComanda() {
+  var motivo = document.getElementById('reabrir-motivo').value.trim()
+  var senha  = document.getElementById('reabrir-senha').value
+  if (!motivo) { alert('Informe o motivo'); return }
+  if (!senha)  { alert('Informe a senha de autorização'); return }
+  try {
+    var resp = null
+    if (comandaAtualId) {
+      resp = await req('POST', '/comandas/' + comandaAtualId + '/reabrir', { senha_gerente: senha, motivo: motivo })
+    }
+    document.getElementById('modal-reabrir-comanda').style.display = 'none'
+    var quem = (resp && resp.autorizado_por) ? (' (autorizado por ' + resp.autorizado_por + ')') : ''
+    var t = document.createElement('div')
+    t.style.cssText = 'position:fixed;bottom:24px;right:24px;background:var(--bg2);border:0.5px solid rgba(7,67,145,.4);border-radius:10px;padding:12px 16px;font-size:13px;color:var(--white);z-index:9999'
+    t.textContent = '🔓 Comanda reaberta' + quem + ' — pode editar os itens'
+    document.body.appendChild(t)
+    setTimeout(function(){ t.remove() }, 3500)
+  } catch(e) { alert('⚠️ ' + ((e && e.message) || 'Não consegui reabrir. Verifique a senha de autorização.')) }
+}
+
+var itensParciais = []
+
+function iniciarPagamentoParcial(itens) {
+  itensParciais = itens.map(function(it) {
+    return { nome: it.nome, valor: it.valor, tipo: it.tipo, pago: true }
+  })
+  var wrap = document.getElementById('pagamento-parcial-wrap')
+  if (wrap) wrap.style.display = 'block'
+  renderItensParciais()
+}
+
+function renderItensParciais() {
+  var container = document.getElementById('itens-parciais')
+  if (!container) return
+  container.innerHTML = itensParciais.map(function(it, i) {
+    return '<label style="display:flex;align-items:center;justify-content:space-between;padding:8px 10px;background:var(--bg4);border-radius:8px;cursor:pointer">'
+      + '<div style="display:flex;align-items:center;gap:10px">'
+      + '<input type="checkbox" ' + (it.pago ? 'checked' : '') + ' onchange="toggleItemParcial(' + i + ',this.checked)" style="accent-color:var(--gold);width:15px;height:15px">'
+      + '<div><div style="font-size:13px;color:var(--white)">' + it.nome + '</div>'
+      + '<div style="font-size:11px;color:var(--muted)">' + it.tipo + '</div></div>'
+      + '</div>'
+      + '<div style="font-size:13px;font-weight:500;color:' + (it.pago ? 'var(--gold-light)' : 'var(--muted)') + '">R$ ' + it.valor.toFixed(2).replace('.',',') + '</div>'
+      + '</label>'
+  }).join('')
+  atualizarTotalParcial()
+}
+
+function toggleItemParcial(idx, checked) {
+  itensParciais[idx].pago = checked
+  renderItensParciais()
+}
+
+function atualizarTotalParcial() {
+  var totalPago   = itensParciais.filter(function(it){ return it.pago }).reduce(function(s,it){ return s+it.valor }, 0)
+  var totalAberto = itensParciais.filter(function(it){ return !it.pago }).reduce(function(s,it){ return s+it.valor }, 0)
+  var el   = document.getElementById('total-parcial')
+  var info = document.getElementById('saldo-aberto-info')
+  if (el)   el.textContent   = 'R$ ' + totalPago.toFixed(2).replace('.',',')
+  if (info) info.textContent = totalAberto > 0
+    ? 'Saldo de R$ ' + totalAberto.toFixed(2).replace('.',',') + ' ficará em aberto'
+    : 'Todos os itens serão pagos agora'
+  var svsTotal = itensParciais.filter(function(it){ return it.pago && it.tipo === 'Serviço' }).reduce(function(s,it){ return s+it.valor }, 0)
+  atualizarCashbackPreview(svsTotal)
+}
+
+// ===== CASHBACK PREVIEW =====
+function atualizarCashbackPreview(valorServicos) {
+  var pts = Math.floor(valorServicos || 0)
+  var el  = document.getElementById('cashback-pts')
+  if (el) el.textContent = pts + ' ponto' + (pts !== 1 ? 's' : '')
+}
+
+function calcularCashbackComanda() {
+  var totalServicos = itensComandaAtual.filter(function(it){ return it.tipo === 'Serviço' }).reduce(function(s,it){ return s+it.valor }, 0)
+  atualizarCashbackPreview(totalServicos)
+  return Math.floor(totalServicos)
+}
+
+async function finalizarComandaComCashback() {
+  var pts = calcularCashbackComanda()
+  if (pts > 0) {
+    try {
+      await req('POST', '/cashback/creditar', {
+        cliente_id: window.comandaClienteId || null,
+        valor_servicos: pts
+      })
+    } catch(e) { console.warn('Cashback não creditado:', e) }
+  }
+  var toast = document.createElement('div')
+  toast.style.cssText = 'position:fixed;bottom:24px;right:24px;background:var(--bg2);border:0.5px solid rgba(76,175,80,.4);border-radius:10px;padding:12px 16px;font-size:13px;color:var(--white);z-index:9999'
+  toast.innerHTML = '✅ Comanda finalizada · <span style="color:var(--green)">+' + pts + ' pontos</span> creditados'
+  document.body.appendChild(toast)
+  setTimeout(function(){ toast.remove() }, 4000)
+  closeD('comanda')
+}
+
+async function finalizarComandaComCashback() {
+  var total = recalcularTotal();
+  var forma = 'dinheiro';
+  document.querySelectorAll('#ov-comanda .pgto-btn.sel').forEach(function(el){
+    forma = el.querySelector('.pgto-label')?.textContent?.toLowerCase() || 'dinheiro';
+  });
+
+  var btn = document.getElementById('btn-finalizar-comanda');
+  if(btn){ btn.disabled = true; }
+
+  try{
+    // Detalhe dos itens (serviço/produto) para a comissão por faixa
+    var itensPayload = (itensComandaAtual||[]).map(function(it){
+      return { nome: it.nome, tipo: it.tipo, valor: parseFloat(it.valor)||0, quantidade: it.quantidade||1, produto_id: it.produto_id||null, servico_id: it.servico_id||null };
+    });
+    if(window._comandaAppbarber && window._comandaAgendamentoId){
+      // Importado do AppBarber -> rota dedicada (cria agendamento concluído + comanda no caixa)
+      try{
+        await req('POST', '/appbarber/finalizar/'+window._comandaAgendamentoId, {
+          onde: 'novo',
+          forma_pgto: forma,
+          valor: total,
+          itens: itensPayload
+        });
+      }catch(eApp){
+        // Se não está mais na tabela do AppBarber (já virou agendamento, ex.: reaberto),
+        // finaliza como nativo.
+        if(eApp && /n[ãa]o encontrado/i.test(eApp.message||'')){
+          await req('POST', '/agendamentos/'+window._comandaAgendamentoId+'/finalizar', {
+            forma_pgto: forma,
+            itens: itensPayload
+          });
+        } else { throw eApp; }
+      }
+    } else if(window._comandaAgendamentoId){
+      // Agendamento nativo -> conclui e grava os itens
+      await req('POST', '/agendamentos/'+window._comandaAgendamentoId+'/finalizar', {
+        forma_pgto: forma,
+        itens: itensPayload
+      });
+    }
+
+    var pts = Math.floor(total);
+    if(window.comandaClienteId && pts > 0){
+      try{ await req('POST','/cashback/creditar',{cliente_id:window.comandaClienteId,valor_servicos:pts}); }catch(e){}
+    }
+    mostrarToast('✅ Comanda finalizada — R$ '+total.toFixed(2).replace('.',','));
+    // limpa estado pra não vazar pra próxima comanda
+    window._comandaAppbarber = false;
+    window._comandaAgendamentoId = null;
+    window._comandaId = null;
+    window.comandaClienteId = null;
+    var cp=document.getElementById('comanda-plano'); if(cp) cp.innerHTML='';
+    itensComandaAtual = [];
+    closeD('comanda');
+  }catch(e){
+    mostrarToast('⚠️ Não consegui finalizar: '+(e.message||'tente de novo'));
+  }finally{
+    if(btn){ btn.disabled = false; }
+  }
+}
+
+// Garante a init do widget compartilhado e abre uma comanda avulsa nele (mesma cara do agendamento)
+function _cwGarantirInit() {
+  if (!window.ComandaWidget) return false;
+  if (!window._cwInit) {
+    ComandaWidget.init({
+      toast: (typeof mostrarToast === 'function' ? mostrarToast : undefined),
+      onFinalizar: function(){ if (typeof carregarComandasOp === 'function') carregarComandasOp(); }
+    });
+    window._cwInit = true;
+  }
+  return true;
+}
+function abrirAvulsaWidget() {
+  if (!_cwGarantirInit()) { if (typeof mostrarToast === 'function') mostrarToast('Carregando, tente de novo em 1s'); return; }
+  ComandaWidget.abrir({ canal: 'avulsa' });
+}
+function abrirComandaWidget(id) {
+  if (!_cwGarantirInit()) { if (typeof mostrarToast === 'function') mostrarToast('Carregando, tente de novo em 1s'); return; }
+  var c = (window._comandasOp || []).find(function (x) { return x.id === id; }) || {};
+  ComandaWidget.abrir({ canal: 'comanda', comanda_id: id, cliente_nome: (c.clientes && c.clientes.nome) || c.cliente_nome || 'Cliente', cliente_id: (c.clientes && c.clientes.id) || null });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  setTimeout(calcularCashbackComanda, 500);
+  var btnFinalizar = document.getElementById('btn-finalizar-comanda');
+  if(btnFinalizar) btnFinalizar.onclick = finalizarComandaComCashback;
+
+  // "Comanda avulsa" agora abre o WIDGET (mesma cara do agendamento), não a tela antiga.
+  document.querySelectorAll('[onclick*="openD(\'comanda-avulsa\')"]').forEach(function(el){
+    el.onclick = function(){ abrirAvulsaWidget(); };
+  });
+})
+</script>
+
+<script>
+// ---- Vale Funcionário ----
+var tipoVale = 'normal'
+var itensVale = []
+
+// Produtos do vale: carregados do CADASTRO real (com produto_id, pra baixar estoque).
+// Mostra só os que têm "valor_colaborador" definido. Preço = valor_colaborador.
+var VALE_PRODUTOS_BAR = []
+
+async function carregarProdutosVale() {
+  try {
+    var todos = await req('GET', '/produtos') || []
+    VALE_PRODUTOS_BAR = todos
+      .filter(function(p){ return p.valor_colaborador != null && parseFloat(p.valor_colaborador) > 0 })
+      .map(function(p){ return { produto_id: p.id, nome: p.nome, valor: parseFloat(p.valor_colaborador) } })
+      .sort(function(a,b){ return a.nome.localeCompare(b.nome) })
+  } catch(e) { VALE_PRODUTOS_BAR = [] }
+  renderProdutosVale()
+}
+
+function renderProdutosVale() {
+  var box = document.getElementById('vale-produtos-bar')
+  if (!box) return
+  if (!VALE_PRODUTOS_BAR.length) {
+    box.innerHTML = '<div style="font-size:12px;color:var(--muted)">Nenhum produto com preço de colaborador cadastrado.</div>'
+    return
+  }
+  box.innerHTML = VALE_PRODUTOS_BAR.map(function(p, i) {
+    return '<button type="button" onclick="addProdutoVale(' + i + ')" '
+      + 'style="background:var(--bg3);border:0.5px solid var(--border);border-radius:8px;padding:7px 10px;'
+      + 'font-size:12px;color:var(--white);cursor:pointer;font-family:\'DM Sans\',sans-serif;line-height:1.2">'
+      + p.nome + '<br><span style="font-size:11px;color:var(--gold)">R$ ' + p.valor.toFixed(2).replace('.',',') + '</span>'
+      + '</button>'
+  }).join('')
+}
+
+function addProdutoVale(i) {
+  var p = VALE_PRODUTOS_BAR[i]
+  if (!p) return
+  // soma quantidade se já existe (mesmo produto)
+  var achou = itensVale.find(function(it){ return it.produto_id === p.produto_id })
+  if (achou) { achou.qtd = (achou.qtd || 1) + 1 }
+  else { itensVale.push({ produto_id: p.produto_id, nome: p.nome, valor: p.valor, qtd: 1 }) }
+  renderItensVale()
+  atualizarTotalVale()
+}
+
+function setTipoVale(tipo) {
+  tipoVale = tipo
+  document.getElementById('btn-vale-normal').style.background = tipo === 'normal' ? 'var(--gold)' : 'none'
+  document.getElementById('btn-vale-normal').style.color = tipo === 'normal' ? 'var(--black)' : 'var(--muted)'
+  document.getElementById('btn-vale-pix').style.background = tipo === 'pix' ? 'var(--gold)' : 'none'
+  document.getElementById('btn-vale-pix').style.color = tipo === 'pix' ? 'var(--black)' : 'var(--muted)'
+  document.getElementById('aviso-vale-normal').style.display = tipo === 'normal' ? '' : 'none'
+  document.getElementById('aviso-vale-pix').style.display   = tipo === 'pix'    ? '' : 'none'
+  document.getElementById('secao-itens-vale').style.display = tipo === 'normal' ? '' : 'none'
+  document.getElementById('secao-valor-pix').style.display  = tipo === 'pix'    ? '' : 'none'
+  atualizarTotalVale()
+}
+
+function addItemVale() {
+  var nome  = document.getElementById('vale-item-input').value.trim()
+  var valor = parseFloat(document.getElementById('vale-item-valor').value) || 0
+  if (!nome || !valor) return
+  itensVale.push({ nome: nome, valor: valor, qtd: 1 })
+  document.getElementById('vale-item-input').value = ''
+  document.getElementById('vale-item-valor').value = ''
+  renderItensVale()
+  atualizarTotalVale()
+}
+
+function renderItensVale() {
+  var lista = document.getElementById('vale-itens-lista')
+  lista.innerHTML = itensVale.map(function(it, i) {
+    var qtd = it.qtd || 1
+    var sub = it.valor * qtd
+    var btn = 'width:24px;height:24px;border-radius:6px;border:0.5px solid var(--border);background:var(--bg2);'
+            + 'color:var(--white);font-size:15px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center'
+    return '<div style="background:var(--bg3);border-radius:8px;padding:8px 12px;display:flex;justify-content:space-between;align-items:center">'
+      + '<div style="font-size:13px;font-weight:500;color:var(--white)">' + it.nome
+      + ' <span style="color:var(--muted);font-size:11px">R$ ' + it.valor.toFixed(2).replace('.',',') + '</span></div>'
+      + '<div style="display:flex;align-items:center;gap:8px">'
+      + '<button type="button" onclick="qtdItemVale(' + i + ',-1)" style="' + btn + '">−</button>'
+      + '<span style="font-size:13px;color:var(--white);min-width:18px;text-align:center">' + qtd + '</span>'
+      + '<button type="button" onclick="qtdItemVale(' + i + ',1)" style="' + btn + '">+</button>'
+      + '<div style="font-size:13px;color:var(--red);min-width:64px;text-align:right">R$ ' + sub.toFixed(2).replace('.',',') + '</div>'
+      + '<div onclick="removeItemVale(' + i + ')" title="Remover" style="cursor:pointer;color:var(--muted);font-size:15px;margin-left:2px">🗑</div>'
+      + '</div></div>'
+  }).join('')
+}
+
+function qtdItemVale(i, delta) {
+  var it = itensVale[i]
+  if (!it) return
+  it.qtd = (it.qtd || 1) + delta
+  if (it.qtd < 1) { itensVale.splice(i, 1) }  // baixou de 1 -> remove a linha
+  renderItensVale()
+  atualizarTotalVale()
+}
+
+function removeItemVale(i) {
+  itensVale.splice(i, 1)   // lixeira remove a linha inteira
+  renderItensVale()
+  atualizarTotalVale()
+}
+
+function atualizarTotalVale() {
+  var total = 0
+  if (tipoVale === 'normal') {
+    total = itensVale.reduce(function(s, it) { return s + it.valor * (it.qtd || 1) }, 0)
+  } else {
+    total = parseFloat(document.getElementById('vale-pix-valor').value) || 0
+  }
+  var fmt = 'R$ ' + total.toFixed(2).replace('.', ',')
+  document.getElementById('vale-total-display').textContent = fmt
+  document.getElementById('btn-registrar-vale').textContent = 'Registrar vale — ' + fmt
+}
+
+async function registrarVale() {
+  var colaborador_id = document.getElementById('vale-colaborador').value
+  if (!colaborador_id) { alert('Selecione o colaborador'); return }
+
+  var total = tipoVale === 'normal'
+    ? itensVale.reduce(function(s,it){ return s + it.valor * (it.qtd || 1) }, 0)
+    : parseFloat(document.getElementById('vale-pix-valor').value) || 0
+
+  if (!total) { alert('Informe o valor do vale'); return }
+
+  try {
+    if (tipoVale === 'pix') {
+      var desc = document.getElementById('vale-pix-desc').value
+      await req('POST', '/vales-pix', { colaborador_id, valor: total, descricao: desc })
+      alert('Vale PIX registrado! Valor computado na carteira do barbeiro.')
+    } else {
+      await req('POST', '/vales', { colaborador_id, valor: total, itens: itensVale })
+      alert('Vale registrado com sucesso!')
+    }
+    itensVale = []
+    renderItensVale()
+    atualizarTotalVale()
+    closeD('vale-funcionario')
+  } catch(e) {
+    alert('Erro ao registrar vale: ' + (e.message || 'tente novamente'))
+  }
+}
+
+// Limpa o modal de vale toda vez que abre (não pré-popula o último funcionário)
+function resetVale() {
+  var sel = document.getElementById('vale-colaborador')
+  if (sel) sel.value = ''
+  var ou = document.getElementById('vale-outra-unidade'); if (ou) ou.checked = false
+  itensVale = []
+  if (typeof renderItensVale === 'function') renderItensVale()
+  var pv = document.getElementById('vale-pix-valor'); if (pv) pv.value = ''
+  var pd = document.getElementById('vale-pix-desc'); if (pd) pd.value = ''
+  var ii = document.getElementById('vale-item-input'); if (ii) ii.value = ''
+  var iv = document.getElementById('vale-item-valor'); if (iv) iv.value = ''
+  if (typeof setTipoVale === 'function') setTipoVale('normal')
+  if (typeof atualizarTotalVale === 'function') atualizarTotalVale()
+}
+
+// ---- Carrega colaboradores no select do vale ----
+async function carregarColaboradoresVale() {
+  var sel = document.getElementById('vale-colaborador')
+  if (!sel) return
+  var outra = document.getElementById('vale-outra-unidade')
+  var todasUnidades = !!(outra && outra.checked)
+  try {
+    var data = null
+    if (todasUnidades) {
+      // Transferido: permite lançar vale pra colaborador de qualquer unidade.
+      try { data = await req('GET', '/colaboradores-todos') } catch(e) {}
+    } else {
+      // Vale é ação operacional: filtra pela unidade do caixa/gerente (prop vê todas).
+      try { data = await req('GET', '/colaboradores-minha-unidade') } catch(e) {}
+    }
+    if (!data) { data = await req('GET', '/colaboradores') }
+    if (!data || !data.length) { sel.innerHTML = '<option value="">Nenhum colaborador</option>'; return }
+    sel.innerHTML = '<option value="">Selecionar colaborador...</option>' +
+      data.filter(function(c){ return c.perfil !== 'caixa' }).map(function(c) {
+        var unid = c.unidades && c.unidades.nome ? c.unidades.nome.replace('Unidade ','') : ''
+        return '<option value="' + c.id + '">' + nomeBarbOp(c) + (unid ? ' (' + unid + ')' : '') + '</option>'
+      }).join('')
+  } catch(e) {
+    sel.innerHTML = '<option value="">Erro ao carregar — tente reabrir</option>'
+  }
+}
+
+// ============================================================
+// CARREGAMENTOS REAIS DO OPERACIONAL (sem dados fantasmas)
+// ============================================================
+function hojeBR(){ return new Date().toLocaleString('en-CA',{timeZone:'America/Sao_Paulo'}).split(',')[0] }
+function brl(v){ return 'R$ ' + (parseFloat(v)||0).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2}) }
+
+var _DIAS_LBL=['Dom','Seg','Ter','Qua','Qui','Sex','Sáb'];
+function _fmtDataBR(ymd){ if(!ymd) return '—'; var p=String(ymd).slice(0,10).split('-'); return p[2]+'/'+p[1]+'/'+p[0].slice(2); }
+function abrirBloqueioRec(){
+  var t=new Date();
+  function iso(d){ return d.toLocaleString('en-CA',{timeZone:'America/Sao_Paulo'}).split(',')[0]; }
+  var di=document.getElementById('bl-data-ini'); if(di) di.value=iso(t);
+  var df=document.getElementById('bl-data-fim'); if(df) df.value=iso(new Date(t.getTime()+56*24*60*60*1000));
+  document.querySelectorAll('#bl-dias .dia-toggle').forEach(function(b){ b.classList.remove('on'); });
+  var hi=document.getElementById('bl-hora-ini'); if(hi) hi.value='14:00';
+  var hf=document.getElementById('bl-hora-fim'); if(hf) hf.value='16:00';
+  var m=document.getElementById('bl-motivo'); if(m) m.value='';
+  openD('bloqueio');
+}
+async function confirmarBloqueioRec(){
+  var colab=document.getElementById('bl-barbeiro').value;
+  var dias=[].slice.call(document.querySelectorAll('#bl-dias .dia-toggle.on')).map(function(b){ return parseInt(b.dataset.d,10); });
+  var hi=document.getElementById('bl-hora-ini').value, hf=document.getElementById('bl-hora-fim').value;
+  var di=document.getElementById('bl-data-ini').value, df=document.getElementById('bl-data-fim').value;
+  var motivo=(document.getElementById('bl-motivo').value||'').trim();
+  if(!colab){ mostrarToast('⚠️ Selecione o barbeiro'); return; }
+  if(!dias.length){ mostrarToast('⚠️ Marque ao menos um dia da semana'); return; }
+  if(!hi||!hf||hf<=hi){ mostrarToast('⚠️ Confira o horário (fim depois do início)'); return; }
+  if(!di||!df||df<di){ mostrarToast('⚠️ Confira o período (data final ≥ inicial)'); return; }
+  var btn=document.getElementById('bl-confirm'); if(btn){ btn.disabled=true; btn.textContent='Bloqueando…'; }
+  try{
+    var r=await req('POST','/agendamentos/bloquear-recorrente',{colaborador_id:colab,dias_semana:dias,hora_ini:hi,hora_fim:hf,data_ini:di,data_fim:df,motivo:motivo});
+    closeD('bloqueio');
+    mostrarToast('🔒 '+((r&&r.criados)||0)+' horários bloqueados'+((r&&r.pulados)?' · '+r.pulados+' já ocupados (pulados)':''));
+    carregarBloqueiosRec();
+  }catch(e){ mostrarToast('⚠️ '+((e&&e.message)||'Erro ao bloquear')); }
+  finally{ if(btn){ btn.disabled=false; btn.textContent='Confirmar bloqueio'; } }
+}
+async function carregarBloqueiosRec(){
+  var tb=document.getElementById('op-bloqueios-tbody'); if(!tb) return;
+  tb.innerHTML='<tr><td colspan="7" style="text-align:center;padding:20px;color:var(--muted);font-size:13px">Carregando…</td></tr>';
+  var data=[];
+  try{ data=await req('GET','/bloqueios-recorrentes')||[]; }
+  catch(e){ tb.innerHTML='<tr><td colspan="7" style="text-align:center;padding:20px;color:var(--muted);font-size:13px">Erro ao carregar</td></tr>'; return; }
+  if(!data.length){ tb.innerHTML='<tr><td colspan="7" style="text-align:center;padding:24px;color:var(--muted);font-size:13px">Nenhum bloqueio recorrente cadastrado</td></tr>'; return; }
+  tb.innerHTML=data.map(function(b){
+    var nome=nomeBarbOp(b.colaboradores)||'—';
+    var dias=(b.dias_semana||[]).slice().sort(function(a,c){return ((a+6)%7)-((c+6)%7)}).map(function(d){return _DIAS_LBL[d]||d}).join(', ');
+    return '<tr>'
+      +'<td>'+nome+'</td>'
+      +'<td>Recorrente</td>'
+      +'<td>'+_fmtDataBR(b.data_ini)+' – '+_fmtDataBR(b.data_fim)+'</td>'
+      +'<td>'+(b.hora_ini||'')+'–'+(b.hora_fim||'')+'</td>'
+      +'<td>'+dias+'</td>'
+      +'<td>'+(b.motivo||'—')+'</td>'
+      +'<td style="text-align:right"><button class="btn btn-ghost" style="padding:5px 10px;font-size:12px" onclick="removerBloqueioRec(\''+b.id+'\')">Remover</button></td>'
+      +'</tr>';
+  }).join('');
+}
+async function removerBloqueioRec(id){
+  if(!confirm('Remover esta regra e desbloquear os horários futuros dela?')) return;
+  try{ await req('DELETE','/bloqueios-recorrentes/'+id); mostrarToast('🔓 Bloqueio recorrente removido'); carregarBloqueiosRec(); }
+  catch(e){ mostrarToast('⚠️ '+((e&&e.message)||'Erro ao remover')); }
+}
+
+// preenche TODOS os selects de colaborador com dados reais
+async function carregarColabSelects(){
+  var sels = document.querySelectorAll('.js-colab-select')
+  if(!sels.length) return
+  var data = null
+  // Ações operacionais (folga, vale, bloqueio, saída de estoque) filtram pela
+  // unidade do caixa/gerente. Proprietário continua vendo todas.
+  try { data = await req('GET','/colaboradores-minha-unidade') } catch(e){}
+  if(!data){ try { data = await req('GET','/colaboradores') } catch(e){} }
+  var opts = '<option value="">Selecionar...</option>'
+  if(data && data.length){
+    opts += data.filter(function(c){return c.perfil!=='caixa'}).map(function(c){
+      var u = c.unidades && c.unidades.nome ? ' ('+c.unidades.nome.replace('Unidade ','')+')' : ''
+      return '<option value="'+c.id+'">'+nomeBarbOp(c)+u+'</option>'
+    }).join('')
+  }
+  sels.forEach(function(s){ s.innerHTML = opts })
+}
+
+// tabela de comandas do dia
+async function carregarComandasOp(){
+  var tb = document.getElementById('op-comandas-tbody')
+  if(!tb) return
+  tb.innerHTML = '<tr><td colspan="8" style="text-align:center;padding:24px;color:var(--muted);font-size:13px">Carregando...</td></tr>'
+  var rows = []
+  // monta a query de período (se o caixa escolheu datas) ou usa hoje
+  var di = (document.getElementById('cf-data-ini')||{}).value || ''
+  var df = (document.getElementById('cf-data-fim')||{}).value || ''
+  var url = '/comandas'
+  if(di || df){ url += '?data_ini='+(di||df)+'&data_fim='+(df||di) }
+  else { url += '?data='+hojeBR() }
+  try { rows = await req('GET',url) || [] } catch(e){ rows = [] }
+  window._comandasOp = rows;
+  popularBarbeirosFiltro(rows);
+  aplicarFiltrosComanda();
+}
+
+// Popula o dropdown de barbeiros com quem aparece nas comandas carregadas
+function popularBarbeirosFiltro(rows){
+  var sel = document.getElementById('cf-barbeiro')
+  if(!sel) return
+  var atual = sel.value
+  var vistos = {}
+  ;(rows||[]).forEach(function(c){
+    var b = c.colaboradores ? (nomeBarbOp(c.colaboradores)||null) : null
+    var bid = c.colaborador_id || (c.colaboradores && c.colaboradores.id)
+    if(b && bid && !vistos[bid]) vistos[bid] = b
+  })
+  var opts = '<option value="">Todos</option>'
+  Object.keys(vistos).forEach(function(id){ opts += '<option value="'+id+'">'+vistos[id]+'</option>' })
+  sel.innerHTML = opts
+  if(atual) sel.value = atual
+}
+
+// Recarrega do servidor quando muda o período (datas)
+function recarregarComandasPeriodo(){ carregarComandasOp() }
+
+// Limpa todos os filtros e volta pra hoje
+function limparFiltrosComanda(){
+  ['cf-busca','cf-data-ini','cf-data-fim','cf-valor-min','cf-valor-max'].forEach(function(id){ var e=document.getElementById(id); if(e) e.value=''; })
+  ;['cf-status','cf-forma','cf-barbeiro'].forEach(function(id){ var e=document.getElementById(id); if(e) e.value=''; })
+  carregarComandasOp()
+}
+
+// Aplica os filtros do front (barbeiro, forma, valor, busca, status) sobre o que veio
+function aplicarFiltrosComanda(){
+  var rows = window._comandasOp || []
+  var busca = ((document.getElementById('cf-busca')||{}).value||'').trim().toLowerCase()
+  var status = (document.getElementById('cf-status')||{}).value||''
+  var barbeiro = (document.getElementById('cf-barbeiro')||{}).value||''
+  var forma = (document.getElementById('cf-forma')||{}).value||''
+  var vMin = parseFloat((document.getElementById('cf-valor-min')||{}).value)||0
+  var vMax = parseFloat((document.getElementById('cf-valor-max')||{}).value)
+  if(isNaN(vMax)) vMax = Infinity
+
+  var filtradas = rows.filter(function(c){
+    var cli = (c.clientes && c.clientes.nome ? c.clientes.nome : (c.cliente_nome||'')).toLowerCase()
+    var idcurto = (c.id||'').toLowerCase()
+    var total = parseFloat(c.total||c.subtotal||0)
+    var bid = c.colaborador_id || (c.colaboradores && c.colaboradores.id) || ''
+    if(busca && cli.indexOf(busca)===-1 && idcurto.indexOf(busca)===-1) return false
+    if(status && c.status!==status) return false
+    if(barbeiro && String(bid)!==String(barbeiro)) return false
+    if(forma){ var _tem = (Array.isArray(c.pagamentos)&&c.pagamentos.length) ? c.pagamentos.some(function(p){return p&&p.forma===forma;}) : (c.forma_pgto||'')===forma; if(!_tem) return false; }
+    if(total < vMin || total > vMax) return false
+    return true
+  })
+  renderComandasOp(filtradas)
+
+  // resumo: quantidade + soma dos valores
+  var resumo = document.getElementById('cf-resumo')
+  if(resumo){
+    var soma = filtradas.reduce(function(s,c){ return s + parseFloat(c.total||c.subtotal||0) }, 0)
+    resumo.textContent = filtradas.length + ' comanda(s) · ' + brl(soma)
+  }
+}
+
+// Renderiza a tabela a partir de uma lista já filtrada
+function renderComandasOp(rows){
+  var tb = document.getElementById('op-comandas-tbody')
+  if(!tb) return
+  if(!rows.length){ tb.innerHTML = '<tr><td colspan="8" style="text-align:center;padding:24px;color:var(--muted);font-size:13px">Nenhuma comanda encontrada</td></tr>'; return }
+  tb.innerHTML = rows.map(function(c){
+    var cli = c.clientes && c.clientes.nome ? c.clientes.nome : (c.cliente_nome || 'Cliente')
+    var bar = c.colaboradores ? (nomeBarbOp(c.colaboradores)||'—') : '—'
+    var fin = c.status==='finalizada'
+    var stBadge = fin ? '<span class="badge bg">● Finalizada</span>' : '<span class="badge bo">● Em aberto</span>'
+    var _pgSplit = (Array.isArray(c.pagamentos) && c.pagamentos.length>1) ? c.pagamentos : null
+    var pg = fin
+      ? (_pgSplit
+          ? '<span class="badge bb" title="Pagamento dividido">'+_pgSplit.map(function(p){return (CX_FORMA_LABEL[p.forma]||p.forma)+' '+brl(p.valor);}).join(' · ')+'</span>'
+          : '<span class="badge bb" style="cursor:pointer" title="Clique para corrigir a forma de pagamento" onclick="menuFormaComanda(event,\''+(c.id||'')+'\')">'+(c.forma_pgto||'—')+' <span style="opacity:.55">✎</span></span>')
+      : '<span class="badge bo">—</span>'
+    var quando = c.aberta_em ? new Date(c.aberta_em).toLocaleString('pt-BR',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'}) : ''
+    return '<tr>'
+      +'<td class="td-m">'+(c.id||'').slice(0,6)+'</td>'
+      +'<td><div style="font-weight:500">'+cli+'</div><div class="td-m">'+quando+'</div></td>'
+      +'<td class="td-m">'+bar+'</td>'
+      +'<td>'+(c.observacao||'—')+'</td>'
+      +'<td style="font-weight:500;color:var(--gold-light)">'+brl(c.total||c.subtotal||0)+'</td>'
+      +'<td>'+pg+'</td>'
+      +'<td>'+stBadge+'</td>'
+      +'<td>'+(fin
+        ? '<button data-func="estornar_comanda" title="Estornar / excluir esta comanda" onclick="estornarComanda(\''+(c.id||'')+'\')" style="background:var(--red-dim);color:var(--red-text);border:0.5px solid rgba(160,53,53,.4);border-radius:6px;padding:5px 10px;font-size:11px;cursor:pointer;font-family:inherit;white-space:nowrap">↩︎ Estornar</button>'
+        : '<button title="Abrir e editar esta comanda" onclick="abrirComandaWidget(\''+(c.id||'')+'\')" style="background:var(--gold-dim);color:var(--gold-light);border:0.5px solid var(--gold-border);border-radius:6px;padding:5px 10px;font-size:11px;cursor:pointer;font-family:inherit;white-space:nowrap;margin-right:4px">✎ Abrir</button>'
+          +'<button data-func="estornar_comanda" title="Apagar esta comanda aberta" onclick="estornarComanda(\''+(c.id||'')+'\')" style="background:var(--red-dim);color:var(--red-text);border:0.5px solid rgba(160,53,53,.4);border-radius:6px;padding:5px 10px;font-size:11px;cursor:pointer;font-family:inherit;white-space:nowrap">🗑 Apagar</button>'
+      )+'</td></tr>'
+  }).join('')
+  if(typeof aplicarPermissoesFuncao==='function') aplicarPermissoesFuncao();
+}
+
+// ===== Corrigir forma de pagamento direto na lista de Comandas =====
+function fecharMenuForma(){ var m=document.getElementById('menu-forma-comanda'); if(m) m.remove(); }
+
+function menuFormaComanda(ev, comandaId){
+  ev.stopPropagation();
+  fecharMenuForma();
+  var btnStyle = 'display:block;width:100%;text-align:left;background:var(--overlay);color:var(--white);border:0.5px solid rgba(255,255,255,.12);border-radius:6px;padding:8px 10px;margin-bottom:4px;font-size:12px;cursor:pointer;font-family:inherit';
+  var nomes = {dinheiro:'💵 Dinheiro', debito:'💳 Cartão de Débito', credito:'💳 Cartão de Crédito', pix:'⚡ Pix'};
+  var m = document.createElement('div');
+  m.id = 'menu-forma-comanda';
+  m.style.cssText = 'position:fixed;z-index:9999;background:var(--bg3);border:0.5px solid rgba(255,255,255,.15);border-radius:10px;padding:8px;min-width:185px;box-shadow:0 10px 30px rgba(0,0,0,.55)';
+  m.innerHTML = '<div style="font-size:11px;color:var(--muted);padding:2px 4px 6px">Forma correta:</div>'
+    + ['dinheiro','debito','credito','pix'].map(function(f){
+        return '<button style="'+btnStyle+'" onclick="corrigirFormaComanda(\''+comandaId+'\',\''+f+'\')">'+nomes[f]+'</button>';
+      }).join('')
+    + '<button style="'+btnStyle+';color:var(--muted)" onclick="fecharMenuForma()">Cancelar</button>';
+  document.body.appendChild(m);
+  var r = ev.target.getBoundingClientRect();
+  var left = r.left, top = r.bottom + 6;
+  if(left + 200 > window.innerWidth) left = window.innerWidth - 200;
+  if(top + 240 > window.innerHeight) top = r.top - 240;
+  m.style.left = Math.max(8,left)+'px';
+  m.style.top  = Math.max(8,top)+'px';
+}
+
+document.addEventListener('click', function(e){
+  var m = document.getElementById('menu-forma-comanda');
+  if(m && !m.contains(e.target) && !(e.target.closest && e.target.closest('.badge.bb'))) fecharMenuForma();
+});
+
+function corrigirFormaComanda(comandaId, forma){
+  fecharMenuForma();
+  var usuario = (typeof requireAuth==='function') ? requireAuth() : null;
+  var perfil  = usuario && usuario.perfil ? usuario.perfil : 'caixa';
+  var senha = null;
+  if(perfil!=='gerente' && perfil!=='proprietario'){
+    senha = prompt('Para corrigir a forma de pagamento, digite a senha de autorização do gerente:');
+    if(senha===null) return;
+    if(!senha){ mostrarToast('⚠️ Senha não informada.'); return; }
+  }
+  aplicarFormaComanda(comandaId, forma, senha);
+}
+
+async function aplicarFormaComanda(comandaId, forma, senha){
+  try{
+    var resp = await req('POST','/comandas/'+comandaId+'/corrigir-forma',{ forma: forma, senha: senha });
+    var nomes = {dinheiro:'Dinheiro', debito:'Débito', credito:'Crédito', pix:'Pix'};
+    mostrarToast('💳 Forma corrigida para '+(nomes[resp&&resp.forma]||forma)+' ✓');
+    carregarComandasOp();
+    if(typeof carregarResumoCaixa==='function') carregarResumoCaixa();
+  }catch(e){
+    mostrarToast('⚠️ '+((e&&e.message)||'Não consegui corrigir a forma de pagamento.'));
+  }
+}
+
+// ===== Estornar / excluir uma comanda lançada errada =====
+async function estornarComanda(id){
+  var c = (window._comandasOp||[]).find(function(x){ return x.id===id; }) || {};
+  var cli = (c.clientes && c.clientes.nome) ? c.clientes.nome : 'esta comanda';
+  var val = brl(c.total||c.subtotal||0);
+  var aberta = c.status !== 'finalizada';
+  var msg = aberta
+    ? 'APAGAR a comanda aberta de '+cli+' ('+val+')?\n\nEla será removida. Se for de um agendamento, o atendimento volta para "agendado". Esta ação não pode ser desfeita.'
+    : 'ESTORNAR / EXCLUIR a comanda de '+cli+' ('+val+')?\n\nEla sai do caixa e do faturamento. Esta ação não pode ser desfeita.';
+  if(!confirm(msg)) return;
+  var usuario = (typeof requireAuth==='function') ? requireAuth() : null;
+  var perfil  = usuario && usuario.perfil ? usuario.perfil : 'caixa';
+  var senha = null;
+  if(perfil!=='gerente' && perfil!=='proprietario'){
+    senha = prompt('Para estornar, digite a senha de autorização do gerente:');
+    if(senha===null) return;
+    if(!senha){ mostrarToast('⚠️ Senha não informada.'); return; }
+  }
+  try{
+    var resp = await req('POST','/comandas/'+id+'/estornar',{ senha: senha });
+    var quem = (resp && resp.estornado_por) ? (' (aut. '+resp.estornado_por+')') : '';
+    mostrarToast('↩︎ Comanda estornada'+quem+' ✓');
+    carregarComandasOp();
+    if(typeof carregarResumoCaixa==='function') carregarResumoCaixa();
+  }catch(e){
+    mostrarToast('⚠️ '+((e&&e.message)||'Não consegui estornar a comanda.'));
+  }
+}
+
+// resumo do fechamento de caixa (calculado das comandas finalizadas de hoje)
+var _caixaAberto = false;
+async function carregarStatusCaixa(){
+  var banner   = document.getElementById('cx-status-banner');
+  var btnFechar= document.getElementById('btn-fechar-caixa');
+  var st = {aberto:false, sessao:null};
+  try { st = await req('GET','/caixa/status') || st; } catch(e){}
+  _caixaAberto = !!st.aberto;
+  window._caixaSessao = (st && st.sessao) || null;
+  if(st.aberto && st.sessao){
+    var s = st.sessao;
+    var hora = s.aberto_em ? new Date(s.aberto_em).toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'}) : '';
+    var quem = s.aberto_por_nome ? (' por '+s.aberto_por_nome) : '';
+    var troco = brl(parseFloat(s.saldo_inicial)||0);
+    if(banner) banner.innerHTML = '<div class="card" style="border-color:var(--green-dim);background:var(--green-dim)"><div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:4px 2px"><span style="font-weight:600;color:var(--green)">🟢 Caixa ABERTO</span><span style="color:var(--muted);font-size:13px">desde '+hora+quem+' · troco inicial '+troco+'</span></div></div>';
+    if(btnFechar) btnFechar.style.display='';
+  } else {
+    if(banner) banner.innerHTML = '<div class="card" style="border-color:var(--red-dim);background:var(--red-dim)"><div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:4px 2px"><span style="font-weight:600;color:var(--red-text)">🔴 Caixa FECHADO</span><span style="color:var(--muted);font-size:13px">Abra o caixa para iniciar o dia.</span><div style="display:flex;gap:8px;align-items:center;margin-left:auto"><input class="form-input" id="cx-saldo-inicial" type="number" min="0" step="0.01" placeholder="Troco inicial R$" style="width:150px"><button class="btn btn-primary" onclick="abrirCaixaDia()">Abrir caixa</button></div></div></div>';
+    if(btnFechar) btnFechar.style.display='none';
+  }
+}
+
+async function abrirCaixaDia(){
+  var inp = document.getElementById('cx-saldo-inicial');
+  var saldo = inp ? (parseFloat(inp.value)||0) : 0;
+  if(!confirm('Abrir o caixa do dia'+(saldo?(' com troco inicial de '+brl(saldo)):'')+'?')) return;
+  try{
+    await req('POST','/caixa/abrir',{ saldo_inicial: saldo });
+    mostrarToast('🟢 Caixa aberto! Bom trabalho.');
+    carregarStatusCaixa();
+  }catch(e){
+    mostrarToast('⚠️ '+(e.message||'Não consegui abrir o caixa'));
+  }
+}
+
+async function carregarResumoCaixa(){
+  carregarStatusCaixa();
+  if(!document.getElementById('cx-faturamento')) return
+  var rows = []
+  try { rows = await req('GET','/comandas?data='+hojeBR()) || [] } catch(e){ rows = [] }
+  var fin = rows.filter(function(c){return c.status==='finalizada'})
+  var fat = fin.reduce(function(s,c){return s+(parseFloat(c.total)||0)},0)
+  var tk = fin.length ? fat/fin.length : 0
+  var f = {dinheiro:0,debito:0,credito:0,pix:0}
+  fin.forEach(function(c){
+    var pgs = Array.isArray(c.pagamentos) ? c.pagamentos : null;
+    if(pgs && pgs.length){ pgs.forEach(function(p){ var k=p&&p.forma; if(f[k]!==undefined) f[k]+=(parseFloat(p&&p.valor)||0); }); }
+    else if(f[c.forma_pgto]!==undefined){ f[c.forma_pgto]+=(parseFloat(c.total)||0); }
+  })
+  function set(id,v){ var e=document.getElementById(id); if(e) e.textContent=v }
+  set('cx-faturamento', brl(fat)); set('cx-faturamento-sub', fin.length+' comandas finalizadas')
+  set('cx-ticket', brl(tk))
+  set('cx-f-dinheiro', brl(f.dinheiro)); set('cx-f-debito', brl(f.debito))
+  set('cx-f-credito', brl(f.credito)); set('cx-f-pix', brl(f.pix)); set('cx-f-total', brl(fat))
+
+  // Saídas registradas (sangrias, vales, saídas) da sessão/dia
+  carregarSaidasCaixa();
+}
+
+async function excluirSaida(id){
+  var senha = prompt('Para EXCLUIR esta saída, digite a senha de autorização do gerente:');
+  if(senha===null) return;
+  if(!senha){ alert('Senha não informada.'); return; }
+  try{
+    await req('DELETE', '/caixa/retirada/'+id, { senha: senha });
+    carregarSaidasCaixa();
+  }catch(e){ alert('⚠️ '+((e&&e.message)||'Não consegui excluir a saída. Verifique a senha.')); }
+}
+
+async function carregarSaidasCaixa(){
+  function set(id,v){ var e=document.getElementById(id); if(e) e.textContent=v }
+  var lista = document.getElementById('cx-saidas-lista')
+  var resp = null
+  try { resp = await req('GET','/caixa/retiradas') } catch(e){}
+  var arr = (resp && resp.retiradas) ? resp.retiradas : []
+  var total = (resp && resp.total) ? resp.total : 0
+  set('cx-saidas', brl(total))
+  set('cx-saidas-total', brl(total))
+  if(lista){
+    if(!arr.length){
+      lista.innerHTML = '<div class="pr-item"><span class="pr-label" style="color:var(--muted)">Nenhuma saída registrada</span></div>'
+    } else {
+      lista.innerHTML = arr.map(function(r){
+        var hora = r.criado_em ? new Date(r.criado_em).toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'}) : ''
+        var quem = r.autorizado_por_nome ? (' · aut. '+r.autorizado_por_nome) : ''
+        return '<div class="pr-item" style="flex-direction:column;align-items:stretch;gap:3px">'
+          + '<div style="display:flex;justify-content:space-between;align-items:center;gap:8px">'
+            + '<span class="pr-label">'+(r.motivo||'Saída')+'</span>'
+            + '<span style="display:flex;align-items:center;gap:8px"><span class="pr-val" style="color:var(--red)">- '+brl(r.valor)+'</span>'
+            + '<button title="Excluir saída" onclick="excluirSaida(\''+r.id+'\')" style="background:none;border:none;color:var(--muted);cursor:pointer;font-size:15px;line-height:1;padding:2px 5px">&times;</button></span>'
+          + '</div>'
+          + '<div style="font-size:10px;color:var(--muted)">'+hora+quem+'</div>'
+          + '</div>'
+      }).join('')
+    }
+  }
+}
+
+// ===== Histórico de caixa =====
+var CX_FORMA_LABEL = { dinheiro:'Dinheiro', debito:'Débito', credito:'Crédito', pix:'Pix', appbarber:'AppBarber', outros:'Outros' };
+function cxFmtDataHora(iso){ if(!iso) return '—'; var d=new Date(iso); return d.toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit'})+' '+d.toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'}); }
+function cxFmtHora(iso){ if(!iso) return '—'; return new Date(iso).toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'}); }
+
+function abrirHistoricoCaixa(){ openD('historico-caixa'); carregarHistoricoCaixa(); }
+
+async function carregarHistoricoCaixa(){
+  var body = document.getElementById('hist-caixa-body');
+  var sub = document.getElementById('hist-caixa-sub');
+  if(sub) sub.textContent = 'Aberturas e fechamentos desta unidade';
+  if(body) body.innerHTML = '<div style="font-size:12px;color:var(--muted);text-align:center;padding:16px">Carregando...</div>';
+  var resp = null;
+  try { resp = await req('GET','/caixa/historico?dias=90'); } catch(e){}
+  var arr = (resp && resp.sessoes) ? resp.sessoes : [];
+  if(!body) return;
+  if(!arr.length){ body.innerHTML = '<div style="font-size:13px;color:var(--muted);text-align:center;padding:20px">Nenhum caixa registrado nos últimos 90 dias.</div>'; return; }
+  body.innerHTML = arr.map(function(s){
+    var aberto = s.status === 'aberto';
+    var dataDia = s.aberto_em ? new Date(s.aberto_em).toLocaleDateString('pt-BR',{weekday:'short',day:'2-digit',month:'2-digit'}) : '—';
+    var linhaAbr = '🟢 Abriu '+cxFmtHora(s.aberto_em)+(s.aberto_por_nome?(' · '+s.aberto_por_nome):'');
+    var linhaFec = aberto ? '<span style="color:var(--red-text);font-weight:600">🔴 NÃO FECHADO</span>'
+                          : ('⬛ Fechou '+cxFmtHora(s.fechado_em)+(s.fechado_por_nome?(' · '+s.fechado_por_nome):''));
+    var fat = (s.faturamento != null) ? brl(s.faturamento) : (aberto ? '(em aberto)' : '—');
+    return '<div class="card" style="margin-bottom:10px;padding:12px'+(aberto?';border-color:var(--red-dim)':'')+'">'
+      + '<div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px">'
+        + '<div><div style="font-weight:600;text-transform:capitalize;margin-bottom:4px">'+dataDia+'</div>'
+          + '<div style="font-size:12px;color:var(--muted);line-height:1.7">'+linhaAbr+'<br>'+linhaFec+'</div></div>'
+        + '<div style="text-align:right"><div style="font-size:11px;color:var(--muted)">Faturamento</div>'
+          + '<div style="font-weight:700;color:var(--gold-light,#e0c878)">'+fat+'</div></div>'
+      + '</div>'
+      + '<div style="display:flex;gap:8px;margin-top:10px;justify-content:flex-end">'
+        + '<button class="btn btn-ghost" style="padding:5px 12px;font-size:12px" onclick="verRelatorioSessao(\''+s.id+'\')">Ver relatório</button>'
+        + (aberto ? '<button class="btn btn-primary" style="padding:5px 12px;font-size:12px" onclick="fecharSessaoHist()">Fechar este caixa</button>' : '')
+      + '</div></div>';
+  }).join('');
+}
+
+async function verRelatorioSessao(id){
+  var body = document.getElementById('hist-caixa-body');
+  var sub = document.getElementById('hist-caixa-sub');
+  if(body) body.innerHTML = '<div style="font-size:12px;color:var(--muted);text-align:center;padding:16px">Carregando relatório...</div>';
+  var r = null;
+  try { r = await req('GET','/caixa/sessao/'+id); } catch(e){}
+  if(!body) return;
+  if(!r || !r.sessao){ body.innerHTML = '<div style="color:var(--red-text);text-align:center;padding:16px">Não consegui carregar o relatório.</div>'; return; }
+  var s = r.sessao; var aberto = s.status === 'aberto';
+  if(sub) sub.textContent = 'Relatório da sessão';
+  var pf = r.por_forma || {};
+  var ordem = ['dinheiro','debito','credito','pix','appbarber','outros'];
+  var formasHtml = ordem.filter(function(f){ return pf[f]; }).map(function(f){
+    return '<div class="pr-item"><span class="pr-label">'+(CX_FORMA_LABEL[f]||f)+'</span><span class="pr-val">'+brl(pf[f])+'</span></div>';
+  }).join('') || '<div class="pr-item"><span class="pr-label" style="color:var(--muted)">Sem recebimentos</span></div>';
+  var html = '';
+  html += '<button class="btn btn-ghost" style="padding:4px 10px;font-size:12px;margin-bottom:12px" onclick="carregarHistoricoCaixa()">← Voltar à lista</button>';
+  if(aberto) html += '<div class="card" style="border-color:var(--red-dim);background:var(--red-dim);padding:10px;margin-bottom:12px;font-size:12px;color:var(--red-text);font-weight:600">🔴 Este caixa ainda está ABERTO (não fechado).</div>';
+  html += '<div class="card" style="padding:12px;margin-bottom:12px">'
+    + '<div class="pr-item"><span class="pr-label">Abertura</span><span class="pr-val">'+cxFmtDataHora(s.aberto_em)+'</span></div>'
+    + (s.aberto_por_nome?'<div class="pr-item"><span class="pr-label">Aberto por</span><span class="pr-val">'+s.aberto_por_nome+'</span></div>':'')
+    + '<div class="pr-item"><span class="pr-label">Fechamento</span><span class="pr-val">'+(aberto?'— em aberto —':cxFmtDataHora(s.fechado_em))+'</span></div>'
+    + (s.fechado_por_nome?'<div class="pr-item"><span class="pr-label">Fechado por</span><span class="pr-val">'+s.fechado_por_nome+'</span></div>':'')
+    + '<div class="pr-item"><span class="pr-label">Troco inicial</span><span class="pr-val">'+brl(parseFloat(s.saldo_inicial)||0)+'</span></div>'
+    + '</div>';
+  html += '<div class="card" style="padding:12px;margin-bottom:12px">'
+    + '<div class="pr-item" style="font-weight:700"><span class="pr-label">Faturamento</span><span class="pr-val" style="color:var(--gold-light,#e0c878)">'+brl(r.faturamento||0)+'</span></div>'
+    + '<div class="pr-item"><span class="pr-label" style="color:var(--muted)">Comandas finalizadas</span><span class="pr-val">'+(r.comandas_count||0)+'</span></div>'
+    + '<div style="height:1px;background:var(--border);margin:8px 0"></div>'+formasHtml+'</div>';
+  html += '<div class="card" style="padding:12px">'
+    + '<div class="pr-item"><span class="pr-label">Recebido em dinheiro</span><span class="pr-val">'+brl(pf.dinheiro||0)+'</span></div>'
+    + '<div class="pr-item"><span class="pr-label">Saídas / sangrias</span><span class="pr-val" style="color:var(--red)">- '+brl(r.retiradas_total||0)+'</span></div>'
+    + '<div class="pr-item" style="font-weight:700"><span class="pr-label">Esperado na gaveta</span><span class="pr-val">'+brl(r.esperado_dinheiro||0)+'</span></div>'
+    + (s.dinheiro_conferido!=null?'<div class="pr-item"><span class="pr-label">Conferido no fechamento</span><span class="pr-val">'+brl(s.dinheiro_conferido)+'</span></div>':'')
+    + '</div>';
+  if(s.observacao) html += '<div style="font-size:12px;color:var(--muted);margin-top:10px"><b>Obs.:</b> '+s.observacao+'</div>';
+  if(aberto) html += '<div style="margin-top:14px;text-align:center"><button class="btn btn-primary" onclick="fecharSessaoHist()">Fechar este caixa agora</button></div>';
+  body.innerHTML = html;
+}
+
+async function fecharSessaoHist(){
+  if(!confirm('Fechar o caixa que está em aberto desta unidade?\n\nO faturamento será calculado de tudo que foi finalizado desde a abertura.')) return;
+  try{
+    await req('POST','/caixa/fechar',{});
+    mostrarToast('✓ Caixa fechado com sucesso.');
+    if(typeof carregarStatusCaixa==='function') carregarStatusCaixa();
+    if(typeof carregarResumoCaixa==='function') carregarResumoCaixa();
+    carregarHistoricoCaixa();
+  }catch(e){ mostrarToast('⚠️ '+((e&&e.message)||'Não consegui fechar o caixa')); }
+}
+
+async function carregarComissaoFaixaCaixa(){
+  function set(id,v){ var e=document.getElementById(id); if(e) e.textContent=v }
+  var lista = document.getElementById('cx-comissoes-lista')
+  var data = null
+  try { data = await req('GET','/financeiro/comissoes-faixa') } catch(e){}
+  if(!data){
+    set('cx-comissoes','R$ 0,00'); set('cx-comissoes-total','R$ 0,00')
+    if(lista) lista.innerHTML='<div class="pr-item"><span class="pr-label" style="color:var(--muted)">Sem dados de comissão</span></div>'
+    return
+  }
+  set('cx-comissoes', brl(data.total_comissao||0))
+  set('cx-comissoes-total', brl(data.total_comissao||0))
+  if(lista){
+    var ls = data.linhas||[]
+    if(!ls.length){ lista.innerHTML = '<div class="pr-item"><span class="pr-label" style="color:var(--muted)">Sem vendas neste mês</span></div>' }
+    else lista.innerHTML = ls.map(function(l){
+      var detalhe = 'Serviço '+brl(l.servico_total)+' ('+l.servico_pct+'%) · Produto '+brl(l.produto_total)+' ('+l.produto_unidades+'un · '+l.produto_pct+'%)'
+      return '<div class="pr-item" style="flex-direction:column;align-items:stretch;gap:3px">'
+        + '<div style="display:flex;justify-content:space-between;align-items:center"><span class="pr-label">'+l.nome+'</span><span class="pr-val">'+brl(l.comissao_total)+'</span></div>'
+        + '<div style="font-size:10px;color:var(--muted)">'+detalhe+'</div>'
+        + '</div>'
+    }).join('')
+  }
+}
+
+// ============================================================
+// FECHAMENTO DE CAIXA
+// ============================================================
+async function abrirFechamentoCaixa() {
+  var resumoEl = document.getElementById('fechamento-resumo');
+  var dataEl   = document.getElementById('fechamento-data');
+  var hoje = new Date().toLocaleDateString('pt-BR', {weekday:'long', day:'2-digit', month:'long', year:'numeric'});
+  if(dataEl) dataEl.textContent = hoje;
+  if(resumoEl) resumoEl.innerHTML = '<div style="font-size:12px;color:var(--muted);text-align:center;padding:12px">Carregando...</div>';
+  openD('fechamento');
+  try { await carregarStatusCaixa(); } catch(e){}
+
+  try{
+    var data = await req('GET', '/dashboard/metricas');
+    var m = data.metricas || data.metricas_geral || {};
+    if(resumoEl) resumoEl.innerHTML =
+      '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">'
+      +'<div style="background:var(--green-dim);border:0.5px solid rgba(45,122,79,.3);border-radius:8px;padding:12px;text-align:center"><div style="font-size:11px;color:var(--green);margin-bottom:4px">Faturamento</div><div style="font-size:20px;font-weight:500;color:var(--green)">R$ '+parseFloat(m.faturamento||0).toFixed(2).replace('.',',')+'</div></div>'
+      +'<div style="background:var(--bg3);border:0.5px solid var(--border);border-radius:8px;padding:12px;text-align:center"><div style="font-size:11px;color:var(--muted);margin-bottom:4px">Atendimentos</div><div style="font-size:20px;font-weight:500;color:var(--white)">'+(m.finalizados||0)+'</div></div>'
+      +'<div style="background:var(--bg3);border:0.5px solid var(--border);border-radius:8px;padding:12px;text-align:center"><div style="font-size:11px;color:var(--muted);margin-bottom:4px">Pendentes</div><div style="font-size:20px;font-weight:500;color:var(--gold)">'+(m.pendentes||0)+'</div></div>'
+      +'<div style="background:var(--bg3);border:0.5px solid var(--border);border-radius:8px;padding:12px;text-align:center"><div style="font-size:11px;color:var(--muted);margin-bottom:4px">Ticket médio</div><div style="font-size:20px;font-weight:500;color:var(--white)">R$ '+parseFloat(m.ticket||0).toFixed(2).replace('.',',')+'</div></div>'
+      +'</div>';
+  }catch(e){
+    if(resumoEl) resumoEl.innerHTML = '<div style="font-size:12px;color:var(--muted);text-align:center;padding:12px">Não foi possível carregar o resumo</div>';
+  }
+
+  await checarComandasAbertasFechamento();
+}
+
+// Busca comandas ABERTAS da unidade — só conta as DO DIA do caixa (sessão) que está sendo fechado.
+// Assim, fechar um caixa atrasado (ex: sábado) não trava por causa de comandas de hoje, e vice-versa.
+async function comandasAbertasCaixa(){
+  try{
+    var rows = await req('GET','/comandas?status=aberta');
+    rows = Array.isArray(rows) ? rows : [];
+    var diaCaixa = (window._caixaSessao && window._caixaSessao.aberto_em)
+      ? new Date(window._caixaSessao.aberto_em).toDateString()
+      : new Date().toDateString();
+    return rows.filter(function(c){
+      if(!c.aberta_em) return true; // sem data registrada: por segurança, considera
+      return new Date(c.aberta_em).toDateString() === diaCaixa;
+    });
+  }catch(e){ return []; }
+}
+
+// Mostra o aviso e trava/destrava o botão de confirmar conforme houver comandas abertas
+async function checarComandasAbertasFechamento(){
+  var alertaEl = document.getElementById('fechamento-alerta');
+  var btn = document.getElementById('btn-confirmar-fechamento');
+  var abertas = await comandasAbertasCaixa();
+  if(abertas.length){
+    var itens = abertas.map(function(c){
+      var cli = (c.clientes && c.clientes.nome) ? c.clientes.nome : 'Cliente';
+      var bar = c.colaboradores ? ' · '+nomeBarbOp(c.colaboradores) : '';
+      return '<div style="font-size:12px;color:var(--white);padding:3px 0">• '+cli+bar+'</div>';
+    }).join('');
+    if(alertaEl) alertaEl.innerHTML =
+      '<div style="background:var(--red-dim);border:0.5px solid rgba(255,93,93,.4);border-radius:10px;padding:12px 14px;margin-bottom:12px">'
+      +'<div style="font-size:13px;font-weight:600;color:var(--red-text);margin-bottom:6px">⚠️ '+abertas.length+' comanda(s) aberta(s)</div>'
+      +'<div style="font-size:12px;color:var(--muted);margin-bottom:6px">Finalize ou cancele estas comandas antes de fechar o caixa:</div>'
+      +itens+'</div>';
+    if(btn){ btn.disabled=true; btn.style.opacity='.45'; btn.style.cursor='default'; }
+  } else {
+    if(alertaEl) alertaEl.innerHTML='';
+    if(btn){ btn.disabled=false; btn.style.opacity=''; btn.style.cursor=''; }
+  }
+  return abertas;
+}
+
+async function confirmarFechamentoCaixa() {
+  // TRAVA: não permite fechar o caixa com comandas abertas
+  var abertas = await checarComandasAbertasFechamento();
+  if(abertas.length){
+    mostrarToast('⚠️ Existem '+abertas.length+' comanda(s) aberta(s). Finalize antes de fechar o caixa.');
+    return;
+  }
+  var dinheiro = parseFloat(document.getElementById('fechamento-dinheiro').value)||0;
+  var obs      = (document.getElementById('fechamento-obs').value||'').trim();
+
+  if(!confirm('Confirmar fechamento do caixa do dia?')) return;
+
+  try{
+    await req('POST', '/caixa/fechar', {
+      data:     new Date().toISOString().split('T')[0],
+      dinheiro: dinheiro,
+      obs:      obs
+    });
+    mostrarToast('✅ Caixa fechado com sucesso!');
+    closeD('fechamento');
+    carregarStatusCaixa();
+  }catch(e){
+    mostrarToast('⚠️ '+(e.message||'Não consegui fechar o caixa'));
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  carregarColaboradoresVale()
+  carregarColabSelects()
+  carregarComandasOp()
+  aplicarPermissoesFuncao()
+
+  // Controle de visibilidade por perfil
+  var usuario = typeof requireAuth === 'function' ? requireAuth() : null
+  var perfil  = usuario && usuario.perfil ? usuario.perfil : 'caixa'
+
+  // Comandas e Fechamento de Caixa: só para caixa e gerente
+  var soCaixa = ['caixa', 'gerente']
+  document.querySelectorAll('.nav-item').forEach(function(btn) {
+    var txt = btn.textContent.trim()
+    if (txt === 'Comandas' || txt === 'Fechamento de Caixa') {
+      btn.style.display = soCaixa.indexOf(perfil) !== -1 ? '' : 'none'
+    }
+  })
+
+  // (A aba "Novo Agendamento" foi removida — agenda-se clicando na agenda do Dashboard.)
+
+  // Detecta se veio do dashboard com um agendamento para finalizar
+  var dadosComanda = sessionStorage.getItem('abrir_comanda')
+  if (dadosComanda) {
+    sessionStorage.removeItem('abrir_comanda')
+    try {
+      var d = JSON.parse(dadosComanda)
+      if (window.ComandaWidget) {
+        if (!window._cwInit) {
+          ComandaWidget.init({
+            toast: (typeof mostrarToast === 'function' ? mostrarToast : undefined),
+            onFinalizar: function(){ if (typeof carregarComandasOp === 'function') carregarComandasOp(); }
+          });
+          window._cwInit = true;
+        }
+        ComandaWidget.abrir({
+          agendamento_id: d.agendamento_id || d.agendamentoId || null,
+          cliente_nome:   d.cliente_nome   || d.clienteNome   || null,
+          servico_nome:   d.servico_nome   || d.servicoNome   || null,
+          valor:          (d.valor != null ? d.valor : d.valorServico),
+          cliente_id:     d.cliente_id     || d.clienteId     || null,
+          canal:          d.canal || ''
+        });
+      }
+    } catch(e) {}
+  }
+})
+</script>
+
+<!-- MODAL REABRIR COMANDA -->
+<div id="modal-reabrir-comanda" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:600;align-items:center;justify-content:center;padding:20px">
+  <div style="background:var(--bg2);border:0.5px solid var(--border);border-radius:16px;width:100%;max-width:380px;overflow:hidden">
+    <div style="padding:18px 20px;border-bottom:0.5px solid var(--border)">
+      <div style="font-size:15px;font-weight:500;color:var(--white)">Reabrir Comanda</div>
+      <div style="font-size:12px;color:var(--muted);margin-top:2px">Requer autorização do gerente</div>
+    </div>
+    <div style="padding:18px 20px;display:flex;flex-direction:column;gap:12px">
+      <div style="background:var(--red-dim);border:0.5px solid var(--red);border-radius:8px;padding:10px 14px;font-size:12px;color:var(--red)">
+        ⚠️ A reabertura fica registrada em log com nome e horário.
+      </div>
+      <div>
+        <label style="font-size:11px;font-weight:500;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;display:block;margin-bottom:6px">Motivo</label>
+        <input id="reabrir-motivo" placeholder="Ex: item lançado incorretamente..." style="width:100%;background:var(--bg3);border:0.5px solid var(--border2);border-radius:8px;padding:10px 12px;font-size:13px;color:var(--white);font-family:'Inter',sans-serif;outline:none">
+      </div>
+      <div>
+        <label style="font-size:11px;font-weight:500;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;display:block;margin-bottom:6px">Senha de autorização (gerente)</label>
+        <input id="reabrir-senha" type="password" placeholder="••••••••" style="width:100%;background:var(--bg3);border:0.5px solid var(--border2);border-radius:8px;padding:10px 12px;font-size:13px;color:var(--white);font-family:'Inter',sans-serif;outline:none">
+      </div>
+    </div>
+    <div style="display:flex;gap:10px;padding:14px 20px;border-top:0.5px solid var(--border)">
+      <button onclick="document.getElementById('modal-reabrir-comanda').style.display='none'" style="flex:1;padding:10px;background:none;border:0.5px solid var(--border);border-radius:8px;color:var(--muted);font-family:'Inter',sans-serif;font-size:13px;cursor:pointer">Cancelar</button>
+      <button onclick="confirmarReabrirComanda()" style="flex:2;padding:10px;background:var(--red-dim);border:0.5px solid var(--red);border-radius:8px;color:var(--red);font-family:'Inter',sans-serif;font-size:13px;font-weight:500;cursor:pointer">Reabrir comanda</button>
+    </div>
+  </div>
+</div>
+
+<script src="comanda-widget.js?v=28"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"c499bf6a0a464c48b32e340afc4f88c0","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>

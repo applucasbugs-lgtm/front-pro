@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <script src="tenant.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#000000">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="LUCAS BUGS | Hair Stylist PRO">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<link rel="icon" href="/icons/favicon-48.png">
+<title>Conectando AppBarber — LUCAS BUGS | Hair Stylist</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black:wght@400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+/* TEMA:INICIO — gerado pelo personalizador, não edite à mão */
+  --bg:#000000;
+  --bg2:#0b0b0b;
+  --bg3:#161616;
+  --bg4:#212121;
+  --black:#000000;
+  --white:#ffffff;
+  --cream:#e6fdf6;
+  --muted:#949494;
+  --muted2:#707070;
+  --border:rgba(255,255,255,0.1);
+  --border2:rgba(255,255,255,0.18);
+  --gold:#00eba4;
+  --gold-light:#ffffff;
+  --gold-dim:rgba(0,235,164,0.12);
+  --gold-border:rgba(0,235,164,0.3);
+  --border-strong:rgba(0,235,164,0.4);
+  --on-primary:#0d0d10;
+  --green:#2ecc71;
+  --green-dim:rgba(46,204,113,0.14);
+  --green-text:#54d58b;
+  --on-green:#0d1526;
+  --red:#ef5350;
+  --red-dim:rgba(239,83,80,0.14);
+  --red-text:#f27270;
+  --amber:#f0b429;
+  --amber-dim:rgba(240,180,41,0.16);
+  --blue:#4b9bf5;
+  --blue-dim:rgba(75,155,245,0.14);
+  --blue-text:#6badf7;
+  --roxo:#a97bf0;
+  --roxo-dim:rgba(169,123,240,0.14);
+  --roxo-text:#b893f3;
+  --overlay:rgba(0,0,0,0.05);
+  --overlay2:rgba(0,0,0,0.1);
+  --wpp:#25D366;
+  --wpp-dim:rgba(37,211,102,0.12);
+  --serie-1:#2a78d6;
+  --serie-2:#eb6834;
+  --serie-3:#1baf7a;
+  --serie-4:#eda100;
+  --serie-5:#e87ba4;
+  --serie-6:#008300;
+  --serie-7:#4a3aa7;
+  --serie-8:#e34948;
+  --ag-bg:#0b0b0b;
+  --ag-bg-header:#161616;
+  --ag-bg-time:#0b0b0b;
+  --ag-line:rgba(255,255,255,0.09);
+  --ag-line-full:rgba(255,255,255,0.16);
+  --ag-text:#ffffff;
+  --ag-text-muted:#737373;
+  --ag-hover:rgba(255,255,255,0.04);
+  --ag-mine-bg:rgba(0,235,164,0.14);
+  --ag-mine-border:rgba(0,235,164,0.4);
+  --ev-agendado-bar:#2a71c8;
+  --ev-agendado-bg:#122135;
+  --ev-agendado-text:#75a3db;
+  --ev-concluido-bar:#2ecc71;
+  --ev-concluido-bg:#133521;
+  --ev-concluido-text:#77dea3;
+  --ev-atrasado-bar:#c2650a;
+  --ev-atrasado-bg:#331f0b;
+  --ev-atrasado-text:#d79b60;
+  --ev-nao-veio-bar:#ef5350;
+  --ev-nao-veio-bg:#3d1b1a;
+  --ev-nao-veio-text:#f58f8d;
+  --ev-bloqueado-bar:#7a7a7a;
+  --ev-bloqueado-bg:#232323;
+  --ev-bloqueado-text:#a9a9a9;
+  /* TEMA:FIM */
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--white);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+.card{max-width:440px;width:100%;background:var(--bg2);border:0.5px solid var(--border);border-radius:16px;padding:32px;text-align:center}
+.logo{font-family:'Archivo Black',serif;font-size:20px;color:var(--gold-light);margin-bottom:4px}
+.sub{font-size:12px;color:var(--muted);margin-bottom:24px}
+.spinner{width:38px;height:38px;border:3px solid var(--bg3);border-top-color:var(--gold);border-radius:50%;margin:8px auto 16px;animation:spin 0.8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.status{font-size:15px;color:var(--white);margin-bottom:8px}
+.detalhe{font-size:13px;color:var(--muted);line-height:1.6}
+.ok-icon{width:54px;height:54px;border-radius:50%;background:var(--green-dim);border:1px solid var(--green);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:26px}
+.err-icon{width:54px;height:54px;border-radius:50%;background:var(--red-dim);border:1px solid var(--red);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:26px}
+.resumo{background:var(--bg3);border:0.5px solid var(--border);border-radius:10px;padding:14px;margin-top:16px;text-align:left}
+.resumo-linha{display:flex;justify-content:space-between;font-size:13px;padding:4px 0}
+.resumo-linha b{color:var(--gold-light)}
+.btn{display:inline-block;margin-top:20px;padding:10px 20px;background:var(--gold-dim);border:0.5px solid var(--gold-border);border-radius:8px;color:var(--gold);font-size:13px;text-decoration:none;cursor:pointer}
+.dim{font-size:11px;color:var(--muted);margin-top:14px}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="logo">LUCAS BUGS | Hair Stylist</div>
+  <div class="sub">Conexão AppBarber</div>
+  <div id="conteudo">
+    <div class="spinner"></div>
+    <div class="status">Conectando…</div>
+  </div>
+</div>
+
+<script src="api.js"></script>
+<script>
+var NOMES = {}; // preenchido com nomes das unidades, se possível
+
+function lerHash(){
+  var h = (location.hash || '').replace(/^#/, '');
+  var p = {}; h.split('&').forEach(function(par){ var kv = par.split('='); if(kv[0]) p[kv[0]] = decodeURIComponent(kv[1]||''); });
+  return p;
+}
+
+function render(html){ document.getElementById('conteudo').innerHTML = html; }
+
+function mostrarErro(titulo, detalhe){
+  render('<div class="err-icon">✕</div><div class="status">'+titulo+'</div><div class="detalhe">'+detalhe+'</div>'
+    +'<div class="dim">Você pode fechar esta aba.</div>');
+}
+
+async function run(){
+  var p = lerHash();
+  if(!p.u || !p.c){
+    mostrarErro('Link incompleto', 'Não recebi os dados da conexão. Tente clicar no atalho de novo, na aba do AppBarber.');
+    return;
+  }
+
+  // 1) salva o cookie
+  try{
+    await req('POST', '/appbarber/sessao', { unidade_id: p.u, cookie: p.c });
+  }catch(e){
+    if((e.message||'').indexOf('401')>=0 || (e.status===401)){
+      mostrarErro('Você não está logado no sistema', 'Abra o sistema em outra aba e faça login neste navegador. Depois clique no atalho de novo.');
+    }else{
+      mostrarErro('Não consegui salvar a conexão', e.message||'Tente de novo.');
+    }
+    return;
+  }
+
+  // 2) faz a primeira leitura
+  render('<div class="spinner"></div><div class="status">Conectado! Lendo a agenda…</div>'
+    +'<div class="detalhe">Isso pode levar alguns segundos.</div>');
+
+  try{
+    var r = await req('POST', '/appbarber/ler/'+p.u, {});
+    if(r && r.ok===false){
+      if(r.motivo==='SESSAO_EXPIRADA'){
+        mostrarErro('O login do AppBarber não valeu', 'O cookie capturado não autenticou. Confirme que está logado no AppBarber e tente de novo.');
+      }else{
+        render('<div class="ok-icon">✓</div><div class="status">Conexão salva!</div>'
+          +'<div class="detalhe">Mas a leitura deu erro:<br><br><b style="color:var(--gold)">'+(r.detalhe||'desconhecido')+'</b></div>'
+          +'<div class="dim">Mande este erro para o suporte. Pode fechar a aba.</div>');
+      }
+      return;
+    }
+    var s = (r && r.resumo) || {};
+    render('<div class="ok-icon">✓</div>'
+      +'<div class="status">Conectado e agenda lida!</div>'
+      +'<div class="resumo">'
+      +'<div class="resumo-linha"><span>Agendamentos</span><b>'+(s.agendamentos||0)+'</b></div>'
+      +'<div class="resumo-linha"><span>Bloqueios/folgas</span><b>'+(s.bloqueios||0)+'</b></div>'
+      +'<div class="resumo-linha"><span>Novos clientes criados</span><b>'+(s.novos_clientes||0)+'</b></div>'
+      +'<div class="resumo-linha"><span>Pendentes de vínculo</span><b>'+(s.pendentes_de_vinculo||0)+'</b></div>'
+      +'</div>'
+      +'<div class="dim">A conexão vale por 24h. Pode fechar esta aba.</div>');
+  }catch(e){
+    render('<div class="ok-icon">✓</div><div class="status">Conexão salva!</div>'
+      +'<div class="detalhe">Mas não consegui ler a agenda agora: '+(e.message||'')+'</div>'
+      +'<div class="dim">Pode fechar esta aba.</div>');
+  }
+}
+run();
+</script>
+<script>if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('/sw.js').catch(function(){});});}</script>
+</body>
+</html>

@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <script src="tenant.js"></script>
+<link rel="icon" href="/icons/favicon-48.png">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>APP LUCAS BUGS | HAIR STYLIST — Regras do Sistema</title>
+<style>
+  :root{
+/* TEMA:INICIO — gerado pelo personalizador, não edite à mão */
+  --bg:#000000;
+  --bg2:#0b0b0b;
+  --bg3:#161616;
+  --bg4:#212121;
+  --black:#000000;
+  --white:#ffffff;
+  --cream:#e6fdf6;
+  --muted:#949494;
+  --muted2:#707070;
+  --border:rgba(255,255,255,0.1);
+  --border2:rgba(255,255,255,0.18);
+  --gold:#00eba4;
+  --gold-light:#ffffff;
+  --gold-dim:rgba(0,235,164,0.12);
+  --gold-border:rgba(0,235,164,0.3);
+  --border-strong:rgba(0,235,164,0.4);
+  --on-primary:#0d0d10;
+  --green:#2ecc71;
+  --green-dim:rgba(46,204,113,0.14);
+  --green-text:#54d58b;
+  --on-green:#0d1526;
+  --red:#ef5350;
+  --red-dim:rgba(239,83,80,0.14);
+  --red-text:#f27270;
+  --amber:#f0b429;
+  --amber-dim:rgba(240,180,41,0.16);
+  --blue:#4b9bf5;
+  --blue-dim:rgba(75,155,245,0.14);
+  --blue-text:#6badf7;
+  --roxo:#a97bf0;
+  --roxo-dim:rgba(169,123,240,0.14);
+  --roxo-text:#b893f3;
+  --overlay:rgba(0,0,0,0.05);
+  --overlay2:rgba(0,0,0,0.1);
+  --wpp:#25D366;
+  --wpp-dim:rgba(37,211,102,0.12);
+  --serie-1:#2a78d6;
+  --serie-2:#eb6834;
+  --serie-3:#1baf7a;
+  --serie-4:#eda100;
+  --serie-5:#e87ba4;
+  --serie-6:#008300;
+  --serie-7:#4a3aa7;
+  --serie-8:#e34948;
+  --ag-bg:#0b0b0b;
+  --ag-bg-header:#161616;
+  --ag-bg-time:#0b0b0b;
+  --ag-line:rgba(255,255,255,0.09);
+  --ag-line-full:rgba(255,255,255,0.16);
+  --ag-text:#ffffff;
+  --ag-text-muted:#737373;
+  --ag-hover:rgba(255,255,255,0.04);
+  --ag-mine-bg:rgba(0,235,164,0.14);
+  --ag-mine-border:rgba(0,235,164,0.4);
+  --ev-agendado-bar:#2a71c8;
+  --ev-agendado-bg:#122135;
+  --ev-agendado-text:#75a3db;
+  --ev-concluido-bar:#2ecc71;
+  --ev-concluido-bg:#133521;
+  --ev-concluido-text:#77dea3;
+  --ev-atrasado-bar:#c2650a;
+  --ev-atrasado-bg:#331f0b;
+  --ev-atrasado-text:#d79b60;
+  --ev-nao-veio-bar:#ef5350;
+  --ev-nao-veio-bg:#3d1b1a;
+  --ev-nao-veio-text:#f58f8d;
+  --ev-bloqueado-bar:#7a7a7a;
+  --ev-bloqueado-bg:#232323;
+  --ev-bloqueado-text:#a9a9a9;
+  /* TEMA:FIM */
+}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--white);font-family:'Inter',-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+  .wrap{max-width:720px;margin:0 auto;padding:24px 18px 90px}
+  h1{font-size:20px;margin:0 0 4px}
+  h2{font-size:15px;margin:0 0 3px}
+  .sub{color:var(--muted);font-size:13px;margin:0 0 22px}
+  .card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:18px;margin-bottom:16px}
+  .card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:14px}
+  .card-desc{color:var(--muted);font-size:12.5px;line-height:1.5;margin:0}
+  label{display:block;font-size:12px;color:var(--muted);margin:0 0 5px;text-transform:uppercase;letter-spacing:.06em}
+  input,select{width:100%;padding:11px;border:1px solid var(--border);border-radius:9px;background:var(--bg3);color:var(--white);font-size:14px;font-family:inherit}
+  input:focus{outline:none;border-color:var(--gold)}
+  .btn{padding:11px 18px;border:0;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit}
+  .btn-primary{background:var(--gold);color:var(--on-primary)}
+  .btn-ghost{background:var(--bg3);color:var(--white);border:1px solid var(--border)}
+  .btn-sm{padding:7px 12px;font-size:12.5px}
+  .btn:disabled{opacity:.5;cursor:default}
+  .back{display:inline-block;color:var(--muted);text-decoration:none;font-size:13px;margin-bottom:14px}
+  .muted{color:var(--muted)} .gold{color:var(--gold)} .green{color:var(--green)} .red{color:var(--red)}
+  .faixa{display:grid;grid-template-columns:1fr 1fr auto;gap:8px;align-items:end;margin-bottom:8px}
+  .faixa .rm{background:transparent;color:var(--red);border:1px solid var(--border);border-radius:9px;padding:11px 12px;cursor:pointer;font-size:13px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .aviso{background:var(--red-dim);border:1px solid var(--red);color:var(--red-text);border-radius:9px;padding:10px 12px;font-size:12.5px;margin-top:10px;display:none}
+  .nota{background:var(--gold-dim);border:1px solid var(--border-strong);border-radius:9px;padding:11px 13px;font-size:12.5px;color:var(--gold);line-height:1.55;margin-bottom:16px}
+  .sim{background:var(--bg3);border:1px dashed var(--border);border-radius:10px;padding:13px;margin-top:12px}
+  .sim-linha{display:flex;justify-content:space-between;font-size:13px;padding:5px 0}
+  .sim-linha b{font-weight:600}
+  .barra{position:fixed;left:0;right:0;bottom:0;background:rgba(13,13,15,.96);border-top:1px solid var(--border);padding:12px 18px;display:flex;gap:10px;align-items:center;justify-content:flex-end;backdrop-filter:blur(8px)}
+  .barra .estado{margin-right:auto;font-size:12.5px;color:var(--muted)}
+  .toast{position:fixed;left:50%;transform:translateX(-50%);bottom:76px;background:var(--bg3);border:1px solid var(--border);color:var(--white);padding:11px 16px;border-radius:10px;font-size:13.5px;z-index:99}
+  .carregando{text-align:center;color:var(--muted);padding:40px 0;font-size:14px}
+
+  /* ---- mensagens automáticas ---- */
+  .marcacoes{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+  .marcacoes code{background:var(--bg3);border:1px solid var(--border);border-radius:5px;
+    padding:3px 7px;font-size:11px;color:var(--gold);cursor:pointer}
+  .gat{border:1px solid var(--border);border-radius:10px;margin-bottom:10px;overflow:hidden}
+  .gat-cab{display:flex;align-items:center;gap:11px;padding:12px 14px;cursor:pointer;background:var(--bg3)}
+  .gat-cab:hover{background:var(--bg4)}
+  .gat-cab input{width:16px;height:16px;accent-color:var(--gold);flex:none}
+  .gat-nome{font-size:13.5px;font-weight:600;flex:1}
+  .gat-quando{font-size:11.5px;color:var(--muted);display:block;font-weight:400}
+  .gat-corpo{padding:14px;border-top:1px solid var(--border);display:none}
+  .gat.aberto .gat-corpo{display:block}
+  .gat textarea{width:100%;min-height:74px;resize:vertical;background:var(--bg3);
+    border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:var(--white);
+    font-family:inherit;font-size:13px}
+  .publicos{display:flex;flex-wrap:wrap;gap:8px;margin-top:11px}
+  .publicos label{display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--muted);
+    text-transform:none;letter-spacing:0;cursor:pointer;margin:0}
+  .publicos input{width:15px;height:15px;accent-color:var(--gold)}
+
+  /* ---- cores da agenda ---- */
+  .cores-grid{display:flex;flex-direction:column;gap:14px}
+  .cor-linha{display:grid;grid-template-columns:1fr auto auto auto;gap:12px;align-items:center;
+    padding:12px;background:var(--bg3);border-radius:10px}
+  .cor-nome{font-size:13.5px;font-weight:600}
+  .cor-desc{font-size:11.5px;color:var(--muted);margin-top:2px}
+  .cor-campo{display:flex;flex-direction:column;align-items:center;gap:4px}
+  .cor-campo span{font-size:9.5px;color:var(--muted2);text-transform:uppercase;letter-spacing:.06em}
+  .cor-campo input[type=color]{width:42px;height:32px;padding:2px;border-radius:7px;
+    border:1px solid var(--border);background:var(--bg4);cursor:pointer}
+  .previa{margin-top:16px;padding:14px;background:var(--bg3);border-radius:10px}
+  .previa-t{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:10px}
+  .previa-lista{display:flex;flex-direction:column;gap:7px}
+  .ev{border-left:3px solid;border-radius:5px;padding:7px 10px}
+  .ev b{display:block;font-size:12.5px}
+  .ev i{font-style:normal;font-size:11px;opacity:.75}
+  @media (max-width:560px){
+    .cor-linha{grid-template-columns:1fr;gap:10px}
+    .cor-campos{display:flex;gap:14px}
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <a class="back" href="appsuabarbearia-dashboard.html">← Dashboard</a>
+    <h1>Configurações</h1>
+    <p class="sub">Cores da agenda e regras de fidelidade.</p>
+
+    <div id="carregando" class="carregando" style="color:var(--muted);font-size:13px;padding:24px 0">Carregando…</div>
+
+    <div id="conteudo" style="display:none">
+
+      <!-- ---------- CORES DA AGENDA ---------- -->
+      <div class="card">
+        <div class="card-head">
+          <div>
+            <h2>Cores da agenda</h2>
+            <p class="card-desc">Cada agendamento ganha cor pela <b>origem</b> — de onde ele veio.
+              Agendamento concluído, bloqueado ou com falta usa a cor do status, não da origem.</p>
+          </div>
+        </div>
+
+        <div class="cores-grid" id="cores-grid"></div>
+
+        <div class="previa">
+          <div class="previa-t">Como vai ficar</div>
+          <div class="previa-lista" id="previa"></div>
+        </div>
+
+        <div style="margin-top:14px">
+          <button class="btn btn-ghost btn-sm" onclick="restaurarCores()">Voltar ao padrão</button>
+        </div>
+      </div>
+
+      <!-- ---------- FIDELIDADE ---------- -->
+      <div class="card">
+        <div class="card-head">
+          <div>
+            <h2>Fidelidade</h2>
+            <p class="card-desc">O programa de pontos. Desligado, o sistema para de creditar —
+              o saldo de quem já tem fica guardado.</p>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:11px;padding:12px 14px;background:var(--bg3);
+             border-radius:9px;margin-bottom:16px;cursor:pointer" onclick="alternarFidelidade()">
+          <input type="checkbox" id="fid-ativa" style="width:17px;height:17px;accent-color:var(--gold)" onclick="event.stopPropagation();alternarFidelidade(this.checked)">
+          <div>
+            <div style="font-size:13.5px;font-weight:600">Programa de pontos ligado</div>
+            <div style="font-size:11.5px;color:var(--muted)">Desligado, nenhum ponto novo é creditado</div>
+          </div>
+        </div>
+
+        <div id="fid-campos">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px">
+            <div>
+              <label>R$ para ganhar 1 ponto</label>
+              <input type="number" step="0.5" id="pontos-reais" placeholder="1">
+            </div>
+            <div>
+              <label>Dias sem voltar até zerar</label>
+              <input type="number" step="1" id="pontos-dias" placeholder="90">
+            </div>
+          </div>
+          <p class="card-desc" style="margin:0">
+            Essa é a regra geral. Serviço ou produto com pontos próprios cadastrados usa os
+            dele — você define isso em <b>Cadastros &gt; Serviços</b> e <b>&gt; Produtos</b>,
+            junto com quantos pontos custa para resgatar cada um.
+          </p>
+        </div>
+      </div>
+
+      <!-- ---------- MENSAGENS AUTOMÁTICAS ---------- -->
+      <div class="card">
+        <div class="card-head">
+          <div>
+            <h2>Mensagens automáticas</h2>
+            <p class="card-desc">Cada situação do sistema pode disparar uma mensagem.
+              Ligue a que quiser, escreva o texto e escolha quem recebe.
+              <b>Só saem depois que o WhatsApp estiver conectado.</b></p>
+          </div>
+        </div>
+        <div class="marcacoes" id="marcacoes"></div>
+        <div id="gatilhos"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="barra" style="position:fixed;left:0;right:0;bottom:0;background:var(--bg2);
+       border-top:1px solid var(--border);padding:12px 18px;display:flex;gap:10px;
+       align-items:center;justify-content:flex-end">
+    <span class="estado" id="estado" style="margin-right:auto;font-size:12.5px;color:var(--muted)"></span>
+    <button class="btn btn-ghost" onclick="carregar()">Descartar</button>
+    <button class="btn btn-primary" id="btn-salvar" onclick="salvar()">Salvar</button>
+  </div>
+
+  <script src="api.js"></script>
+<script src="ajuda.js"></script>
+  <script>
+  // ============================================================
+  // As cores ficam na tabela `configuracoes`, com a chave
+  // cor_agenda_<origem>_<parte>. Sem valor salvo, vale o padrão daqui.
+  // ============================================================
+  var ORIGENS = [
+    { id:'app',       nome:'App do cliente',  desc:'o cliente marcou sozinho pelo aplicativo',
+      padrao:{ bar:'#00a06e', bg:'#dff5ec', text:'#0a5f45' } },
+    { id:'whatsapp',  nome:'WhatsApp',        desc:'marcado pela conversa automática do WhatsApp',
+      padrao:{ bar:'#1f9d55', bg:'#e3f6e9', text:'#14663a' } },
+    { id:'sistema',   nome:'Sistema',         desc:'feito no painel, com cliente cadastrado',
+      padrao:{ bar:'#2a71c8', bg:'#e4edfa', text:'#1a4a80' } },
+    { id:'balcao',    nome:'Sem cadastro',    desc:'feito no painel, sem vincular cliente',
+      padrao:{ bar:'#8b5cf6', bg:'#efe9fd', text:'#4c2f96' } },
+    { id:'appbarber', nome:'AppBarber',       desc:'importado do AppBarber',
+      padrao:{ bar:'#e07b00', bg:'#fdf0dd', text:'#8a4a06' } }
+  ]
+  var PARTES = [ ['bar','Barra'], ['bg','Fundo'], ['text','Texto'] ]
+  var CFG = {}
+
+  function chave(origem, parte){ return 'cor_agenda_org_' + origem + '_' + parte }
+
+  function toast(msg){
+    var t=document.createElement('div')
+    t.style.cssText='position:fixed;left:50%;bottom:80px;transform:translateX(-50%);background:var(--bg4);'+
+      'border:1px solid var(--border2);color:var(--white);padding:11px 18px;border-radius:9px;font-size:13.5px;z-index:99'
+    t.textContent=msg; document.body.appendChild(t)
+    setTimeout(function(){ t.remove() }, 3000)
+  }
+
+  ;(function guarda(){
+    var u = (typeof getUsuario === 'function') ? getUsuario() : null
+    if(!u){ window.location.href='index.html'; return }
+    if(u.perfil !== 'proprietario' && u.perfil !== 'gerente'){
+      document.body.innerHTML = '<div class="wrap"><a class="back" href="appsuabarbearia-dashboard.html">← Dashboard</a>'+
+        '<h1>Configurações</h1><div class="card"><p class="card-desc">Só o proprietário e o gerente '+
+        'podem mexer nas configurações.</p></div></div>'
+    }
+  })()
+
+  function valorDe(origem, parte){
+    var v = CFG[chave(origem.id, parte)]
+    return v || origem.padrao[parte]
+  }
+
+  function pintar(){
+    document.getElementById('cores-grid').innerHTML = ORIGENS.map(function(o){
+      var campos = PARTES.map(function(p){
+        return '<div class="cor-campo">'+
+          '<span>'+p[1]+'</span>'+
+          '<input type="color" data-origem="'+o.id+'" data-parte="'+p[0]+'" '+
+          'value="'+valorDe(o, p[0])+'" oninput="previa()">'+
+        '</div>'
+      }).join('')
+      return '<div class="cor-linha">'+
+        '<div><div class="cor-nome">'+o.nome+'</div><div class="cor-desc">'+o.desc+'</div></div>'+
+        campos+
+      '</div>'
+    }).join('')
+    previa()
+  }
+
+  function lerCampo(origem, parte){
+    var el = document.querySelector('input[data-origem="'+origem+'"][data-parte="'+parte+'"]')
+    return el ? el.value : null
+  }
+
+  function previa(){
+    document.getElementById('previa').innerHTML = ORIGENS.map(function(o){
+      var bar = lerCampo(o.id,'bar'), bg = lerCampo(o.id,'bg'), tx = lerCampo(o.id,'text')
+      return '<div class="ev" style="border-left-color:'+bar+';background:'+bg+';color:'+tx+'">'+
+        '<b>Cliente exemplo</b><i>Corte de cabelo · 14:00</i></div>'
+    }).join('')
+  }
+
+  function alternarFidelidade(forcado){
+    var chk = document.getElementById('fid-ativa')
+    if(forcado === undefined) chk.checked = !chk.checked
+    document.getElementById('fid-campos').style.opacity = chk.checked ? '1' : '.4'
+    document.getElementById('estado').textContent = 'Alterado — falta salvar'
+  }
+
+  function restaurarCores(){
+    ORIGENS.forEach(function(o){
+      PARTES.forEach(function(p){
+        var el = document.querySelector('input[data-origem="'+o.id+'"][data-parte="'+p[0]+'"]')
+        if(el) el.value = o.padrao[p[0]]
+      })
+    })
+    previa()
+    document.getElementById('estado').textContent = 'Padrão restaurado — falta salvar'
+  }
+
+
+  // ============================================================
+  // MENSAGENS AUTOMÁTICAS
+  // ============================================================
+  var GATILHOS = []
+  var NOMES_PUBLICO = { cliente:'Cliente', barbeiro:'Barbeiro que atende',
+                        proprietario:'Proprietário', assinante:'Somente assinantes' }
+
+  async function carregarMensagens(){
+    var box = document.getElementById('gatilhos')
+    try{
+      var d = await req('GET','/mensagens')
+      GATILHOS = d.gatilhos || []
+      document.getElementById('marcacoes').innerHTML =
+        (d.marcacoes||[]).map(function(m){
+          return '<code onclick="copiarMarcacao(\''+m+'\')" title="clique para copiar">'+m+'</code>'
+        }).join('')
+    }catch(e){
+      box.innerHTML = '<p class="card-desc">Não consegui carregar: '+(e.message||'')+'</p>'
+      return
+    }
+    box.innerHTML = GATILHOS.map(function(g){
+      var c = g.config || { ativa:0, texto:'', publico:[], dias:null }
+      var pubs = (g.publicos||[]).map(function(p){
+        return '<label><input type="checkbox" data-pub="'+p+'" data-g="'+g.id+'"'+
+          ((c.publico||[]).indexOf(p)>=0?' checked':'')+'> '+(NOMES_PUBLICO[p]||p)+'</label>'
+      }).join('')
+      var campoDias = (g.id==='cliente_sumido')
+        ? '<div style="margin-top:11px"><label>Depois de quantos dias sem vir</label>'+
+          '<input type="number" min="1" id="dias-'+g.id+'" value="'+(c.dias||45)+'" style="max-width:120px"></div>'
+        : ''
+      return '<div class="gat'+(c.ativa?' aberto':'')+'" id="gat-'+g.id+'">'+
+        '<div class="gat-cab" onclick="abrirGatilho(\''+g.id+'\')">'+
+          '<input type="checkbox" id="on-'+g.id+'"'+(c.ativa?' checked':'')+
+            ' onclick="event.stopPropagation()">'+
+          '<span class="gat-nome">'+g.nome+'<span class="gat-quando">'+g.quando+'</span></span>'+
+        '</div>'+
+        '<div class="gat-corpo">'+
+          '<textarea id="txt-'+g.id+'" placeholder="Escreva a mensagem…">'+(c.texto||'')+'</textarea>'+
+          '<div class="publicos">'+pubs+'</div>'+
+          campoDias+
+          '<button class="btn btn-primary btn-sm" style="margin-top:12px" onclick="salvarGatilho(\''+g.id+'\')">Salvar esta mensagem</button>'+
+          '<span id="ok-'+g.id+'" style="font-size:12px;color:var(--muted);margin-left:10px"></span>'+
+        '</div>'+
+      '</div>'
+    }).join('')
+  }
+
+  function abrirGatilho(id){ document.getElementById('gat-'+id).classList.toggle('aberto') }
+
+  function copiarMarcacao(m){
+    navigator.clipboard.writeText(m).catch(function(){})
+    toast('Copiado: '+m)
+  }
+
+  async function salvarGatilho(id){
+    var publico = []
+    document.querySelectorAll('[data-g="'+id+'"]:checked').forEach(function(c){ publico.push(c.dataset.pub) })
+    var diasEl = document.getElementById('dias-'+id)
+    var corpo = {
+      ativa: document.getElementById('on-'+id).checked,
+      texto: document.getElementById('txt-'+id).value,
+      publico: publico,
+      dias: diasEl ? (parseInt(diasEl.value,10)||null) : null
+    }
+    if(corpo.ativa && !corpo.texto.trim()){ toast('Escreva o texto antes de ligar'); return }
+    if(corpo.ativa && !publico.length){ toast('Escolha quem recebe'); return }
+    var ok = document.getElementById('ok-'+id)
+    ok.textContent = 'salvando…'
+    try{
+      await req('PUT','/mensagens/'+id, corpo)
+      ok.textContent = 'salvo'
+      setTimeout(function(){ ok.textContent = '' }, 2500)
+    }catch(e){ ok.textContent = 'erro: '+(e.message||'') }
+  }
+
+  async function carregar(){
+    document.getElementById('carregando').style.display=''
+    document.getElementById('conteudo').style.display='none'
+    try{
+      CFG = await req('GET','/configuracoes') || {}
+    }catch(e){ CFG = {} }
+    pintar()
+    document.getElementById('pontos-reais').value = CFG.pontos_reais_por_ponto || ''
+    document.getElementById('pontos-dias').value  = CFG.pontos_dias_expirar || ''
+    var ligada = !(String(CFG.fidelidade_ativa) === '0')
+    document.getElementById('fid-ativa').checked = ligada
+    document.getElementById('fid-campos').style.opacity = ligada ? '1' : '.4'
+    await carregarMensagens()
+    document.getElementById('carregando').style.display='none'
+    document.getElementById('conteudo').style.display=''
+    document.getElementById('estado').textContent=''
+  }
+
+  async function salvar(){
+    var corpo = {}
+    ORIGENS.forEach(function(o){
+      PARTES.forEach(function(p){
+        var v = lerCampo(o.id, p[0])
+        if(v) corpo[chave(o.id, p[0])] = v
+      })
+    })
+    var pr = document.getElementById('pontos-reais').value
+    var pd = document.getElementById('pontos-dias').value
+    if(pr !== '') corpo.pontos_reais_por_ponto = pr
+    if(pd !== '') corpo.pontos_dias_expirar = pd
+    corpo.fidelidade_ativa = document.getElementById('fid-ativa').checked ? '1' : '0'
+
+    var btn = document.getElementById('btn-salvar')
+    btn.disabled = true; btn.textContent = 'Salvando…'
+    try{
+      await req('PUT','/configuracoes', corpo)
+      CFG = Object.assign(CFG, corpo)
+      document.getElementById('estado').textContent = 'Salvo'
+      toast('Configurações salvas. Recarregue o painel para ver as cores novas.')
+    }catch(e){
+      toast('Erro ao salvar: ' + (e.message || 'tente de novo'))
+    }finally{
+      btn.disabled = false; btn.textContent = 'Salvar'
+    }
+  }
+
+  carregar()
+  </script>
+</body>
+</html>

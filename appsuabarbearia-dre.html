@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <script src="tenant.js"></script>
+<link rel="icon" href="/icons/favicon-48.png">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>APP LUCAS BUGS | HAIR STYLIST — Balancete / DRE</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black:wght@400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+/* TEMA:INICIO — gerado pelo personalizador, não edite à mão */
+  --bg:#000000;
+  --bg2:#0b0b0b;
+  --bg3:#161616;
+  --bg4:#212121;
+  --black:#000000;
+  --white:#ffffff;
+  --cream:#e6fdf6;
+  --muted:#949494;
+  --muted2:#707070;
+  --border:rgba(255,255,255,0.1);
+  --border2:rgba(255,255,255,0.18);
+  --gold:#00eba4;
+  --gold-light:#ffffff;
+  --gold-dim:rgba(0,235,164,0.12);
+  --gold-border:rgba(0,235,164,0.3);
+  --border-strong:rgba(0,235,164,0.4);
+  --on-primary:#0d0d10;
+  --green:#2ecc71;
+  --green-dim:rgba(46,204,113,0.14);
+  --green-text:#54d58b;
+  --on-green:#0d1526;
+  --red:#ef5350;
+  --red-dim:rgba(239,83,80,0.14);
+  --red-text:#f27270;
+  --amber:#f0b429;
+  --amber-dim:rgba(240,180,41,0.16);
+  --blue:#4b9bf5;
+  --blue-dim:rgba(75,155,245,0.14);
+  --blue-text:#6badf7;
+  --roxo:#a97bf0;
+  --roxo-dim:rgba(169,123,240,0.14);
+  --roxo-text:#b893f3;
+  --overlay:rgba(0,0,0,0.05);
+  --overlay2:rgba(0,0,0,0.1);
+  --wpp:#25D366;
+  --wpp-dim:rgba(37,211,102,0.12);
+  --serie-1:#2a78d6;
+  --serie-2:#eb6834;
+  --serie-3:#1baf7a;
+  --serie-4:#eda100;
+  --serie-5:#e87ba4;
+  --serie-6:#008300;
+  --serie-7:#4a3aa7;
+  --serie-8:#e34948;
+  --ag-bg:#0b0b0b;
+  --ag-bg-header:#161616;
+  --ag-bg-time:#0b0b0b;
+  --ag-line:rgba(255,255,255,0.09);
+  --ag-line-full:rgba(255,255,255,0.16);
+  --ag-text:#ffffff;
+  --ag-text-muted:#737373;
+  --ag-hover:rgba(255,255,255,0.04);
+  --ag-mine-bg:rgba(0,235,164,0.14);
+  --ag-mine-border:rgba(0,235,164,0.4);
+  --ev-agendado-bar:#2a71c8;
+  --ev-agendado-bg:#122135;
+  --ev-agendado-text:#75a3db;
+  --ev-concluido-bar:#2ecc71;
+  --ev-concluido-bg:#133521;
+  --ev-concluido-text:#77dea3;
+  --ev-atrasado-bar:#c2650a;
+  --ev-atrasado-bg:#331f0b;
+  --ev-atrasado-text:#d79b60;
+  --ev-nao-veio-bar:#ef5350;
+  --ev-nao-veio-bg:#3d1b1a;
+  --ev-nao-veio-text:#f58f8d;
+  --ev-bloqueado-bar:#7a7a7a;
+  --ev-bloqueado-bg:#232323;
+  --ev-bloqueado-text:#a9a9a9;
+  /* TEMA:FIM */
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--white);min-height:100vh;-webkit-font-smoothing:antialiased}
+.topbar{display:flex;align-items:center;gap:16px;padding:16px 24px;border-bottom:0.5px solid var(--border);position:sticky;top:0;background:var(--bg);z-index:10}
+.back{display:flex;align-items:center;gap:7px;font-size:13px;color:var(--muted);cursor:pointer;background:none;border:none;font-family:inherit}
+.back:hover{color:var(--white)}
+.top-title{font-family:'Archivo Black',serif;font-size:18px}
+.top-sub{font-size:11px;color:var(--muted);margin-top:1px}
+.wrap{max-width:1080px;margin:0 auto;padding:22px 24px 90px}
+.controls{display:flex;flex-wrap:wrap;align-items:flex-end;gap:14px;background:var(--bg2);border:0.5px solid var(--border);border-radius:14px;padding:16px 18px;margin-bottom:18px}
+.ctrl{display:flex;flex-direction:column;gap:5px}
+.ctrl label{font-size:11px;color:var(--muted)}
+.ctrl input,.ctrl select{background:var(--bg3);border:0.5px solid var(--border2);border-radius:8px;padding:9px 11px;font-size:13px;color:var(--white);font-family:inherit;outline:none;color-scheme:dark}
+.btn{border:none;border-radius:8px;padding:10px 18px;font-size:13px;font-weight:500;font-family:inherit;cursor:pointer;transition:opacity .15s}
+.btn:hover{opacity:.88}
+.btn-gold{background:var(--gold);color:var(--on-primary)}
+.btn-ghost{background:var(--bg3);color:var(--cream);border:0.5px solid var(--border2)}
+.btn-save{background:var(--green);color:var(--on-green);font-weight:600}
+.btn:disabled{opacity:.45;cursor:default}
+.note{font-size:11px;color:var(--muted);background:var(--bg2);border:0.5px solid var(--border);border-radius:10px;padding:11px 14px;margin-bottom:16px;line-height:1.5}
+.banner{font-size:12px;background:var(--gold-dim);border:0.5px solid var(--gold-border);color:var(--gold);border-radius:10px;padding:10px 14px;margin-bottom:16px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:820px){.grid{grid-template-columns:1fr}.wrap{padding:16px 12px 90px}}
+.card{background:var(--bg2);border:0.5px solid var(--border);border-radius:14px;overflow:hidden}
+.card-h{padding:13px 16px;border-bottom:0.5px solid var(--border2);display:flex;align-items:center;justify-content:space-between}
+.card-t{font-family:'Archivo Black',serif;font-size:15px;color:var(--gold-light)}
+.row{display:flex;align-items:center;gap:10px;padding:7px 16px;border-bottom:0.5px solid var(--border)}
+.row:last-child{border-bottom:none}
+.row .cat{flex:1;font-size:12.5px;color:var(--cream);display:flex;align-items:center;gap:7px}
+.tag{font-size:9px;letter-spacing:.4px;text-transform:uppercase;color:var(--gold);border:0.5px solid var(--gold-border);border-radius:4px;padding:1px 5px}
+.vin{width:120px;background:var(--bg3);border:0.5px solid var(--border2);border-radius:7px;padding:7px 9px;font-size:13px;color:var(--white);font-family:inherit;outline:none;text-align:right}
+.vin:focus{border-color:var(--gold-border)}
+.vin:read-only{background:transparent;border-color:transparent;color:var(--cream)}
+.rm{background:none;border:none;color:var(--muted);cursor:pointer;font-size:15px;line-height:1;padding:0 2px}
+.rm:hover{color:var(--red)}
+.add{width:100%;background:none;border:none;border-top:0.5px solid var(--border);color:var(--gold);font-family:inherit;font-size:12px;padding:10px;cursor:pointer;text-align:left}
+.add:hover{background:var(--bg3)}
+.tot{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-top:0.5px solid var(--gold-border);background:var(--gold-dim)}
+.tot .l{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.4px}
+.tot .v{font-family:'Archivo Black',serif;font-size:18px;color:var(--gold-light)}
+.saldo{margin-top:18px;background:var(--bg2);border:0.5px solid var(--border2);border-radius:14px;padding:18px 22px;display:flex;align-items:center;justify-content:space-between}
+.saldo .l{font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px}
+.saldo .v{font-family:'Archivo Black',serif;font-size:30px}
+.saldo.pos{border-color:var(--green-dim)}.saldo.pos .v{color:var(--green)}
+.saldo.neg{border-color:var(--red-dim)}.saldo.neg .v{color:var(--red)}
+.state{padding:50px 20px;text-align:center;color:var(--muted);font-size:13px}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--green);color:var(--on-green);font-weight:600;font-size:13px;padding:11px 20px;border-radius:10px;opacity:0;transition:opacity .25s;pointer-events:none;z-index:50}
+.toast.show{opacity:1}
+@media print{.topbar,.controls,.note,.banner,.add,.rm,.back{display:none!important}body{background:var(--white);color:var(--black)}.card,.saldo{border-color:var(--border)}.vin{color:var(--black)}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <button class="back" onclick="window.location.href='appsuabarbearia-dashboard.html'">&larr; Painel</button>
+  <div><div class="top-title">Balancete / DRE</div><div class="top-sub">Resultado do mês — por unidade</div></div>
+</div>
+
+<div class="wrap">
+  <div class="controls">
+    <div class="ctrl"><label>Mês</label><input type="month" id="mes"></div>
+    <div class="ctrl"><label>Unidade</label><select id="uni"><option value="">Todas (consolidado)</option></select></div>
+    <button class="btn btn-ghost" onclick="carregar()">Carregar</button>
+    <button class="btn btn-ghost" id="btnAuto" onclick="usarAuto()">↻ Usar automático</button>
+    <button class="btn btn-ghost" onclick="window.print()">Imprimir</button>
+    <button class="btn btn-save" id="btnSalvar" onclick="salvar()">Salvar fechamento</button>
+  </div>
+
+  <div class="note">
+    <b>Comissão</b> e <b>entradas</b> vêm calculadas do sistema (comandas + AppBarber). Você pode
+    <b>editar qualquer valor</b> e digitar as despesas (aluguel, salários, luz…). Clique em <b>Salvar fechamento</b>
+    para guardar o mês. Em <b>"Todas"</b> é só leitura — para editar, escolha uma unidade.
+  </div>
+
+  <div id="banner"></div>
+  <div id="resultado"><div class="state">Escolha o mês e a unidade e clique em <b>Carregar</b>.</div></div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="api.js"></script>
+<script src="ajuda.js"></script>
+<script>
+var usuario = requireAuth();
+var DRE = null;
+
+function brl(n){ return 'R$ ' + (parseFloat(n)||0).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2}); }
+function fmtIn(n){ return (parseFloat(n)||0).toFixed(2).replace('.',','); }
+function parseValor(s){
+  if(s==null) return 0;
+  s=(''+s).replace(/[R$\s]/g,'');
+  if(s.indexOf(',')>-1 && s.indexOf('.')>-1) s=s.replace(/\./g,'').replace(',','.');
+  else if(s.indexOf(',')>-1) s=s.replace(',','.');
+  var v=parseFloat(s); return isNaN(v)?0:v;
+}
+function toast(msg){ var t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show'); setTimeout(function(){t.classList.remove('show');},2200); }
+
+function linhaHtml(item, tipo, ro){
+  var tag = item.comissao ? '<span class="tag">auto</span>' : '';
+  var rmv = item.custom && !ro ? '<button class="rm" onclick="removerLinha(this)">×</button>' : '';
+  return '<div class="row">'+
+    '<div class="cat">'+item.categoria+tag+'</div>'+
+    '<input class="vin" inputmode="decimal" '+(ro?'readonly':'')+' data-tipo="'+tipo+'" data-cat="'+item.categoria.replace(/"/g,'')+'" data-auto="'+(item.auto||0)+'" value="'+fmtIn(item.valor)+'" oninput="recompute()">'+
+    rmv+'</div>';
+}
+
+function render(){
+  var ro = DRE.consolidado;
+  var alvo=document.getElementById('resultado');
+  var bn=document.getElementById('banner');
+  bn.innerHTML = ro ? '<div class="banner">Mostrando o <b>consolidado de todas as unidades</b> (somatório). Para editar e salvar, escolha uma unidade específica.</div>' : '';
+
+  var desp = DRE.despesas.map(function(d){ return linhaHtml(d,'despesa',ro); }).join('');
+  var addDesp = ro ? '' : '<button class="add" onclick="adicionarDespesa()">+ Adicionar despesa</button> <button class="add" onclick="abrirLancarSalario()">+ Lançar salário de funcionário</button>';
+  var ent  = DRE.entrada.map(function(e){ return linhaHtml(e,'entrada',ro); }).join('');
+
+  alvo.innerHTML =
+    '<div class="grid">'+
+      '<div class="card"><div class="card-h"><div class="card-t">Despesas</div></div>'+desp+addDesp+
+        '<div class="tot"><div class="l">Total despesas</div><div class="v" id="totDesp">R$ 0,00</div></div></div>'+
+      '<div class="card"><div class="card-h"><div class="card-t">Entradas</div></div>'+ent+
+        '<div class="tot"><div class="l">Total entradas</div><div class="v" id="totEnt">R$ 0,00</div></div></div>'+
+    '</div>'+
+    '<div class="saldo" id="saldoBox"><div class="l">Saldo do mês</div><div class="v" id="saldoVal">R$ 0,00</div></div>';
+
+  document.getElementById('btnSalvar').disabled = ro;
+  document.getElementById('btnAuto').disabled = ro;
+  recompute();
+}
+
+function recompute(){
+  var ins=document.querySelectorAll('.vin');
+  var tDesp=0, tEnt=0;
+  ins.forEach(function(i){
+    var v=parseValor(i.value);
+    if(i.dataset.tipo==='despesa') tDesp+=v; else tEnt+=v;
+  });
+  var td=document.getElementById('totDesp'), te=document.getElementById('totEnt');
+  if(td) td.textContent=brl(tDesp);
+  if(te) te.textContent=brl(tEnt);
+  var saldo=tEnt-tDesp;
+  var sv=document.getElementById('saldoVal'), sb=document.getElementById('saldoBox');
+  if(sv) sv.textContent=brl(saldo);
+  if(sb){ sb.classList.remove('pos','neg'); sb.classList.add(saldo>=0?'pos':'neg'); }
+}
+
+function adicionarDespesa(){
+  var nome=prompt('Nome da despesa:');
+  if(!nome) return;
+  DRE.despesas.push({categoria:nome.toUpperCase(), valor:0, custom:true});
+  render();
+}
+
+// Item 13b: lançar salário de um funcionário não comissionado na categoria SALÁRIOS
+async function abrirLancarSalario(){
+  if(!DRE || DRE.consolidado){ toast('Escolha uma unidade específica para lançar.'); return; }
+  var lista;
+  try{
+    var todos = await req('GET','/colaboradores') || [];
+    lista = todos.filter(function(c){ return c.perfil==='funcionario'; });
+  }catch(e){ toast('Erro ao buscar funcionários'); return; }
+  if(!lista.length){ toast('Nenhum funcionário não comissionado cadastrado.'); return; }
+
+  // monta a escolha (nome + salário)
+  var opcoes = lista.map(function(c,i){ return (i+1)+') '+c.nome+' — '+brl(c.salario||0); }).join('\n');
+  var escolha = prompt('Qual funcionário lançar o salário deste mês?\n\n'+opcoes+'\n\nDigite o número:');
+  if(!escolha) return;
+  var idx = parseInt(escolha,10)-1;
+  if(isNaN(idx) || idx<0 || idx>=lista.length){ toast('Opção inválida'); return; }
+  var func = lista[idx];
+  var valor = parseFloat(func.salario)||0;
+  if(valor<=0){ toast('Este funcionário está sem salário cadastrado.'); return; }
+
+  // soma na categoria SALÁRIOS (cria se não existir)
+  var cat = DRE.despesas.find(function(d){ return d.categoria==='SALÁRIOS'; });
+  if(cat){ cat.valor = (parseFloat(cat.valor)||0) + valor; }
+  else { DRE.despesas.push({categoria:'SALÁRIOS', valor:valor, custom:true}); }
+  render();
+  toast('Salário de '+func.nome+' lançado ('+brl(valor)+') em SALÁRIOS. Confira e salve o fechamento.');
+}
+function removerLinha(btn){
+  var cat=btn.parentNode.querySelector('.vin').dataset.cat;
+  DRE.despesas=DRE.despesas.filter(function(d){ return d.categoria!==cat; });
+  render();
+}
+function usarAuto(){
+  document.querySelectorAll('.vin').forEach(function(i){
+    if(i.dataset.auto!==undefined && (i.dataset.tipo==='entrada' || i.dataset.cat==='COMISSÃO')){
+      i.value=fmtIn(i.dataset.auto);
+    }
+  });
+  recompute();
+  toast('Valores automáticos aplicados');
+}
+
+function coletar(){
+  var entrada=[], despesas=[];
+  document.querySelectorAll('.vin').forEach(function(i){
+    var item={categoria:i.dataset.cat, valor:parseValor(i.value)};
+    if(i.dataset.tipo==='entrada') entrada.push(item); else despesas.push(item);
+  });
+  return {entrada:entrada, despesas:despesas};
+}
+
+async function carregar(){
+  var mes=document.getElementById('mes').value;
+  var uni=document.getElementById('uni').value;
+  var alvo=document.getElementById('resultado');
+  if(!mes){ alvo.innerHTML='<div class="state">Escolha o mês.</div>'; return; }
+  alvo.innerHTML='<div class="state">Carregando…</div>';
+  try{
+    DRE=await req('GET','/financeiro/dre?mes='+mes+(uni?'&unidade_id='+uni:''));
+    render();
+  }catch(e){ alvo.innerHTML='<div class="state">Não consegui carregar. '+(e&&e.message?e.message:'')+'</div>'; }
+}
+
+async function salvar(){
+  if(!DRE || DRE.consolidado) return;
+  var mes=document.getElementById('mes').value;
+  var uni=document.getElementById('uni').value;
+  var btn=document.getElementById('btnSalvar');
+  btn.disabled=true; btn.textContent='Salvando…';
+  try{
+    var dados=coletar();
+    await req('POST','/financeiro/dre/salvar',{unidade_id:uni, mes:mes, entrada:dados.entrada, despesas:dados.despesas});
+    toast('Fechamento salvo ✓');
+  }catch(e){ toast('Erro ao salvar'); }
+  finally{ btn.disabled=false; btn.textContent='Salvar fechamento'; }
+}
+
+(function init(){
+  var hoje=new Date();
+  document.getElementById('mes').value=hoje.getFullYear()+'-'+String(hoje.getMonth()+1).padStart(2,'0');
+  if(usuario && usuario.perfil==='proprietario'){
+    req('GET','/unidades').then(function(us){
+      var sel=document.getElementById('uni');
+      (us||[]).forEach(function(u){ var o=document.createElement('option'); o.value=u.id; o.textContent=u.nome; sel.appendChild(o); });
+    }).catch(function(){});
+  } else {
+    // gerente: backend já força a unidade dele; esconde o seletor "Todas"
+    var c=document.getElementById('uni').parentNode; if(c) c.style.display='none';
+  }
+  carregar();
+})();
+</script>
+</body>
+</html>
