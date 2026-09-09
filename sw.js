@@ -1,5 +1,5 @@
 // LUCAS BUGS | Hair Stylist PRO — Service Worker
-const CACHE = 'pro-lucas-bugs-hair-stylist-v35';   // mude este número a cada deploy: é o que força o navegador a soltar o cache
+const CACHE = 'pro-lucas-bugs-hair-stylist-v36';   // mude este número a cada deploy: é o que força o navegador a soltar o cache
 const SHELL = ['/', '/index.html', '/manifest.json', '/logo.png', '/icons/icon-192.png'];
 
 self.addEventListener('install', function (e) {

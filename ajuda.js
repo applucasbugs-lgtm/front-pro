@@ -44,7 +44,7 @@
       '.aj-bt:hover{border-color:var(--white,#F5F5F5);color:var(--white,#F5F5F5)}',
       '.aj-bt-p{background:var(--gold,#00E5A0);border-color:transparent;color:#062E22;font-weight:600}',
 
-      '.aj-btn-flut{position:fixed;right:22px;bottom:22px;width:48px;height:48px;border-radius:50%;background:var(--gold,#00E5A0);border:0;color:#062E22;font-size:21px;font-weight:700;cursor:pointer;z-index:8000;box-shadow:0 6px 20px rgba(0,0,0,.4);font-family:inherit}',
+      '.aj-btn-flut{position:fixed;right:22px;bottom:22px;height:44px;padding:0 18px;border-radius:22px;background:var(--gold,#00E5A0);border:0;color:#062E22;font-size:14px;font-weight:600;cursor:pointer;z-index:8000;box-shadow:0 6px 20px rgba(0,0,0,.4);font-family:inherit;display:flex;align-items:center;gap:7px}',
       '.aj-btn-flut:hover{filter:brightness(1.08)}',
 
       '.aj-painel{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:8500;display:none}',
@@ -131,8 +131,6 @@
 
   function concluir () {
     fecharTour()
-    if (!tela()) return
-    try { req('POST', '/ajuda/tour/' + tela() + '/visto', {}) } catch (e) {}
   }
 
   async function abrirTour (forcar) {
@@ -239,16 +237,61 @@
   }
 
   // ------------------------------------------------------------ botão ---
+  // Menu curto do botão de ajuda. Duas opções, sem gesto escondido.
+  function abrirMenuAjuda () {
+    var antigo = document.getElementById('aj-menu')
+    if (antigo) { antigo.remove(); return }      // clicou de novo: fecha
+
+    var m = document.createElement('div')
+    m.id = 'aj-menu'
+    m.style.cssText = 'position:fixed;right:22px;bottom:80px;z-index:8100;' +
+      'background:var(--bg2,#0F0F0F);border:0.5px solid var(--border2,#2A2A2A);' +
+      'border-radius:12px;overflow:hidden;box-shadow:0 12px 34px rgba(0,0,0,.5);min-width:212px'
+
+    var temTour = !!tela()
+    m.innerHTML =
+      '<button data-aj="ajuda" style="' + estiloItem() + '">' +
+        '<span style="font-size:14px">Tirar uma dúvida</span>' +
+        '<span style="font-size:12px;color:var(--muted,#8A8A8A);display:block;margin-top:2px">Pergunte o que quiser</span>' +
+      '</button>' +
+      (temTour
+        ? '<button data-aj="tour" style="' + estiloItem(true) + '">' +
+            '<span style="font-size:14px">Conhecer esta tela</span>' +
+            '<span style="font-size:12px;color:var(--muted,#8A8A8A);display:block;margin-top:2px">Um passeio rápido pelos botões</span>' +
+          '</button>'
+        : '')
+
+    document.body.appendChild(m)
+    m.querySelector('[data-aj="ajuda"]').onclick = function () { m.remove(); abrirAjuda() }
+    var bt = m.querySelector('[data-aj="tour"]')
+    if (bt) bt.onclick = function () { m.remove(); abrirTour(true) }
+
+    // Clique fora fecha. O setTimeout evita que o próprio clique que abriu
+    // feche o menu no mesmo instante.
+    setTimeout(function () {
+      document.addEventListener('click', function fechar (e) {
+        if (!m.contains(e.target) && e.target.id !== 'aj-btn') {
+          m.remove(); document.removeEventListener('click', fechar)
+        }
+      })
+    }, 10)
+  }
+
+  function estiloItem (comBorda) {
+    return 'display:block;width:100%;text-align:left;background:transparent;border:0;' +
+      (comBorda ? 'border-top:0.5px solid var(--border,#1F1F1F);' : '') +
+      'padding:13px 16px;color:var(--white,#F5F5F5);cursor:pointer;font-family:inherit;line-height:1.35'
+  }
+
   function botao () {
     if (document.getElementById('aj-btn')) return
     var b = document.createElement('button')
-    b.id = 'aj-btn'; b.className = 'aj-btn-flut'; b.textContent = '?'
-    b.title = 'Ajuda — clique. Para rever o tour desta tela, segure.'
-    b.onclick = abrirAjuda
-    // Segurar repete o tour da tela, sem ocupar espaço com um segundo botão.
-    var t
-    b.onmousedown = function () { t = setTimeout(function () { abrirTour(true) }, 700) }
-    b.onmouseup = b.onmouseleave = function () { clearTimeout(t) }
+    b.id = 'aj-btn'; b.className = 'aj-btn-flut'
+    b.innerHTML = '<span style="font-size:16px;font-weight:700">?</span><span>Ajuda</span>'
+    b.title = 'Ajuda'
+    // Clicar abre um menu curto com as duas opções. "Segurar para o tour" era
+    // um gesto escondido: ninguém descobre sozinho.
+    b.onclick = abrirMenuAjuda
     document.body.appendChild(b)
   }
 
@@ -257,6 +300,7 @@
   window.addEventListener('load', function () {
     if (typeof getToken === 'function' && !getToken()) return   // fora do login, nada
     estilos(); botao()
-    setTimeout(function () { abrirTour(false) }, 1200)
+    // O tour NÃO abre sozinho. Quem está trabalhando não quer uma bolha na
+    // frente da tela — ele abre quando pedir, pelo menu do botão de ajuda.
   })
 })()
