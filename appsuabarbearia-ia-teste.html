@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="tenant.js"></script>
+<link rel="icon" href="/icons/favicon-48.png">
+<title>APP LUCAS BUGS | HAIR STYLIST — Testar a IA</title>
+<style>
+:root {
+/* TEMA:INICIO — gerado pelo personalizador, não edite à mão */
+  --bg:#000000;
+  --bg2:#0b0b0b;
+  --bg3:#161616;
+  --bg4:#212121;
+  --black:#000000;
+  --white:#ffffff;
+  --cream:#e6fdf6;
+  --muted:#949494;
+  --muted2:#707070;
+  --border:rgba(255,255,255,0.1);
+  --border2:rgba(255,255,255,0.18);
+  --gold:#00eba4;
+  --gold-light:#ffffff;
+  --gold-dim:rgba(0,235,164,0.12);
+  --gold-border:rgba(0,235,164,0.3);
+  --border-strong:rgba(0,235,164,0.4);
+  --on-primary:#0d0d10;
+  --green:#2ecc71;
+  --green-dim:rgba(46,204,113,0.14);
+  --green-text:#54d58b;
+  --on-green:#0d1526;
+  --red:#ef5350;
+  --red-dim:rgba(239,83,80,0.14);
+  --red-text:#f27270;
+  --amber:#f0b429;
+  --amber-dim:rgba(240,180,41,0.16);
+  --blue:#4b9bf5;
+  --blue-dim:rgba(75,155,245,0.14);
+  --blue-text:#6badf7;
+  --roxo:#a97bf0;
+  --roxo-dim:rgba(169,123,240,0.14);
+  --roxo-text:#b893f3;
+  --overlay:rgba(0,0,0,0.05);
+  --overlay2:rgba(0,0,0,0.1);
+  --wpp:#25D366;
+  --wpp-dim:rgba(37,211,102,0.12);
+  --serie-1:#2a78d6;
+  --serie-2:#eb6834;
+  --serie-3:#1baf7a;
+  --serie-4:#eda100;
+  --serie-5:#e87ba4;
+  --serie-6:#008300;
+  --serie-7:#4a3aa7;
+  --serie-8:#e34948;
+  --ag-bg:#0b0b0b;
+  --ag-bg-header:#161616;
+  --ag-bg-time:#0b0b0b;
+  --ag-line:rgba(255,255,255,0.09);
+  --ag-line-full:rgba(255,255,255,0.16);
+  --ag-text:#ffffff;
+  --ag-text-muted:#737373;
+  --ag-hover:rgba(255,255,255,0.04);
+  --ag-mine-bg:rgba(0,235,164,0.14);
+  --ag-mine-border:rgba(0,235,164,0.4);
+  --ev-agendado-bar:#2a71c8;
+  --ev-agendado-bg:#122135;
+  --ev-agendado-text:#75a3db;
+  --ev-concluido-bar:#2ecc71;
+  --ev-concluido-bg:#133521;
+  --ev-concluido-text:#77dea3;
+  --ev-atrasado-bar:#c2650a;
+  --ev-atrasado-bg:#331f0b;
+  --ev-atrasado-text:#d79b60;
+  --ev-nao-veio-bar:#ef5350;
+  --ev-nao-veio-bg:#3d1b1a;
+  --ev-nao-veio-text:#f58f8d;
+  --ev-bloqueado-bar:#7a7a7a;
+  --ev-bloqueado-bg:#232323;
+  --ev-bloqueado-text:#a9a9a9;
+  /* TEMA:FIM */
+  --sidebar-w:220px; --topbar-h:56px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--white);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+     min-height:100dvh;display:flex;flex-direction:column}
+
+.topo{background:var(--bg2);border-bottom:0.5px solid var(--border);padding:14px 20px;
+      display:flex;align-items:center;gap:14px;flex-shrink:0}
+.topo .voltar{background:transparent;border:0.5px solid var(--border2);border-radius:9px;
+      width:34px;height:34px;color:var(--muted);cursor:pointer;font-size:16px;flex-shrink:0;
+      display:flex;align-items:center;justify-content:center;text-decoration:none}
+.topo h1{font-size:16px;font-weight:600}
+.topo .sub{font-size:12px;color:var(--muted);margin-top:2px}
+.topo .acoes{margin-left:auto;display:flex;gap:8px;flex-wrap:wrap}
+.bt{background:transparent;border:0.5px solid var(--border2);border-radius:9px;padding:8px 13px;
+    color:var(--muted);font-size:12.5px;cursor:pointer;font-family:inherit;white-space:nowrap}
+.bt:hover{color:var(--white);border-color:var(--border-strong)}
+
+.aviso{background:var(--gold-dim);border-bottom:0.5px solid var(--gold-border);
+       padding:10px 20px;font-size:12.5px;color:var(--cream);line-height:1.5}
+.aviso b{color:var(--gold)}
+
+/* conversa */
+.tela{flex:1;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:9px;
+      background:#0b141a;background-image:radial-gradient(rgba(255,255,255,.022) 1px,transparent 1px);
+      background-size:22px 22px}
+.linha{display:flex}
+.linha.eu{justify-content:flex-end}
+.bal{max-width:min(560px,78%);padding:9px 13px;border-radius:10px;font-size:14.5px;line-height:1.5;
+     white-space:pre-wrap;word-break:break-word}
+.bal.ia{background:#1f2c34;color:#e9edef;border-top-left-radius:3px}
+.bal.eu{background:#005c4b;color:#e9edef;border-top-right-radius:3px}
+.bal.sis{background:var(--bg3);color:var(--muted);font-size:12.5px;border:0.5px solid var(--border);
+         max-width:100%;text-align:center;border-radius:9px}
+.bal .meta{font-size:11px;color:var(--muted2);margin-top:6px}
+.bal img{max-width:180px;border-radius:8px;display:block;margin-bottom:6px}
+.bal .pin{font-size:12.5px;color:var(--gold)}
+.vazio{margin:auto;text-align:center;color:var(--muted2);font-size:13.5px;line-height:1.7;padding:30px}
+.vazio b{color:var(--muted);display:block;margin-bottom:6px;font-size:14.5px}
+
+.pensando{display:flex;gap:4px;padding:11px 14px;background:#1f2c34;border-radius:10px;
+          border-top-left-radius:3px;width:fit-content}
+.pensando i{width:6px;height:6px;border-radius:50%;background:var(--muted);display:block;
+            animation:pulo 1.2s infinite}
+.pensando i:nth-child(2){animation-delay:.18s}
+.pensando i:nth-child(3){animation-delay:.36s}
+@keyframes pulo{0%,60%,100%{opacity:.3;transform:translateY(0)}30%{opacity:1;transform:translateY(-3px)}}
+
+/* escrever */
+.baixo{background:var(--bg2);border-top:0.5px solid var(--border);padding:13px 20px;flex-shrink:0}
+.caixa{display:flex;gap:10px;align-items:flex-end;max-width:900px;margin:0 auto}
+.caixa textarea{flex:1;background:var(--bg3);border:0.5px solid var(--border2);border-radius:11px;
+      padding:11px 14px;color:var(--white);font-size:14.5px;font-family:inherit;resize:none;
+      max-height:120px;line-height:1.5}
+.caixa textarea:focus{outline:none;border-color:var(--gold-border)}
+.enviar{background:var(--gold);border:0;border-radius:11px;width:44px;height:42px;color:var(--on-primary);
+        cursor:pointer;font-size:17px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.enviar:disabled{opacity:.4;cursor:default}
+.atalhos{display:flex;gap:7px;flex-wrap:wrap;max-width:900px;margin:0 auto 10px}
+.atalho{background:var(--bg3);border:0.5px solid var(--border);border-radius:16px;padding:6px 12px;
+        color:var(--muted);font-size:12px;cursor:pointer;font-family:inherit}
+.atalho:hover{color:var(--gold);border-color:var(--gold-border)}
+
+@media(max-width:640px){
+  .topo{padding:12px 14px;flex-wrap:wrap}
+  .topo .acoes{width:100%;margin-left:0;margin-top:8px}
+  .tela{padding:14px}
+  .baixo{padding:11px 14px}
+  .bal{max-width:88%}
+}
+</style>
+</head>
+<body>
+
+<div class="topo">
+  <a class="voltar" href="appsuabarbearia-whatsapp.html">&larr;</a>
+  <div>
+    <h1>Testar a IA</h1>
+    <div class="sub">Conversa de verdade, sem mandar nada pelo WhatsApp</div>
+  </div>
+  <div class="acoes">
+    <button class="bt" onclick="reiniciar()">Recomeçar</button>
+    <button class="bt" onclick="verAgendamentos()">Agendamentos do teste</button>
+  </div>
+</div>
+
+<div class="aviso">
+  É o <b>mesmo caminho</b> do WhatsApp: mesma IA, mesma agenda, e o agendamento é <b>gravado de verdade</b>.
+  Fica no cliente <b>TESTE — Simulador da IA</b>, para você apagar depois.
+</div>
+
+<div class="tela" id="tela">
+  <div class="vazio" id="vazio">
+    <b>Escreva como se fosse o cliente</b>
+    A IA responde aqui, do mesmo jeito que responderia no WhatsApp.
+  </div>
+</div>
+
+<div class="baixo">
+  <div class="atalhos">
+    <button class="atalho" onclick="atalho('oi')">oi</button>
+    <button class="atalho" onclick="atalho('quero marcar um horario')">quero marcar um horario</button>
+    <button class="atalho" onclick="atalho('tem horario amanha de tarde?')">tem horario amanha de tarde?</button>
+    <button class="atalho" onclick="atalho('quanto custa o corte?')">quanto custa o corte?</button>
+    <button class="atalho" onclick="atalho('onde fica a barbearia?')">onde fica?</button>
+    <button class="atalho" onclick="atalho('nao sei quem me atende')">nao sei quem me atende</button>
+    <button class="atalho" onclick="atalho('quero falar com uma pessoa')">falar com uma pessoa</button>
+  </div>
+  <div class="caixa">
+    <textarea id="txt" rows="1" placeholder="Escreva como o cliente escreveria..."
+      onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();mandar()}"
+      oninput="this.style.height='auto';this.style.height=Math.min(this.scrollHeight,120)+'px'"></textarea>
+    <button class="enviar" id="bt-enviar" onclick="mandar()">&#10148;</button>
+  </div>
+</div>
+
+<script src="api.js"></script>
+<script>
+var ocupado = false;
+
+function elTela(){ return document.getElementById('tela') }
+function rolar(){ var t=elTela(); t.scrollTop = t.scrollHeight }
+
+function bolha(quem, conteudo, meta){
+  var v=document.getElementById('vazio'); if(v) v.remove();
+  var linha=document.createElement('div');
+  linha.className='linha'+(quem==='eu'?' eu':'');
+  var b=document.createElement('div');
+  b.className='bal '+quem;
+  b.innerHTML=conteudo;
+  if(meta){ var m=document.createElement('div'); m.className='meta'; m.textContent=meta; b.appendChild(m) }
+  linha.appendChild(b); elTela().appendChild(linha); rolar();
+  return linha;
+}
+
+function escapar(t){
+  return String(t==null?'':t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+// *negrito* do WhatsApp vira negrito de verdade, para a mensagem aparecer
+// aqui igual o cliente veria no celular.
+function comoNoWhats(t){
+  return escapar(t).replace(/\*([^*\n]+)\*/g, '<b>$1</b>');
+}
+
+function atalho(t){ document.getElementById('txt').value=t; mandar() }
+
+async function mandar(){
+  if(ocupado) return;
+  var el=document.getElementById('txt');
+  var msg=(el.value||'').trim();
+  if(!msg) return;
+  el.value=''; el.style.height='auto';
+  bolha('eu', escapar(msg));
+
+  ocupado=true;
+  document.getElementById('bt-enviar').disabled=true;
+  var espera=document.createElement('div');
+  espera.className='linha';
+  espera.innerHTML='<div class="pensando"><i></i><i></i><i></i></div>';
+  elTela().appendChild(espera); rolar();
+
+  try{
+    var r = await req('POST','/whatsapp/ia/teste',{ mensagem: msg });
+    espera.remove();
+
+    if(r && r.erro){
+      bolha('sis','A IA falhou: '+escapar(r.erro));
+    } else if(!r || !r.mensagens || !r.mensagens.length){
+      bolha('sis','A IA não respondeu nada. Isso acontece quando ela decide ficar calada — por exemplo, assunto fora da barbearia pela terceira vez.');
+    } else {
+      for(var i=0;i<r.mensagens.length;i++){
+        var m=r.mensagens[i];
+        var meta = (i===r.mensagens.length-1) ? (r.segundos+'s · '+(r.modelo||'')) : null;
+        if(m.tipo==='imagem'){
+          bolha('ia','<img src="'+escapar(m.url)+'" alt="">'+comoNoWhats(m.legenda||''), meta);
+        } else if(m.tipo==='local'){
+          bolha('ia','<div class="pin">📍 '+escapar(m.nome||'Localização')+'</div>'+escapar(m.endereco||''), meta);
+        } else {
+          bolha('ia', comoNoWhats(m.texto), meta);
+        }
+      }
+      if(r.pediu_humano) bolha('sis','A IA passou esta conversa para uma pessoa. No WhatsApp ela pararia de responder aqui.');
+    }
+  }catch(e){
+    espera.remove();
+    bolha('sis','Não consegui falar com o servidor: '+escapar((e&&e.message)||'erro'));
+  }
+  ocupado=false;
+  document.getElementById('bt-enviar').disabled=false;
+  document.getElementById('txt').focus();
+}
+
+async function reiniciar(){
+  if(!confirm('Apagar esta conversa de teste e começar do zero?')) return;
+  try{
+    await req('POST','/whatsapp/ia/teste/reiniciar',{});
+    elTela().innerHTML='<div class="vazio"><b>Conversa zerada</b>A IA não lembra de nada do que foi dito antes.</div>';
+  }catch(e){ alert((e&&e.message)||'Erro ao reiniciar') }
+}
+
+async function verAgendamentos(){
+  try{
+    var r = await req('GET','/whatsapp/ia/teste/agendamentos');
+    var ags = (r&&r.agendamentos)||[];
+    if(!ags.length){ alert('O simulador ainda não marcou nenhum horário.'); return }
+    var linhas = ags.map(function(a){
+      var d = new Date(new Date(a.data_hora_ini).getTime() - 3*3600*1000);
+      var dia = d.toISOString().slice(0,10).split('-').reverse().join('/');
+      var hora = d.toISOString().slice(11,16);
+      var svc = (a.servicos&&a.servicos.nome)||'atendimento';
+      var col = (a.colaboradores&&a.colaboradores.nome)||'—';
+      return dia+' '+hora+' · '+svc+' · '+col+' ('+a.status+')';
+    }).join('\n');
+    if(confirm('O simulador marcou '+ags.length+' horário(s):\n\n'+linhas+'\n\nApagar todos?')){
+      var d = await req('DELETE','/whatsapp/ia/teste/agendamentos');
+      alert((d&&d.apagados||0)+' agendamento(s) apagado(s).');
+    }
+  }catch(e){ alert((e&&e.message)||'Erro') }
+}
+
+document.getElementById('txt').focus();
+</script>
+</body>
+</html>
