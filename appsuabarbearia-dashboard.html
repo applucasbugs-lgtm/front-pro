@@ -213,6 +213,11 @@ body.modo-bloq .ag-slot{cursor:crosshair}
 .ag-slot.full-hour{border-bottom:1px solid var(--ag-line-full)}
 .ag-slot:hover{background:var(--ag-hover)}
 .ag-slot.drag-over{background:var(--gold-dim)!important;outline:2px dashed var(--gold)}
+/* Alça de arrastar o agendamento. touch-action:none é o que permite arrastar
+   com o dedo: sem isso o navegador entende rolagem e cancela o arrasto. */
+.ag-grip{margin-left:auto;flex-shrink:0;touch-action:none;cursor:grab;opacity:.45;font-size:12px;line-height:1;padding:0 2px;color:inherit}
+.ag-grip:hover{opacity:.9}
+.ag-event.arrastando{opacity:.4}
 @media(max-width:640px){
   .agenda-grid-wrap{overflow-x:hidden}
   .agenda-grid{min-width:0}
@@ -227,6 +232,8 @@ body.modo-bloq .ag-slot{cursor:crosshair}
      a linha valia 15 minutos, e o texto ficava espremido. */
   .ag-slot{min-width:0;height:30px}
   .ag-event{inset:1px 2px;padding:0 6px;border-left-width:2px;gap:5px}
+  /* Alvo maior para o dedo acertar a alça. */
+  .ag-grip{font-size:15px;padding:0 5px;opacity:.75}
   .ag-event-client{font-size:10.5px;line-height:1}
   .ag-event-service{font-size:9.5px;line-height:1}
 }
@@ -411,13 +418,13 @@ body.modo-bloq .ag-slot{cursor:crosshair}
 .ia-send svg{width:15px;height:15px;color:var(--black)}
 
 /* MODAL */
-.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:500;align-items:center;justify-content:center;padding:max(12px,3vh) 16px;overflow-y:auto}
-.modal-box{background:var(--bg2);border:0.5px solid var(--border);border-radius:16px;width:100%;max-width:min(440px,94vw);max-height:94vh;display:flex;flex-direction:column;overflow:hidden}
-.modal-header{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-bottom:0.5px solid var(--border);flex-shrink:0}
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:500;align-items:center;justify-content:center;padding:20px}
+.modal-box{background:var(--bg2);border:0.5px solid var(--border);border-radius:16px;width:100%;max-width:440px;overflow:hidden}
+.modal-header{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-bottom:0.5px solid var(--border)}
 .modal-title{font-size:15px;font-weight:500;color:var(--white)}
 .modal-sub{font-size:12px;color:var(--muted);margin-top:2px}
-.modal-body{padding:18px 20px;display:flex;flex-direction:column;gap:14px;overflow-y:auto;flex:1;min-height:0}
-.modal-footer{display:flex;gap:10px;padding:14px 20px;border-top:0.5px solid var(--border);flex-shrink:0}
+.modal-body{padding:18px 20px;display:flex;flex-direction:column;gap:14px}
+.modal-footer{display:flex;gap:10px;padding:14px 20px;border-top:0.5px solid var(--border)}
 .modal-close{background:var(--bg3);border:0.5px solid var(--border);border-radius:8px;width:30px;height:30px;cursor:pointer;color:var(--muted);font-size:16px;display:flex;align-items:center;justify-content:center;line-height:1}
 .field-label{font-size:11px;font-weight:500;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;display:block;margin-bottom:6px}
 .field-input{width:100%;background:var(--bg3);border:0.5px solid var(--border2);border-radius:8px;padding:10px 12px;font-size:13px;color:var(--white);font-family:'Inter',sans-serif;outline:none}
@@ -1336,9 +1343,13 @@ function renderGrid(grid, barberList, evList, profile){
         var lanes=ev._lanes||1, lane=ev._lane||0;
         var posStyle='height:'+h+'px;';
         if(lanes>1){ var w=100/lanes; posStyle+='left:calc('+(lane*w)+'% + 2px);width:calc('+w+'% - 4px);right:auto;'; }
-        html+='<div class="ag-event ev-'+({'nao_compareceu':'nao-veio','nao-compareceu':'nao-veio'}[ev.status]||ev.status)+((!ehBloqueio&&!ehFinalizado&&!ehAusente)?' org-'+_origem:'')+(ev.encaixe&&!ehBloqueio&&!ehFinalizado&&!ehAusente?' ev-encaixe':'')+'" draggable="true" style="'+posStyle+'" data-ev-client="'+ev.client+'" data-ev-service="'+ev.service+'" data-ev-start="'+(ev.start_real!=null?ev.start_real:ev.start)+'" data-ev-barber="'+nome+'" data-ev-id="'+(ev.id||'')+'" data-ev-status="'+ev.status+'" data-ev-valor="'+(ev.valor||0)+'">'
+        html+='<div class="ag-event ev-'+({'nao_compareceu':'nao-veio','nao-compareceu':'nao-veio'}[ev.status]||ev.status)+((!ehBloqueio&&!ehFinalizado&&!ehAusente)?' org-'+_origem:'')+(ev.encaixe&&!ehBloqueio&&!ehFinalizado&&!ehAusente?' ev-encaixe':'')+'" draggable="false" style="'+posStyle+'" data-ev-client="'+ev.client+'" data-ev-service="'+ev.service+'" data-ev-start="'+(ev.start_real!=null?ev.start_real:ev.start)+'" data-ev-barber="'+nome+'" data-ev-id="'+(ev.id||'')+'" data-ev-status="'+ev.status+'" data-ev-valor="'+(ev.valor||0)+'">'
           +'<span class="ag-event-client">'+label+'</span>'
           +((!ehBloqueio && ev.service) ? '<span class="ag-event-service">'+ev.service+'</span>' : '')
+          // A alça de arrastar. No celular ela é o caminho confiável: o dedo
+          // em cima dela move o agendamento, e no resto do cartão continua
+          // rolando a tela como o Lucas espera.
+          +((!ehBloqueio && !ehFinalizado && canEdit) ? '<span class="ag-grip" title="Arraste para mudar o horário">⠿</span>' : '')
           +'</div>';
       });
       html+='</div>';
@@ -1374,6 +1385,9 @@ function renderGrid(grid, barberList, evList, profile){
   grid.querySelectorAll('.ag-event').forEach(function(el){
     el.addEventListener('click', function(e){
       e.stopPropagation();
+      // Acabou de arrastar: o navegador manda um clique depois de soltar, e
+      // sem isto a ficha do agendamento abria em cima da confirmação.
+      if(window._agArrastouAte && Date.now() < window._agArrastouAte) return;
       var client  = el.dataset.evClient  || '';
       var service = el.dataset.evService || '';
       var status  = el.dataset.evStatus  || 'agendado';
@@ -1385,29 +1399,174 @@ function renderGrid(grid, barberList, evList, profile){
       eventClick(e, client, service, status, canEdit, evId);
     });
   });
-  // Drag and drop
-  grid.querySelectorAll('.ag-event[draggable="true"]').forEach(function(ev){
-    ev.addEventListener('dragstart',function(e){
-      window._dragEv={ id: ev.dataset.evId };
-      ev.style.opacity='0.5';
-    });
-    ev.addEventListener('dragend',function(){ev.style.opacity='1';grid.querySelectorAll('.ag-slot.drag-over').forEach(function(s){s.classList.remove('drag-over')})});
-  });
-  grid.querySelectorAll('.ag-slot').forEach(function(slot){
-    slot.addEventListener('dragover',function(e){e.preventDefault();slot.classList.add('drag-over')});
-    slot.addEventListener('dragleave',function(){slot.classList.remove('drag-over')});
-    slot.addEventListener('drop',function(e){
-      e.preventDefault();slot.classList.remove('drag-over');
-      if(!window._dragEv || !window._dragEv.id) return;
-      var ev0 = events.find(function(x){ return x.id === window._dragEv.id; });
+  ligarArrasteAgenda(grid, evList, profile);
+}
+
+// ============================================================
+// ARRASTAR PARA MUDAR O HORÁRIO — mouse E dedo
+//
+// Antes isto era drag-and-drop do HTML, que no celular simplesmente não
+// acontece: o dedo não dispara 'dragstart'. No telefone só dava para abrir o
+// agendamento e digitar o novo horário.
+//
+// Agora é Pointer Event — o mesmo evento serve para mouse, dedo e caneta:
+//   • No PC o arrasto começa quando o ponteiro anda 4px.
+//   • No celular começa depois de segurar 250ms. Antes disso o dedo rola a
+//     agenda como sempre — senão a tela travava a rolagem.
+//
+// Enquanto arrasta, o horário de destino aparece colado no ponteiro e a
+// célula de baixo fica marcada. Chegando perto da borda, a agenda rola
+// sozinha, que é o único jeito de levar um agendamento das 9h para as 18h na
+// tela do telefone.
+// ============================================================
+var SEGURAR_MS = 250;      // toque: tempo de espera antes de virar arrasto
+var ANDAR_PX = 4;          // mouse: quanto o ponteiro anda para começar
+var TOLERANCIA_PX = 10;    // toque: andou mais que isso antes do tempo = rolagem
+
+function ligarArrasteAgenda(grid, evList, profile){
+  var wrap = grid.closest('.agenda-grid-wrap');
+  var st = null;
+
+  function achar(id){
+    var lista = (evList && evList.length) ? evList : (events || []);
+    return lista.find(function(x){ return x.id === id; });
+  }
+
+  function limpar(){
+    if(!st) return;
+    if(st.timer) clearTimeout(st.timer);
+    if(st.rolagem) clearInterval(st.rolagem);
+    if(st.fantasma) st.fantasma.remove();
+    st.el.style.opacity = '';
+    st.el.style.pointerEvents = '';
+    if(wrap) wrap.style.touchAction = '';
+    document.body.style.userSelect = '';
+    grid.querySelectorAll('.ag-slot.drag-over').forEach(function(s){ s.classList.remove('drag-over'); });
+    try { st.el.releasePointerCapture(st.pid); } catch(e){}
+    st = null;
+  }
+
+  function comecar(){
+    if(!st || st.ativo) return;
+    st.ativo = true;
+    st.el.style.opacity = '0.4';
+    // Sem isto o elementFromPoint devolve o próprio cartão, nunca a célula.
+    st.el.style.pointerEvents = 'none';
+    if(wrap) wrap.style.touchAction = 'none';
+    document.body.style.userSelect = 'none';
+    if(navigator.vibrate) { try { navigator.vibrate(12); } catch(e){} }
+    st.fantasma = document.createElement('div');
+    st.fantasma.style.cssText = 'position:fixed;z-index:10000;pointer-events:none;background:var(--gold,#c9a227);color:#17170f;'+
+      'font:600 12.5px Inter,sans-serif;padding:6px 10px;border-radius:8px;box-shadow:0 6px 20px rgba(0,0,0,.45);white-space:nowrap';
+    document.body.appendChild(st.fantasma);
+    st.rolagem = setInterval(rolarBorda, 60);
+  }
+
+  // Rolagem automática perto das bordas, para alcançar horário distante.
+  function rolarBorda(){
+    if(!st || !st.ativo) return;
+    var y = st.y, passo = 14, margem = 56;
+    if(wrap && wrap.scrollHeight > wrap.clientHeight){
+      var r = wrap.getBoundingClientRect();
+      if(y < r.top + margem) wrap.scrollTop -= passo;
+      else if(y > r.bottom - margem) wrap.scrollTop += passo;
+    } else {
+      if(y < margem) window.scrollBy(0, -passo);
+      else if(y > window.innerHeight - margem) window.scrollBy(0, passo);
+    }
+    marcarAlvo();
+  }
+
+  function celulaEm(x, y){
+    var el = document.elementFromPoint(x, y);
+    return el ? el.closest('.ag-slot') : null;
+  }
+
+  function marcarAlvo(){
+    if(!st || !st.ativo) return;
+    var cel = celulaEm(st.x, st.y);
+    grid.querySelectorAll('.ag-slot.drag-over').forEach(function(s){ if(s!==cel) s.classList.remove('drag-over'); });
+    st.alvo = (cel && cel.dataset.time != null) ? cel : null;
+    if(st.alvo) st.alvo.classList.add('drag-over');
+    if(st.fantasma){
+      st.fantasma.style.left = Math.min(window.innerWidth - 150, st.x + 14) + 'px';
+      st.fantasma.style.top = Math.max(8, st.y - 34) + 'px';
+      st.fantasma.textContent = st.alvo
+        ? minToStr(parseInt(st.alvo.dataset.time, 10)) + ' · ' + (st.alvo.dataset.barber || '')
+        : 'solte sobre um horário';
+    }
+  }
+
+  grid.querySelectorAll('.ag-event').forEach(function(el){
+    el.addEventListener('pointerdown', function(e){
+      if(e.pointerType === 'mouse' && e.button !== 0) return;
+      if(document.body.classList.contains('modo-bloq')) return;
+      var id = el.dataset.evId || '';
+      if(!id) return;
+      var ev0 = achar(id);
       if(!ev0) return;
-      var novoSlot=parseInt(slot.dataset.time);
-      var novoBarbId=slot.getAttribute('data-barbeiroId')||'';
-      var novoBarbNome=slot.dataset.barber||'';
-      if(novoSlot===ev0.start && novoBarbNome===ev0.barber) return; // não mudou nada
-      if(!confirm('Mover para '+minToStr(novoSlot)+' — '+novoBarbNome+'?')) return;
+
+      // Mesma permissão do clique: barbeiro mexe na agenda dele.
+      var podeEditar = ['proprietario','gerente','caixa'].includes(profile || currentProfile) ||
+        (el.dataset.evBarber || '') === LOGGED_BARBER;
+      if(!podeEditar) return;
+
+      // Bloqueio não é agendamento, e concluído já aconteceu — mover não faz
+      // sentido e o servidor recusaria.
+      var sit = String(ev0.status || '');
+      if(sit === 'bloqueado' || sit === 'concluido') return;
+
+      // Pegou pela alça: arrasta na hora, seja dedo ou mouse.
+      var naAlca = !!(e.target && e.target.closest && e.target.closest('.ag-grip'));
+
+      st = { el: el, ev0: ev0, pid: e.pointerId, tipo: e.pointerType, alca: naAlca,
+             x0: e.clientX, y0: e.clientY, x: e.clientX, y: e.clientY,
+             ativo: false, timer: null, rolagem: null, fantasma: null, alvo: null };
+      try { el.setPointerCapture(e.pointerId); } catch(err){}
+      if(naAlca){
+        comecar(); marcarAlvo();
+      } else if(e.pointerType !== 'mouse'){
+        // Dedo no corpo do cartão: segura para arrastar. Se o navegador
+        // entender rolagem antes disso, vem pointercancel e nada acontece —
+        // por isso a alça existe.
+        st.timer = setTimeout(function(){ comecar(); marcarAlvo(); }, SEGURAR_MS);
+      }
+    });
+
+    el.addEventListener('pointermove', function(e){
+      if(!st || e.pointerId !== st.pid) return;
+      st.x = e.clientX; st.y = e.clientY;
+      var andou = Math.abs(e.clientX - st.x0) + Math.abs(e.clientY - st.y0);
+      if(!st.ativo){
+        if(st.tipo === 'mouse' || st.alca){ if(andou > ANDAR_PX){ comecar(); } }
+        // Dedo no corpo do cartão: saiu do lugar antes do tempo = rolagem.
+        else if(andou > TOLERANCIA_PX){ limpar(); return; }
+      }
+      if(st.ativo){ e.preventDefault(); marcarAlvo(); }
+    });
+
+    el.addEventListener('pointerup', function(e){
+      if(!st || e.pointerId !== st.pid) return;
+      if(!st.ativo){ limpar(); return; }   // foi um toque/clique comum
+      var ev0 = st.ev0, alvo = st.alvo;
+      // Segura o clique que o navegador dispara depois do arrasto, senão a
+      // ficha do agendamento abre em cima da confirmação.
+      window._agArrastouAte = Date.now() + 400;
+      limpar();
+      if(!alvo) return;
+      var novoSlot = parseInt(alvo.dataset.time, 10);
+      var novoBarbId = alvo.getAttribute('data-barbeiroId') || '';
+      var novoBarbNome = alvo.dataset.barber || '';
+      if(novoSlot === ev0.start && novoBarbNome === ev0.barber) return;
+      var mesmo = novoBarbNome === ev0.barber;
+      if(!confirm('Mover ' + (ev0.client || 'o agendamento') + ' de ' + minToStr(ev0.start) +
+                  ' para ' + minToStr(novoSlot) + (mesmo ? '?' : ' com ' + novoBarbNome + '?'))) return;
       moverEvento(ev0, novoSlot, novoBarbId, novoBarbNome);
     });
+
+    el.addEventListener('pointercancel', function(e){ if(st && e.pointerId === st.pid) limpar(); });
+    // Segurar no celular abre o menu do navegador por cima do arrasto.
+    el.addEventListener('contextmenu', function(e){ if(st) e.preventDefault(); });
   });
 }
 

@@ -149,6 +149,20 @@ td{padding:12px 16px;font-size:13px;color:var(--white);vertical-align:middle}
 
 /* BADGE */
 .badge{display:inline-flex;align-items:center;font-size:11px;font-weight:500;padding:2px 9px;border-radius:10px;white-space:nowrap}
+/* + e − dos cortes do ciclo (tela de assinantes) */
+.cota-wrap{display:flex;align-items:center;gap:8px}
+.cota-btn{width:28px;height:28px;flex-shrink:0;border-radius:8px;border:0.5px solid var(--border2);background:var(--bg3);color:var(--white);font-size:16px;font-weight:600;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:filter .12s,opacity .12s}
+.cota-btn:hover{filter:brightness(1.25)}
+.cota-btn:disabled{opacity:.35;cursor:not-allowed}
+.cota-mais{border-color:rgba(76,175,80,.45);color:#5cc85c}
+.cota-menos{border-color:rgba(255,93,93,.45);color:#ff6b6b}
+.cota-hist{background:transparent;border:0;color:var(--muted);cursor:pointer;font-size:12px;padding:2px 3px;border-radius:5px}
+.cota-hist:hover{color:var(--gold)}
+@media(max-width:640px){
+  /* No celular o toque precisa de alvo maior, senão erra o botão. */
+  .cota-btn{width:34px;height:34px;font-size:18px}
+  .cota-wrap{gap:6px}
+}
 .bg{background:var(--green-dim);color:var(--green-text)}
 .br{background:var(--red-dim);color:var(--red-text)}
 .bb{background:var(--blue-dim);color:var(--blue-text)}
@@ -1095,13 +1109,118 @@ function filtrarAssinantes(){
 // A tela não mostrava isso, então ninguém — nem o Lucas, nem o cliente —
 // sabia quantos atendimentos sobravam. O back manda em a.uso, com a mesma
 // conta do app do cliente e da IA do WhatsApp.
-function _cotasCelula(uso){
+// O + E O − AO LADO DO NÚMERO
+//
+// A conta de cortes usados vem das comandas, e a vida real não passa toda por
+// ali: o Lucas dá um atendimento de cortesia, o cliente marca por fora do app,
+// ou fica uma combinação na loja. Sem poder corrigir, o número na tela briga
+// com a realidade e ninguém confia nele.
+//
+// O ajuste vale SÓ para o ciclo atual — na renovação o contador volta ao que
+// o plano contratou.
+function _cotasCelula(a){
+  var uso = a && a.uso;
   if(!uso) return '<span style="color:var(--muted)">—</span>';
   if(uso.vencido) return '<span style="color:#ff5a5a;font-size:12.5px">plano vencido</span>';
   var r=uso.restantes, t=uso.total;
   var cor = r===0 ? '#ff5a5a' : (r<=1 ? '#ffb84d' : 'var(--gold)');
-  return '<div style="font-weight:600;color:'+cor+'">'+r+' de '+t+'</div>'+
-         '<div style="font-size:11.5px;color:var(--muted)">'+(r===0?'cotas esgotadas':'restam neste ciclo')+'</div>';
+  var extras = uso.extras || 0;
+  var selo = extras ? '<div style="font-size:10.5px;color:var(--muted2,var(--muted))">ajuste deste ciclo: '+(extras>0?'+':'')+extras+'</div>' : '';
+  return '<div class="cota-wrap">'+
+    '<button class="cota-btn cota-menos" title="Tirar 1 corte dos restantes deste ciclo"'+
+      (r<=0?' disabled':'')+' onclick="ajustarCotas(\''+a.id+'\',-1,this)">−</button>'+
+    '<div style="min-width:74px">'+
+      '<div style="font-weight:600;color:'+cor+'">'+r+' de '+t+'</div>'+
+      '<div style="font-size:11.5px;color:var(--muted)">'+(r===0?'cotas esgotadas':'restam neste ciclo')+'</div>'+
+      selo+
+    '</div>'+
+    '<button class="cota-btn cota-mais" title="Dar 1 corte a mais neste ciclo"'+
+      ' onclick="ajustarCotas(\''+a.id+'\',1,this)">+</button>'+
+  '</div>';
+}
+
+// Salva o ajuste. Mexe só nos restantes do ciclo; quem conta os usados
+// continua sendo a comanda.
+async function ajustarCotas(id, delta, botao){
+  var linha = botao && botao.closest('td');
+  if(linha) linha.querySelectorAll('.cota-btn').forEach(function(b){ b.disabled = true; });
+  try{
+    var r = await req('POST','/assinaturas/'+id+'/cotas',{ delta: delta });
+    var a = _assinantes.find(function(x){ return x.id===id; });
+    if(a && r && r.uso) a.uso = r.uso;
+    filtrarAssinantes();
+    _avisoCota((delta>0?'+1 corte neste ciclo · ':'−1 corte neste ciclo · ')+
+      (r && r.uso ? r.uso.restantes+' restantes' : ''), true);
+  }catch(e){
+    if(linha) linha.querySelectorAll('.cota-btn').forEach(function(b){ b.disabled = false; });
+    _avisoCota(e.message || 'Não deu para ajustar agora', false);
+  }
+}
+
+function _avisoCota(texto, bom){
+  var t = document.createElement('div');
+  t.style.cssText = 'position:fixed;bottom:24px;right:24px;background:var(--bg2);border:0.5px solid '+
+    (bom?'rgba(76,175,80,.4)':'rgba(255,93,93,.5)')+';border-radius:10px;padding:12px 16px;font-size:13px;color:var(--white);z-index:9999';
+  t.textContent = (bom?'✅ ':'⚠️ ')+texto;
+  document.body.appendChild(t);
+  setTimeout(function(){ t.remove() }, 3500);
+}
+
+// O HISTÓRICO — quem mexeu na validade e nos cortes
+//
+// A assinatura do Maurício Nunes apareceu com dois meses de validade e não
+// havia como saber de onde vinha. Agora dá: cada mudança fica anotada e esta
+// janela mostra a lista.
+async function abrirHistoricoAssinatura(id){
+  var a = _assinantes.find(function(x){ return x.id===id; }) || {};
+  var cli = (a.clientes||{}).nome || 'assinante';
+  var ov = document.createElement('div');
+  ov.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.6);display:flex;align-items:center;justify-content:center;z-index:9998;padding:16px';
+  ov.onclick = function(e){ if(e.target===ov) ov.remove(); };
+  ov.innerHTML = '<div style="background:var(--bg2);border:0.5px solid var(--border2);border-radius:14px;max-width:560px;width:100%;max-height:82vh;overflow:auto;padding:18px">'+
+    '<div style="font-weight:600;margin-bottom:2px">Histórico — '+cli+'</div>'+
+    '<div style="font-size:12px;color:var(--muted);margin-bottom:14px">Mudanças de validade e ajustes de cortes do ciclo</div>'+
+    '<div id="hist-corpo" style="font-size:12.5px;color:var(--muted)">Carregando...</div>'+
+    '<div style="text-align:right;margin-top:16px"><button class="btn btn-ghost" style="padding:7px 14px;font-size:13px">Fechar</button></div>'+
+  '</div>';
+  ov.querySelector('button').onclick = function(){ ov.remove(); };
+  document.body.appendChild(ov);
+  try{
+    var h = await req('GET','/assinaturas/'+id+'/historico');
+    var linhas = [];
+    (h.validade||[]).forEach(function(x){
+      linhas.push({ quando:x.quando, texto:
+        (x.empurrou ? 'Validade: '+_fmtBR(x.de)+' → '+_fmtBR(x.para) : 'Validade mantida em '+_fmtBR(x.para))+
+        ' · '+_nomeOrigem(x.origem)+(x.motivo?' ('+x.motivo+')':'')+(x.por?' · '+x.por:''),
+        bom: x.empurrou });
+    });
+    (h.cotas||[]).forEach(function(x){
+      linhas.push({ quando:x.quando, texto:
+        'Cortes do ciclo: '+x.restantes_antes+' → '+x.restantes_depois+' ('+(x.delta>0?'+':'')+x.delta+')'+
+        (x.motivo?' · '+x.motivo:'')+(x.por?' · '+x.por:''), bom: x.delta>0 });
+    });
+    linhas.sort(function(p,q){ return String(q.quando).localeCompare(String(p.quando)); });
+    var el = ov.querySelector('#hist-corpo');
+    if(!el) return;
+    el.innerHTML = linhas.length
+      ? linhas.map(function(l){
+          return '<div style="display:flex;gap:10px;padding:8px 0;border-bottom:0.5px solid var(--border)">'+
+            '<div style="color:var(--muted);white-space:nowrap;font-size:11.5px">'+String(l.quando||'').slice(0,16)+'</div>'+
+            '<div style="color:var(--white)">'+l.texto+'</div></div>';
+        }).join('')
+      : '<div>Nada anotado ainda. As próximas mudanças aparecem aqui.</div>';
+  }catch(e){
+    var el2 = ov.querySelector('#hist-corpo');
+    if(el2) el2.innerHTML = '<div style="color:var(--red)">Erro ao carregar: '+(e.message||'')+'</div>';
+  }
+}
+
+function _nomeOrigem(o){
+  return ({
+    venda_painel:'venda no painel', renovacao_painel:'renovação no painel',
+    pagamento_online:'pagamento online', pagamento_manual:'recebido na barbearia',
+    cortesia:'cortesia', ajuste_manual:'editado na tela', pagamento:'pagamento'
+  })[o] || (o||'');
 }
 
 function renderAssinantes(lista){
@@ -1113,9 +1232,10 @@ function renderAssinantes(lista){
     return '<tr>'+
       '<td><div style="font-weight:600">'+(cli.nome||'—')+'</div><div style="font-size:12px;color:var(--muted)">'+(cli.whatsapp||'')+'</div></td>'+
       '<td>'+(pl.nome||'—')+'</td>'+
-      '<td>'+_cotasCelula(a.uso)+'</td>'+
+      '<td>'+_cotasCelula(a)+'</td>'+
       '<td>'+_fmtBR(a.data_inicio)+'</td>'+
-      '<td>'+_fmtBR(a.data_renovacao)+'</td>'+
+      '<td style="white-space:nowrap">'+_fmtBR(a.data_renovacao)+
+        ' <button class="cota-hist" title="Ver o que mexeu na validade e nos cortes" onclick="abrirHistoricoAssinatura(\''+a.id+'\')">🕘</button></td>'+
       '<td>'+_statusBadge(a.status)+_selagemCobranca(a)+'</td>'+
       '<td style="text-align:right;white-space:nowrap">'+
         '<button data-func="vender_plano" class="btn btn-primary" style="padding:6px 12px;font-size:13px;margin-right:6px" onclick="abrirRenovarPlano(\''+a.id+'\')">🔄 Renovar</button>'+
