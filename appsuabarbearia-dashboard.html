@@ -231,13 +231,13 @@ body.modo-bloq .ag-slot{cursor:crosshair}
   /* Altura acompanha a grade de 30 min do desktop — 24px era do tempo em que
      a linha valia 15 minutos, e o texto ficava espremido. */
   .ag-slot{min-width:0;height:30px}
-  .ag-event{inset:1px 2px;padding:0 6px;border-left-width:2px;gap:5px}
+  .ag-event{top:1px;right:2px;bottom:1px;left:2px;padding:0 6px;border-left-width:2px;gap:5px}
   /* Alvo maior para o dedo acertar a alça. */
   .ag-grip{font-size:15px;padding:0 5px;opacity:.75}
   .ag-event-client{font-size:10.5px;line-height:1}
   .ag-event-service{font-size:9.5px;line-height:1}
 }
-.ag-event{position:absolute;inset:2px 3px;border-radius:5px;padding:0 8px;display:flex;flex-direction:row;align-items:center;gap:6px;overflow:hidden;cursor:pointer;z-index:2;border-left:3px solid transparent;transition:filter .12s;white-space:nowrap}
+.ag-event{position:absolute;top:2px;right:3px;bottom:2px;left:3px;border-radius:5px;padding:0 8px;display:flex;flex-direction:row;align-items:center;gap:6px;overflow:hidden;cursor:pointer;z-index:2;border-left:3px solid transparent;transition:filter .12s;white-space:nowrap}
 .ag-event:hover{filter:brightness(.94)}
 #ag-preview{position:fixed;z-index:9999;background:var(--bg);border:0.5px solid var(--gold-border,var(--border-strong));border-radius:10px;padding:10px 13px;box-shadow:0 8px 28px rgba(0,0,0,.55);pointer-events:none;min-width:160px;max-width:240px;display:none;font-family:'Inter',sans-serif}
 #ag-preview .agp-tit{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--gold);margin-bottom:6px}
@@ -359,7 +359,7 @@ body.modo-bloq .ag-slot{cursor:crosshair}
 .caixa-menu-item svg{width:16px;height:16px;color:var(--gold);flex-shrink:0}
 
 /* ===================== MODAL PAGAMENTO ===================== */
-.pgto-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:600;align-items:center;justify-content:center;padding:20px}
+.pgto-overlay{display:none;position:fixed;top:0;right:0;bottom:0;left:0;background:rgba(0,0,0,.8);z-index:600;align-items:center;justify-content:center;padding:20px}
 .pgto-overlay.open{display:flex}
 .pgto-box{background:var(--bg2);border:0.5px solid var(--border);border-radius:16px;width:100%;max-width:520px;max-height:90vh;overflow-y:auto;display:flex;flex-direction:column}
 .pgto-header{padding:18px 20px;border-bottom:0.5px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
@@ -418,7 +418,7 @@ body.modo-bloq .ag-slot{cursor:crosshair}
 .ia-send svg{width:15px;height:15px;color:var(--black)}
 
 /* MODAL */
-.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:500;align-items:center;justify-content:center;padding:20px}
+.modal-overlay{display:none;position:fixed;top:0;right:0;bottom:0;left:0;background:rgba(0,0,0,.75);z-index:500;align-items:center;justify-content:center;padding:20px}
 .modal-box{background:var(--bg2);border:0.5px solid var(--border);border-radius:16px;width:100%;max-width:440px;overflow:hidden}
 .modal-header{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-bottom:0.5px solid var(--border)}
 .modal-title{font-size:15px;font-weight:500;color:var(--white)}
@@ -842,7 +842,7 @@ main.content.barbeiro-first > #metrics-prop{order:7}
 </div>
 
 <!-- MODAL REUTILIZÁVEL: AUTORIZAÇÃO DO GERENTE -->
-<div id="modal-autorizacao" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:2000;align-items:center;justify-content:center;padding:20px">
+<div id="modal-autorizacao" style="display:none;position:fixed;top:0;right:0;bottom:0;left:0;background:rgba(0,0,0,.7);z-index:2000;align-items:center;justify-content:center;padding:20px">
   <div style="background:var(--bg2);border:1px solid var(--gold-border);border-radius:14px;width:100%;max-width:360px;overflow:hidden">
     <div style="padding:16px 18px;border-bottom:0.5px solid var(--border)">
       <div id="aut-titulo" style="font-size:15px;font-weight:600;color:var(--gold)">Autorização do gerente</div>
@@ -859,7 +859,7 @@ main.content.barbeiro-first > #metrics-prop{order:7}
 </div>
 
 <!-- MODAL TROCAR SENHA DE AUTORIZAÇÃO -->
-<div id="modal-trocar-senha-aut" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:2000;align-items:center;justify-content:center;padding:20px">
+<div id="modal-trocar-senha-aut" style="display:none;position:fixed;top:0;right:0;bottom:0;left:0;background:rgba(0,0,0,.7);z-index:2000;align-items:center;justify-content:center;padding:20px">
   <div style="background:var(--bg2);border:1px solid var(--gold-border);border-radius:14px;width:100%;max-width:360px;overflow:hidden">
     <div style="padding:16px 18px;border-bottom:0.5px solid var(--border)">
       <div style="font-size:15px;font-weight:600;color:var(--gold)">Senha de autorização</div>
@@ -2039,7 +2039,7 @@ async function verTransferidosPresos(){
   var ov=document.getElementById('ov-transf-presos');
   if(!ov){
     ov=document.createElement('div'); ov.id='ov-transf-presos';
-    ov.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:9999;display:flex;align-items:center;justify-content:center;padding:16px';
+    ov.style.cssText='position:fixed;top:0;right:0;bottom:0;left:0;background:rgba(0,0,0,.6);z-index:9999;display:flex;align-items:center;justify-content:center;padding:16px';
     ov.onclick=function(e){ if(e.target===ov) ov.remove(); };
     document.body.appendChild(ov);
   }
@@ -2111,7 +2111,7 @@ async function verHistoricoCliente(clienteId, nome){
   if(!ov){
     ov=document.createElement('div');
     ov.id='ov-hist-cliente';
-    ov.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:9999;display:flex;align-items:center;justify-content:center;padding:16px';
+    ov.style.cssText='position:fixed;top:0;right:0;bottom:0;left:0;background:rgba(0,0,0,.6);z-index:9999;display:flex;align-items:center;justify-content:center;padding:16px';
     ov.onclick=function(e){ if(e.target===ov) ov.remove(); };
     document.body.appendChild(ov);
   }
@@ -3986,7 +3986,14 @@ function toggleCaixaMenu(){
   document.getElementById('caixa-menu').classList.toggle('open');
 }
 document.addEventListener('click', function(e){
-  if(!e.target.closest('.caixa-fab')) document.getElementById('caixa-menu')?.classList.remove('open');
+  // Sem o "?." de propósito: o iPhone antigo (Safari anterior ao iOS 13.4) não
+  // entende essa sintaxe e DESCARTA O BLOCO DE SCRIPT INTEIRO — era por isso
+  // que a agenda não carregava em alguns iPhones, enquanto no PC e no Android
+  // funcionava. Uma linha derrubava toda a tela.
+  if(!e.target.closest('.caixa-fab')){
+    var _cm = document.getElementById('caixa-menu');
+    if(_cm) _cm.classList.remove('open');
+  }
 });
 
 // Cada item do menu do caixa leva direto ao seu destino no Operacional,
@@ -4138,7 +4145,7 @@ function verificarCaixaTarde(st){
   if(!m){
     m = document.createElement('div');
     m.id = 'modal-caixa-tarde';
-    m.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:3000;display:flex;align-items:center;justify-content:center;padding:20px';
+    m.style.cssText = 'position:fixed;top:0;right:0;bottom:0;left:0;background:rgba(0,0,0,.72);z-index:3000;display:flex;align-items:center;justify-content:center;padding:20px';
     document.body.appendChild(m);
   }
   m.innerHTML = '<div style="background:var(--bg2);border:1px solid rgba(255,93,93,.5);border-radius:14px;width:100%;max-width:400px;overflow:hidden">'

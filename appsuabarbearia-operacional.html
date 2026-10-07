@@ -202,7 +202,7 @@ td{padding:12px 16px;font-size:13px;color:var(--white);vertical-align:middle}
 .td-act{display:flex;gap:6px;justify-content:flex-end}
 
 /* OVERLAY / DRAWER */
-.overlay{position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:200;display:none;align-items:flex-start;justify-content:flex-end}
+.overlay{position:fixed;top:0;right:0;bottom:0;left:0;background:rgba(0,0,0,.65);z-index:200;display:none;align-items:flex-start;justify-content:flex-end}
 .overlay.open{display:flex}
 .drawer{width:500px;max-width:100%;height:100vh;background:var(--bg2);border-left:0.5px solid var(--border2);display:flex;flex-direction:column;animation:slideIn .25s ease;overflow:hidden}
 @keyframes slideIn{from{transform:translateX(60px);opacity:0}to{transform:translateX(0);opacity:1}}
@@ -1175,7 +1175,7 @@ async function abrirHistoricoAssinatura(id){
   var a = _assinantes.find(function(x){ return x.id===id; }) || {};
   var cli = (a.clientes||{}).nome || 'assinante';
   var ov = document.createElement('div');
-  ov.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.6);display:flex;align-items:center;justify-content:center;z-index:9998;padding:16px';
+  ov.style.cssText = 'position:fixed;top:0;right:0;bottom:0;left:0;background:rgba(0,0,0,.6);display:flex;align-items:center;justify-content:center;z-index:9998;padding:16px';
   ov.onclick = function(e){ if(e.target===ov) ov.remove(); };
   ov.innerHTML = '<div style="background:var(--bg2);border:0.5px solid var(--border2);border-radius:14px;max-width:560px;width:100%;max-height:82vh;overflow:auto;padding:18px">'+
     '<div style="font-weight:600;margin-bottom:2px">Histórico — '+cli+'</div>'+
@@ -2425,7 +2425,11 @@ async function finalizarComandaComCashback() {
   var total = recalcularTotal();
   var forma = 'dinheiro';
   document.querySelectorAll('#ov-comanda .pgto-btn.sel').forEach(function(el){
-    forma = el.querySelector('.pgto-label')?.textContent?.toLowerCase() || 'dinheiro';
+    // Sem "?.": o iPhone antigo recusa essa sintaxe e joga fora o bloco de
+    // script todo — a tela inteira fica sem JavaScript por causa de uma linha.
+    var _lb = el.querySelector('.pgto-label');
+    var _tx = _lb && _lb.textContent;
+    forma = (_tx ? String(_tx).toLowerCase() : '') || 'dinheiro';
   });
 
   var btn = document.getElementById('btn-finalizar-comanda');
@@ -3342,7 +3346,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <!-- MODAL REABRIR COMANDA -->
-<div id="modal-reabrir-comanda" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:600;align-items:center;justify-content:center;padding:20px">
+<div id="modal-reabrir-comanda" style="display:none;position:fixed;top:0;right:0;bottom:0;left:0;background:rgba(0,0,0,0.75);z-index:600;align-items:center;justify-content:center;padding:20px">
   <div style="background:var(--bg2);border:0.5px solid var(--border);border-radius:16px;width:100%;max-width:380px;overflow:hidden">
     <div style="padding:18px 20px;border-bottom:0.5px solid var(--border)">
       <div style="font-size:15px;font-weight:500;color:var(--white)">Reabrir Comanda</div>
